@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
+import PdfPreviewModal from "@/components/PdfPreviewModal";
+import { PDF_DOCUMENTS } from "@/data/pdfDocuments";
+import { usePdfPreview } from "@/hooks/usePdfPreview";
 
 const interests = [
   "Federated Learning",
@@ -14,6 +17,7 @@ const interests = [
 
 export default function About() {
   const { ref, inView } = useInView();
+  const { preview, setPreview, closePreview } = usePdfPreview();
 
   return (
     <section id="about" className="py-24 px-6">
@@ -55,15 +59,18 @@ export default function About() {
               ))}
             </div>
 
-            <div className="mt-8">
-              <a
-                href="/Younsoo_Park_Resume.pdf"
-                className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download CV
-              </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {PDF_DOCUMENTS.map((doc) => (
+                <button
+                  key={doc.href}
+                  type="button"
+                  onClick={() => setPreview(doc)}
+                  className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg transition-colors text-left shadow-lg shadow-indigo-500/15"
+                >
+                  <span className="block leading-tight">{doc.label}</span>
+                  <span className="mt-0.5 block text-xs font-normal text-white/85">{doc.short}</span>
+                </button>
+              ))}
             </div>
           </div>
 
@@ -122,6 +129,7 @@ export default function About() {
           </div>
         </motion.div>
       </div>
+      <PdfPreviewModal preview={preview} onClose={closePreview} />
     </section>
   );
 }

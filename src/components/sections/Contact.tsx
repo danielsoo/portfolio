@@ -1,8 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
-import { useCallback, useEffect, useState } from "react";
 
 const SOCIAL_LINKS = [
   {
@@ -34,42 +33,8 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const DOCUMENTS = [
-  {
-    label: "Résumé",
-    short: "Industry-focused résumé",
-    href: "/docs/Younsoo_Park_Resume.pdf",
-    downloadName: "Younsoo_Park_Resume.pdf",
-  },
-  {
-    label: "CV",
-    short: "Academic curriculum vitae",
-    href: "/docs/Younsoo_Park_CV.pdf",
-    downloadName: "Younsoo_Park_CV.pdf",
-  },
-] as const;
-
-type Preview = (typeof DOCUMENTS)[number] | null;
-
 export default function Contact() {
   const { ref, inView } = useInView();
-  const [preview, setPreview] = useState<Preview>(null);
-
-  const closePreview = useCallback(() => setPreview(null), []);
-
-  useEffect(() => {
-    if (!preview) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closePreview();
-    };
-    document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [preview, closePreview]);
 
   return (
     <section id="contact" className="py-24 px-6">
@@ -97,41 +62,6 @@ export default function Contact() {
             Say Hello
           </a>
 
-          <div className="text-left max-w-xl mx-auto mb-12">
-            <p className="text-center text-indigo-400 font-mono text-xs uppercase tracking-widest mb-4">
-              Résumé &amp; CV
-            </p>
-            <div className="space-y-3">
-              {DOCUMENTS.map((doc) => (
-                <div
-                  key={doc.href}
-                  className="flex flex-col gap-3 rounded-xl border border-[var(--foreground)]/10 bg-[var(--foreground)]/[0.03] p-4 sm:flex-row sm:items-stretch sm:justify-between sm:gap-4"
-                >
-                  <button
-                    type="button"
-                    onClick={() => setPreview(doc)}
-                    className="group flex-1 text-left rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 sm:min-w-0"
-                  >
-                    <span className="block font-semibold text-[var(--foreground)] group-hover:text-indigo-400 transition-colors">
-                      {doc.label}
-                    </span>
-                    <span className="mt-0.5 block text-sm text-[var(--foreground)]/50">{doc.short}</span>
-                    <span className="mt-2 inline-block text-xs font-mono text-indigo-400/90 group-hover:text-indigo-400 transition-colors">
-                      클릭하여 크게 보기
-                    </span>
-                  </button>
-                  <a
-                    href={doc.href}
-                    download={doc.downloadName}
-                    className="inline-flex shrink-0 items-center justify-center self-stretch px-5 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors sm:self-center"
-                  >
-                    다운로드
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-
           <div className="flex justify-center gap-6">
             {SOCIAL_LINKS.map((link) => (
               <a
@@ -152,71 +82,6 @@ export default function Contact() {
       <p className="text-center text-xs text-[var(--foreground)]/30 mt-16 font-mono">
         Designed &amp; Built by Younsoo Park
       </p>
-
-      <AnimatePresence>
-        {preview && (
-          <motion.div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="pdf-preview-title"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm"
-            onClick={(e) => {
-              if (e.target === e.currentTarget) closePreview();
-            }}
-          >
-            <motion.div
-              key={preview.href}
-              initial={{ opacity: 0, scale: 0.96, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: 12 }}
-              transition={{ duration: 0.25 }}
-              className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-white/10 bg-[var(--background)] shadow-2xl max-h-[min(92vh,900px)] h-[min(92vh,900px)]"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center justify-between gap-3 border-b border-[var(--foreground)]/10 px-4 py-3 shrink-0">
-                <h3 id="pdf-preview-title" className="text-sm font-semibold truncate sm:text-base">
-                  {preview.label}
-                </h3>
-                <div className="flex items-center gap-2 shrink-0">
-                  <a
-                    href={preview.href}
-                    download={preview.downloadName}
-                    className="hidden sm:inline-flex px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition-colors"
-                  >
-                    다운로드
-                  </a>
-                  <button
-                    type="button"
-                    onClick={closePreview}
-                    className="rounded-lg p-2 text-[var(--foreground)]/60 hover:text-[var(--foreground)] hover:bg-[var(--foreground)]/10 transition-colors"
-                    aria-label="Close preview"
-                  >
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <iframe
-                title={preview.label}
-                src={`${preview.href}#view=FitH`}
-                className="w-full flex-1 min-h-0 bg-[var(--foreground)]/[0.04]"
-              />
-              <a
-                href={preview.href}
-                download={preview.downloadName}
-                className="sm:hidden border-t border-[var(--foreground)]/10 px-4 py-3 text-center text-sm font-semibold text-indigo-400 hover:bg-indigo-500/10 transition-colors"
-              >
-                다운로드
-              </a>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }
