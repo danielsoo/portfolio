@@ -177,7 +177,7 @@ export const messages = {
   /* ---------- Projects (list + shared) ---------- */
   projects: {
     sectionLabel: { en: "04. Projects", ko: "04. 프로젝트" },
-    heading: { en: "Things I've Built", ko: "만들어 온 것들" },
+    heading: { en: "Things I've Built", ko: "나의 프로젝트" },
     viewDetails: { en: "View details", ko: "자세히 보기" },
     githubTitle: { en: "GitHub", ko: "GitHub" },
     liveSiteTitle: { en: "Live site", ko: "라이브 사이트" },
@@ -273,7 +273,7 @@ export const messages = {
   /* ---------- Leadership ---------- */
   leadership: {
     sectionLabel: { en: "05. Leadership", ko: "05. 리더십" },
-    heading: { en: "Campus Roles & Impact", ko: "캠퍼스 역할과 영향" },
+    heading: { en: "Campus Roles & Impact", ko: "교내 리더십 역할" },
     intro: {
       en: "Elected and appointed to leadership positions across Penn State's most prominent engineering and CS organizations — each role carrying real responsibility and impact.",
       ko: "펜실베니아 주립대 주요 공대·CS 학생 조직에서 선출·임명된 리더십 역할을 맡았으며, 각 역할은 실질적인 책임과 영향력을 수반합니다.",
