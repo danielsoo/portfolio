@@ -105,35 +105,28 @@ export default function Contact() {
               {DOCUMENTS.map((doc) => (
                 <div
                   key={doc.href}
-                  className="flex flex-col gap-3 rounded-xl border border-[var(--foreground)]/10 bg-[var(--foreground)]/[0.03] p-4 sm:flex-row sm:items-center sm:justify-between"
+                  className="flex flex-col gap-3 rounded-xl border border-[var(--foreground)]/10 bg-[var(--foreground)]/[0.03] p-4 sm:flex-row sm:items-stretch sm:justify-between sm:gap-4"
                 >
                   <button
                     type="button"
                     onClick={() => setPreview(doc)}
-                    className="group flex-1 text-left rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+                    className="group flex-1 text-left rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 sm:min-w-0"
                   >
                     <span className="block font-semibold text-[var(--foreground)] group-hover:text-indigo-400 transition-colors">
                       {doc.label}
-                      <span className="ml-2 text-indigo-400/80 text-sm font-normal">View</span>
                     </span>
-                    <span className="text-sm text-[var(--foreground)]/50">{doc.short}</span>
+                    <span className="mt-0.5 block text-sm text-[var(--foreground)]/50">{doc.short}</span>
+                    <span className="mt-2 inline-block text-xs font-mono text-indigo-400/90 group-hover:text-indigo-400 transition-colors">
+                      클릭하여 크게 보기
+                    </span>
                   </button>
-                  <div className="flex shrink-0 gap-2 sm:pl-2">
-                    <button
-                      type="button"
-                      onClick={() => setPreview(doc)}
-                      className="flex-1 sm:flex-none px-4 py-2 rounded-lg border border-[var(--foreground)]/20 text-sm font-medium text-[var(--foreground)]/80 hover:border-indigo-500/50 hover:text-indigo-400 transition-colors"
-                    >
-                      크게 보기
-                    </button>
-                    <a
-                      href={doc.href}
-                      download={doc.downloadName}
-                      className="flex-1 sm:flex-none inline-flex items-center justify-center px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors"
-                    >
-                      다운로드
-                    </a>
-                  </div>
+                  <a
+                    href={doc.href}
+                    download={doc.downloadName}
+                    className="inline-flex shrink-0 items-center justify-center self-stretch px-5 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors sm:self-center"
+                  >
+                    다운로드
+                  </a>
                 </div>
               ))}
             </div>
