@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import TerminalHero from "@/components/TerminalHero";
+import { causeLinks } from "@/data/causeLinks";
 
 const HeroCanvas = dynamic(() => import("@/components/three/HeroCanvas"), {
   ssr: false,
@@ -29,14 +30,34 @@ export default function Hero() {
             Hello, world!
           </motion.p>
 
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-5xl md:text-6xl font-extrabold tracking-tight mb-3"
+            className="mb-3 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:justify-start"
           >
-            Younsoo Park
-          </motion.h1>
+            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-center sm:text-left">
+              Younsoo Park
+            </h1>
+            <div className="flex shrink-0 items-center justify-center gap-2 sm:gap-2.5 sm:pt-1">
+              {causeLinks.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.label}
+                  className="inline-flex items-center rounded-md p-1 transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+                >
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="h-8 w-auto max-h-9 object-contain sm:h-9 sm:max-h-10"
+                  />
+                </a>
+              ))}
+            </div>
+          </motion.div>
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
