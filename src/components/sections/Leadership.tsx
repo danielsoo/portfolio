@@ -3,6 +3,21 @@
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 
+const causeLinks = [
+  {
+    href: "https://thon.org",
+    src: "/logos/thon.png",
+    alt: "THON logo",
+    label: "THON — Penn State Dance Marathon (opens in new tab)",
+  },
+  {
+    href: "https://thon.org/donate",
+    src: "/logos/ftk.png",
+    alt: "For The Kids yellow ribbon",
+    label: "THON — For The Kids, donate (opens in new tab)",
+  },
+] as const;
+
 const roles = [
   {
     title: "Technology Captain",
@@ -76,9 +91,28 @@ export default function Leadership() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Campus Roles & Impact
           </h2>
-          <p className="text-[var(--foreground)]/50 mb-12 max-w-2xl">
+          <p className="text-[var(--foreground)]/50 mb-8 max-w-2xl">
             Elected and appointed to leadership positions across Penn State&apos;s most prominent engineering and CS organizations — each role carrying real responsibility and impact.
           </p>
+
+          <div className="flex flex-wrap items-center gap-3 mb-12">
+            {causeLinks.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={item.label}
+                className="inline-flex items-center rounded-lg overflow-hidden ring-1 ring-[var(--foreground)]/15 hover:ring-indigo-500/50 hover:scale-[1.02] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 bg-[var(--background)]/80 px-1.5 py-1"
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="h-9 w-auto sm:h-10 max-h-10 object-contain object-left block"
+                />
+              </a>
+            ))}
+          </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {roles.map((role, i) => (
