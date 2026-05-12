@@ -21,13 +21,14 @@ export default function TerminalHero() {
       const showTimer = setTimeout(() => {
         setVisibleCount((c) => Math.max(c, i + 1));
 
-        if (line.cmd && line.cmd !== "_") {
-          const chars = line.cmd.split("");
+        if ("cmd" in line && line.cmd && line.cmd !== "_") {
+          const cmdText = line.cmd;
+          const chars = cmdText.split("");
           chars.forEach((_, ci) => {
             setTimeout(() => {
               setTypedCmd((prev) => ({
                 ...prev,
-                [i]: line.cmd!.slice(0, ci + 1),
+                [i]: cmdText.slice(0, ci + 1),
               }));
             }, ci * 40);
           });
@@ -60,7 +61,7 @@ export default function TerminalHero() {
                 <span className="text-green-400">{line.prompt}</span>
                 <span className="text-white/40"> $ </span>
                 <span className="text-white">
-                  {line.cursor ? (
+                  {"cursor" in line && line.cursor ? (
                     <Cursor />
                   ) : (
                     typedCmd[i] ?? ""
