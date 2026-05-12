@@ -3,17 +3,21 @@
 import { useTheme } from "./ThemeProvider";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { messages } from "@/i18n/messages";
+import type { Locale } from "@/i18n/types";
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Leadership", href: "#leadership" },
-  { label: "Contact", href: "#contact" },
+const NAV_ITEMS = [
+  { href: "#about", msgKey: "about" as const },
+  { href: "#experience", msgKey: "experience" as const },
+  { href: "#projects", msgKey: "projects" as const },
+  { href: "#leadership", msgKey: "leadership" as const },
+  { href: "#contact", msgKey: "contact" as const },
 ];
 
 export default function Navbar() {
   const { theme, toggle } = useTheme();
+  const { locale, setLocale, t } = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -22,6 +26,11 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const setLang = (l: Locale) => {
+    setLocale(l);
+    setMenuOpen(false);
+  };
 
   return (
     <motion.nav
@@ -42,25 +51,54 @@ export default function Navbar() {
           YP<span className="text-indigo-500">.</span>
         </a>
 
-        {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.href}>
+          {NAV_ITEMS.map((item) => (
+            <li key={item.href}>
               <a
-                href={link.href}
+                href={item.href}
                 className="text-sm text-[var(--foreground)]/70 hover:text-indigo-400 transition-colors font-medium"
               >
-                {link.label}
+                {t(messages.nav[item.msgKey])}
               </a>
             </li>
           ))}
         </ul>
 
-        <div className="flex items-center gap-4">
-          {/* Theme toggle */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div
+            className="flex rounded-full border border-[var(--foreground)]/20 p-0.5"
+            role="group"
+            aria-label={t(messages.nav.language)}
+          >
+            <button
+              type="button"
+              onClick={() => setLang("en")}
+              aria-pressed={locale === "en"}
+              className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
+                locale === "en"
+                  ? "bg-indigo-600 text-white"
+                  : "text-[var(--foreground)]/60 hover:text-[var(--foreground)]"
+              }`}
+            >
+              {t(messages.nav.langShortEn)}
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang("ko")}
+              aria-pressed={locale === "ko"}
+              className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
+                locale === "ko"
+                  ? "bg-indigo-600 text-white"
+                  : "text-[var(--foreground)]/60 hover:text-[var(--foreground)]"
+              }`}
+            >
+              {t(messages.nav.langShortKo)}
+            </button>
+          </div>
+
           <button
             onClick={toggle}
-            aria-label="Toggle theme"
+            aria-label={t(messages.nav.toggleTheme)}
             className="w-9 h-9 rounded-full flex items-center justify-center border border-[var(--foreground)]/20 hover:border-indigo-500 transition-colors"
           >
             {theme === "dark" ? (
@@ -70,13 +108,12 @@ export default function Navbar() {
             )}
           </button>
 
-          {/* Hamburger */}
           <button
             className="md:hidden w-9 h-9 flex items-center justify-center"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
+            aria-label={t(messages.nav.menu)}
           >
-            <span className="sr-only">Menu</span>
+            <span className="sr-only">{t(messages.nav.menu)}</span>
             <div className="space-y-1.5">
               <span className={`block h-0.5 w-6 bg-current transition-transform ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
               <span className={`block h-0.5 w-6 bg-current transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
@@ -86,7 +123,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
@@ -95,17 +131,33 @@ export default function Navbar() {
           className="md:hidden bg-[var(--background)]/95 backdrop-blur-md border-b border-white/10"
         >
           <ul className="px-6 py-4 space-y-3">
-            {navLinks.map((link) => (
-              <li key={link.href}>
+            {NAV_ITEMS.map((item) => (
+              <li key={item.href}>
                 <a
-                  href={link.href}
+                  href={item.href}
                   className="block text-sm text-[var(--foreground)]/70 hover:text-indigo-400 transition-colors font-medium py-1"
                   onClick={() => setMenuOpen(false)}
                 >
-                  {link.label}
+                  {t(messages.nav[item.msgKey])}
                 </a>
               </li>
             ))}
+            <li className="flex gap-2 pt-2 border-t border-[var(--foreground)]/10 mt-2">
+              <button
+                type="button"
+                className={`flex-1 rounded-lg py-2 text-xs font-semibold ${locale === "en" ? "bg-indigo-600 text-white" : "border border-[var(--foreground)]/20"}`}
+                onClick={() => setLang("en")}
+              >
+                {t(messages.nav.langShortEn)}
+              </button>
+              <button
+                type="button"
+                className={`flex-1 rounded-lg py-2 text-xs font-semibold ${locale === "ko" ? "bg-indigo-600 text-white" : "border border-[var(--foreground)]/20"}`}
+                onClick={() => setLang("ko")}
+              >
+                {t(messages.nav.langShortKo)}
+              </button>
+            </li>
           </ul>
         </motion.div>
       )}

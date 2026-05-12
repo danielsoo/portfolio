@@ -1,16 +1,22 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Project } from "@/data/projects";
+import type { Project } from "@/data/projects";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { messages } from "@/i18n/messages";
+import { localizeProject } from "@/i18n/useLocalizedProject";
 
 export default function ProjectDetail({ project }: { project: Project }) {
+  const { locale, t } = useLocale();
+  const p = useMemo(() => localizeProject(project, locale), [project, locale]);
+  const shot = t(messages.projectDetail.screenshotAlt);
+
   return (
     <main className="min-h-screen pt-24 pb-20 px-6">
       <div className="max-w-4xl mx-auto">
-
-        {/* Back */}
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
@@ -23,11 +29,10 @@ export default function ProjectDetail({ project }: { project: Project }) {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            cd ../projects
+            {t(messages.projectDetail.back)}
           </Link>
         </motion.div>
 
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,15 +41,15 @@ export default function ProjectDetail({ project }: { project: Project }) {
         >
           <div className="flex flex-wrap items-center gap-3 mb-3">
             <span className="text-xs font-mono text-[var(--foreground)]/30 uppercase tracking-widest">
-              {project.type}
+              {p.type}
             </span>
             <span className={`text-xs px-2.5 py-1 rounded-full font-mono ${project.badgeColor}`}>
-              {project.badge}
+              {p.badge}
             </span>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6">
-            {project.title}
+            {p.title}
           </h1>
 
           <div className="flex flex-wrap gap-3">
@@ -54,7 +59,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[var(--foreground)]/20 hover:border-[var(--foreground)]/50 text-sm font-medium transition-colors"
             >
-              <GitHubIcon /> GitHub
+              <GitHubIcon /> {t(messages.projectDetail.github)}
             </a>
             {project.live && (
               <a
@@ -63,13 +68,12 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-colors"
               >
-                <ExternalIcon /> Live Site
+                <ExternalIcon /> {t(messages.projectDetail.liveSite)}
               </a>
             )}
           </div>
         </motion.div>
 
-        {/* Image gallery */}
         {project.images.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +86,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 <div key={i} className={`relative rounded-xl overflow-hidden border border-[var(--foreground)]/10 bg-[var(--foreground)]/5 ${i === 0 && project.images.length > 2 ? "md:col-span-2" : ""}`}>
                   <Image
                     src={src}
-                    alt={`${project.title} screenshot ${i + 1}`}
+                    alt={`${p.title} ${shot} ${i + 1}`}
                     width={1200}
                     height={675}
                     className="w-full h-auto object-cover"
@@ -93,7 +97,6 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </motion.div>
         )}
 
-        {/* Empty image placeholder when no images */}
         {project.images.length === 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -103,7 +106,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           >
             <div className="rounded-xl border-2 border-dashed border-[var(--foreground)]/15 bg-[var(--foreground)]/[0.02] h-52 flex flex-col items-center justify-center text-[var(--foreground)]/25">
               <ImagePlaceholderIcon />
-              <p className="text-sm font-mono mt-3">Add images to</p>
+              <p className="text-sm font-mono mt-3">{t(messages.projectDetail.addImagesLine)}</p>
               <p className="text-xs font-mono mt-1 text-indigo-400/50">
                 public/projects/{project.slug}/
               </p>
@@ -112,18 +115,18 @@ export default function ProjectDetail({ project }: { project: Project }) {
         )}
 
         <div className="grid md:grid-cols-3 gap-10">
-          {/* Main content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="md:col-span-2 space-y-10"
           >
-            {/* Description */}
             <div>
-              <h2 className="text-lg font-bold mb-4 text-indigo-400 font-mono">// Overview</h2>
+              <h2 className="text-lg font-bold mb-4 text-indigo-400 font-mono">
+                {t(messages.projectDetail.overview)}
+              </h2>
               <div className="space-y-4">
-                {project.longDescription.split("\n\n").map((para, i) => (
+                {p.longDescription.split("\n\n").map((para, i) => (
                   <p key={i} className="text-[var(--foreground)]/70 leading-relaxed text-sm md:text-base">
                     {para}
                   </p>
@@ -131,11 +134,12 @@ export default function ProjectDetail({ project }: { project: Project }) {
               </div>
             </div>
 
-            {/* Highlights */}
             <div>
-              <h2 className="text-lg font-bold mb-4 text-indigo-400 font-mono">// Key Highlights</h2>
+              <h2 className="text-lg font-bold mb-4 text-indigo-400 font-mono">
+                {t(messages.projectDetail.highlights)}
+              </h2>
               <ul className="space-y-3">
-                {project.highlights.map((h, i) => (
+                {p.highlights.map((h, i) => (
                   <li key={i} className="flex gap-3 text-sm text-[var(--foreground)]/70 leading-relaxed">
                     <span className="text-indigo-400 font-mono mt-0.5 flex-shrink-0">›</span>
                     {h}
@@ -145,17 +149,15 @@ export default function ProjectDetail({ project }: { project: Project }) {
             </div>
           </motion.div>
 
-          {/* Sidebar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="space-y-6"
           >
-            {/* Tags */}
             <div>
               <h3 className="text-xs font-mono uppercase tracking-widest text-[var(--foreground)]/30 mb-3">
-                Tech Stack
+                {t(messages.projectDetail.techStack)}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
@@ -169,10 +171,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
               </div>
             </div>
 
-            {/* Links */}
             <div>
               <h3 className="text-xs font-mono uppercase tracking-widest text-[var(--foreground)]/30 mb-3">
-                Links
+                {t(messages.projectDetail.links)}
               </h3>
               <div className="space-y-2">
                 <a
@@ -181,7 +182,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 hover:text-indigo-400 transition-colors"
                 >
-                  <GitHubIcon /> Source Code
+                  <GitHubIcon /> {t(messages.projectDetail.sourceCode)}
                 </a>
                 {project.live && (
                   <a
@@ -190,7 +191,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 hover:text-indigo-400 transition-colors"
                   >
-                    <ExternalIcon /> Live Site
+                    <ExternalIcon /> {t(messages.projectDetail.liveSite)}
                   </a>
                 )}
               </div>

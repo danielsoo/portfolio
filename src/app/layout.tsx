@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { LocaleProvider } from "@/i18n/LocaleProvider";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
@@ -32,8 +33,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
         <ThemeProvider>
-          <Navbar />
-          {children}
+          <LocaleProvider>
+            <Navbar />
+            {children}
+          </LocaleProvider>
         </ThemeProvider>
       </body>
     </html>

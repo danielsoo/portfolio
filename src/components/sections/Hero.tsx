@@ -4,12 +4,16 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import TerminalHero from "@/components/TerminalHero";
 import { causeLinks } from "@/data/causeLinks";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { messages } from "@/i18n/messages";
 
 const HeroCanvas = dynamic(() => import("@/components/three/HeroCanvas"), {
   ssr: false,
 });
 
 export default function Hero() {
+  const { t } = useLocale();
+
   return (
     <section
       id="hero"
@@ -19,7 +23,6 @@ export default function Hero() {
       <div className="absolute inset-0 -z-[5] bg-gradient-to-b from-transparent via-transparent to-[var(--background)]" />
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-        {/* Left: text */}
         <div className="flex-1 text-center lg:text-left">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -27,7 +30,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-indigo-400 font-mono text-sm mb-3 tracking-widest uppercase"
           >
-            Hello, world!
+            {t(messages.hero.greet)}
           </motion.p>
 
           <motion.div
@@ -46,12 +49,12 @@ export default function Hero() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={item.label}
+                  aria-label={t(messages.causeLinks[item.id].label)}
                   className="inline-flex items-center rounded-md p-1 transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
                 >
                   <img
                     src={item.src}
-                    alt={item.alt}
+                    alt={t(messages.causeLinks[item.id].alt)}
                     className="h-8 w-auto max-h-9 object-contain sm:h-9 sm:max-h-10"
                   />
                 </a>
@@ -65,7 +68,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-xl md:text-2xl font-light text-[var(--foreground)]/55 mb-5"
           >
-            Software Engineer & Researcher
+            {t(messages.hero.roleLine)}
           </motion.h2>
 
           <motion.p
@@ -74,7 +77,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.55 }}
             className="text-sm text-[var(--foreground)]/45 max-w-sm mx-auto lg:mx-0 mb-8 leading-relaxed"
           >
-            Penn State CS student building at the intersection of AI systems and full-stack engineering.
+            {t(messages.hero.blurb)}
           </motion.p>
 
           <motion.div
@@ -87,18 +90,17 @@ export default function Hero() {
               href="#projects"
               className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-full transition-colors shadow-lg shadow-indigo-500/20 text-sm"
             >
-              View Projects
+              {t(messages.hero.viewProjects)}
             </a>
             <a
               href="#contact"
               className="px-6 py-3 border border-[var(--foreground)]/30 hover:border-indigo-400 hover:text-indigo-400 font-semibold rounded-full transition-colors text-sm"
             >
-              Contact Me
+              {t(messages.hero.contactMe)}
             </a>
           </motion.div>
         </div>
 
-        {/* Right: terminal */}
         <div className="flex-1 w-full">
           <TerminalHero />
         </div>

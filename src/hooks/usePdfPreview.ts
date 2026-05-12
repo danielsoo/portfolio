@@ -1,10 +1,16 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import type { PdfDocument } from "@/data/pdfDocuments";
+
+export type PdfPreviewOpen = {
+  href: string;
+  downloadName: string;
+  label: string;
+  short: string;
+};
 
 export function usePdfPreview() {
-  const [preview, setPreview] = useState<PdfDocument | null>(null);
+  const [preview, setPreview] = useState<PdfPreviewOpen | null>(null);
   const closePreview = useCallback(() => setPreview(null), []);
 
   useEffect(() => {

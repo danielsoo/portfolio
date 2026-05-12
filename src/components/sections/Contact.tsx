@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { messages } from "@/i18n/messages";
 
 const SOCIAL_LINKS = [
   {
@@ -35,6 +37,7 @@ const SOCIAL_LINKS = [
 
 export default function Contact() {
   const { ref, inView } = useInView();
+  const { t } = useLocale();
 
   return (
     <section id="contact" className="py-24 px-6">
@@ -46,20 +49,20 @@ export default function Contact() {
           transition={{ duration: 0.7 }}
         >
           <p className="text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
-            08. Contact
+            {t(messages.contact.sectionLabel)}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Get In Touch
+            {t(messages.contact.heading)}
           </h2>
           <p className="text-[var(--foreground)]/60 mb-10 max-w-xl mx-auto leading-relaxed">
-            Whether you have a research opportunity, a project idea, or just want to connect — my inbox is always open.
+            {t(messages.contact.blurb)}
           </p>
 
           <a
             href="mailto:danielpark0605@gmail.com"
             className="inline-block px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-full transition-colors shadow-lg shadow-indigo-500/25 mb-12"
           >
-            Say Hello
+            {t(messages.contact.sayHello)}
           </a>
 
           <div className="flex justify-center gap-6">
@@ -80,7 +83,7 @@ export default function Contact() {
       </div>
 
       <p className="text-center text-xs text-[var(--foreground)]/30 mt-16 font-mono">
-        Designed &amp; Built by Younsoo Park
+        {t(messages.contact.footer)}
       </p>
     </section>
   );

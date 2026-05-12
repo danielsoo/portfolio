@@ -5,19 +5,13 @@ import { useInView } from "@/hooks/useInView";
 import PdfPreviewModal from "@/components/PdfPreviewModal";
 import { PDF_DOCUMENTS } from "@/data/pdfDocuments";
 import { usePdfPreview } from "@/hooks/usePdfPreview";
-
-const interests = [
-  "Federated Learning",
-  "TinyML & Edge AI",
-  "IoT Security",
-  "Adversarial ML",
-  "Full-Stack Engineering",
-  "Distributed Systems",
-];
+import { useLocale } from "@/i18n/LocaleProvider";
+import { messages } from "@/i18n/messages";
 
 export default function About() {
   const { ref, inView } = useInView();
   const { preview, setPreview, closePreview } = usePdfPreview();
+  const { t } = useLocale();
 
   return (
     <section id="about" className="py-24 px-6">
@@ -31,30 +25,22 @@ export default function About() {
         >
           <div>
             <p className="text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
-              01. About Me
+              {t(messages.about.sectionLabel)}
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Who I Am</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">{t(messages.about.title)}</h2>
             <div className="space-y-4 text-[var(--foreground)]/70 leading-relaxed">
-              <p>
-                I&apos;m <strong className="text-[var(--foreground)]">Younsoo Park</strong> — a Computer Science student at{" "}
-                <strong className="text-[var(--foreground)]">Penn State University</strong> (Dean&apos;s List, B.S. CS + Math minor, graduating May 2027) with a passion for building reliable AI systems and full-stack applications.
-              </p>
-              <p>
-                My research focuses on federated learning and TinyML for IoT security under Dr. Suman Saha and Dr. Peilong Li — targeting deployment on resource-constrained edge devices like ESP32. Outside the lab, I build real products: from an AI hospital-quality platform to multilingual restaurant web apps.
-              </p>
-              <p>
-                I&apos;ve also served as a Squad Leader in the{" "}
-                <strong className="text-[var(--foreground)]">Republic of Korea Air Force</strong>, where I was commended for leadership and operational readiness.
-              </p>
+              <p>{t(messages.about.p1)}</p>
+              <p>{t(messages.about.p2)}</p>
+              <p>{t(messages.about.p3)}</p>
             </div>
 
             <div className="mt-6 flex flex-wrap gap-2">
-              {interests.map((i) => (
+              {messages.about.interests.map((i) => (
                 <span
-                  key={i}
+                  key={i.en}
                   className="text-xs px-3 py-1.5 rounded-full border border-indigo-500/30 text-indigo-400 font-mono"
                 >
-                  {i}
+                  {t(i)}
                 </span>
               ))}
             </div>
@@ -64,65 +50,90 @@ export default function About() {
                 <button
                   key={doc.href}
                   type="button"
-                  onClick={() => setPreview(doc)}
+                  onClick={() =>
+                    setPreview({
+                      href: doc.href,
+                      downloadName: doc.downloadName,
+                      label: t(messages.documents[doc.id].label),
+                      short: t(messages.documents[doc.id].short),
+                    })
+                  }
                   className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg transition-colors text-left shadow-lg shadow-indigo-500/15"
                 >
-                  <span className="block leading-tight">{doc.label}</span>
-                  <span className="mt-0.5 block text-xs font-normal text-white/85">{doc.short}</span>
+                  <span className="block leading-tight">{t(messages.documents[doc.id].label)}</span>
+                  <span className="mt-0.5 block text-xs font-normal text-white/85">
+                    {t(messages.documents[doc.id].short)}
+                  </span>
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Code block */}
           <div className="flex justify-center">
             <div className="w-full max-w-sm rounded-xl overflow-hidden border border-white/10 shadow-xl shadow-black/20">
-              {/* Window chrome */}
               <div className="bg-[#1e1e2e] px-4 py-3 flex items-center gap-2 border-b border-white/5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-                <span className="ml-3 text-xs text-white/25 font-mono">younsoo.ts</span>
+                <span className="ml-3 text-xs text-white/25 font-mono">{t(messages.about.codeFileName)}</span>
               </div>
 
-              {/* Code */}
               <div className="bg-[#0d0d1a] px-5 py-5 font-mono text-xs leading-6 overflow-x-auto">
                 <div>
-                  <Kw>const</Kw> <Var>younsoo</Var> <Punct>= {"{"}</Punct>
+                  <Kw>{t(messages.about.codeConst)}</Kw> <Var>{t(messages.about.codeVar)}</Var> <Punct>= {"{"}</Punct>
                 </div>
                 <div className="pl-5">
-                  <Key>name</Key><Punct>:</Punct> <Str>&quot;Younsoo Park&quot;</Str><Punct>,</Punct>
+                  <Key>{t(messages.about.codeKeys.name)}</Key>
+                  <Punct>:</Punct> <Str>&quot;{t(messages.about.codeStrings.nameVal)}&quot;</Str>
+                  <Punct>,</Punct>
                 </div>
                 <div className="pl-5">
-                  <Key>school</Key><Punct>:</Punct> <Str>&quot;Penn State &apos;27&quot;</Str><Punct>,</Punct>
+                  <Key>{t(messages.about.codeKeys.school)}</Key>
+                  <Punct>:</Punct> <Str>&quot;{t(messages.about.codeStrings.schoolVal)}&quot;</Str>
+                  <Punct>,</Punct>
                 </div>
                 <div className="pl-5">
-                  <Key>major</Key><Punct>:</Punct> <Str>&quot;CS + Mathematics&quot;</Str><Punct>,</Punct>
+                  <Key>{t(messages.about.codeKeys.major)}</Key>
+                  <Punct>:</Punct> <Str>&quot;{t(messages.about.codeStrings.majorVal)}&quot;</Str>
+                  <Punct>,</Punct>
                 </div>
                 <div className="pl-5">
-                  <Key>status</Key><Punct>:</Punct> <Str>&quot;Dean&apos;s List&quot;</Str><Punct>,</Punct>
+                  <Key>{t(messages.about.codeKeys.status)}</Key>
+                  <Punct>:</Punct> <Str>&quot;{t(messages.about.codeStrings.statusVal)}&quot;</Str>
+                  <Punct>,</Punct>
                 </div>
                 <div className="pl-5">
-                  <Key>location</Key><Punct>:</Punct> <Str>&quot;University Park, PA&quot;</Str><Punct>,</Punct>
+                  <Key>{t(messages.about.codeKeys.location)}</Key>
+                  <Punct>:</Punct> <Str>&quot;{t(messages.about.codeStrings.locationVal)}&quot;</Str>
+                  <Punct>,</Punct>
                 </div>
                 <div className="pl-5 mt-1">
-                  <Key>research</Key><Punct>: [</Punct>
+                  <Key>{t(messages.about.codeKeys.research)}</Key>
+                  <Punct>: [</Punct>
                 </div>
                 <div className="pl-10">
-                  <Str>&quot;Federated Learning&quot;</Str><Punct>,</Punct>
+                  <Str>&quot;{t(messages.about.codeStrings.r1)}&quot;</Str>
+                  <Punct>,</Punct>
                 </div>
                 <div className="pl-10">
-                  <Str>&quot;TinyML / IoT Security&quot;</Str><Punct>,</Punct>
+                  <Str>&quot;{t(messages.about.codeStrings.r2)}&quot;</Str>
+                  <Punct>,</Punct>
                 </div>
                 <div className="pl-10">
-                  <Str>&quot;Adversarial ML&quot;</Str><Punct>,</Punct>
+                  <Str>&quot;{t(messages.about.codeStrings.r3)}&quot;</Str>
+                  <Punct>,</Punct>
                 </div>
-                <div className="pl-5"><Punct>],</Punct></div>
+                <div className="pl-5">
+                  <Punct>],</Punct>
+                </div>
                 <div className="pl-5 mt-1">
-                  <Key>openTo</Key><Punct>:</Punct> <Str>&quot;new opportunities&quot;</Str><Punct>,</Punct>
+                  <Key>{t(messages.about.codeKeys.openTo)}</Key>
+                  <Punct>:</Punct> <Str>&quot;{t(messages.about.codeStrings.openVal)}&quot;</Str>
+                  <Punct>,</Punct>
                 </div>
                 <div>
-                  <Punct>{"}"}</Punct><Punct>;</Punct>
+                  <Punct>{"}"}</Punct>
+                  <Punct>;</Punct>
                 </div>
               </div>
             </div>

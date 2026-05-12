@@ -2,32 +2,21 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { messages } from "@/i18n/messages";
 
-const lines = [
-  { prompt: "~/portfolio", cmd: "whoami", delay: 400 },
-  { prompt: null, output: "Younsoo Park", delay: 700 },
-  { prompt: "~/portfolio", cmd: "cat role.txt", delay: 1300 },
-  { prompt: null, output: "Software Engineer & Researcher", delay: 1600 },
-  { prompt: "~/portfolio", cmd: "cat status.txt", delay: 2200 },
-  { prompt: null, output: "Penn State CS '27  |  Dean's List", delay: 2500 },
-  { prompt: "~/portfolio", cmd: "ls research/", delay: 3100 },
-  { prompt: null, output: "federated-tinyml/   signum/   iot-security/", delay: 3400 },
-  { prompt: "~/portfolio", cmd: "_", delay: 4000, cursor: true },
-];
-
-type Line = {
-  prompt: string | null;
-  cmd?: string;
-  output?: string;
-  delay: number;
-  cursor?: boolean;
-};
+type TermLine = (typeof messages.terminal.lines)[number];
 
 export default function TerminalHero() {
+  const { locale, t } = useLocale();
+  const lines = messages.terminal.lines as readonly TermLine[];
   const [visibleCount, setVisibleCount] = useState(0);
   const [typedCmd, setTypedCmd] = useState<Record<number, string>>({});
 
   useEffect(() => {
+    setVisibleCount(0);
+    setTypedCmd({});
+
     lines.forEach((line, i) => {
       const showTimer = setTimeout(() => {
         setVisibleCount((c) => Math.max(c, i + 1));
@@ -47,7 +36,7 @@ export default function TerminalHero() {
 
       return () => clearTimeout(showTimer);
     });
-  }, []);
+  }, [locale, lines]);
 
   return (
     <motion.div
@@ -56,18 +45,16 @@ export default function TerminalHero() {
       transition={{ duration: 0.6, delay: 0.3 }}
       className="w-full max-w-lg mx-auto"
     >
-      {/* Window chrome */}
       <div className="rounded-t-xl bg-[#1e1e2e] border border-white/10 px-4 py-3 flex items-center gap-2">
         <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
         <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
         <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-        <span className="ml-3 text-xs text-white/30 font-mono">zsh — portfolio</span>
+        <span className="ml-3 text-xs text-white/30 font-mono">{t(messages.terminal.windowTitle)}</span>
       </div>
 
-      {/* Terminal body */}
       <div className="rounded-b-xl bg-[#13131f]/90 backdrop-blur border border-t-0 border-white/10 px-5 py-5 font-mono text-sm min-h-[220px]">
-        {(lines as Line[]).slice(0, visibleCount).map((line, i) => (
-          <div key={i} className="mb-1 leading-relaxed">
+        {lines.slice(0, visibleCount).map((line, i) => (
+          <div key={`${locale}-${i}`} className="mb-1 leading-relaxed">
             {line.prompt && (
               <span>
                 <span className="text-green-400">{line.prompt}</span>
@@ -81,8 +68,8 @@ export default function TerminalHero() {
                 </span>
               </span>
             )}
-            {line.output && (
-              <span className="text-indigo-300/80">{line.output}</span>
+            {"output" in line && line.output && (
+              <span className="text-indigo-300/80">{t(line.output)}</span>
             )}
           </div>
         ))}

@@ -2,26 +2,25 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { messages } from "@/i18n/messages";
 
-const sites = [
+const SITES = [
   {
-    title: "ASME @ Penn State",
-    description: "Official website for the ASME Penn State chapter — featuring a 5-tier role-based permission system for organization content management.",
+    id: "asme" as const,
     url: "https://asme-website-bice.vercel.app",
     tags: ["React 19", "TypeScript", "Firebase", "Vite"],
-    status: "Live",
   },
   {
-    title: "Hangukgwan Restaurant",
-    description: "Multilingual full-stack restaurant web app for the family business, supporting Korean, English, Simplified & Traditional Chinese.",
+    id: "hangukgwan" as const,
     url: "#",
     tags: ["React", "Node.js", "MongoDB", "i18n"],
-    status: "In Progress",
   },
 ];
 
 export default function SiteLinks() {
   const { ref, inView } = useInView();
+  const { t } = useLocale();
 
   return (
     <section id="sites" className="py-24 px-6 bg-[var(--foreground)]/[0.02]">
@@ -33,22 +32,24 @@ export default function SiteLinks() {
           transition={{ duration: 0.7 }}
         >
           <p className="text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
-            07. Live Sites
+            {t(messages.siteLinks.sectionLabel)}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            Completed Work
+            {t(messages.siteLinks.heading)}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {sites.map((site, i) => {
+            {SITES.map((site, i) => {
+              const copy = messages.siteLinks[site.id];
               const isLive = site.url !== "#";
+              const status = isLive ? messages.siteLinks.statusLive : messages.siteLinks.statusProgress;
               const Wrapper = isLive ? motion.a : motion.div;
               const wrapperProps = isLive
                 ? { href: site.url, target: "_blank", rel: "noopener noreferrer" }
                 : {};
               return (
                 <Wrapper
-                  key={site.title}
+                  key={site.id}
                   {...(wrapperProps as Record<string, string>)}
                   initial={{ opacity: 0, y: 30 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -57,17 +58,17 @@ export default function SiteLinks() {
                 >
                   <div className="flex items-start justify-between mb-3 gap-2">
                     <h3 className="font-bold text-lg group-hover:text-indigo-400 transition-colors">
-                      {site.title}
+                      {t(copy.title)}
                     </h3>
                     <div className="flex items-center gap-2 flex-shrink-0 mt-0.5">
                       <span
                         className={`text-xs px-2 py-0.5 rounded-full font-mono ${
-                          site.status === "Live"
+                          isLive
                             ? "bg-green-500/10 text-green-400"
                             : "bg-blue-500/10 text-blue-400"
                         }`}
                       >
-                        {site.status}
+                        {t(status)}
                       </span>
                       {isLive && (
                         <svg className="w-4 h-4 text-[var(--foreground)]/30 group-hover:text-indigo-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -77,7 +78,7 @@ export default function SiteLinks() {
                     </div>
                   </div>
                   <p className="text-sm text-[var(--foreground)]/60 mb-4 leading-relaxed">
-                    {site.description}
+                    {t(copy.description)}
                   </p>
                   {isLive && (
                     <p className="text-xs text-indigo-400/60 font-mono truncate mb-3">{site.url}</p>

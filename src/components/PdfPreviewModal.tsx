@@ -2,15 +2,18 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useId } from "react";
-import type { PdfDocument } from "@/data/pdfDocuments";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { messages } from "@/i18n/messages";
+import type { PdfPreviewOpen } from "@/hooks/usePdfPreview";
 
 type Props = {
-  preview: PdfDocument | null;
+  preview: PdfPreviewOpen | null;
   onClose: () => void;
 };
 
 export default function PdfPreviewModal({ preview, onClose }: Props) {
   const titleId = useId();
+  const { t } = useLocale();
 
   return (
     <AnimatePresence>
@@ -50,13 +53,13 @@ export default function PdfPreviewModal({ preview, onClose }: Props) {
                   download={preview.downloadName}
                   className="hidden sm:inline-flex rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-indigo-500"
                 >
-                  PDF 저장
+                  {t(messages.pdfModal.savePdf)}
                 </a>
                 <button
                   type="button"
                   onClick={onClose}
                   className="rounded-lg p-2 text-[var(--foreground)]/60 transition-colors hover:bg-[var(--foreground)]/10 hover:text-[var(--foreground)]"
-                  aria-label="Close preview"
+                  aria-label={t(messages.pdfModal.close)}
                 >
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -74,7 +77,7 @@ export default function PdfPreviewModal({ preview, onClose }: Props) {
               download={preview.downloadName}
               className="border-t border-[var(--foreground)]/10 px-4 py-3 text-center text-sm font-semibold text-indigo-400 transition-colors hover:bg-indigo-500/10 sm:hidden"
             >
-              PDF 저장
+              {t(messages.pdfModal.savePdf)}
             </a>
           </motion.div>
         </motion.div>
