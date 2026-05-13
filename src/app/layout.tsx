@@ -16,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Portfolio",
-  description: "Software engineer portfolio showcasing projects and skills",
+  title: "Younsoo Park — Portfolio",
+  description:
+    "Penn State CS — software engineering, AI systems research, and full-stack projects by Younsoo Park.",
 };
 
 export default function RootLayout({
