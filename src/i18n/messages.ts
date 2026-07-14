@@ -97,6 +97,34 @@ export const messages = {
     heading: { en: "Where I've Worked", ko: "경험한 곳" },
     entries: [
       {
+        role: { en: "Associate Problem Solver", ko: "Associate Problem Solver" },
+        org: { en: "Levit — Shopport (AI Shopping Assistant)", ko: "Levit — Shopport (AI 쇼핑 어시스턴트)" },
+        location: {
+          en: "7th–8th Fl., Hosan Bldg., 1836 Nambusunhwan-ro, Gwanak-gu, Seoul, South Korea",
+          ko: "대한민국 서울특별시 관악구 남부순환로 1836 호산빌딩 7, 8층",
+        },
+        period: { en: "June 2026 – Aug 2026", ko: "2026년 6월 – 2026년 8월" },
+        bullets: [
+          {
+            en: "Worked directly with the CEO to expand AI shopping-recommendation routing coverage (small appliances, household, baby, processed foods) and shipped image-aware Vision Routing behind feature flags.",
+            ko: "CEO와 직접 협업하여 AI 쇼핑 추천 라우팅 지원 범위를 확대(소형 가전, 생활용품, 유아용품, 가공식품)하고, 기능 플래그 기반의 이미지 인식 Vision Routing을 배포.",
+          },
+          {
+            en: "Designed and built an internal recommendation-quality evaluation platform — turn-level analysis, routing/response scoring, and failure classification — replacing manual inspection.",
+            ko: "턴 단위 대화 분석, 라우팅/응답 품질 평가, 실패 유형 분류 기능을 갖춘 내부 추천 품질 평가 플랫폼을 설계·구축하여 수동 점검을 대체.",
+          },
+          {
+            en: "Built worker-based batch evaluation infrastructure (scheduled cron jobs, retries with exponential backoff, concurrency control) and a server-side A/B testing platform with persistent user bucketing and admin controls.",
+            ko: "워커 기반 배치 평가 인프라(크론 스케줄링, 지수 백오프 재시도, 동시성 제어)와 영속적 사용자 버킷팅 및 관리자 제어 기능을 갖춘 서버 사이드 A/B 테스트 플랫폼을 구축.",
+          },
+          {
+            en: "Currently designing a memory-first personalization layer (Mem0) for cross-category recommendations, with PII-safe memory handling and treatment/control experimentation.",
+            ko: "PII 안전 메모리 처리와 실험군/대조군 테스트를 포함한 Mem0 기반 메모리 우선 개인화 레이어를 크로스 카테고리 추천을 위해 설계 중.",
+          },
+        ] as const satisfies readonly Bilingual[],
+        tags: ["Python", "TypeScript", "Next.js", "LLM Applications", "Mem0", "A/B Testing"],
+      },
+      {
         role: { en: "Co-founder", ko: "공동 창업" },
         org: { en: "SIGNUM — Nittany AI Alliance (PIT-UN Funded)", ko: "SIGNUM — Nittany AI Alliance (PIT-UN 지원)" },
         location: { en: "University Park, PA", ko: "University Park, PA" },
