@@ -56,16 +56,18 @@ export default function Projects() {
                           {lp.badge}
                         </span>
                         <div className="flex gap-2">
-                          <a
-                            href={p.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="text-[var(--foreground)]/30 hover:text-[var(--foreground)] transition-colors"
-                            title={t(messages.projects.githubTitle)}
-                          >
-                            <GitHubIcon />
-                          </a>
+                          {p.github && (
+                            <a
+                              href={p.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-[var(--foreground)]/30 hover:text-[var(--foreground)] transition-colors"
+                              title={t(messages.projects.githubTitle)}
+                            >
+                              <GitHubIcon />
+                            </a>
+                          )}
                           {p.live && (
                             <a
                               href={p.live}

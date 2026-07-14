@@ -107,6 +107,11 @@ export default function About() {
                   <Punct>:</Punct> <Str>&quot;{t(messages.about.codeStrings.locationVal)}&quot;</Str>
                   <Punct>,</Punct>
                 </div>
+                <div className="pl-5">
+                  <Key>{t(messages.about.codeKeys.currentRole)}</Key>
+                  <Punct>:</Punct> <Str>&quot;{t(messages.about.codeStrings.currentRoleVal)}&quot;</Str>
+                  <Punct>,</Punct>
+                </div>
                 <div className="pl-5 mt-1">
                   <Key>{t(messages.about.codeKeys.research)}</Key>
                   <Punct>: [</Punct>

@@ -64,6 +64,7 @@ export const messages = {
       major: { en: "major", ko: "major" },
       status: { en: "status", ko: "status" },
       location: { en: "location", ko: "location" },
+      currentRole: { en: "currentRole", ko: "currentRole" },
       research: { en: "research", ko: "research" },
       openTo: { en: "openTo", ko: "openTo" },
     },
@@ -73,6 +74,7 @@ export const messages = {
       majorVal: { en: "CS + Mathematics", ko: "CS + Mathematics" },
       statusVal: { en: "Dean's List", ko: "Dean's List" },
       locationVal: { en: "University Park, PA", ko: "University Park, PA" },
+      currentRoleVal: { en: "Associate Problem Solver @ Levit", ko: "Associate Problem Solver @ Levit" },
       r1: { en: "Federated Learning", ko: "Federated Learning" },
       r2: { en: "TinyML / IoT Security", ko: "TinyML / IoT Security" },
       r3: { en: "Adversarial ML", ko: "Adversarial ML" },
@@ -122,7 +124,7 @@ export const messages = {
             ko: "PII 안전 메모리 처리와 실험군/대조군 테스트를 포함한 Mem0 기반 메모리 우선 개인화 레이어를 크로스 카테고리 추천을 위해 설계 중.",
           },
         ] as const satisfies readonly Bilingual[],
-        tags: ["Python", "TypeScript", "Next.js", "LLM Applications", "Mem0", "A/B Testing"],
+        tags: ["TypeScript", "Next.js", "NestJS", "MongoDB", "OpenAI API", "Kubernetes", "Mem0", "A/B Testing"],
       },
       {
         role: { en: "Co-founder", ko: "공동 창업" },
@@ -189,15 +191,35 @@ export const messages = {
     groups: [
       {
         category: { en: "Languages", ko: "언어" },
-        items: ["Python", "C / C++", "Java", "JavaScript", "TypeScript", "SQL"],
+        items: ["TypeScript", "JavaScript / Node.js", "Python", "Java", "C / C++", "SQL", "YAML"],
       },
       {
-        category: { en: "Frameworks & Tools", ko: "프레임워크 & 도구" },
-        items: ["React", "Node.js", "Express", "Flask", "MongoDB", "Firebase", "AWS Bedrock", "DuckDB", "Git"],
+        category: { en: "Frontend", ko: "프론트엔드" },
+        items: ["React", "Next.js", "Vite", "React Router", "TanStack Query", "Tailwind CSS", "Recharts", "Axios", "React Testing Library"],
       },
       {
-        category: { en: "AI / ML", ko: "AI / ML" },
-        items: ["TensorFlow", "PyTorch", "FAISS", "SHAP", "spaCy", "Scikit-learn", "Flower (FL)"],
+        category: { en: "Backend", ko: "백엔드" },
+        items: ["Node.js", "NestJS", "Express", "Flask", "REST API", "Swagger / OpenAPI", "Dependency Injection"],
+      },
+      {
+        category: { en: "Database / Storage", ko: "데이터베이스 / 스토리지" },
+        items: ["MongoDB", "Mongoose", "DuckDB", "Firebase", "Mem0 Vector Memory Store"],
+      },
+      {
+        category: { en: "AI / LLM", ko: "AI / LLM" },
+        items: ["OpenAI API", "AWS Bedrock", "OpenRouter", "Prompt Engineering", "RAG", "FAISS", "Semantic Embeddings", "Mem0 OSS", "Vision / Multimodal LLM", "Federated Learning", "PyTorch", "TensorFlow", "Scikit-learn", "spaCy", "SHAP", "Flower (FL)"],
+      },
+      {
+        category: { en: "Experimentation / Analytics", ko: "실험 / 분석" },
+        items: ["A/B Testing", "Treatment / Control Assignment", "Funnel Analysis", "Recommendation Completion Rate"],
+      },
+      {
+        category: { en: "Infrastructure / Operations", ko: "인프라 / 운영" },
+        items: ["Kubernetes", "Helm", "Kubernetes CronJob", "Datadog", "Feature Flags", "Retry / Exponential Backoff"],
+      },
+      {
+        category: { en: "Testing / Dev Tools", ko: "테스트 / 개발 도구" },
+        items: ["Jest", "Vitest", "ESLint", "Git", "pnpm", "Turborepo"],
       },
     ],
   },
@@ -210,6 +232,75 @@ export const messages = {
     githubTitle: { en: "GitHub", ko: "GitHub" },
     liveSiteTitle: { en: "Live site", ko: "라이브 사이트" },
     bySlug: {
+      "shopport-routing-quality": {
+        title: {
+          en: "Shopport — Recommendation Routing & Quality Analysis",
+          ko: "Shopport — 추천 라우팅 & 품질 분석",
+        },
+        type: { en: "AI / Full-Stack", ko: "AI / 풀스택" },
+        badge: { en: "Levit — Internal", ko: "Levit — 사내" },
+        shortDescription: {
+          en: "Contributed to Shopport, Levit's AI shopping assistant, building LLM-based product/domain routing classification and an internal recommendation-quality evaluation platform with turn-level analysis, failure-type classification, and worker/cron-driven batch pipelines.",
+          ko: "Levit의 AI 쇼핑 어시스턴트 Shopport에 기여하여 LLM 기반 상품·도메인 라우팅 분류와, 턴 단위 분석·실패 유형 분류·워커/크론 기반 배치 파이프라인을 갖춘 내부 추천 품질 평가 플랫폼을 구축.",
+        },
+        longDescription: {
+          en: "Shopport is Levit's production AI shopping assistant, embedded inside a broader unified-chat product. I contributed to the recommendation routing and quality-evaluation layers rather than building the app standalone.\n\nOn the routing side, I worked on LLM-based classification of user queries into product domains, driving which recommendation path a query is routed to. On the evaluation side, I designed and helped build an internal platform that scores each conversation turn for routing correctness and response quality, and classifies failures (unsupported queries, misrouting, generic responses, unanalyzable cases) — replacing manual spot-checks with a repeatable, versioned pipeline.\n\nResults are persisted in MongoDB with analysis versioning, and a Kubernetes CronJob-based worker pipeline handles scheduled evaluation runs, catch-up backfills, and retries. An operator-facing admin surfaces failure trends and coverage gaps, backed by Datadog for observability into pipeline failures.",
+          ko: "Shopport는 통합챗 제품 안에 내장된 Levit의 프로덕션 AI 쇼핑 어시스턴트입니다. 앱 전체를 단독으로 만든 것이 아니라 추천 라우팅과 품질 평가 레이어에 기여했습니다.\n\n라우팅 측면에서는 사용자 쿼리를 상품 도메인으로 분류하는 LLM 기반 분류 작업을 맡아, 쿼리가 어떤 추천 경로로 라우팅될지 결정했습니다. 평가 측면에서는 각 대화 턴의 라우팅 정확도와 응답 품질을 점수화하고 실패 유형(미지원 쿼리, 오라우팅, 일반적 응답, 분석 불가)을 분류하는 내부 플랫폼을 설계·구축해, 수동 점검을 반복 가능하고 버전 관리되는 파이프라인으로 대체했습니다.\n\n결과는 버전 관리와 함께 MongoDB에 저장되며, Kubernetes CronJob 기반 워커 파이프라인이 예약 평가 실행·캐치업 백필·재시도를 처리합니다. 운영자용 어드민에서는 실패 추세와 커버리지 공백을 확인할 수 있고, Datadog으로 파이프라인 장애를 관측합니다.",
+        },
+        highlights: [
+          { en: "LLM-based product-domain and routing classification for user queries", ko: "사용자 쿼리에 대한 LLM 기반 상품 도메인·라우팅 분류" },
+          { en: "Turn-level recommendation quality analysis with failure-type taxonomy", ko: "실패 유형 분류 체계를 갖춘 턴 단위 추천 품질 분석" },
+          { en: "Versioned analysis results stored in MongoDB", ko: "MongoDB에 버전 관리되는 분석 결과 저장" },
+          { en: "Kubernetes CronJob worker pipeline with backfill and retry handling", ko: "백필·재시도를 처리하는 Kubernetes CronJob 워커 파이프라인" },
+          { en: "Admin dashboards for failure-trend visualization built with Recharts", ko: "Recharts로 구축한 실패 추세 시각화 어드민 대시보드" },
+        ] as const satisfies readonly Bilingual[],
+      },
+      "shopport-ab-testing": {
+        title: {
+          en: "Shopport — Recommendation A/B Testing Platform",
+          ko: "Shopport — 추천 A/B 테스트 플랫폼",
+        },
+        type: { en: "Experimentation", ko: "실험" },
+        badge: { en: "Levit — Internal", ko: "Levit — 사내" },
+        shortDescription: {
+          en: "Contributed to an experimentation framework inside Shopport for testing single-product auto-routing, with server-side sticky user bucketing, treatment/control assignment, and completion tracking based on actual destination arrival.",
+          ko: "Shopport 내 단일 상품 자동 라우팅을 검증하기 위한 실험 프레임워크에 기여. 서버 사이드 sticky 사용자 버킷팅, treatment/control 배정, 실제 목적지 도착 기반 완료율 추적을 구현.",
+        },
+        longDescription: {
+          en: "To validate whether auto-routing a single best-match product improved outcomes over showing a full recommendation list, I contributed to an A/B testing platform built into Shopport's recommendation flow.\n\nAssignment happens server-side with persistent per-user sticky bucketing, so a given user consistently sees the same treatment or control experience across sessions. Forced assignment is supported for internal test accounts to validate both arms without waiting on random bucketing. Rather than relying on proxy metrics like clicks, recommendation completion is measured by actual arrival at the destination product page, giving a more honest read on whether routing decisions were correct.\n\nAn admin panel lets operators configure traffic allocation, force-assign test accounts, and reset or terminate experiments without a deploy — which also surfaced and let us fix UX issues like infinite loading states and navigation flicker that only showed up under real experiment traffic.",
+          ko: "단일 최적 상품으로 자동 라우팅하는 방식이 전체 추천 목록을 보여주는 방식보다 나은 결과를 내는지 검증하기 위해, Shopport 추천 플로우에 내장된 A/B 테스트 플랫폼에 기여했습니다.\n\n배정은 서버 사이드에서 영속적인 사용자별 sticky 버킷팅으로 이루어져, 같은 사용자는 세션이 바뀌어도 동일한 treatment/control 경험을 봅니다. 내부 테스트 계정에는 강제 배정을 지원해 무작위 버킷팅을 기다리지 않고도 양쪽 그룹을 검증할 수 있습니다. 클릭 같은 대리 지표 대신, 실제 목적지 상품 페이지 도착을 기준으로 추천 완료율을 측정해 라우팅 판단이 옳았는지 더 정확히 파악합니다.\n\n어드민 패널에서 운영자가 배포 없이 트래픽 비율을 설정하고, 테스트 계정을 강제 배정하며, 실험을 초기화·종료할 수 있습니다 — 이 과정에서 실제 실험 트래픽에서만 드러나는 무한 로딩과 내비게이션 깜빡임 같은 UX 문제도 발견해 수정했습니다.",
+        },
+        highlights: [
+          { en: "Server-side experiment assignment with persistent per-user sticky bucketing", ko: "영속적인 사용자별 sticky 버킷팅을 사용한 서버 사이드 실험 배정" },
+          { en: "Forced assignment support for internal test accounts", ko: "내부 테스트 계정을 위한 강제 배정 지원" },
+          { en: "Recommendation completion measured by actual destination arrival, not clicks", ko: "클릭이 아닌 실제 목적지 도착 기반 추천 완료율 측정" },
+          { en: "Admin controls for traffic allocation, experiment reset, and termination", ko: "트래픽 배분·실험 초기화·종료를 위한 어드민 제어" },
+          { en: "Fixed infinite-loading and navigation-flicker issues surfaced under experiment traffic", ko: "실험 트래픽에서 드러난 무한 로딩·내비게이션 깜빡임 문제 수정" },
+        ] as const satisfies readonly Bilingual[],
+      },
+      "shopport-mem0-personalization": {
+        title: {
+          en: "Shopport — Mem0 Cross-Category Personalization",
+          ko: "Shopport — Mem0 크로스카테고리 개인화",
+        },
+        type: { en: "AI / Personalization", ko: "AI / 개인화" },
+        badge: { en: "In Progress", ko: "진행 중" },
+        shortDescription: {
+          en: "In-progress work on a memory-first personalization layer for Shopport using Mem0 OSS — extracting long-term user preferences from conversations and applying them across product categories, with PII-safe memory handling and A/B-tested rollout.",
+          ko: "Mem0 OSS를 활용한 Shopport 메모리 우선 개인화 레이어를 진행 중 — 대화에서 장기 사용자 선호를 추출해 상품 카테고리 전반에 적용하고, PII 안전 메모리 처리와 A/B 테스트 기반 롤아웃을 함께 구현.",
+        },
+        longDescription: {
+          en: "Rather than treating each shopping conversation in isolation, this project explores giving Shopport long-term memory of a user's preferences so recommendations improve across categories over time, not just within a single session.\n\nUsing Mem0 OSS with OpenRouter/GPT-5-mini for extraction and text-embedding-3-small for semantic retrieval, the pipeline pulls out explicit, long-term-relevant facts and preferences from conversations, hashes user identifiers, and strips PII before anything is persisted. When a user starts a new shopping conversation in a different category, relevant memories are retrieved and passed to the existing recommendation engine — memory informs candidate selection, but the recommendation engine still does the final product validation, keeping the two systems cleanly separated.\n\nThis is currently being validated with a treatment/control A/B test comparing standard recommendations against memory-augmented ones, tracking impression, click, and completion rates, alongside home-page recommendation cards and admin experiment controls.",
+          ko: "각 쇼핑 대화를 독립적으로 다루는 대신, 이 프로젝트는 Shopport에 사용자 선호에 대한 장기 기억을 부여해 단일 세션을 넘어 카테고리 전반에서 추천이 개선되도록 하는 방향을 탐구합니다.\n\nMem0 OSS와 OpenRouter/GPT-5-mini(추출), text-embedding-3-small(의미 검색)을 사용해, 대화에서 명시적이고 장기적으로 유효한 사실과 선호를 추출하고, 저장 전에 사용자 식별자를 해싱하고 PII를 제거합니다. 사용자가 다른 카테고리에서 새 쇼핑 대화를 시작하면 관련 기억을 검색해 기존 추천 엔진에 전달합니다 — 기억은 후보 선정에 활용되고, 최종 상품 검증은 여전히 추천 엔진이 수행해 두 시스템을 깔끔하게 분리합니다.\n\n현재는 표준 추천과 기억 기반 추천을 비교하는 treatment/control A/B 테스트로 검증 중이며, 노출·클릭·완료율을 추적하고 홈 화면 추천 카드와 어드민 실험 제어도 함께 구현하고 있습니다.",
+        },
+        highlights: [
+          { en: "Long-term preference and fact extraction from conversations via Mem0 OSS", ko: "Mem0 OSS를 통한 대화 기반 장기 선호·사실 추출" },
+          { en: "PII redaction and user-ID hashing before memory persistence", ko: "메모리 저장 전 PII 제거 및 사용자 ID 해싱" },
+          { en: "Cross-category recommendation using retrieved memories plus the existing recommendation engine for validation", ko: "검색된 기억과 기존 추천 엔진을 함께 활용한 크로스카테고리 추천" },
+          { en: "Clean separation between the LLM/memory layer and the recommendation engine", ko: "LLM/메모리 레이어와 추천 엔진의 명확한 분리" },
+          { en: "Treatment/control A/B test in progress, tracking impression/click/completion rates", ko: "노출/클릭/완료율을 추적하는 treatment/control A/B 테스트 진행 중" },
+        ] as const satisfies readonly Bilingual[],
+      },
       "federated-tinyml": {
         title: {
           en: "Federated TinyML for IoT Security",
@@ -491,16 +582,25 @@ export const messages = {
         output: { en: "Penn State CS '27  |  Dean's List", ko: "Penn State CS '27  |  Dean's List" },
         delay: 2500,
       },
-      { prompt: "~/portfolio", cmd: "ls research/", delay: 3100 },
+      { prompt: "~/portfolio", cmd: "cat current.txt", delay: 3100 },
+      {
+        prompt: null,
+        output: {
+          en: "Associate Problem Solver @ Levit (Jun–Aug 2026)",
+          ko: "Associate Problem Solver @ Levit (2026년 6월–8월)",
+        },
+        delay: 3400,
+      },
+      { prompt: "~/portfolio", cmd: "ls research/", delay: 4000 },
       {
         prompt: null,
         output: {
           en: "federated-tinyml/   signum/   iot-security/",
           ko: "federated-tinyml/   signum/   iot-security/",
         },
-        delay: 3400,
+        delay: 4300,
       },
-      { prompt: "~/portfolio", cmd: "_", delay: 4000, cursor: true },
+      { prompt: "~/portfolio", cmd: "_", delay: 4900, cursor: true },
     ] as const,
   },
 } as const;

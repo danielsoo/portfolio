@@ -15,6 +15,72 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "shopport-routing-quality",
+    title: "Shopport — Recommendation Routing & Quality Analysis",
+    type: "AI / Full-Stack",
+    badge: "Levit — Internal",
+    badgeColor: "bg-cyan-500/10 text-cyan-400",
+    shortDescription:
+      "Contributed to Shopport, Levit's AI shopping assistant, building LLM-based product/domain routing classification and an internal recommendation-quality evaluation platform with turn-level analysis, failure-type classification, and worker/cron-driven batch pipelines.",
+    longDescription:
+      "Shopport is Levit's production AI shopping assistant, embedded inside a broader unified-chat product. I contributed to the recommendation routing and quality-evaluation layers rather than building the app standalone.\n\nOn the routing side, I worked on LLM-based classification of user queries into product domains, driving which recommendation path a query is routed to. On the evaluation side, I designed and helped build an internal platform that scores each conversation turn for routing correctness and response quality, and classifies failures (unsupported queries, misrouting, generic responses, unanalyzable cases) — replacing manual spot-checks with a repeatable, versioned pipeline.\n\nResults are persisted in MongoDB with analysis versioning, and a Kubernetes CronJob-based worker pipeline handles scheduled evaluation runs, catch-up backfills, and retries. An operator-facing admin surfaces failure trends and coverage gaps, backed by Datadog for observability into pipeline failures.",
+    highlights: [
+      "LLM-based product-domain and routing classification for user queries",
+      "Turn-level recommendation quality analysis with failure-type taxonomy",
+      "Versioned analysis results stored in MongoDB",
+      "Kubernetes CronJob worker pipeline with backfill and retry handling",
+      "Admin dashboards for failure-trend visualization built with Recharts",
+    ],
+    tags: ["TypeScript", "React", "Next.js", "NestJS", "MongoDB", "OpenAI API", "Recharts", "Kubernetes CronJob", "Datadog", "Jest", "Vitest"],
+    github: "",
+    live: null,
+    images: [],
+  },
+  {
+    slug: "shopport-ab-testing",
+    title: "Shopport — Recommendation A/B Testing Platform",
+    type: "Experimentation",
+    badge: "Levit — Internal",
+    badgeColor: "bg-purple-500/10 text-purple-400",
+    shortDescription:
+      "Contributed to an experimentation framework inside Shopport for testing single-product auto-routing, with server-side sticky user bucketing, treatment/control assignment, and completion tracking based on actual destination arrival.",
+    longDescription:
+      "To validate whether auto-routing a single best-match product improved outcomes over showing a full recommendation list, I contributed to an A/B testing platform built into Shopport's recommendation flow.\n\nAssignment happens server-side with persistent per-user sticky bucketing, so a given user consistently sees the same treatment or control experience across sessions. Forced assignment is supported for internal test accounts to validate both arms without waiting on random bucketing. Rather than relying on proxy metrics like clicks, recommendation completion is measured by actual arrival at the destination product page, giving a more honest read on whether routing decisions were correct.\n\nAn admin panel lets operators configure traffic allocation, force-assign test accounts, and reset or terminate experiments without a deploy — which also surfaced and let us fix UX issues like infinite loading states and navigation flicker that only showed up under real experiment traffic.",
+    highlights: [
+      "Server-side experiment assignment with persistent per-user sticky bucketing",
+      "Forced assignment support for internal test accounts",
+      "Recommendation completion measured by actual destination arrival, not clicks",
+      "Admin controls for traffic allocation, experiment reset, and termination",
+      "Fixed infinite-loading and navigation-flicker issues surfaced under experiment traffic",
+    ],
+    tags: ["React", "NestJS", "MongoDB", "TanStack Query", "A/B Testing", "Funnel Analytics"],
+    github: "",
+    live: null,
+    images: [],
+  },
+  {
+    slug: "shopport-mem0-personalization",
+    title: "Shopport — Mem0 Cross-Category Personalization",
+    type: "AI / Personalization",
+    badge: "In Progress",
+    badgeColor: "bg-rose-500/10 text-rose-400",
+    shortDescription:
+      "In-progress work on a memory-first personalization layer for Shopport using Mem0 OSS — extracting long-term user preferences from conversations and applying them across product categories, with PII-safe memory handling and A/B-tested rollout.",
+    longDescription:
+      "Rather than treating each shopping conversation in isolation, this project explores giving Shopport long-term memory of a user's preferences so recommendations improve across categories over time, not just within a single session.\n\nUsing Mem0 OSS with OpenRouter/GPT-5-mini for extraction and text-embedding-3-small for semantic retrieval, the pipeline pulls out explicit, long-term-relevant facts and preferences from conversations, hashes user identifiers, and strips PII before anything is persisted. When a user starts a new shopping conversation in a different category, relevant memories are retrieved and passed to the existing recommendation engine — memory informs candidate selection, but the recommendation engine still does the final product validation, keeping the two systems cleanly separated.\n\nThis is currently being validated with a treatment/control A/B test comparing standard recommendations against memory-augmented ones, tracking impression, click, and completion rates, alongside home-page recommendation cards and admin experiment controls.",
+    highlights: [
+      "Long-term preference and fact extraction from conversations via Mem0 OSS",
+      "PII redaction and user-ID hashing before memory persistence",
+      "Cross-category recommendation using retrieved memories plus the existing recommendation engine for validation",
+      "Clean separation between the LLM/memory layer and the recommendation engine",
+      "Treatment/control A/B test in progress, tracking impression/click/completion rates",
+    ],
+    tags: ["TypeScript", "NestJS", "React", "Mem0 OSS", "OpenRouter", "GPT-5-mini", "text-embedding-3-small", "MongoDB", "Semantic Retrieval"],
+    github: "",
+    live: null,
+    images: [],
+  },
+  {
     slug: "federated-tinyml",
     title: "Federated TinyML for IoT Security",
     type: "Research",
