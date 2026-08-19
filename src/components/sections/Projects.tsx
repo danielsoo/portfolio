@@ -1,6 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "@/hooks/useInView";
 import { projects } from "@/data/projects";
@@ -11,128 +13,211 @@ import { localizeProject } from "@/i18n/useLocalizedProject";
 export default function Projects() {
   const { ref, inView } = useInView();
   const { locale, t } = useLocale();
+  const railRef = useRef<HTMLDivElement>(null);
+
+  const moveRail = (direction: -1 | 1) => {
+    const rail = railRef.current;
+    if (!rail) return;
+    rail.scrollBy({ left: direction * rail.clientWidth * 0.78, behavior: "smooth" });
+  };
 
   return (
-    <section id="projects" className="py-24 px-6 bg-[var(--foreground)]/[0.02]">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+    <section id="projects" className="overflow-hidden bg-[var(--foreground)]/[0.02] py-24">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7 }}
+      >
+        <div className="mx-auto mb-9 flex max-w-6xl flex-col justify-between gap-5 px-6 md:flex-row md:items-end">
+          <div>
+            <p className="mb-3 font-mono text-sm uppercase tracking-widest text-indigo-400">
+              {t(messages.projects.sectionLabel)}
+            </p>
+            <h2 className="text-3xl font-bold md:text-4xl">{t(messages.projects.heading)}</h2>
+          </div>
+          <div className="flex items-end justify-between gap-5 md:block md:text-right">
+            <div>
+              <p className="max-w-md text-sm leading-relaxed text-[var(--foreground)]/45">
+                {t(messages.projects.browseHint)}
+              </p>
+              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-400/55">
+                ← {t(messages.projects.dragHint)} →
+              </p>
+            </div>
+            <div className="mt-4 flex justify-end gap-2">
+              <RailButton label={t(messages.projects.previousProject)} direction="left" onClick={() => moveRail(-1)} />
+              <RailButton label={t(messages.projects.nextProject)} direction="right" onClick={() => moveRail(1)} />
+            </div>
+          </div>
+        </div>
+
+        <div
+          ref={railRef}
+          className="project-carousel flex snap-x snap-mandatory gap-5 overflow-x-auto px-[max(1.5rem,calc((100vw-72rem)/2))] pb-7"
         >
-          <p className="text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
-            {t(messages.projects.sectionLabel)}
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            {t(messages.projects.heading)}
-          </h2>
+          {projects.map((project, index) => {
+            const localized = localizeProject(project, locale);
+            return (
+              <motion.article
+                key={project.slug}
+                initial={{ opacity: 0, x: 50 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="group relative grid min-h-[34rem] w-[86vw] max-w-[62rem] flex-none snap-center overflow-hidden rounded-3xl border border-[var(--foreground)]/10 bg-[var(--background)]/75 shadow-2xl shadow-black/10 transition duration-300 hover:border-indigo-400/40 md:grid-cols-[1.06fr_.94fr]"
+              >
+                <Link
+                  href={`/projects/${project.slug}`}
+                  aria-label={`${t(messages.projects.viewDetails)}: ${localized.title}`}
+                  className="absolute inset-0 z-10 rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+                />
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((p, i) => {
-              const lp = localizeProject(p, locale);
-              return (
-                <motion.div
-                  key={p.slug}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                >
-                  <Link
-                    href={`/projects/${p.slug}`}
-                    className="group p-6 rounded-xl border border-[var(--foreground)]/10 hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full block"
-                  >
-                    <div className="flex items-start justify-between mb-3 gap-2">
-                      <div>
-                        <span className="text-xs font-mono text-[var(--foreground)]/30 uppercase tracking-widest">
-                          {lp.type}
-                        </span>
-                        <h3 className="font-bold text-lg mt-0.5 group-hover:text-indigo-400 transition-colors leading-tight">
-                          {lp.title}
-                        </h3>
-                      </div>
-                      <div className="flex flex-col items-end gap-2 flex-shrink-0">
-                        <span className={`text-xs px-2 py-0.5 rounded-full font-mono ${p.badgeColor}`}>
-                          {lp.badge}
-                        </span>
-                        <div className="flex gap-2">
-                          {p.github && (
-                            <a
-                              href={p.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              className="text-[var(--foreground)]/30 hover:text-[var(--foreground)] transition-colors"
-                              title={t(messages.projects.githubTitle)}
-                            >
-                              <GitHubIcon />
-                            </a>
-                          )}
-                          {p.live && (
-                            <a
-                              href={p.live}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              className="text-[var(--foreground)]/30 hover:text-indigo-400 transition-colors"
-                              title={t(messages.projects.liveSiteTitle)}
-                            >
-                              <ExternalLinkIcon />
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-[var(--foreground)]/60 leading-relaxed flex-1 mb-4">
-                      {lp.shortDescription}
-                    </p>
-
-                    <div className="flex items-center justify-between">
-                      <div className="flex flex-wrap gap-2">
-                        {p.tags.slice(0, 4).map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 font-mono"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                        {p.tags.length > 4 && (
-                          <span className="text-xs px-2.5 py-1 rounded-full text-[var(--foreground)]/30 font-mono">
-                            +{p.tags.length - 4}
-                          </span>
-                        )}
-                      </div>
-                      <span className="text-xs text-indigo-400/60 font-mono flex items-center gap-1 flex-shrink-0 ml-2 group-hover:text-indigo-400 transition-colors">
-                        {t(messages.projects.viewDetails)}
-                        <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
+                <div className="relative min-h-64 overflow-hidden border-b border-[var(--foreground)]/10 bg-[#090910] md:min-h-full md:border-b-0 md:border-r">
+                  {project.images[0] ? (
+                    project.slug === "levit-shopport-ai" ? (
+                      <>
+                        <Image
+                          src={project.images[0]}
+                          alt=""
+                          fill
+                          sizes="(max-width: 768px) 86vw, 52vw"
+                          className="scale-110 object-cover opacity-20 blur-2xl"
+                        />
+                        <Image
+                          src={project.images[0]}
+                          alt=""
+                          fill
+                          sizes="(max-width: 768px) 86vw, 52vw"
+                          className="object-contain p-5 opacity-90 transition duration-700 group-hover:scale-[1.015] group-hover:opacity-100"
+                        />
+                      </>
+                    ) : (
+                      <Image
+                        src={project.images[0]}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 86vw, 52vw"
+                        className="object-cover opacity-80 transition duration-700 group-hover:scale-[1.025] group-hover:opacity-100"
+                      />
+                    )
+                  ) : (
+                    <div className="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_30%_30%,rgba(99,102,241,.2),transparent_45%),linear-gradient(135deg,#0d0d18,#08080d)]">
+                      <span className="font-mono text-8xl font-black text-white/[0.04]">
+                        {String(index + 1).padStart(2, "0")}
                       </span>
                     </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
-      </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07070c] via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#07070c]/35" />
+                  <div className="absolute left-5 top-5 flex items-center gap-2">
+                    <span className="rounded-full border border-white/10 bg-black/45 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/60 backdrop-blur-md">
+                      CASE / {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className={`rounded-full px-3 py-1.5 font-mono text-[9px] backdrop-blur-md ${project.badgeColor}`}>
+                      {localized.badge}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="pointer-events-none relative flex flex-col p-7 sm:p-9">
+                  <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(99,102,241,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,.12)_1px,transparent_1px)] [background-size:34px_34px]" />
+                  <div className="relative">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-400/65">
+                      {localized.type}
+                    </p>
+                    <h3 className="mt-4 text-3xl font-bold leading-[1.08] transition-colors group-hover:text-indigo-300">
+                      {localized.title}
+                    </h3>
+                    <p className="mt-5 line-clamp-4 text-sm leading-7 text-[var(--foreground)]/58">
+                      {localized.shortDescription}
+                    </p>
+                  </div>
+
+                  {project.impact?.length ? (
+                    <div className="relative mt-7 grid grid-cols-2 gap-3">
+                      {project.impact.slice(0, 2).map((item) => (
+                        <div key={`${item.value}-${item.label}`} className="rounded-xl border border-[var(--foreground)]/10 bg-[var(--foreground)]/[0.025] p-3">
+                          <p className="text-xl font-black text-cyan-300">{item.value}</p>
+                          <p className="mt-1 line-clamp-2 font-mono text-[9px] uppercase tracking-wide text-[var(--foreground)]/35">
+                            {item.label}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  <div className="relative mt-auto pt-8">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.slice(0, 4).map((tag) => (
+                        <span key={tag} className="rounded-full bg-indigo-500/10 px-2.5 py-1 font-mono text-[10px] text-indigo-300/80">
+                          {tag}
+                        </span>
+                      ))}
+                      {project.tags.length > 4 && (
+                        <span className="px-1 py-1 font-mono text-[10px] text-[var(--foreground)]/30">+{project.tags.length - 4}</span>
+                      )}
+                    </div>
+
+                    <div className="mt-7 flex items-center justify-between border-t border-[var(--foreground)]/10 pt-5">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-indigo-400">
+                        {t(messages.projects.viewDetails)} →
+                      </span>
+                      <div className="pointer-events-auto relative z-20 flex gap-3">
+                        {project.github && (
+                          <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-[var(--foreground)]/35 transition hover:text-[var(--foreground)]" title={t(messages.projects.githubTitle)}>
+                            <GitHubIcon />
+                          </a>
+                        )}
+                        {project.live && (
+                          <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-[var(--foreground)]/35 transition hover:text-indigo-400" title={t(messages.projects.liveSiteTitle)}>
+                            <ExternalLinkIcon />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.article>
+            );
+          })}
+          <div aria-hidden="true" className="w-[max(0px,calc((100vw-72rem)/2-1.25rem))] flex-none" />
+        </div>
+      </motion.div>
     </section>
+  );
+}
+
+function RailButton({
+  label,
+  direction,
+  onClick,
+}: {
+  label: string;
+  direction: "left" | "right";
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      className="grid h-10 w-10 place-items-center rounded-full border border-[var(--foreground)]/15 bg-[var(--background)]/75 text-[var(--foreground)]/55 transition hover:border-indigo-400/50 hover:text-indigo-400"
+    >
+      {direction === "left" ? "←" : "→"}
+    </button>
   );
 }
 
 function GitHubIcon() {
   return (
-    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12.017 2z" />
     </svg>
   );
 }
 
 function ExternalLinkIcon() {
   return (
-    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
     </svg>
   );

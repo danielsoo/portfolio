@@ -1,22 +1,40 @@
 "use client";
 
-import { useMemo } from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import type { Project } from "@/data/projects";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { messages } from "@/i18n/messages";
 import { localizeProject } from "@/i18n/useLocalizedProject";
+import ProjectMediaGallery from "./ProjectMediaGallery";
 
 export default function ProjectDetail({ project }: { project: Project }) {
   const { locale, t } = useLocale();
   const p = useMemo(() => localizeProject(project, locale), [project, locale]);
-  const shot = t(messages.projectDetail.screenshotAlt);
+  const [expandedImage, setExpandedImage] = useState<SectionMedia | null>(null);
+
+  useEffect(() => {
+    if (!expandedImage) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setExpandedImage(null);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [expandedImage]);
 
   return (
     <main className="min-h-screen pt-24 pb-20 px-6">
-      <div className="max-w-4xl mx-auto">
+      <div className="mx-auto max-w-[1500px]">
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
@@ -76,52 +94,53 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </div>
         </motion.div>
 
-        {project.images.length > 0 && (
+        {p.impact && p.impact.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
             className="mb-12"
           >
-            <div className={`grid gap-4 ${project.images.length === 1 ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}`}>
-              {project.images.map((src, i) => (
-                <div key={i} className={`relative rounded-xl overflow-hidden border border-[var(--foreground)]/10 bg-[var(--foreground)]/5 ${i === 0 && project.images.length > 2 ? "md:col-span-2" : ""}`}>
-                  <Image
-                    src={src}
-                    alt={`${p.title} ${shot} ${i + 1}`}
-                    width={1200}
-                    height={675}
-                    className="w-full h-auto object-cover"
-                  />
+            <h2 className="text-lg font-bold mb-4 text-indigo-400 font-mono">
+              {t(messages.projectDetail.impact)}
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {p.impact.map((stat, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl border border-[var(--foreground)]/10 bg-[var(--foreground)]/[0.02] px-4 py-5 text-center"
+                >
+                  <div className="text-xl md:text-2xl font-extrabold font-mono text-indigo-400 leading-tight">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-[var(--foreground)]/50 mt-1.5 leading-snug">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
           </motion.div>
         )}
 
-        {project.images.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-12"
-          >
-            <div className="rounded-xl border-2 border-dashed border-[var(--foreground)]/15 bg-[var(--foreground)]/[0.02] h-52 flex flex-col items-center justify-center text-[var(--foreground)]/25">
-              <ImagePlaceholderIcon />
-              <p className="text-sm font-mono mt-3">{t(messages.projectDetail.addImagesLine)}</p>
-              <p className="text-xs font-mono mt-1 text-indigo-400/50">
-                public/projects/{project.slug}/
-              </p>
-            </div>
-          </motion.div>
-        )}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <ProjectMediaGallery
+            projectSlug={project.slug}
+            projectTitle={p.title}
+            staticImages={project.images}
+            staticVideos={project.videos ?? []}
+          />
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="md:col-span-2 space-y-10"
+            className="space-y-12"
           >
             <div>
               <h2 className="text-lg font-bold mb-4 text-indigo-400 font-mono">
@@ -136,6 +155,94 @@ export default function ProjectDetail({ project }: { project: Project }) {
               </div>
             </div>
 
+            {p.sections?.map((section, sectionIndex) => (
+              <div
+                key={section.title}
+                id={`section-${String(sectionIndex + 1).padStart(2, "0")}`}
+                className="scroll-mt-28"
+              >
+                <h2 className="text-lg font-bold mb-4 text-cyan-400 font-mono">
+                  <span className="text-[var(--foreground)]/25 mr-2">
+                    {String(sectionIndex + 1).padStart(2, "0")}.
+                  </span>
+                  {section.title}
+                </h2>
+                <div
+                  className={
+                    section.media?.length
+                      ? "grid gap-8 md:grid-cols-2 md:items-start"
+                      : undefined
+                  }
+                >
+                  <div>
+                    {section.body && (
+                      <p className="text-[var(--foreground)]/70 leading-relaxed text-sm md:text-base mb-4">
+                        {section.body}
+                      </p>
+                    )}
+                    {section.bullets && section.bullets.length > 0 && (
+                      <ul className="space-y-3 border-l border-cyan-500/20 pl-4">
+                        {section.bullets.map((bullet) => (
+                          <li key={bullet} className="flex gap-3 text-sm text-[var(--foreground)]/70 leading-relaxed">
+                            <span className="text-cyan-400 font-mono mt-0.5 flex-shrink-0">›</span>
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+
+                  {section.media && section.media.length > 0 && (
+                    <aside aria-label={locale === "ko" ? "설계 참고 자료" : "Supporting design evidence"}>
+                      <p className="mb-2 text-[10px] font-mono uppercase tracking-[0.18em] text-[var(--foreground)]/30">
+                        {locale === "ko" ? "설계 참고 자료" : "Design evidence"}
+                      </p>
+                      <div className={`grid gap-4 ${section.media.length > 1 ? "sm:grid-cols-2" : "grid-cols-1"}`}>
+                        {section.media.map((item, mediaIndex) => (
+                          <figure
+                            key={item.src}
+                            className={
+                              section.media &&
+                              section.media.length > 1 &&
+                              section.media.length % 2 === 1 &&
+                              mediaIndex === section.media.length - 1
+                                ? "sm:col-span-2 sm:mx-auto sm:w-[calc(50%-0.5rem)]"
+                                : undefined
+                            }
+                          >
+                            <button
+                              type="button"
+                              onClick={() => setExpandedImage(item)}
+                              aria-label={
+                                locale === "ko"
+                                  ? `${item.alt} 크게 보기`
+                                  : `Enlarge ${item.alt}`
+                              }
+                              className="group block w-full cursor-zoom-in overflow-hidden rounded-lg bg-[var(--foreground)]/[0.03] text-left shadow-lg shadow-black/10 outline-none transition-transform duration-200 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+                            >
+                              <Image
+                                src={item.src}
+                                alt={item.alt}
+                                width={item.width}
+                                height={item.height}
+                                sizes="(min-width: 1024px) 19vw, (min-width: 768px) 24vw, 44vw"
+                                className="block h-auto w-full transition-transform duration-300 group-hover:scale-[1.015]"
+                              />
+                            </button>
+                            {item.caption && (
+                              <figcaption className="mt-2 text-[11px] leading-relaxed text-[var(--foreground)]/45">
+                                {item.caption}
+                              </figcaption>
+                            )}
+                          </figure>
+                        ))}
+                      </div>
+                    </aside>
+                  )}
+                </div>
+              </div>
+            ))}
+
             <div>
               <h2 className="text-lg font-bold mb-4 text-indigo-400 font-mono">
                 {t(messages.projectDetail.highlights)}
@@ -149,13 +256,29 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 ))}
               </ul>
             </div>
+
+            {p.keyTakeaways && p.keyTakeaways.length > 0 && (
+              <div>
+                <h2 className="text-lg font-bold mb-4 text-amber-400 font-mono">
+                  {t(messages.projectDetail.keyTakeaways)}
+                </h2>
+                <ul className="space-y-3">
+                  {p.keyTakeaways.map((k, i) => (
+                    <li key={i} className="flex gap-3 text-sm text-[var(--foreground)]/70 leading-relaxed">
+                      <span className="text-amber-400 font-mono mt-0.5 flex-shrink-0">✓</span>
+                      {k}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="space-y-6"
+            className="space-y-6 lg:sticky lg:top-28 lg:self-start"
           >
             <div>
               <h3 className="text-xs font-mono uppercase tracking-widest text-[var(--foreground)]/30 mb-3">
@@ -203,9 +326,61 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </motion.div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {expandedImage && (
+          <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label={locale === "ko" ? "확대 이미지" : "Expanded image"}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
+            onClick={() => setExpandedImage(null)}
+            className="fixed inset-0 z-[100] flex cursor-zoom-out items-center justify-center bg-black/90 p-4 backdrop-blur-sm sm:p-8"
+          >
+            <motion.figure
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+              onClick={(event) => event.stopPropagation()}
+              className="relative flex max-h-full max-w-6xl cursor-default flex-col items-center"
+            >
+              <Image
+                src={expandedImage.src}
+                alt={expandedImage.alt}
+                width={expandedImage.width}
+                height={expandedImage.height}
+                sizes="100vw"
+                className="max-h-[82vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
+              />
+              {expandedImage.caption && (
+                <figcaption className="mt-3 max-w-3xl text-center text-sm leading-relaxed text-white/65">
+                  {expandedImage.caption}
+                </figcaption>
+              )}
+              <button
+                type="button"
+                autoFocus
+                onClick={() => setExpandedImage(null)}
+                aria-label={locale === "ko" ? "확대 이미지 닫기" : "Close expanded image"}
+                className="absolute -right-2 -top-2 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/75 text-xl text-white/80 shadow-xl transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 sm:-right-5 sm:-top-5"
+              >
+                ×
+              </button>
+            </motion.figure>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
+
+type SectionMedia = NonNullable<
+  NonNullable<Project["sections"]>[number]["media"]
+>[number];
 
 function GitHubIcon() {
   return (
@@ -219,14 +394,6 @@ function ExternalIcon() {
   return (
     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-    </svg>
-  );
-}
-
-function ImagePlaceholderIcon() {
-  return (
-    <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
     </svg>
   );
 }

@@ -24,7 +24,7 @@ export default function SiteLinks() {
 
   return (
     <section id="sites" className="py-24 px-6 bg-[var(--foreground)]/[0.02]">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}

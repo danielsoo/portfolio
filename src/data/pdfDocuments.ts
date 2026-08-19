@@ -1,12 +1,12 @@
 export const PDF_DOCUMENTS = [
   {
     id: "resume" as const,
-    href: "/docs/Younsoo_Park_Resume.pdf",
+    href: "/docs/YounsooPark_Resume.pdf",
     downloadName: "Younsoo_Park_Resume.pdf",
   },
   {
     id: "cv" as const,
-    href: "/docs/Younsoo_Park_CV.pdf",
+    href: "/docs/YounsooPark_CV.pdf",
     downloadName: "Younsoo_Park_CV.pdf",
   },
 ] as const;

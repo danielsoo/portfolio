@@ -22,6 +22,8 @@ export const messages = {
   /* ---------- Hero ---------- */
   hero: {
     greet: { en: "Hello, world!", ko: "Hello, world!" },
+    proofLineTop: { en: "Work that", ko: "결과로" },
+    proofLineBottom: { en: "proves itself.", ko: "증명합니다." },
     roleLine: { en: "Software Engineer & Researcher", ko: "소프트웨어 엔지니어 & 연구원" },
     blurb: {
       en: "Penn State CS student building at the intersection of AI systems and full-stack engineering.",
@@ -29,12 +31,54 @@ export const messages = {
     },
     viewProjects: { en: "View Projects", ko: "프로젝트 보기" },
     contactMe: { en: "Contact Me", ko: "연락하기" },
+    showEvidence: { en: "Show", ko: "보기" },
+    selectEvidence: { en: "Select evidence", ko: "증거 자료 선택" },
+    evidence: [
+      {
+        eyebrow: { en: "Levit / Production AI", ko: "Levit / 프로덕션 AI" },
+        title: { en: "114K lines of TypeScript shipped", ko: "TypeScript 코드 11만 4천 줄 배포" },
+        meta: { en: "Routing · Evaluation · Personalization", ko: "라우팅 · 평가 · 개인화" },
+      },
+      {
+        eyebrow: { en: "IEEE / Combat Robotics", ko: "IEEE / 전투 로보틱스" },
+        title: { en: "Shot & Chaser — 1st place", ko: "Shot & Chaser — 1위" },
+        meta: { en: "Multibot systems engineering", ko: "멀티봇 시스템 엔지니어링" },
+      },
+      {
+        eyebrow: { en: "Research / TinyML", ko: "연구 / TinyML" },
+        title: { en: "Federated intelligence at the edge", ko: "엣지에서 구현한 연합 지능" },
+        meta: { en: "Privacy · Embedded systems · Research", ko: "프라이버시 · 임베디드 시스템 · 연구" },
+      },
+      {
+        eyebrow: { en: "SIGNUM / AI Platform", ko: "SIGNUM / AI 플랫폼" },
+        title: { en: "$3,750 awarded for hospital AI", ko: "병원 AI 플랫폼으로 $3,750 지원금 수상" },
+        meta: { en: "PIT-UN · RAG · Healthcare analytics", ko: "PIT-UN · RAG · 의료 데이터 분석" },
+      },
+    ] as const,
   },
 
   /* ---------- About ---------- */
   about: {
     sectionLabel: { en: "01. About Me", ko: "01. 소개" },
     title: { en: "Who I Am", ko: "저는 누구인가요" },
+    browseHint: {
+      en: "Start with the signals. Open a card when you want the full story.",
+      ko: "핵심 신호부터 살펴보고, 전체 이야기가 궁금할 때 카드를 열어보세요.",
+    },
+    openStory: { en: "Open my story", ko: "전체 이야기 보기" },
+    closeStory: { en: "Close details", ko: "상세 내용 닫기" },
+    cardBuild: { en: "What I build", ko: "무엇을 만드는가" },
+    cardBuildTitle: { en: "AI systems that hold up in production", ko: "프로덕션에서 견디는 AI 시스템" },
+    cardResearch: { en: "Research", ko: "연구" },
+    cardResearchTitle: { en: "Intelligence at the edge", ko: "엣지에서 구현하는 지능" },
+    cardProfile: { en: "Profile", ko: "프로필" },
+    cardNow: { en: "Latest role", ko: "최근 경력" },
+    storySummary: {
+      en: "I connect AI research, production engineering, and product decisions to build systems people can actually rely on.",
+      ko: "AI 연구와 프로덕션 엔지니어링, 제품 의사결정을 연결해 사람들이 실제로 신뢰할 수 있는 시스템을 만듭니다.",
+    },
+    portraitLabel: { en: "Portrait coming soon", ko: "전신 사진 추가 예정" },
+    documentsLabel: { en: "Documents", ko: "문서" },
     p1: {
       en: "I'm Younsoo Park — a Computer Science student at Penn State University (Dean's List, B.S. CS + Math minor, graduating May 2027) with a passion for building reliable AI systems and full-stack applications.",
       ko: "저는 박윤수입니다 — 펜실베니아 주립대학교 컴퓨터과학 전공(딘스 리스트, CS 학사 + 수학 부전공, 2027년 5월 졸업 예정)이며, 안정적인 AI 시스템과 풀스택 애플리케이션을 만드는 일에 열정이 있습니다.",
@@ -97,37 +141,51 @@ export const messages = {
   experience: {
     sectionLabel: { en: "02. Experience", ko: "02. 경력" },
     heading: { en: "Where I've Worked", ko: "경험한 곳" },
+    browseHint: {
+      en: "A concise record of where I worked, when I was there, and the roles I held.",
+      ko: "어디에서 언제 어떤 역할로 일했는지 간결하게 정리했습니다.",
+    },
+    dragHint: { en: "Drag to follow the timeline", ko: "밀어서 경력 흐름 보기" },
+    previousRole: { en: "Previous role", ko: "이전 경력" },
+    nextRole: { en: "Next role", ko: "다음 경력" },
+    highlightsLabel: { en: "role highlights", ko: "개 주요 성과" },
+    openDetails: { en: "Open role", ko: "경력 열기" },
+    closeDetails: { en: "Close role details", ko: "경력 상세 닫기" },
+    impactLabel: { en: "What changed", ko: "만들어낸 변화" },
+    stackLabel: { en: "Working stack", ko: "사용 기술" },
     entries: [
       {
         role: { en: "Associate Problem Solver", ko: "Associate Problem Solver" },
+        employmentType: { en: "Internship", ko: "인턴십" },
         org: { en: "Levit — Shopport (AI Shopping Assistant)", ko: "Levit — Shopport (AI 쇼핑 어시스턴트)" },
         location: {
-          en: "7th–8th Fl., Hosan Bldg., 1836 Nambusunhwan-ro, Gwanak-gu, Seoul, South Korea",
-          ko: "대한민국 서울특별시 관악구 남부순환로 1836 호산빌딩 7, 8층",
+          en: "Seoul, South Korea",
+          ko: "대한민국 서울",
         },
         period: { en: "June 2026 – Aug 2026", ko: "2026년 6월 – 2026년 8월" },
         bullets: [
           {
-            en: "Worked directly with the CEO to expand AI shopping-recommendation routing coverage (small appliances, household, baby, processed foods) and shipped image-aware Vision Routing behind feature flags.",
-            ko: "CEO와 직접 협업하여 AI 쇼핑 추천 라우팅 지원 범위를 확대(소형 가전, 생활용품, 유아용품, 가공식품)하고, 기능 플래그 기반의 이미지 인식 Vision Routing을 배포.",
+            en: "Owned Shopport routing improvements from LLM classification to an embedding-based semantic fast path (~8× faster for confident cases) and a hybrid destination classifier for ambiguous queries.",
+            ko: "Shopport 라우팅을 LLM 분류에서 확신 구간을 약 8배 빠르게 처리하는 임베딩 시맨틱 fast path와 애매한 쿼리용 하이브리드 목적지 분류기로 발전.",
           },
           {
-            en: "Designed and built an internal recommendation-quality evaluation platform — turn-level analysis, routing/response scoring, and failure classification — replacing manual inspection.",
-            ko: "턴 단위 대화 분석, 라우팅/응답 품질 평가, 실패 유형 분류 기능을 갖춘 내부 추천 품질 평가 플랫폼을 설계·구축하여 수동 점검을 대체.",
+            en: "Built the routing-quality platform end to end across Next.js, NestJS, MongoDB, workers, and admin: turn audits, versioned evaluation, coverage diffs, latency waterfalls, and rollback-safe backfills.",
+            ko: "Next.js·NestJS·MongoDB·워커·어드민 전반에 턴 검수, 평가 버저닝, 커버리지 대조, 지연 워터폴, 롤백 안전 백필을 포함한 라우팅 품질 플랫폼을 엔드투엔드로 구축.",
           },
           {
-            en: "Built worker-based batch evaluation infrastructure (scheduled cron jobs, retries with exponential backoff, concurrency control) and a server-side A/B testing platform with persistent user bucketing and admin controls.",
-            ko: "워커 기반 배치 평가 인프라(크론 스케줄링, 지수 백오프 재시도, 동시성 제어)와 영속적 사용자 버킷팅 및 관리자 제어 기능을 갖춘 서버 사이드 A/B 테스트 플랫폼을 구축.",
+            en: "Designed and shipped Wowness, a Mem0-backed cross-category discovery recommender, as sole engineer across a 919-line NestJS engine, React UI, catalog grounding, and experimentation lab.",
+            ko: "Mem0 기반 크로스카테고리 발견 추천 시스템 Wowness를 919줄 NestJS 엔진, React UI, 실카탈로그 접지, 실험 랩까지 단독 엔지니어로 설계·배포.",
           },
           {
-            en: "Currently designing a memory-first personalization layer (Mem0) for cross-category recommendations, with PII-safe memory handling and treatment/control experimentation.",
-            ko: "PII 안전 메모리 처리와 실험군/대조군 테스트를 포함한 Mem0 기반 메모리 우선 개인화 레이어를 크로스 카테고리 추천을 위해 설계 중.",
+            en: "Diagnosed systemic production failures and misleading analytics at their source, including a split MongoDB connection that kept V3 at zero executions and false-positive counts reduced from 2,005 to 811.",
+            ko: "V3 실행을 0회로 만든 MongoDB 연결 분리 버그와 2,005건에서 811건으로 줄인 오탐 집계 등 시스템 경계의 프로덕션 장애와 잘못된 지표를 근본 원인부터 진단·수정.",
           },
         ] as const satisfies readonly Bilingual[],
-        tags: ["TypeScript", "Next.js", "NestJS", "MongoDB", "OpenAI API", "Kubernetes", "Mem0", "A/B Testing"],
+        tags: ["TypeScript", "React", "Next.js", "NestJS", "MongoDB", "OpenRouter", "Semantic Embeddings", "Mem0", "Kubernetes", "A/B Testing"],
       },
       {
         role: { en: "Co-founder", ko: "공동 창업" },
+        employmentType: { en: "Part-time", ko: "파트타임" },
         org: { en: "SIGNUM — Nittany AI Alliance (PIT-UN Funded)", ko: "SIGNUM — Nittany AI Alliance (PIT-UN 지원)" },
         location: { en: "University Park, PA", ko: "University Park, PA" },
         period: { en: "Aug 2024 – Nov 2025", ko: "2024년 8월 – 2025년 11월" },
@@ -149,6 +207,7 @@ export const messages = {
       },
       {
         role: { en: "Squad Leader (Promoted)", ko: "분대장 (진급)" },
+        employmentType: { en: "Full-time", ko: "풀타임" },
         org: { en: "Republic of Korea Air Force", ko: "대한민국 공군" },
         location: { en: "Republic of Korea", ko: "대한민국" },
         period: { en: "Sept 2022 – June 2024", ko: "2022년 9월 – 2024년 6월" },
@@ -166,6 +225,7 @@ export const messages = {
       },
       {
         role: { en: "Software Engineering Intern", ko: "소프트웨어 엔지니어링 인턴" },
+        employmentType: { en: "Internship", ko: "인턴십" },
         org: { en: "Atom Tech Solutions LTD", ko: "Atom Tech Solutions LTD" },
         location: { en: "Berkeley, CA", ko: "Berkeley, CA" },
         period: { en: "May 2022 – Aug 2022", ko: "2022년 5월 – 2022년 8월" },
@@ -188,6 +248,49 @@ export const messages = {
   skills: {
     sectionLabel: { en: "03. Skills", ko: "03. 기술" },
     heading: { en: "Technologies I Work With", ko: "사용하는 기술" },
+    browseHint: {
+      en: "Every tool is visible, organized by how an AI product moves from code to production.",
+      ko: "AI 제품이 코드에서 프로덕션으로 가는 흐름에 따라 모든 기술을 펼쳐 보여줍니다.",
+    },
+    systemLabel: { en: "Capability system map", ko: "역량 시스템 맵" },
+    systemTitle: { en: "AI product engineering — end to end", ko: "AI 제품 엔지니어링 — 엔드투엔드" },
+    systemStatus: { en: "All capabilities online", ko: "전체 역량 온라인" },
+    systemFooter: { en: "From interface to intelligence to operations", ko: "인터페이스에서 지능과 운영까지" },
+    stages: [
+      {
+        eyebrow: { en: "Foundation", ko: "기반" },
+        title: { en: "Languages & Runtime", ko: "언어 & 런타임" },
+        description: { en: "The core tools used to express, automate, and ship systems.", ko: "시스템을 구현하고 자동화하며 배포하는 핵심 도구입니다." },
+        groupIndices: [0],
+      },
+      {
+        eyebrow: { en: "Product Layer", ko: "제품 레이어" },
+        title: { en: "Interfaces & Services", ko: "인터페이스 & 서비스" },
+        description: { en: "User-facing experiences connected to reliable application services.", ko: "사용자 경험과 안정적인 애플리케이션 서비스를 연결합니다." },
+        groupIndices: [1, 2],
+      },
+      {
+        eyebrow: { en: "Intelligence Layer", ko: "지능 레이어" },
+        title: { en: "Data & Models", ko: "데이터 & 모델" },
+        description: { en: "Storage, retrieval, routing, memory, and model-powered decisions.", ko: "저장·검색·라우팅·메모리와 모델 기반 의사결정을 구성합니다." },
+        groupIndices: [3, 4],
+      },
+      {
+        eyebrow: { en: "Learning Loop", ko: "학습 루프" },
+        title: { en: "Evaluation & Experiments", ko: "평가 & 실험" },
+        description: { en: "Measurement systems that turn production behavior into improvement.", ko: "프로덕션 행동을 측정하고 개선으로 연결하는 시스템입니다." },
+        groupIndices: [5],
+      },
+      {
+        eyebrow: { en: "Production", ko: "프로덕션" },
+        title: { en: "Delivery & Reliability", ko: "배포 & 신뢰성" },
+        description: { en: "Infrastructure, observability, and tests that keep the system running.", ko: "시스템을 안정적으로 운영하는 인프라·관측성·테스트입니다." },
+        groupIndices: [6, 7],
+      },
+    ] as const,
+    openGroup: { en: "Open stack", ko: "기술 스택 열기" },
+    closeGroup: { en: "Close skill details", ko: "기술 상세 닫기" },
+    tools: { en: "tools", ko: "개 기술" },
     groups: [
       {
         category: { en: "Languages", ko: "언어" },
@@ -203,19 +306,19 @@ export const messages = {
       },
       {
         category: { en: "Database / Storage", ko: "데이터베이스 / 스토리지" },
-        items: ["MongoDB", "Mongoose", "DuckDB", "Firebase", "Mem0 Vector Memory Store"],
+        items: ["MongoDB", "Mongoose", "Supabase / PostgreSQL", "Redis", "DuckDB", "Firebase", "Mem0 Vector Memory Store"],
       },
       {
         category: { en: "AI / LLM", ko: "AI / LLM" },
-        items: ["OpenAI API", "AWS Bedrock", "OpenRouter", "Prompt Engineering", "RAG", "FAISS", "Semantic Embeddings", "Mem0 OSS", "Vision / Multimodal LLM", "Federated Learning", "PyTorch", "TensorFlow", "Scikit-learn", "spaCy", "SHAP", "Flower (FL)"],
+        items: ["OpenAI API", "AWS Bedrock", "OpenRouter", "Prompt Engineering", "RAG", "FAISS", "Semantic Embeddings", "Vector Similarity Routing", "LLM Evaluation", "Mem0 OSS", "Vision / Multimodal LLM", "Federated Learning", "PyTorch", "TensorFlow", "Scikit-learn", "spaCy", "SHAP", "Flower (FL)"],
       },
       {
         category: { en: "Experimentation / Analytics", ko: "실험 / 분석" },
-        items: ["A/B Testing", "Treatment / Control Assignment", "Funnel Analysis", "Recommendation Completion Rate"],
+        items: ["A/B Testing", "Sticky Treatment / Control Assignment", "Evaluation Harnesses", "Backfill Pipelines", "Funnel Analysis", "Recommendation Completion Rate"],
       },
       {
         category: { en: "Infrastructure / Operations", ko: "인프라 / 운영" },
-        items: ["Kubernetes", "Helm", "Kubernetes CronJob", "Datadog", "Feature Flags", "Retry / Exponential Backoff"],
+        items: ["Kubernetes", "Helm", "Kubernetes CronJob", "Docker / ECR", "ArgoCD", "GitHub Actions", "Datadog", "Feature Flags", "Retry / Exponential Backoff"],
       },
       {
         category: { en: "Testing / Dev Tools", ko: "테스트 / 개발 도구" },
@@ -228,77 +331,309 @@ export const messages = {
   projects: {
     sectionLabel: { en: "04. Projects", ko: "04. 프로젝트" },
     heading: { en: "Things I've Built", ko: "나의 프로젝트" },
+    browseHint: {
+      en: "Scan the evidence, then enter a card for the complete case study.",
+      ko: "핵심 증거를 훑어보고, 카드를 열어 전체 케이스 스터디를 확인하세요.",
+    },
+    dragHint: { en: "Swipe or drag to explore", ko: "옆으로 밀어서 둘러보기" },
+    previousProject: { en: "Previous project", ko: "이전 프로젝트" },
+    nextProject: { en: "Next project", ko: "다음 프로젝트" },
     viewDetails: { en: "View details", ko: "자세히 보기" },
     githubTitle: { en: "GitHub", ko: "GitHub" },
     liveSiteTitle: { en: "Live site", ko: "라이브 사이트" },
     bySlug: {
-      "shopport-routing-quality": {
+      "levit-shopport-ai": {
         title: {
-          en: "Shopport — Recommendation Routing & Quality Analysis",
-          ko: "Shopport — 추천 라우팅 & 품질 분석",
+          en: "Levit — Shopport AI Recommendation Platform",
+          ko: "Levit — Shopport AI 추천 플랫폼",
         },
-        type: { en: "AI / Full-Stack", ko: "AI / 풀스택" },
-        badge: { en: "Levit — Internal", ko: "Levit — 사내" },
+        type: { en: "Levit · Shopport AI", ko: "Levit · Shopport AI" },
+        badge: { en: "Associate Problem Solver", ko: "Associate Problem Solver" },
         shortDescription: {
-          en: "Contributed to Shopport, Levit's AI shopping assistant, building LLM-based product/domain routing classification and an internal recommendation-quality evaluation platform with turn-level analysis, failure-type classification, and worker/cron-driven batch pipelines.",
-          ko: "Levit의 AI 쇼핑 어시스턴트 Shopport에 기여하여 LLM 기반 상품·도메인 라우팅 분류와, 턴 단위 분석·실패 유형 분류·워커/크론 기반 배치 파이프라인을 갖춘 내부 추천 품질 평가 플랫폼을 구축.",
+          en: "Owned applied-AI and full-stack work across Shopport's routing lifecycle: evolved an LLM router into an embedding-based semantic and hybrid router, built the production quality analytics and backfill platform, and shipped a memory-grounded cross-category recommender end to end.",
+          ko: "Shopport 라우팅 라이프사이클 전반의 Applied AI·풀스택 업무를 담당했습니다. LLM 라우터를 임베딩 기반 시맨틱·하이브리드 라우터로 발전시키고, 프로덕션 품질 분석·백필 플랫폼과 메모리 기반 크로스카테고리 추천 시스템을 엔드투엔드로 구축했습니다.",
         },
         longDescription: {
-          en: "Shopport is Levit's production AI shopping assistant, embedded inside a broader unified-chat product. I contributed to the recommendation routing and quality-evaluation layers rather than building the app standalone.\n\nOn the routing side, I worked on LLM-based classification of user queries into product domains, driving which recommendation path a query is routed to. On the evaluation side, I designed and helped build an internal platform that scores each conversation turn for routing correctness and response quality, and classifies failures (unsupported queries, misrouting, generic responses, unanalyzable cases) — replacing manual spot-checks with a repeatable, versioned pipeline.\n\nResults are persisted in MongoDB with analysis versioning, and a Kubernetes CronJob-based worker pipeline handles scheduled evaluation runs, catch-up backfills, and retries. An operator-facing admin surfaces failure trends and coverage gaps, backed by Datadog for observability into pipeline failures.",
-          ko: "Shopport는 통합챗 제품 안에 내장된 Levit의 프로덕션 AI 쇼핑 어시스턴트입니다. 앱 전체를 단독으로 만든 것이 아니라 추천 라우팅과 품질 평가 레이어에 기여했습니다.\n\n라우팅 측면에서는 사용자 쿼리를 상품 도메인으로 분류하는 LLM 기반 분류 작업을 맡아, 쿼리가 어떤 추천 경로로 라우팅될지 결정했습니다. 평가 측면에서는 각 대화 턴의 라우팅 정확도와 응답 품질을 점수화하고 실패 유형(미지원 쿼리, 오라우팅, 일반적 응답, 분석 불가)을 분류하는 내부 플랫폼을 설계·구축해, 수동 점검을 반복 가능하고 버전 관리되는 파이프라인으로 대체했습니다.\n\n결과는 버전 관리와 함께 MongoDB에 저장되며, Kubernetes CronJob 기반 워커 파이프라인이 예약 평가 실행·캐치업 백필·재시도를 처리합니다. 운영자용 어드민에서는 실패 추세와 커버리지 공백을 확인할 수 있고, Datadog으로 파이프라인 장애를 관측합니다.",
+          en: "During a seven-week engagement at Levit, I worked across Shopport's applied-AI stack: React and Next.js operator tools, NestJS routing and recommendation services, MongoDB and Supabase analytics, background workers, and production rollout controls. I independently ran the loop from problem definition and diagnostic harnesses through implementation, deployment, backfill, and production verification.\n\nThe work was not a standalone app built in isolation. It was a set of high-leverage contributions inside a large commerce product, made in close collaboration with the CEO and adjacent product and engineering teams.",
+          ko: "Levit에서 약 7주 동안 React·Next.js 운영 도구, NestJS 라우팅·추천 서비스, MongoDB·Supabase 분석, 백그라운드 워커, 프로덕션 롤아웃 제어까지 Shopport의 Applied AI 스택을 세로로 관통해 작업했습니다. 문제 정의와 진단 하네스 구축부터 구현, 배포, 백필, 프로덕션 검증까지 한 사이클을 독립적으로 수행했습니다.\n\n이 작업은 앱 전체를 혼자 새로 만든 것이 아니라, 대규모 커머스 제품 안에서 CEO 및 인접 제품·엔지니어링 팀과 긴밀히 협업하며 핵심 레이어에 높은 영향도의 기여를 한 것입니다.",
         },
         highlights: [
-          { en: "LLM-based product-domain and routing classification for user queries", ko: "사용자 쿼리에 대한 LLM 기반 상품 도메인·라우팅 분류" },
-          { en: "Turn-level recommendation quality analysis with failure-type taxonomy", ko: "실패 유형 분류 체계를 갖춘 턴 단위 추천 품질 분석" },
-          { en: "Versioned analysis results stored in MongoDB", ko: "MongoDB에 버전 관리되는 분석 결과 저장" },
-          { en: "Kubernetes CronJob worker pipeline with backfill and retry handling", ko: "백필·재시도를 처리하는 Kubernetes CronJob 워커 파이프라인" },
-          { en: "Admin dashboards for failure-trend visualization built with Recharts", ko: "Recharts로 구축한 실패 추세 시각화 어드민 대시보드" },
+          { en: "Evolved routing from an LLM classifier to a semantic router that skips the LLM for confident cases (~8× faster), then to a hybrid classifier for ambiguous queries", ko: "LLM 분류기를 확신 구간에서 LLM을 건너뛰는 시맨틱 라우터(약 8배 빠름), 이후 애매한 쿼리를 처리하는 하이브리드 분류기로 발전" },
+          { en: "Evaluated V1/V2/V3 on production-derived traffic: V3 reached 86% accuracy with 3 regressions versus 31 for V2 and rescued 93% of eligible central-router errors", ko: "프로덕션 기반 트래픽에서 V1/V2/V3를 평가해 V3 정확도 86%, 회귀 3건(V2 31건), 대상 중앙 라우터 오류 구제율 93% 달성" },
+          { en: "Built the routing-quality platform end to end: turn audit, versioned evaluation, coverage diffs, latency waterfalls, historical backfills, and operator controls", ko: "턴 검수, 평가 버저닝, 커버리지 대조, 지연 워터폴, 히스토리 백필, 운영 제어를 갖춘 라우팅 품질 플랫폼을 엔드투엔드로 구축" },
+          { en: "Designed and shipped Wowness, a Mem0-backed cross-category discovery recommender, as sole engineer across a 919-line NestJS engine, React UI, and admin lab", ko: "Mem0 기반 크로스카테고리 발견 추천 Wowness를 919줄 NestJS 엔진, React UI, 어드민 랩까지 단독 엔지니어로 설계·배포" },
+          { en: "Grounded generated recommendations in the live catalog and used A/B evaluation to select a persona fan-out engine over the initial weighted-score baseline", ko: "생성 추천을 실제 카탈로그에 접지하고, A/B 평가로 초기 가중 점수 베이스라인보다 페르소나 fan-out 엔진을 선택" },
+          { en: "Diagnosed production failures at the system boundary, including a split MongoDB connection that kept V3 at zero executions and a CronJob self-call hairpin failure", ko: "V3 실행을 0회로 만든 MongoDB 연결 분리와 CronJob self-call hairpin 실패 등 시스템 경계의 프로덕션 장애를 진단" },
+          { en: "Corrected systematic analytics false positives through root-cause fixes and rollback-safe backfills, reducing one queue-level count from 2,005 to 811 and dashboard errors from 82 to 57", ko: "근본 원인 수정과 롤백 안전 백필로 체계적인 분석 오탐을 바로잡아 큐 단위 집계를 2,005→811, 대시보드 오류를 82→57로 감소" },
+        ] as const satisfies readonly Bilingual[],
+        impact: [
+          { value: "730", label: { en: "GitHub Contributions", ko: "GitHub 기여 커밋" } },
+          { value: "143", label: { en: "Merged Pull Requests", ko: "병합 PR" } },
+          { value: "+114K", label: { en: "TS / TSX Source Lines Added", ko: "추가한 TS / TSX 소스 라인" } },
+          { value: "~8×", label: { en: "Faster Confident-Case Routing", ko: "확신 구간 라우팅 속도 향상" } },
+          { value: "86%", label: { en: "V3 Routing Accuracy", ko: "V3 라우팅 정확도" } },
+          { value: "93%", label: { en: "Eligible Router Errors Rescued", ko: "대상 라우터 오류 구제율" } },
+          { value: "2,005 → 811", label: { en: "False-Positive Queue Count Corrected", ko: "수정한 오탐 큐 집계" } },
+          { value: "919 LOC", label: { en: "Wowness NestJS Recommendation Engine", ko: "Wowness NestJS 추천 엔진" } },
+        ],
+        sections: [
+          {
+            title: { en: "Semantic & Hybrid Routing Engine", ko: "시맨틱 & 하이브리드 라우팅 엔진" },
+            body: {
+              en: "I took Shopport's routing stack through three architectural generations: catalog and LLM classification, a route-index semantic gate, and a hybrid router. The semantic fast path represents each catalog leaf with sentence-embedding centroids and bypasses the LLM when similarity is decisive. For the ambiguous 0.65–0.78 similarity band, chatbot 1.2.0 adds a logistic-regression destination classifier over frozen 768-dimensional embeddings while preserving deterministic safety rules for confident cases.",
+              ko: "Shopport 라우팅 스택을 카탈로그·LLM 분류, route-index 시맨틱 게이트, 하이브리드 라우터의 세 세대로 발전시켰습니다. 시맨틱 fast path는 각 카탈로그 리프를 문장 임베딩 centroid로 표현해 유사도가 확실할 때 LLM을 건너뜁니다. 유사도 0.65~0.78의 애매 구간에는 동결된 768차원 임베딩 위 로지스틱 회귀 목적지 분류기를 추가하되, 확신 구간의 결정론적 안전 규칙은 유지했습니다.",
+            },
+            bullets: [
+              { en: "Expanded routing across small appliances, supplements, processed foods, household, baby, furniture, and sports domains", ko: "소형가전·영양제·가공식품·생활·유아·가구·스포츠 도메인으로 라우팅 확장" },
+              { en: "Added brand/model handling, follow-up-context retention, image routing, fashion style routing, and live scope overrides", ko: "브랜드·모델명 처리, 후속 대화 문맥 유지, 이미지 라우팅, 패션 스타일 라우팅, 실시간 스코프 override 추가" },
+              { en: "Built paired evaluation harnesses and found model TTFT—not prompt size or architectural layering—to be the dominant latency lever", ko: "paired 평가 하네스로 프롬프트 크기나 구조가 아니라 모델 TTFT가 주 지연 레버임을 규명" },
+              { en: "Measured ~0.4s median routing for confident semantic fast-path cases and ~8× speedup versus the LLM path", ko: "확신 구간 시맨틱 fast path에서 중앙값 약 0.4초, LLM 경로 대비 약 8배 속도 향상 측정" },
+            ],
+          },
+          {
+            title: { en: "Production Evaluation & Operations Platform", ko: "프로덕션 평가 & 운영 플랫폼" },
+            body: {
+              en: "I built the operator-facing system used to measure, audit, and improve routing quality. It evolved from live turn-by-turn analysis into persisted, versioned results with fast summary reads and rollback-safe historical reclassification.",
+              ko: "라우팅 품질을 측정·감사·개선하는 운영자용 시스템을 구축했습니다. 실시간 턴별 분석에서 시작해 결과 영속화, 평가 버저닝, 빠른 summary 조회, 롤백 가능한 과거 재분류까지 발전시켰습니다.",
+            },
+            bullets: [
+              { en: "Turn-level pass/fail audits, failure taxonomy, analysis versioning, original-conversation traceability, and weekly trend visualization", ko: "턴 단위 pass/fail 검수, 실패 분류 체계, 분석 버저닝, 원본 대화 추적, 주간 추세 시각화" },
+              { en: "Three-way coverage comparison across routing leaves, the Core catalog, and route-index, with no-deploy override workflows", ko: "라우팅 리프·Core 카탈로그·route-index 3자 커버리지 대조와 무배포 override 워크플로" },
+              { en: "Scheduled workers, catch-up backfills, concurrency controls, pacing, retries, exponential backoff, progress/ETA, and partial-failure recovery", ko: "예약 워커, catch-up 백필, 동시성·페이싱 제어, 재시도·지수 백오프, 진행률·ETA, 부분 실패 복구" },
+              { en: "Live server-versus-local routing comparison, per-gate latency waterfalls, and post-routing outcome linking", ko: "실서버 대 로컬 라우팅 비교, 게이트별 지연 워터폴, 라우팅 후 outcome 연결" },
+            ],
+          },
+          {
+            title: { en: "Evaluation Integrity & Production Debugging", ko: "평가 무결성 & 프로덕션 디버깅" },
+            body: {
+              en: "A major part of the work was proving when the measurement system—not the router—was wrong. I traced misleading dashboard counts through stored labels, serving channels, version gates, database connections, and deployment state before changing production behavior.",
+              ko: "라우터가 아니라 측정 시스템이 틀린 경우를 입증하는 것이 중요한 작업이었습니다. 프로덕션 동작을 바꾸기 전에 저장 라벨, 실제 서빙 채널, 버전 게이트, DB 연결, 배포 상태까지 추적해 잘못된 대시보드 수치의 원인을 찾았습니다.",
+            },
+            bullets: [
+              { en: "Reduced an over-counted queue metric from 2,005 to 811 by finding a missing analysis-version gate", ko: "누락된 분석 버전 게이트를 찾아 과집계된 큐 지표를 2,005에서 811로 감소" },
+              { en: "Reduced dashboard errors from 82 to 57 by synchronizing summary and turn-detail representations during backfill", ko: "백필 시 summary와 턴 상세 표현을 동기화해 대시보드 오류를 82에서 57로 감소" },
+              { en: "Found a split main/external MongoDB connection that caused the V3 switch to read an empty cluster and execute zero times", ko: "V3 스위치가 빈 클러스터를 읽어 실행 0회가 되게 한 main/external MongoDB 연결 분리 발견" },
+              { en: "Diagnosed a Kubernetes CronJob self-call hairpin failure and repaired it with loopback routing", ko: "Kubernetes CronJob self-call hairpin 실패를 진단하고 loopback 라우팅으로 복구" },
+            ],
+          },
+          {
+            title: { en: "Wowness — Memory-Grounded Discovery", ko: "Wowness — 메모리 기반 발견 추천" },
+            body: {
+              en: "I designed and shipped Wowness end to end to help users discover products outside categories they had already purchased from. Mem0 extracts durable user facts; a persona-based fan-out engine proposes novel categories and queries; and catalog search validates every final item to prevent hallucinated products.",
+              ko: "사용자가 이미 구매한 카테고리 밖의 상품을 발견하도록 Wowness를 엔드투엔드로 설계·배포했습니다. Mem0가 지속 가능한 사용자 fact를 추출하고, 페르소나 기반 fan-out 엔진이 새로운 카테고리와 쿼리를 제안하며, 카탈로그 검색이 최종 상품을 검증해 환각 상품을 방지합니다.",
+            },
+            bullets: [
+              { en: "Sole engineer across a 919-line NestJS engine, memory store, React home surface, experiment hook, and admin review lab", ko: "919줄 NestJS 엔진, 메모리 저장소, React 홈 화면, 실험 훅, 어드민 검수 랩 전 계층을 단독 구현" },
+              { en: "Compared a relevance/coherence/novelty weighted baseline against a persona fan-out engine and removed the weaker baseline based on A/B results", ko: "관련성·일관성·참신함 가중 베이스라인과 페르소나 fan-out 엔진을 비교하고 A/B 결과에 따라 약한 베이스라인 제거" },
+              { en: "Implemented privacy-aware user facts, hashed identity boundaries, kill switches, and production-safe rollout controls", ko: "프라이버시를 고려한 사용자 fact, 해시 ID 경계, 킬스위치, 프로덕션 안전 롤아웃 제어 구현" },
+              { en: "Optimized for useful surprise—not merely similarity—while grounding every recommendation in real inventory", ko: "단순 유사도가 아닌 유용한 의외성을 최적화하면서 모든 추천을 실제 재고에 접지" },
+            ],
+          },
+          {
+            title: { en: "Experimentation & Product Reliability", ko: "실험 & 제품 안정성" },
+            body: {
+              en: "I built experiments as part of the product architecture rather than as one-off analytics. Server-side sticky assignment, forced test accounts, admin rollout controls, and destination-arrival attribution supported safe product decisions across routing and personalization.",
+              ko: "실험을 일회성 분석이 아니라 제품 아키텍처의 일부로 구축했습니다. 서버 사이드 sticky 배정, 테스트 계정 강제 배정, 어드민 롤아웃 제어, 실제 목적지 도착 attribution으로 라우팅과 개인화 의사결정을 안전하게 지원했습니다.",
+            },
+            bullets: [
+              { en: "Single-card auto-routing treatment/control flows and actual destination-arrival completion measurement", ko: "단일 카드 자동 라우팅 treatment/control 흐름과 실제 목적지 도착 기준 완료율 측정" },
+              { en: "Fixed Korean IME initial-character splitting, navigation flicker, scroll restoration, infinite loading, and prompt leakage", ko: "한글 IME 첫 글자 분리, 내비게이션 깜빡임, 스크롤 복원, 무한 로딩, 내부 프롬프트 노출 수정" },
+              { en: "Added feature flags, kill switches, Datadog reporting, and degraded-mode fallbacks around AI-dependent paths", ko: "AI 의존 경로에 기능 플래그, 킬스위치, Datadog 보고, degraded-mode 폴백 추가" },
+            ],
+          },
+        ] as const,
+        keyTakeaways: [
+          {
+            en: "A production AI system is incomplete without an evaluation loop that can distinguish model failures from measurement failures.",
+            ko: "모델 실패와 측정 실패를 구분할 수 있는 평가 루프가 없다면 프로덕션 AI 시스템은 완성되지 않은 것입니다.",
+          },
+          {
+            en: "Optimize the measured bottleneck: several architectural latency ideas failed before the harness showed that model TTFT was the real lever.",
+            ko: "측정된 병목을 최적화해야 합니다. 여러 구조적 지연 개선안이 실패한 뒤 하네스가 모델 TTFT가 진짜 레버임을 보여줬습니다.",
+          },
+          {
+            en: "Rules should enforce and verify decisions, not pretend to understand natural-language meaning; semantic judgment belongs to models, with deterministic safety boundaries around them.",
+            ko: "규칙은 자연어 의미를 이해하는 척하기보다 결정을 집행하고 검증해야 합니다. 의미 판단은 모델이 맡고, 결정론적 코드는 그 주위에 안전 경계를 둬야 합니다.",
+          },
+          {
+            en: "Personalization is not remembering everything—it is extracting the few durable preferences that create useful surprise, safely.",
+            ko: "개인화는 모든 것을 기억하는 것이 아니라, 유용한 의외성을 만드는 소수의 지속 가능한 선호를 안전하게 추출하는 것입니다.",
+          },
         ] as const satisfies readonly Bilingual[],
       },
-      "shopport-ab-testing": {
+      "ieee-battlebot": {
         title: {
-          en: "Shopport — Recommendation A/B Testing Platform",
-          ko: "Shopport — 추천 A/B 테스트 플랫폼",
+          en: "Shot & Chaser — Penn State IEEE Battle Bots Champion",
+          ko: "Shot & Chaser — Penn State IEEE Battle Bots 우승",
         },
-        type: { en: "Experimentation", ko: "실험" },
-        badge: { en: "Levit — Internal", ko: "Levit — 사내" },
+        type: { en: "Combat Robotics · Penn State IEEE", ko: "컴뱃 로보틱스 · Penn State IEEE" },
+        badge: { en: "1st Place · GladIEEEators", ko: "1위 · GladIEEEators" },
         shortDescription: {
-          en: "Contributed to an experimentation framework inside Shopport for testing single-product auto-routing, with server-side sticky user bucketing, treatment/control assignment, and completion tracking based on actual destination arrival.",
-          ko: "Shopport 내 단일 상품 자동 라우팅을 검증하기 위한 실험 프레임워크에 기여. 서버 사이드 sticky 사용자 버킷팅, treatment/control 배정, 실제 목적지 도착 기반 완료율 추적을 구현.",
+          en: "Competed under Penn State IEEE as GladIEEEators with Shot & Chaser, a coordinated two-robot combat system: a belt-driven AR500 vertical-spinner main bot and a 15° five-fork wedge minibot. Integrated weapon dynamics, mixed-material armor, LiPo electronics, FEA, arena testing, and weight/budget engineering to win 1st place in April 2026.",
+          ko: "Penn State IEEE 소속 GladIEEEators로 출전해 2대 협력 전투 로봇 Shot & Chaser를 제작했습니다. 벨트 구동 AR500 수직 스피너 메인봇과 15° 5-포크 웨지 미니봇에 무기 동역학, 복합 소재 장갑, LiPo 전장, FEA, 아레나 테스트, 중량·예산 엔지니어링을 통합해 2026년 4월 1위를 달성했습니다.",
         },
         longDescription: {
-          en: "To validate whether auto-routing a single best-match product improved outcomes over showing a full recommendation list, I contributed to an A/B testing platform built into Shopport's recommendation flow.\n\nAssignment happens server-side with persistent per-user sticky bucketing, so a given user consistently sees the same treatment or control experience across sessions. Forced assignment is supported for internal test accounts to validate both arms without waiting on random bucketing. Rather than relying on proxy metrics like clicks, recommendation completion is measured by actual arrival at the destination product page, giving a more honest read on whether routing decisions were correct.\n\nAn admin panel lets operators configure traffic allocation, force-assign test accounts, and reset or terminate experiments without a deploy — which also surfaced and let us fix UX issues like infinite loading states and navigation flicker that only showed up under real experiment traffic.",
-          ko: "단일 최적 상품으로 자동 라우팅하는 방식이 전체 추천 목록을 보여주는 방식보다 나은 결과를 내는지 검증하기 위해, Shopport 추천 플로우에 내장된 A/B 테스트 플랫폼에 기여했습니다.\n\n배정은 서버 사이드에서 영속적인 사용자별 sticky 버킷팅으로 이루어져, 같은 사용자는 세션이 바뀌어도 동일한 treatment/control 경험을 봅니다. 내부 테스트 계정에는 강제 배정을 지원해 무작위 버킷팅을 기다리지 않고도 양쪽 그룹을 검증할 수 있습니다. 클릭 같은 대리 지표 대신, 실제 목적지 상품 페이지 도착을 기준으로 추천 완료율을 측정해 라우팅 판단이 옳았는지 더 정확히 파악합니다.\n\n어드민 패널에서 운영자가 배포 없이 트래픽 비율을 설정하고, 테스트 계정을 강제 배정하며, 실험을 초기화·종료할 수 있습니다 — 이 과정에서 실제 실험 트래픽에서만 드러나는 무한 로딩과 내비게이션 깜빡임 같은 UX 문제도 발견해 수정했습니다.",
+          en: "Shot & Chaser was the GladIEEEators multibot entry representing Penn State IEEE at the IEEE Student Chapter Battle Bots Competition, where the team earned 1st place in April 2026. The strategy paired Shot, a roughly five-pound vertical-spinner robot, with Chaser, a roughly one-pound wedge-and-fork support robot. The split created positioning and ground-game options, defensive redundancy, and easier repair without giving up much of the six-pound system allowance.\n\nThe project required full-system engineering rather than isolated CAD work: parametric weapon optimization, kinetic-energy and tip-speed calculations, belt geometry, shaft support, mixed-material armor, drivetrain and radio control, protected LiPo electronics, serviceability, weight accounting, procurement, FEA, physical testing, and rapid repair. Reliability also meant reasoning about coupled failure modes: whether LiPo packs and ESCs could remain thermally safe in hot outdoor weather, whether rubber and polymer parts would soften, stretch, or creep, and whether Shot's own 334 J weapon reaction could be carried through the shaft, mounts, UHMW, and aluminum chassis. Iterative fabrication and arena tests turned those constraints into a coordinated robot system that could survive impacts and perform reliably in competition.",
+          ko: "Shot & Chaser는 Penn State IEEE를 대표해 IEEE 학생지부 Battle Bots 대회에 출전한 GladIEEEators의 멀티봇으로, 2026년 4월 1위를 차지했습니다. 약 5 lb 수직 스피너 로봇 Shot과 약 1 lb 웨지·포크 지원 로봇 Chaser를 조합해 6 lb 시스템 중량 범위 안에서 위치 선점과 그라운드 게임, 방어 이중화, 수리성을 확보했습니다.\n\n단순한 CAD 작업이 아니라 파라메트릭 무기 최적화, 운동에너지·팁 속도 계산, 벨트 형상, 샤프트 지지, 복합 소재 장갑, 구동계와 무선 제어, 보호된 LiPo 전장, 정비성, 중량 계산, 조달, FEA, 실물 테스트, 신속 수리를 함께 다루는 전체 시스템 엔지니어링이 필요했습니다. 신뢰성을 위해 더운 야외 환경에서 LiPo·ESC가 열적으로 안전한지, 고무·폴리머 부품이 연화·신장·크리프되지 않는지, Shot 자체의 334 J 무기 반력을 샤프트·마운트·UHMW·알루미늄 차체가 견딜 수 있는지를 함께 검토했습니다. 반복 제작과 아레나 테스트를 통해 충격을 견디고 대회에서 안정적으로 작동하는 협력 로봇 시스템으로 완성했습니다.",
         },
         highlights: [
-          { en: "Server-side experiment assignment with persistent per-user sticky bucketing", ko: "영속적인 사용자별 sticky 버킷팅을 사용한 서버 사이드 실험 배정" },
-          { en: "Forced assignment support for internal test accounts", ko: "내부 테스트 계정을 위한 강제 배정 지원" },
-          { en: "Recommendation completion measured by actual destination arrival, not clicks", ko: "클릭이 아닌 실제 목적지 도착 기반 추천 완료율 측정" },
-          { en: "Admin controls for traffic allocation, experiment reset, and termination", ko: "트래픽 배분·실험 초기화·종료를 위한 어드민 제어" },
-          { en: "Fixed infinite-loading and navigation-flicker issues surfaced under experiment traffic", ko: "실험 트래픽에서 드러난 무한 로딩·내비게이션 깜빡임 문제 수정" },
+          { en: "Won 1st place at the IEEE Student Chapter Battle Bots Competition in April 2026", ko: "2026년 4월 IEEE 학생지부 Battle Bots 대회 1위" },
+          { en: "Represented Penn State IEEE as team GladIEEEators in the IEEE Student Chapter Battle Bots Competition", ko: "Penn State IEEE 소속 팀 GladIEEEators로 IEEE 학생지부 Battle Bots 대회 출전" },
+          { en: "Developed a multibot strategy pairing Shot's asymmetric AR500 vertical spinner with Chaser's 15° five-fork wedge", ko: "Shot의 비대칭 AR500 수직 스피너와 Chaser의 15° 5-포크 웨지를 조합한 멀티봇 전략 개발" },
+          { en: "Calculated 334 J of weapon energy at 18,500 RPM, with approximately one pound of spinning mass and a 200+ mph maximum tip speed", ko: "약 1 lb 회전체에 대해 18,500 RPM, 무기 에너지 334 J, 최대 팁 속도 200+ mph 계산" },
+          { en: "Built a live-shaft weapon assembly with bearings, shaft collars, keyed shaft, 15T/22T pulleys, and an HTD-5M timing belt", ko: "베어링·샤프트 칼라·키드 샤프트·15T/22T 풀리·HTD-5M 타이밍 벨트로 live-shaft 무기계 구축" },
+          { en: "Designed mixed-material protection using 6061 aluminum plates, TPU sidewalls/spacers, UHMW weapon mounts, and wheel guards", ko: "6061 알루미늄 플레이트, TPU 측벽·스페이서, UHMW 무기 마운트, 휠 가드 기반 복합 소재 방어 구조 설계" },
+          { en: "Integrated separate brushed drive and brushless weapon systems, radio control, protected LiPo power, switches, fuses, and serviceable electronics", ko: "브러시드 주행계·브러시리스 무기계, 무선 제어, 보호된 LiPo 전원, 스위치·퓨즈·정비 가능한 전장 통합" },
+          { en: "Engineered around thermal buildup in LiPo packs and ESCs, elastomer stretch and creep, and chassis reaction loads generated by the robot's own weapon", ko: "LiPo·ESC 열 축적, 탄성체의 신장·크리프, 자체 무기가 발생시키는 차체 반력까지 고려해 설계" },
+          { en: "Used Fusion simulations to verify the weapon walls above a 4,000 N load with a 2.09 minimum safety factor, then ran repeated arena tests", ko: "Fusion 시뮬레이션으로 무기 벽을 4,000 N 이상 하중·최소 안전율 2.09에서 검증하고 반복 아레나 테스트 수행" },
+          { en: "Managed a $976.47 total build budget with $496.18 of hardware entering the arena", ko: "총 제작 예산 $976.47, 아레나 투입 하드웨어 $496.18 관리" },
         ] as const satisfies readonly Bilingual[],
-      },
-      "shopport-mem0-personalization": {
-        title: {
-          en: "Shopport — Mem0 Cross-Category Personalization",
-          ko: "Shopport — Mem0 크로스카테고리 개인화",
-        },
-        type: { en: "AI / Personalization", ko: "AI / 개인화" },
-        badge: { en: "In Progress", ko: "진행 중" },
-        shortDescription: {
-          en: "In-progress work on a memory-first personalization layer for Shopport using Mem0 OSS — extracting long-term user preferences from conversations and applying them across product categories, with PII-safe memory handling and A/B-tested rollout.",
-          ko: "Mem0 OSS를 활용한 Shopport 메모리 우선 개인화 레이어를 진행 중 — 대화에서 장기 사용자 선호를 추출해 상품 카테고리 전반에 적용하고, PII 안전 메모리 처리와 A/B 테스트 기반 롤아웃을 함께 구현.",
-        },
-        longDescription: {
-          en: "Rather than treating each shopping conversation in isolation, this project explores giving Shopport long-term memory of a user's preferences so recommendations improve across categories over time, not just within a single session.\n\nUsing Mem0 OSS with OpenRouter/GPT-5-mini for extraction and text-embedding-3-small for semantic retrieval, the pipeline pulls out explicit, long-term-relevant facts and preferences from conversations, hashes user identifiers, and strips PII before anything is persisted. When a user starts a new shopping conversation in a different category, relevant memories are retrieved and passed to the existing recommendation engine — memory informs candidate selection, but the recommendation engine still does the final product validation, keeping the two systems cleanly separated.\n\nThis is currently being validated with a treatment/control A/B test comparing standard recommendations against memory-augmented ones, tracking impression, click, and completion rates, alongside home-page recommendation cards and admin experiment controls.",
-          ko: "각 쇼핑 대화를 독립적으로 다루는 대신, 이 프로젝트는 Shopport에 사용자 선호에 대한 장기 기억을 부여해 단일 세션을 넘어 카테고리 전반에서 추천이 개선되도록 하는 방향을 탐구합니다.\n\nMem0 OSS와 OpenRouter/GPT-5-mini(추출), text-embedding-3-small(의미 검색)을 사용해, 대화에서 명시적이고 장기적으로 유효한 사실과 선호를 추출하고, 저장 전에 사용자 식별자를 해싱하고 PII를 제거합니다. 사용자가 다른 카테고리에서 새 쇼핑 대화를 시작하면 관련 기억을 검색해 기존 추천 엔진에 전달합니다 — 기억은 후보 선정에 활용되고, 최종 상품 검증은 여전히 추천 엔진이 수행해 두 시스템을 깔끔하게 분리합니다.\n\n현재는 표준 추천과 기억 기반 추천을 비교하는 treatment/control A/B 테스트로 검증 중이며, 노출·클릭·완료율을 추적하고 홈 화면 추천 카드와 어드민 실험 제어도 함께 구현하고 있습니다.",
-        },
-        highlights: [
-          { en: "Long-term preference and fact extraction from conversations via Mem0 OSS", ko: "Mem0 OSS를 통한 대화 기반 장기 선호·사실 추출" },
-          { en: "PII redaction and user-ID hashing before memory persistence", ko: "메모리 저장 전 PII 제거 및 사용자 ID 해싱" },
-          { en: "Cross-category recommendation using retrieved memories plus the existing recommendation engine for validation", ko: "검색된 기억과 기존 추천 엔진을 함께 활용한 크로스카테고리 추천" },
-          { en: "Clean separation between the LLM/memory layer and the recommendation engine", ko: "LLM/메모리 레이어와 추천 엔진의 명확한 분리" },
-          { en: "Treatment/control A/B test in progress, tracking impression/click/completion rates", ko: "노출/클릭/완료율을 추적하는 treatment/control A/B 테스트 진행 중" },
+        impact: [
+          { value: "1st", label: { en: "IEEE Battle Bots Competition", ko: "IEEE Battle Bots 대회" } },
+          { value: "2 Bots", label: { en: "Shot & Chaser Multibot Strategy", ko: "Shot & Chaser 멀티봇 전략" } },
+          { value: "334 J", label: { en: "Calculated Weapon Energy", ko: "계산 무기 에너지" } },
+          { value: "200+ mph", label: { en: "Maximum Spinner Tip Speed", ko: "최대 스피너 팁 속도" } },
+          { value: ">4,000 N", label: { en: "Validated Weapon-Wall Load", ko: "검증한 무기 벽 하중" } },
+          { value: "$496", label: { en: "In-Arena Hardware Cost", ko: "아레나 투입 하드웨어 비용" } },
+        ],
+        sections: [
+          {
+            title: { en: "Multibot Strategy", ko: "멀티봇 전략" },
+            body: { en: "Representing Penn State IEEE, GladIEEEators split the system into Shot and Chaser instead of concentrating every capability in one chassis. Shot delivered weapon energy through a vertical spinner, while Chaser used a compact wedge, five forks, and wheel protection to control space and support the primary bot.", ko: "Penn State IEEE를 대표한 GladIEEEators는 모든 기능을 하나의 섀시에 집중하지 않고 Shot과 Chaser로 시스템을 분리했습니다. Shot은 수직 스피너로 무기 에너지를 전달하고, Chaser는 소형 웨지·5개 포크·휠 보호 구조로 공간을 제어하며 메인봇을 지원했습니다." },
+            bullets: [
+              { en: "Designed both bots as one coordinated competition system rather than independent builds", ko: "두 로봇을 독립 제작물이 아닌 하나의 협력 대회 시스템으로 설계" },
+              { en: "Balanced weapon potential, maneuverability, robustness, repairability, weight, and budget across two platforms", ko: "두 플랫폼의 무기력·기동성·견고성·수리성·중량·예산을 통합적으로 조율" },
+              { en: "Built both drivetrains to remain mobile and useful after impacts or orientation changes", ko: "충격과 자세 변화 후에도 기동성과 역할을 유지하도록 두 구동계 설계" },
+            ],
+            media: [
+              {
+                alt: { en: "CAD assembly of the Chaser support robot", ko: "Chaser 지원 로봇 CAD 조립도" },
+                caption: { en: "Chaser CAD — 15-degree wedge, five forks, protected wheels, and compact packaging.", ko: "Chaser CAD — 15도 웨지, 5개 포크, 보호된 휠, 소형 내부 배치." },
+              },
+              {
+                alt: { en: "Physical Chaser prototype during fit testing", ko: "조립 적합성을 시험 중인 Chaser 실물 프로토타입" },
+                caption: { en: "Chaser prototype used to verify packaging, wheel guards, fork geometry, and ground clearance.", ko: "내부 배치, 휠 가드, 포크 형상, 지상고를 검증한 Chaser 프로토타입." },
+              },
+              {
+                alt: { en: "Early purple Chaser prototype with exposed electronics", ko: "전장이 노출된 초기 보라색 Chaser 프로토타입" },
+                caption: { en: "Early Chaser prototype used to test the 15-degree five-fork geometry and internal packaging.", ko: "15도 5-포크 형상과 내부 배치를 시험한 초기 Chaser 프로토타입." },
+              },
+            ],
+          },
+          {
+            title: { en: "Weapon System", ko: "무기 시스템" },
+            body: { en: "Shot used an asymmetric AR500 steel vertical spinner driven by a 1250 kV brushless outrunner through an HTD-5M belt reduction. Parametric optimization balanced its center of mass; a live keyed shaft, bearings, collars, spacers, and a dedicated aluminum motor bracket carried the roughly one-pound rotating assembly.", ko: "Shot은 1250 kV 브러시리스 아웃러너와 HTD-5M 벨트 감속으로 구동되는 비대칭 AR500 강 수직 스피너를 사용했습니다. 파라메트릭 최적화로 무게중심을 맞추고 키드 live shaft, 베어링, 칼라, 스페이서, 전용 알루미늄 모터 브래킷으로 약 1 lb 회전체를 지지·구속했습니다." },
+            bullets: [
+              { en: "Evaluated spinner dimensions and belt lengths before finalizing pulley center distance", ko: "풀리 중심 거리를 확정하기 전 스피너 크기와 벨트 길이 대안 평가" },
+              { en: "Used 15-tooth motor and 22-tooth spinner pulleys with replaceable timing belts", ko: "15T 모터 풀리와 22T 스피너 풀리, 교체 가능한 타이밍 벨트 사용" },
+              { en: "Calculated 18,500 RPM, 334 J of kinetic energy, and a maximum tip speed above 200 mph", ko: "18,500 RPM, 운동에너지 334 J, 최대 팁 속도 200 mph 이상 계산" },
+              { en: "Added weapon stops, clearance checks, thicker mounts, fillets, and stress testing around the weapon arms", ko: "무기 스톱, 간극 검사, 마운트 보강, 필렛, 무기 암 응력 테스트 적용" },
+            ],
+            media: [
+              {
+                alt: { en: "CAD assembly of Shot's vertical-spinner weapon system", ko: "Shot 수직 스피너 무기 시스템 CAD 조립도" },
+                caption: { en: "Shot CAD — spinner, belt drive, live shaft, weapon mounts, and chassis packaging.", ko: "Shot CAD — 스피너, 벨트 구동계, live shaft, 무기 마운트, 차체 내부 배치." },
+              },
+              {
+                alt: { en: "Close-up CAD render of Shot's spinner and live-shaft assembly", ko: "Shot 스피너와 live-shaft 조립부의 확대 CAD 렌더" },
+                caption: { en: "Weapon-subsystem CAD — AR500 spinner, live shaft, bearings, collars, and mount interfaces.", ko: "무기 서브시스템 CAD — AR500 스피너, live shaft, 베어링, 칼라, 마운트 결합부." },
+              },
+              {
+                alt: { en: "Fusion iProperties showing Shot weapon mass and inertia", ko: "Shot 무기의 질량과 관성 특성을 보여주는 Fusion iProperties" },
+                caption: { en: "Fusion iProperties — the 0.610 lb·in² mass moment used in the 334 J energy calculation.", ko: "Fusion iProperties — 334 J 에너지 계산에 사용한 질량 관성모멘트 0.610 lb·in²." },
+              },
+            ],
+          },
+          {
+            title: { en: "Chassis, Armor & Drivetrain", ko: "섀시·장갑 & 구동계" },
+            body: { en: "Shot used a sandwich chassis combining 0.125-inch 6061 aluminum plates, 95A TPU walls, aluminum spacers, UHMW weapon holders, and steel forks. Chaser used a 15° wedge with five forks, a TPU body, and PETG top plate and wheel guards. Both designs prioritized arena-impact survival and fast repair.", ko: "Shot은 0.125인치 6061 알루미늄 플레이트, 95A TPU 벽, 알루미늄 스페이서, UHMW 무기 홀더, 강철 포크를 결합한 샌드위치 섀시를 사용했습니다. Chaser는 15° 웨지와 5개 포크, TPU 바디, PETG 상판·휠 가드를 적용했습니다. 두 기체 모두 아레나 충격 생존성과 빠른 수리를 우선했습니다." },
+            bullets: [
+              { en: "6061 aluminum supplied rigid structure while UHMW absorbed weapon loads and TPU provided resilient side protection", ko: "6061 알루미늄은 강성 구조, UHMW는 무기 하중 흡수, TPU는 탄성 측면 보호 담당" },
+              { en: "Integrated 3-inch neoprene foam wheels and combat-robotics brushed motors on Shot; Chaser used 22:1 16 mm gearmotors, 2-inch wheels, and reached 3.9 ft/s", ko: "Shot에 3인치 네오프렌 폼 휠과 컴뱃 로보틱스용 브러시드 모터를 통합하고, Chaser에는 22:1 16 mm 기어모터·2인치 휠을 적용해 3.9 ft/s 달성" },
+              { en: "Designed Chaser for invertibility so it could remain mobile after orientation changes", ko: "Chaser가 뒤집힌 뒤에도 기동할 수 있도록 양면 주행 가능 구조 설계" },
+              { en: "Accounted for softening, stretch, and long-term deformation across TPU armor, neoprene wheels, and the timing-belt drive", ko: "TPU 장갑·네오프렌 휠·타이밍 벨트 구동계의 연화, 신장, 장기 변형 고려" },
+              { en: "Iterated bolt-hole tolerances, standoffs, wheel clearance, forks, ribs, infill, and component compartments through physical prototypes", ko: "실물 프로토타입으로 볼트홀 공차, 스탠드오프, 휠 간극, 포크, 리브, 인필, 부품 수납부 반복 개선" },
+            ],
+            media: [
+              {
+                alt: { en: "Fabricated aluminum, UHMW, and TPU parts for Shot", ko: "Shot용 알루미늄·UHMW·TPU 가공 부품" },
+                caption: { en: "Shot's fabricated mixed-material parts before final assembly.", ko: "최종 조립 전 Shot의 복합 소재 가공 부품." },
+              },
+              {
+                alt: { en: "Fabricated 6061 aluminum plates and UHMW weapon holders", ko: "가공된 6061 알루미늄 플레이트와 UHMW 무기 홀더" },
+                caption: { en: "Fabricated 6061 plates and UHMW weapon holders before Shot's sandwich-chassis assembly.", ko: "Shot 샌드위치 섀시 조립 전 가공된 6061 플레이트와 UHMW 무기 홀더." },
+              },
+            ],
+          },
+          {
+            title: { en: "Power, Control & Safety", ko: "전원·제어 & 안전" },
+            body: { en: "The two robots used separate radio and power architectures sized to their roles. Shot combined a 4S LiPo, dual brushed drive ESC, brushless weapon ESC, and high-current protection. Chaser used a compact 3S LiPo and dual-channel drive ESC.", ko: "두 로봇은 역할에 맞춘 별도 무선·전원 구조를 사용했습니다. Shot은 4S LiPo, 듀얼 브러시드 주행 ESC, 브러시리스 무기 ESC, 고전류 보호 회로를 결합했고 Chaser는 소형 3S LiPo와 듀얼 채널 주행 ESC를 사용했습니다." },
+            bullets: [
+              { en: "Protected and insulated receivers, ESCs, batteries, wiring, connectors, switches, and fuses inside serviceable compartments", ko: "정비 가능한 수납부 안에서 수신기·ESC·배터리·배선·커넥터·스위치·퓨즈를 보호·절연" },
+              { en: "Used 12AWG/18AWG silicone wiring, XT60/T-plug/bullet connectors, heat shrink, and mechanical strain management", ko: "12AWG/18AWG 실리콘 배선, XT60·T-plug·bullet 커넥터, 열수축 튜브, 기계적 스트레인 관리 적용" },
+              { en: "Designed battery access for charging and between-match replacement without sacrificing protection", ko: "보호성을 유지하면서 충전과 경기 사이 교체가 가능한 배터리 접근 구조 설계" },
+              { en: "Considered hot-weather operation, high-current heat buildup, and between-match inspection and cooldown for both LiPo and ESC systems", ko: "LiPo·ESC의 더운 날씨 운용, 고전류 열 축적, 경기 사이 점검·냉각 고려" },
+            ],
+            media: [
+              {
+                alt: { en: "3D-printed internal wall and drive-motor mount", ko: "3D 프린트 내부 벽과 주행 모터 마운트" },
+                caption: { en: "3D-printed internal wall and motor mount used to constrain shaft alignment while protecting wiring.", ko: "샤프트 정렬을 구속하고 배선을 보호하는 3D 프린트 내부 벽과 모터 마운트." },
+              },
+            ],
+          },
+          {
+            title: { en: "Thermal, Material & Self-Impact Reliability", ko: "열·소재 & 자가 충격 신뢰성" },
+            body: { en: "The hardest reliability problems were coupled. Ambient heat affected LiPo and ESC temperature margins; repeated loading could stretch or permanently deform compliant rubber and polymer parts; and every weapon strike sent the spinner's energy back into Shot's own shaft, mounts, and chassis. These were treated as system-level load cases rather than isolated component concerns.", ko: "가장 어려운 신뢰성 문제들은 서로 연결돼 있었습니다. 외기 온도는 LiPo·ESC의 열 여유에 영향을 주고, 반복 하중은 유연한 고무·폴리머 부품을 늘리거나 영구 변형시킬 수 있으며, 무기가 타격할 때마다 스피너 에너지는 Shot 자체의 샤프트·마운트·차체로 되돌아옵니다. 이를 개별 부품 문제가 아니라 시스템 수준 하중 조건으로 다뤘습니다." },
+            bullets: [
+              { en: "Placed and protected batteries and ESCs with hot outdoor conditions, high-current heating, inspection access, and cooldown time in mind", ko: "더운 야외 환경, 고전류 발열, 점검 접근성, 냉각 시간을 고려해 배터리와 ESC 배치·보호" },
+              { en: "Controlled belt geometry and constrained compliant TPU, neoprene, and rubber components so useful flexibility did not become slack, misalignment, or creep", ko: "유용한 유연성이 늘어짐·정렬 불량·크리프로 이어지지 않도록 벨트 형상과 TPU·네오프렌·고무 부품 구속 설계" },
+              { en: "Traced the spinner's reaction-load path through the live shaft, bearings, UHMW weapon holders, aluminum plates, spacers, and fasteners", ko: "스피너 반력의 전달 경로를 live shaft·베어링·UHMW 무기 홀더·알루미늄 플레이트·스페이서·패스너까지 추적" },
+              { en: "Used FEA and arena tests to ask the critical question: could the chassis repeatedly survive the power of its own weapon?", ko: "FEA와 아레나 테스트로 ‘차체가 자체 무기 파워를 반복해서 견딜 수 있는가’를 검증" },
+            ],
+            media: [
+              {
+                alt: { en: "Blue TPU sidewalls during additive fabrication", ko: "적층 제조 중인 파란색 TPU 측벽" },
+                caption: { en: "95A TPU sidewalls during fabrication — compliant armor designed around flexibility, heat, stretch, and creep.", ko: "제작 중인 95A TPU 측벽 — 유연성, 열, 신장, 크리프를 고려한 탄성 장갑." },
+              },
+            ],
+          },
+          {
+            title: { en: "Validation & Resource Engineering", ko: "검증 & 자원 엔지니어링" },
+            body: { en: "The design review treated testing, weight, thermal behavior, material deformation, and budget as engineering constraints. Fusion simulations verified the weapon walls above a 4,000 N load with a 2.09 minimum safety factor, and repeated arena trials checked whether the complete load path could withstand both opponent impacts and Shot's own weapon reaction. A component-level weight model and procurement sheet made tradeoffs visible before fabrication.", ko: "설계 리뷰에서 테스트·중량·열 거동·소재 변형·예산을 핵심 엔지니어링 제약으로 다뤘습니다. Fusion 시뮬레이션으로 무기 벽이 4,000 N 이상 하중에서 최소 안전율 2.09를 확보함을 검증하고, 반복 아레나 테스트로 전체 하중 경로가 상대 충격과 Shot 자체 무기 반력을 모두 견디는지 확인했습니다. 부품 단위 중량 모델과 구매표로 제작 전 트레이드오프를 가시화했습니다." },
+            bullets: [
+              { en: "Tracked measured component weights and used lightweighting or reinforcement depending on the current margin", ko: "실측 부품 중량을 추적하고 현재 여유에 따라 경량화 또는 보강 수행" },
+              { en: "Validated weapon clearance, pulley geometry, inverted wheel contact, mount strength, live drivetrain behavior, and an externally accessible kill switch", ko: "무기 간극, 풀리 형상, 뒤집힌 상태 휠 접촉, 마운트 강도, 실주행 구동계, 외부 접근형 킬 스위치 검증" },
+              { en: "Managed a $976.47 total project bill of materials, with $496.18 of components designated for in-arena use", ko: "총 BOM $976.47와 아레나 투입 부품 $496.18 관리" },
+            ],
+            media: [
+              {
+                alt: { en: "Fusion finite-element analysis of Shot's weapon mount", ko: "Shot 무기 마운트의 Fusion 유한요소해석" },
+                caption: { en: "Weapon-mount FEA — validated above 4,000 N with a minimum safety factor of 2.09.", ko: "무기 마운트 FEA — 4,000 N 이상 하중과 최소 안전율 2.09로 검증." },
+              },
+            ],
+          },
+        ] as const,
+        keyTakeaways: [
+          {
+            en: "A multibot is one system with two failure surfaces: strategy, weight, electronics, and repair planning have to be coordinated across both machines.",
+            ko: "멀티봇은 실패 표면이 두 개인 하나의 시스템입니다. 전략·중량·전장·수리 계획을 두 기체에 걸쳐 조율해야 합니다.",
+          },
+          {
+            en: "Material selection is functional architecture—AR500 cuts, aluminum carries structure, UHMW absorbs impact, and TPU adds compliant protection.",
+            ko: "소재 선택 자체가 기능 아키텍처입니다. AR500은 타격하고, 알루미늄은 구조를 지지하며, UHMW는 충격을 흡수하고, TPU는 탄성 보호를 제공합니다.",
+          },
+          {
+            en: "Competition reliability comes from testing how a design fails, not only proving that it works once.",
+            ko: "대회에서의 신뢰성은 한 번 작동함을 증명하는 것이 아니라, 설계가 어떻게 실패하는지 테스트하는 데서 나옵니다.",
+          },
+          {
+            en: "A combat robot has to survive its own stored energy: weapon power is also a chassis, bearing, fastener, thermal, and maintenance load case.",
+            ko: "전투 로봇은 자신이 저장한 에너지를 스스로 견뎌야 합니다. 무기 파워는 곧 차체·베어링·패스너·열·정비 하중 조건이기도 합니다.",
+          },
+          {
+            en: "Under match pressure, accessible batteries, replaceable belts, protected wheels, and diagnosable wiring matter as much as peak weapon performance.",
+            ko: "경기 압박 속에서는 접근 가능한 배터리, 교체 가능한 벨트, 보호된 휠, 진단 가능한 배선이 최대 무기 성능만큼 중요합니다.",
+          },
         ] as const satisfies readonly Bilingual[],
       },
       "federated-tinyml": {
@@ -325,6 +660,20 @@ export const messages = {
           { en: "Adversarial robustness analysis using PGD attacks (ε-sweep 0.01–0.2)", ko: "PGD 공격(ε 0.01–0.2) 적대적 강건성 분석" },
           { en: "Funded by Penn State CERS; targeting ACM LCTES 2026", ko: "Penn State CERS 지원; ACM LCTES 2026 투고 목표" },
         ] as const satisfies readonly Bilingual[],
+        keyTakeaways: [
+          {
+            en: "Compression and robustness are different axes — a model can be small and still fragile, or robust and still too large for the target device.",
+            ko: "압축과 강건성은 서로 다른 축입니다 — 모델이 작아도 취약할 수 있고, 강건해도 타깃 기기에 비해 너무 클 수 있습니다.",
+          },
+          {
+            en: "Federated learning is a coordination problem as much as a training problem; how the server aggregates client updates matters as much as local training.",
+            ko: "연합학습은 학습 문제이면서 동시에 조율 문제입니다 — 서버가 클라이언트 업데이트를 집계하는 방식이 로컬 학습만큼 중요합니다.",
+          },
+          {
+            en: "Accuracy alone hides how a model fails — class imbalance and adversarial robustness need to be measured explicitly, not assumed from a single metric.",
+            ko: "정확도만으로는 모델의 실패 방식이 드러나지 않습니다 — 클래스 불균형과 적대적 강건성은 단일 지표로 추정하지 않고 명시적으로 측정해야 합니다.",
+          },
+        ] as const satisfies readonly Bilingual[],
       },
       "asme-website": {
         title: { en: "ASME @ Penn State Website", ko: "ASME @ 펜실베니아 주립대 웹사이트" },
@@ -344,6 +693,20 @@ export const messages = {
           { en: "Real-time updates via Firebase Firestore", ko: "Firebase Firestore 실시간 업데이트" },
           { en: "Built with React 19 and TypeScript for full type safety", ko: "React 19 + TypeScript로 전체 타입 안전성" },
           { en: "Deployed on Vercel with continuous deployment", ko: "Vercel 배포 및 지속적 배포" },
+        ] as const satisfies readonly Bilingual[],
+        keyTakeaways: [
+          {
+            en: "Permission systems need to be designed in from the start, not bolted on — retrofitting RBAC onto existing features is far harder than starting with it.",
+            ko: "권한 시스템은 처음부터 설계에 포함되어야지 나중에 덧붙이면 안 됩니다 — 기존 기능에 RBAC를 나중에 끼워 넣는 건 처음부터 설계하는 것보다 훨씬 어렵습니다.",
+          },
+          {
+            en: "Real-time sync simplifies the UI but pushes complexity into handling partial and optimistic updates correctly.",
+            ko: "실시간 동기화는 UI를 단순하게 만들지만, 그 복잡함은 부분 업데이트와 낙관적 업데이트를 올바르게 처리하는 쪽으로 옮겨갈 뿐입니다.",
+          },
+          {
+            en: "Building for a real organization's leadership hierarchy taught me to design around how people actually make decisions, not an idealized workflow.",
+            ko: "실제 조직의 리더십 계층을 위해 만들면서, 이상적인 워크플로가 아니라 사람들이 실제로 의사결정하는 방식을 중심으로 설계해야 한다는 걸 배웠습니다.",
+          },
         ] as const satisfies readonly Bilingual[],
       },
       hangukgwan: {
@@ -365,6 +728,20 @@ export const messages = {
           { en: "REST API with Node.js/Express and MongoDB Atlas", ko: "Node.js/Express + MongoDB Atlas REST API" },
           { en: "Locale-aware routing with react-i18next", ko: "react-i18next 로케일 인식 라우팅" },
         ] as const satisfies readonly Bilingual[],
+        keyTakeaways: [
+          {
+            en: "Internationalization is more than translation — layout, date/number formats, and even tone need to adapt per locale.",
+            ko: "다국어 지원은 번역 이상입니다 — 레이아웃, 날짜·숫자 형식, 심지어 어조까지 로케일에 맞게 조정해야 합니다.",
+          },
+          {
+            en: "Building admin tools for non-technical users forces simpler, more constrained interfaces than a typical developer-facing dashboard.",
+            ko: "비개발자를 위한 관리자 도구를 만들다 보면 일반적인 개발자용 대시보드보다 더 단순하고 제약된 인터페이스를 설계하게 됩니다.",
+          },
+          {
+            en: "Small full-stack projects are a good forcing function for end-to-end ownership — from auth to deployment, there's nowhere to hide from a rough edge.",
+            ko: "작은 풀스택 프로젝트는 엔드투엔드 오너십을 기르는 좋은 훈련입니다 — 인증부터 배포까지, 허술한 부분을 숨길 곳이 없습니다.",
+          },
+        ] as const satisfies readonly Bilingual[],
       },
       signum: {
         title: { en: "SIGNUM — AI Hospital Platform", ko: "SIGNUM — AI 병원 품질 플랫폼" },
@@ -384,6 +761,20 @@ export const messages = {
           { en: "Markov Transition Model for hospital star-rating prediction with confidence intervals", ko: "신뢰구간이 있는 병원 별점 예측 마르코프 전이 모델" },
           { en: "RAG pipelines with FAISS + AWS Bedrock for grounded LLM responses", ko: "FAISS + AWS Bedrock RAG로 근거 있는 LLM 응답" },
           { en: "Reduced caregiver research time from 50+ hours/week to near-instant", ko: "간병 연구 시간 주당 50시간+ → 거의 즉시" },
+        ] as const satisfies readonly Bilingual[],
+        keyTakeaways: [
+          {
+            en: "Domain-grounded RAG is only as trustworthy as the data pipeline underneath it — bad data in the warehouse means confident-sounding but wrong answers.",
+            ko: "도메인 특화 RAG는 그 아래 데이터 파이프라인만큼만 신뢰할 수 있습니다 — 웨어하우스의 데이터가 나쁘면 자신감 있게 들리지만 틀린 답이 나옵니다.",
+          },
+          {
+            en: "Forecasting and retrieval solve different problems; combining the Markov model with RAG gave caregivers both a trend and an explanation, which neither alone provided.",
+            ko: "예측과 검색은 서로 다른 문제를 해결합니다 — 마르코프 모델과 RAG를 결합하니 둘 중 하나만으로는 줄 수 없었던 추세와 설명을 함께 제공할 수 있었습니다.",
+          },
+          {
+            en: "Co-founding a funded project taught me the hardest part is often scoping something a small team can actually ship and demo convincingly, not the ML itself.",
+            ko: "지원금을 받는 프로젝트를 공동 창업하며, 가장 어려운 부분은 ML 자체가 아니라 소규모 팀이 실제로 출시하고 설득력 있게 시연할 수 있는 범위를 정하는 것임을 배웠습니다.",
+          },
         ] as const satisfies readonly Bilingual[],
       },
     },
@@ -526,6 +917,40 @@ export const messages = {
     footer: { en: "Designed & Built by Younsoo Park", ko: "Designed & Built by Younsoo Park" },
   },
 
+  /* ---------- Experience detail page ---------- */
+  experienceDetail: {
+    back: { en: "cd ../experience", ko: "cd ../experience" },
+    eyebrow: { en: "Experience record", ko: "경력 기록" },
+    period: { en: "Period", ko: "기간" },
+    location: { en: "Location", ko: "근무지" },
+    scope: { en: "Role scope", ko: "역할 범위" },
+    workstreams: { en: "Project workstreams", ko: "프로젝트 작업군" },
+    roleScope: { en: "Role scope", ko: "역할 범위" },
+    roleHighlights: { en: "Selected impact", ko: "핵심 임팩트" },
+    jumpImpact: { en: "Impact", ko: "임팩트" },
+    jumpProjects: { en: "Projects", ko: "프로젝트" },
+    jumpStack: { en: "Stack", ko: "기술" },
+    slideHint: { en: "Swipe or use the arrows", ko: "밀거나 화살표로 넘기기" },
+    previousSlide: { en: "Previous card", ko: "이전 카드" },
+    nextSlide: { en: "Next card", ko: "다음 카드" },
+    goToSlide: { en: "Go to card", ko: "카드로 이동" },
+    projectsEyebrow: { en: "Work produced here", ko: "이 경력에서 만든 작업" },
+    projectsTitle: { en: "Projects from this role", ko: "이 역할에서 진행한 프로젝트" },
+    projectsDescription: {
+      en: "The role is the context; these workstreams are the concrete systems and product problems delivered within it.",
+      ko: "경력은 작업의 맥락이고, 아래 작업군은 그 안에서 실제로 구현한 시스템과 해결한 제품 문제입니다.",
+    },
+    relatedCaseStudy: { en: "Related case study", ko: "연결된 케이스 스터디" },
+    openCaseStudy: { en: "Open full case study", ko: "전체 케이스 스터디 보기" },
+    workstream: { en: "Project", ko: "프로젝트" },
+    deliverables: { en: "deliverables", ko: "개 핵심 작업" },
+    noProjectsTitle: { en: "No public project attached", ko: "공개 프로젝트 없음" },
+    noProjectsBody: {
+      en: "This experience is documented through responsibilities and outcomes rather than a separate public case study.",
+      ko: "이 경력은 별도의 공개 케이스 스터디 대신 역할과 성과 중심으로 정리했습니다.",
+    },
+  },
+
   /* ---------- Project detail page ---------- */
   projectDetail: {
     back: { en: "cd ../projects", ko: "cd ../projects" },
@@ -533,6 +958,8 @@ export const messages = {
     github: { en: "GitHub", ko: "GitHub" },
     overview: { en: "// Overview", ko: "// 개요" },
     highlights: { en: "// Key Highlights", ko: "// 주요 하이라이트" },
+    impact: { en: "// Impact", ko: "// 임팩트" },
+    keyTakeaways: { en: "// Key Takeaways", ko: "// 핵심 배운 점" },
     techStack: { en: "Tech Stack", ko: "기술 스택" },
     links: { en: "Links", ko: "링크" },
     sourceCode: { en: "Source Code", ko: "소스 코드" },

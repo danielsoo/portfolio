@@ -28,6 +28,119 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+.portfolio-body > section {
+  position: relative;
+  isolation: isolate;
+  scroll-margin-top: 4rem;
+}
+
+.portfolio-body > section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-body > section::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: max(1.5rem, calc((100% - 80rem) / 2));
+  right: max(1.5rem, calc((100% - 80rem) / 2));
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--foreground) 13%, transparent) 18%,
+    color-mix(in srgb, #6366f1 24%, transparent) 50%,
+    color-mix(in srgb, var(--foreground) 13%, transparent) 82%,
+    transparent
+  );
+}
+
+.portfolio-body > section::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    color-mix(in srgb, #6366f1 2.6%, transparent),
+    transparent 36%,
+    transparent 72%,
+    color-mix(in srgb, #22d3ee 1.8%, transparent)
+  );
+}
+
+.portfolio-body > section:nth-child(even)::after {
+  background: linear-gradient(
+    245deg,
+    color-mix(in srgb, #6366f1 3%, transparent),
+    transparent 34%,
+    transparent 74%,
+    color-mix(in srgb, #22d3ee 1.5%, transparent)
+  );
+}
+
+.portfolio-signal-flow {
+  stroke-dasharray: 18 330;
+  animation: portfolio-signal-trace 16s linear infinite;
+}
+
+.portfolio-rail-pulse {
+  left: -3rem;
+  animation: portfolio-rail-travel 7s ease-in-out infinite;
+  filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.5));
+}
+
+.project-carousel,
+.experience-carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+}
+
+.project-carousel::-webkit-scrollbar,
+.experience-carousel::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+@keyframes portfolio-signal-trace {
+  to {
+    stroke-dashoffset: -696;
+  }
+}
+
+@keyframes portfolio-rail-travel {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -50%, 0);
+  }
+  18% {
+    opacity: 0.65;
+  }
+  82% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate3d(calc(100% + 3rem), -50%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-signal-flow,
+  .portfolio-rail-pulse {
+    animation: none;
+  }
+
+  .portfolio-signal-packet {
+    display: none;
+  }
+}
+
 ::selection {
   background: #6366f1;
   color: #fff;
