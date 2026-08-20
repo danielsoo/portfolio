@@ -17,10 +17,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -28,58 +24,66 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-.portfolio-body > section {
-  position: relative;
-  isolation: isolate;
-  scroll-margin-top: 4rem;
-}
+/*
+ * Layered so Tailwind utilities (e.g. .fixed, .absolute on modals rendered
+ * as direct children of a section) always win the cascade. Unlayered CSS
+ * beats @layer rules regardless of specificity, which previously broke
+ * position:fixed on any modal mounted inside a section.
+ */
+@layer base {
+  .portfolio-body > section {
+    position: relative;
+    isolation: isolate;
+    scroll-margin-top: 4rem;
+  }
 
-.portfolio-body > section > * {
-  position: relative;
-  z-index: 1;
-}
+  .portfolio-body > section > * {
+    position: relative;
+    z-index: 1;
+  }
 
-.portfolio-body > section::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: max(1.5rem, calc((100% - 80rem) / 2));
-  right: max(1.5rem, calc((100% - 80rem) / 2));
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in srgb, var(--foreground) 13%, transparent) 18%,
-    color-mix(in srgb, #6366f1 24%, transparent) 50%,
-    color-mix(in srgb, var(--foreground) 13%, transparent) 82%,
-    transparent
-  );
-}
+  .portfolio-body > section::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: max(1.5rem, calc((100% - 80rem) / 2));
+    right: max(1.5rem, calc((100% - 80rem) / 2));
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--foreground) 13%, transparent) 18%,
+      color-mix(in srgb, #6366f1 24%, transparent) 50%,
+      color-mix(in srgb, var(--foreground) 13%, transparent) 82%,
+      transparent
+    );
+  }
 
-.portfolio-body > section::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    115deg,
-    color-mix(in srgb, #6366f1 2.6%, transparent),
-    transparent 36%,
-    transparent 72%,
-    color-mix(in srgb, #22d3ee 1.8%, transparent)
-  );
-}
+  .portfolio-body > section::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      color-mix(in srgb, #6366f1 2.6%, transparent),
+      transparent 36%,
+      transparent 72%,
+      color-mix(in srgb, #22d3ee 1.8%, transparent)
+    );
+  }
 
-.portfolio-body > section:nth-child(even)::after {
-  background: linear-gradient(
-    245deg,
-    color-mix(in srgb, #6366f1 3%, transparent),
-    transparent 34%,
-    transparent 74%,
-    color-mix(in srgb, #22d3ee 1.5%, transparent)
-  );
+  .portfolio-body > section:nth-child(even)::after {
+    background: linear-gradient(
+      245deg,
+      color-mix(in srgb, #6366f1 3%, transparent),
+      transparent 34%,
+      transparent 74%,
+      color-mix(in srgb, #22d3ee 1.5%, transparent)
+    );
+  }
 }
 
 .portfolio-signal-flow {

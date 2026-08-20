@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
+import { useScrollLock } from "@/hooks/useScrollLock";
 
 type DetailDialogProps = {
   open: boolean;
@@ -23,20 +24,17 @@ export default function DetailDialog({
 }: DetailDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
+  useScrollLock(open);
+
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
 
     if (open && !dialog.open) {
       dialog.showModal();
-      document.documentElement.style.overflow = "hidden";
     } else if (!open && dialog.open) {
       dialog.close();
     }
-
-    return () => {
-      document.documentElement.style.overflow = "";
-    };
   }, [open]);
 
   return (
@@ -47,7 +45,6 @@ export default function DetailDialog({
         onClose();
       }}
       onClose={() => {
-        document.documentElement.style.overflow = "";
         if (open) onClose();
       }}
       onClick={(event) => {

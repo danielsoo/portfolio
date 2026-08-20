@@ -8,6 +8,7 @@ import type { Project } from "@/data/projects";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { messages } from "@/i18n/messages";
 import { localizeProject } from "@/i18n/useLocalizedProject";
+import { useScrollLock } from "@/hooks/useScrollLock";
 import ProjectMediaGallery from "./ProjectMediaGallery";
 
 export default function ProjectDetail({ project }: { project: Project }) {
@@ -15,21 +16,17 @@ export default function ProjectDetail({ project }: { project: Project }) {
   const p = useMemo(() => localizeProject(project, locale), [project, locale]);
   const [expandedImage, setExpandedImage] = useState<SectionMedia | null>(null);
 
+  useScrollLock(!!expandedImage);
+
   useEffect(() => {
     if (!expandedImage) return;
 
-    const previousOverflow = document.body.style.overflow;
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") setExpandedImage(null);
     };
 
-    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", closeOnEscape);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", closeOnEscape);
-    };
+    return () => window.removeEventListener("keydown", closeOnEscape);
   }, [expandedImage]);
 
   return (
