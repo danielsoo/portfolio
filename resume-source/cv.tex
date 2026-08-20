@@ -1,0 +1,352 @@
+\documentclass[11pt,a4paper]{article}
+
+%====================================================
+% Packages
+%====================================================
+
+\usepackage{mathptmx}
+\usepackage[left=0.75in,right=0.75in,top=0.7in,bottom=0.7in]{geometry}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+
+%====================================================
+% Formatting
+%====================================================
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+
+\titleformat{\section}
+{\large\bfseries}
+{}{0em}{}[\titlerule]
+
+\begin{document}
+
+%====================================================
+% Header
+%====================================================
+
+\begin{center}
+
+{\LARGE \textbf{Younsoo Park}}
+
+\vspace{0.3em}
+
+\href{mailto:danielpark0605@gmail.com}{danielpark0605@gmail.com} \
+\href{mailto:yqp5187@psu.edu}{yqp5187@psu.edu} \
++1 (814) 810-1707 \
+GitHub: \href{https://github.com/danielsoo}{danielsoo}
+
+\end{center}
+
+%====================================================
+% Education
+%====================================================
+
+\section*{Education}
+
+\textbf{The Pennsylvania State University} \hfill University Park, PA
+
+Bachelor of Science in Computer Science \
+Minor in Mathematics \
+Expected Graduation: May 2027 \
+Dean's List
+
+%====================================================
+% Research Interests
+%====================================================
+
+\section*{Research Interests}
+
+Systems Security \\
+Network Security \\
+Distributed Systems \\
+LLM Systems \\
+AI Agent Memory \\
+Federated Learning \\
+TinyML for IoT Security \\
+Adversarial Machine Learning \\
+Edge AI Systems
+
+%====================================================
+% Research Experience
+%====================================================
+
+\section*{Research Experience}
+
+\textbf{Undergraduate Research Assistant \& Team Lead} \hfill Oct 2025 -- Present
+
+\textit{Reliable Federated TinyML Deployment for IoT Security (WIP, LCTES '26)} \
+
+Penn State University and Elizabethtown College \
+Supervisors: Dr. Suman Saha and Dr. Peilong Li
+
+\vspace{0.3em}
+
+Research focus:
+Federated and adversarially robust TinyML systems for IoT security and resource-constrained edge-device deployment.
+
+\vspace{0.3em}
+
+Key contributions:
+
+\begin{itemize}[leftmargin=1.5em]
+
+\item Designed a federated learning pipeline using FedAvgM, focal loss, and cosine learning-rate scheduling on CIC-IDS2017.
+
+\item Improved attack recall from 46.7\% to 93.85\% and F1-score from 84.1\% to 89.32\%.
+
+\item Built a TinyML compression pipeline including BatchNorm folding, structured pruning, knowledge distillation, and INT8 QAT/PTQ.
+
+\item Achieved 12.28$\times$ model compression and 74.5\% inference latency reduction for ESP32 deployment.
+
+\item Evaluated adversarial robustness using PGD attacks under multiple compression configurations.
+
+\end{itemize}
+
+%====================================================
+% Publications
+%====================================================
+
+\section*{Publications and Manuscripts}
+
+\textbf{Reliable Federated TinyML Deployment for IoT Security} \
+Work in Progress \
+Target Venue: ACM LCTES 2026
+
+
+
+%====================================================
+
+% Independent Study
+
+%====================================================
+
+\section*{Independent Study}
+
+\textbf{AI Agent Memory Systems} \hfill Jul 2026 -- Present
+
+Advisor: Prof. Kiwan Maeng
+
+\begin{itemize}[leftmargin=1.5em]
+
+\item Surveying production AI agent memory systems including Mem0 and A-MEM.
+
+\item Investigating memory extraction, retrieval, safety, and lifecycle management for LLM-based agents.
+
+\item Applying memory architectures to production recommendation systems through a Memory-first Personalization framework, shipped as Wowness at Levit Inc.
+
+\end{itemize}
+
+%====================================================
+% Industry and Technical Experience
+%====================================================
+
+\section*{Industry and Technical Experience}
+
+\textbf{Levit Inc. (Shopport AI)} \hfill Seoul, South Korea
+
+Associate Problem Solver \hfill June 2026 -- Aug 2026
+
+\begin{itemize}[leftmargin=1.5em]
+
+\item Worked directly with the CEO to define product direction, prioritize engineering initiatives, and translate customer problems into production AI systems for an LLM-powered shopping assistant.
+
+\item Built a production evaluation platform analyzing \textbf{49,807 conversations} and \textbf{80,124 query-level routing decisions}, achieving \textbf{97.7\% evaluation coverage} through versioned routing audit and historical backfill pipelines that reprocessed 47,231 conversations spanning 100+ days of production history.
+
+\item Developed end-to-end experimentation infrastructure across frontend, backend, workers, and admin systems, improving recommendation completion from \textbf{62.8\%} to \textbf{75.0\% (+12.2 percentage points)}.
+
+\item Evolved Shopport's routing stack through three architectural generations -- LLM classification, an embedding-based semantic fast path ($\sim$8$\times$ faster for confident cases), and a hybrid classifier for ambiguous queries -- reaching \textbf{86\% V3 routing accuracy} and rescuing \textbf{93\%} of eligible router errors.
+
+\item Designed and shipped Wowness, a Mem0-backed cross-category discovery recommender grounded in the live catalog, as sole engineer across a 919-line NestJS engine, React UI, and admin review lab -- extending the Memory-first Personalization architecture from proposal to production.
+
+\item Diagnosed production failures at the system boundary, including a split MongoDB connection that held the V3 feature switch at zero executions, and corrected systematic analytics false positives, reducing one queue-level count from 2,005 to 811.
+
+\item Contributed \textbf{730 GitHub commits} and \textbf{143 merged pull requests}, adding over \textbf{114,000 lines} of TypeScript/TSX during the engagement.
+
+\end{itemize}
+
+\vspace{0.5em}
+
+\textbf{SIGNUM (Nittany AI Alliance -- PIT-UN Funded)} \hfill Aug 2024 -- Nov 2025
+
+Co-founder of a \$3,750 PIT-UN funded AI platform for caregiver decision support.
+
+\begin{itemize}[leftmargin=1.5em]
+
+\item Built multi-source ETL pipelines integrating CMS, NPPES, and Google Places datasets into a DuckDB warehouse.
+
+\item Developed hospital-rating prediction models using Markov Transition analysis with confidence intervals.
+
+\item Designed and deployed domain-specific RAG systems using FAISS and AWS Bedrock.
+
+\end{itemize}
+
+\vspace{0.5em}
+
+\textbf{Atom Tech Solutions LTD} \hfill Berkeley, CA
+
+Software Engineering Intern \hfill May 2022 -- Aug 2022
+
+\begin{itemize}[leftmargin=1.5em]
+
+\item Built secure authentication systems using SQL/JWT authentication and encrypted credential storage.
+
+\item Implemented automated credential generation and authenticated onboarding workflows.
+
+\end{itemize}
+%====================================================
+% Technical Projects
+%====================================================
+
+\section*{Technical Projects}
+
+\textbf{GladIEEEators -- Penn State IEEE Battle Bots (1st Place)} \hfill Apr 2026
+
+\begin{itemize}[leftmargin=1.5em]
+
+\item Designed Shot \& Chaser, a coordinated two-robot combat system, for the IEEE Student Chapter Battle Bots Competition, winning 1st place.
+
+\item Engineered a belt-driven AR500 vertical-spinner weapon system (334 J at 18,500 RPM, 200+ mph tip speed), validated via Fusion FEA above 4,000 N with a 2.09 minimum safety factor.
+
+\item Designed mixed-material armor (6061 aluminum, UHMW, TPU) and integrated drivetrain, radio control, and protected LiPo electronics across both robots within a \$976 total build budget.
+
+\end{itemize}
+
+\vspace{0.5em}
+
+\textbf{XIIO -- LinkedIn for Filmmakers} \hfill Apr 2026 -- Present
+
+\begin{itemize}[leftmargin=1.5em]
+
+\item Built a creator networking platform featuring portfolios, video streaming, collaboration workflows, and school-based discovery using Next.js, Firebase, and Cloudflare Stream.
+
+\item Designed real-time messaging, creator profiles, media uploads, and production portfolio management.
+
+\end{itemize}
+
+\vspace{0.5em}
+
+\textbf{ASME @ Penn State Website} \hfill Aug 2024 -- Present
+
+\begin{itemize}[leftmargin=1.5em]
+
+\item Developed the official ASME Penn State website using React, TypeScript, Vite, and Firebase.
+
+\item Designed a multi-tier permission and approval system for organization management.
+
+\end{itemize}
+
+\vspace{0.5em}
+
+\textbf{Hangukgwan (Family Business Web App)} \hfill 2024 -- Present
+
+\begin{itemize}[leftmargin=1.5em]
+
+\item Developed a multilingual full-stack restaurant web application using React, TypeScript, Node.js/Express, and MongoDB Atlas.
+
+\item Implemented JWT authentication, Google Maps API integration, and multilingual i18n support.
+
+\end{itemize}
+
+%====================================================
+% Teaching Experience
+%====================================================
+
+\section*{Teaching Experience}
+
+\textbf{Lead Teaching Assistant, Math 230 (Multivariable Calculus)} \
+Penn State University \hfill Aug 2025 -- Present
+
+Responsibilities include assisting instruction, supporting students during office hours, and helping coordinate course activities.
+
+%====================================================
+% Leadership and Service
+%====================================================
+
+\section*{Leadership and Service}
+
+\textbf{THON Technology Committee} \
+Technology Captain (2027) \hfill Apr 2026 -- Present
+
+\vspace{0.4em}
+
+\textbf{Penn State Advanced Vehicle Team (AVT)} \
+Project Manager \hfill Fall 2026 -- Present
+
+\vspace{0.4em}
+
+\textbf{Association for Computing Machinery (ACM)} \
+Web \& UI/UX Director \hfill Apr 2026 -- Present
+
+\vspace{0.4em}
+
+\textbf{Republic of Korea Air Force} \
+Squad Leader \hfill Sept 2022 -- June 2024
+
+%====================================================
+% Relevant Coursework
+%====================================================
+
+\section*{Relevant Coursework}
+
+\textbf{Computer Science}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=0.2em]
+
+\item CMPSC 131: Programming and Computation I
+\item CMPSC 132: Programming and Computation II
+\item CMPSC 221: Object Oriented Programming
+\item CMPSC 311: Introduction to Systems Programming
+\item CMPSC 360: Discrete Mathematics
+\item CMPSC 461: Programming Language Concepts
+\item CMPSC 464: Theory of Computation
+\item CMPSC 465: Data Structures and Algorithms
+
+\end{itemize}
+
+\vspace{0.4em}
+
+\textbf{Computer Engineering}
+
+\begin{itemize}[leftmargin=1.2em, itemsep=0.2em]
+
+\item CMPEN 270: Digital Design
+\item CMPEN 331: Computer Organization and Design
+
+\end{itemize}
+
+%====================================================
+% Awards and Honors
+%====================================================
+
+\section*{Awards and Honors}
+
+1st Place, ThinkNeuro LLC Project Competition \hfill Apr 2026
+
+1st Place, IEEE Student Chapter Battle Bots Competition \hfill Apr 2026
+
+PIT-UN Funding Award (\$3,750) \hfill Apr 2025
+
+3rd Place, ACM Pathfinder Robotics Challenge \hfill Apr 2025
+
+Republic of Korea Air Force Commendation Award \hfill Aug 2023
+
+%====================================================
+% Technical Skills
+%====================================================
+
+\section*{Technical Skills}
+
+\textbf{Programming Languages:} Python, C, C++, Java, JavaScript, TypeScript, SQL
+
+\vspace{0.3em}
+
+\textbf{Frameworks and Tools:} React, Node.js, NestJS, Express, Flask, MongoDB, Redis, Firebase, Kubernetes, Git, AWS Bedrock, DuckDB
+
+\vspace{0.3em}
+
+\textbf{Machine Learning:} TensorFlow, PyTorch, FAISS, Mem0, SHAP, spaCy, Scikit-learn, Flower
+
+\end{document}
