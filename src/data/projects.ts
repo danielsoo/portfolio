@@ -38,7 +38,7 @@ export const projects: Project[] = [
     title: "Levit — Shopport AI Recommendation Platform",
     type: "Levit · Shopport AI",
     badge: "Associate Problem Solver",
-    badgeColor: "bg-cyan-500/10 text-cyan-400",
+    badgeColor: "bg-indigo-500/10 text-indigo-400",
     shortDescription:
       "Worked across applied AI and full-stack engineering for Shopport, Levit's consumer AI shopping app officially released on iOS and Android. Evolved its LLM router into an embedding-based semantic and hybrid router, built the production quality analytics and backfill platform, and shipped a memory-grounded cross-category recommender end to end.",
     longDescription:
@@ -133,7 +133,7 @@ export const projects: Project[] = [
     title: "GladIEEEators — Penn State IEEE Battle Bots Champion",
     type: "Combat Robotics · Penn State IEEE",
     badge: "1st Place · Shot & Chaser",
-    badgeColor: "bg-red-500/10 text-red-400",
+    badgeColor: "bg-cyan-500/10 text-cyan-400",
     shortDescription:
       "Competed under Penn State IEEE as GladIEEEators with Shot & Chaser, a coordinated two-robot combat system: a belt-driven AR500 vertical-spinner main bot and a 15° five-fork wedge minibot. Integrated weapon dynamics, mixed-material armor, LiPo electronics, FEA, arena testing, and weight/budget engineering to win 1st place in April 2026.",
     longDescription:
@@ -358,7 +358,10 @@ export const projects: Project[] = [
     tags: ["PyTorch", "Federated Learning", "TinyML", "Python", "ESP32", "CIC-IDS2017", "FAISS"],
     github: "https://github.com/danielsoo/TinyML",
     live: null,
-    images: [],
+    images: [
+      "/projects/federated-tinyml/psu_cers2026_2.jpeg",
+      "/projects/federated-tinyml/psu_cers2026_1.jpeg",
+    ],
     keyTakeaways: [
       "Compression and robustness are different axes — a model can be small and still fragile, or robust and still too large for the target device.",
       "Federated learning is a coordination problem as much as a training problem; how the server aggregates client updates matters as much as local training.",
@@ -370,7 +373,7 @@ export const projects: Project[] = [
     title: "ASME @ Penn State Website",
     type: "Web",
     badge: "Live",
-    badgeColor: "bg-green-500/10 text-green-400",
+    badgeColor: "bg-indigo-500/10 text-indigo-400",
     shortDescription:
       "Official ASME Penn State web platform built with React 19, TypeScript, Vite, and Firebase. Features a 5-tier role-based permission system (Member → Admin) controlling content editing, approvals, and project management.",
     longDescription:
@@ -397,7 +400,7 @@ export const projects: Project[] = [
     title: "Hangukgwan — Family Restaurant App",
     type: "Full-Stack",
     badge: "In Progress",
-    badgeColor: "bg-blue-500/10 text-blue-400",
+    badgeColor: "bg-cyan-500/10 text-cyan-400",
     shortDescription:
       "Full-stack restaurant web app with 4-language i18n support (Korean, English, Simplified/Traditional Chinese). Built with React + TypeScript, Node.js/Express, and MongoDB Atlas. Integrated Google Maps API and JWT authentication.",
     longDescription:
@@ -424,7 +427,7 @@ export const projects: Project[] = [
     title: "SIGNUM — AI Hospital Platform",
     type: "AI / Platform",
     badge: "$3,750 Funded",
-    badgeColor: "bg-amber-500/10 text-amber-400",
+    badgeColor: "bg-cyan-500/10 text-cyan-400",
     shortDescription:
       "PIT-UN-funded AI platform for hospital quality analysis. Built multi-source ETL (CMS, NPPES, Google Places) into DuckDB; Markov Transition Model for star-rating prediction; RAG pipelines with FAISS + AWS Bedrock reducing research time from 50+ hrs/week to near-instant.",
     longDescription:
@@ -439,7 +442,11 @@ export const projects: Project[] = [
     tags: ["Python", "AWS Bedrock", "FAISS", "DuckDB", "RAG", "Markov Model", "ETL"],
     github: "https://github.com/danielsoo/Signum_1",
     live: null,
-    images: [],
+    images: [
+      "/projects/signum/prize.jpeg",
+      "/projects/signum/team.jpeg",
+      "/projects/signum/coffee_chat.jpg",
+    ],
     keyTakeaways: [
       "Domain-grounded RAG is only as trustworthy as the data pipeline underneath it — bad data in the warehouse means confident-sounding but wrong answers.",
       "Forecasting and retrieval solve different problems; combining the Markov model with RAG gave caregivers both a trend and an explanation, which neither alone provided.",

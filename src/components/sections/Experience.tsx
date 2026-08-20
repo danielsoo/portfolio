@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useInView } from "@/hooks/useInView";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { messages } from "@/i18n/messages";
+import { getAlternatingAccent } from "./accentPalette";
 
 export default function Experience() {
   const { ref, inView } = useInView();
@@ -27,19 +28,21 @@ export default function Experience() {
             {t(messages.experience.heading)}
           </h2>
 
-          <div className="space-y-8">
-            {entries.map((experience, index) => (
-              <motion.article
-                key={experience.org.en}
-                initial={{ opacity: 0, x: -30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.12 }}
-                className="group relative border-l-2 border-[var(--foreground)]/10 py-1 pl-6 transition-colors hover:border-indigo-500/50"
-              >
-                <div className="absolute -left-[5px] top-2 h-2 w-2 rounded-full bg-indigo-500 transition-transform group-hover:scale-150" />
+          <div className="space-y-4">
+            {entries.map((experience, index) => {
+              const accent = getAlternatingAccent(index);
+              return (
+                <motion.article
+                  key={experience.org.en}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: index * 0.12 }}
+                  className={`group relative overflow-hidden rounded-2xl border px-5 py-5 shadow-sm shadow-black/5 transition-all duration-300 hover:-translate-y-0.5 sm:px-6 ${accent.border} ${accent.hoverBorder} ${accent.surface}`}
+                >
+                  <div className={`absolute inset-y-4 left-0 w-0.5 rounded-r-full opacity-75 transition-opacity group-hover:opacity-100 ${accent.dot}`} />
 
                 <div className="flex items-start gap-4 sm:gap-5">
-                  <div className="grid h-14 w-14 flex-none place-items-center overflow-hidden rounded-xl border border-[var(--foreground)]/10 bg-white shadow-sm shadow-black/10 sm:h-16 sm:w-16">
+                  <div className={`grid h-14 w-14 flex-none place-items-center overflow-hidden rounded-xl border bg-white shadow-sm shadow-black/10 sm:h-16 sm:w-16 ${accent.border}`}>
                     <Image
                       src={experienceLogos[index].src}
                       alt={experienceLogos[index].alt}
@@ -56,10 +59,10 @@ export default function Experience() {
                           {t(experience.org)}
                         </p>
                         <div className="mt-1.5 flex flex-wrap items-center gap-2">
-                          <h3 className="font-semibold text-indigo-400 transition-colors group-hover:text-cyan-300">
+                          <h3 className={`font-semibold transition-colors ${accent.accent}`}>
                             {t(experience.role)}
                           </h3>
-                          <span className="rounded-full border border-indigo-400/20 bg-indigo-500/10 px-2.5 py-0.5 font-mono text-[10px] font-medium text-indigo-300">
+                          <span className={`rounded-full border px-2.5 py-0.5 font-mono text-[10px] font-medium ${accent.chip}`}>
                             {t(experience.employmentType)}
                           </span>
                         </div>
@@ -74,8 +77,9 @@ export default function Experience() {
                     </p>
                   </div>
                 </div>
-              </motion.article>
-            ))}
+                </motion.article>
+              );
+            })}
           </div>
         </motion.div>
       </div>

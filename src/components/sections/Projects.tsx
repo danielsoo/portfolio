@@ -9,11 +9,24 @@ import { projects } from "@/data/projects";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { messages } from "@/i18n/messages";
 import { localizeProject } from "@/i18n/useLocalizedProject";
+import { getAlternatingAccent } from "./accentPalette";
+
+const projectPriority = new Map([
+  ["levit-shopport-ai", 0],
+  ["ieee-battlebot", 1],
+  ["federated-tinyml", 2],
+  ["signum", 3],
+  ["asme-website", 4],
+  ["hangukgwan", 5],
+]);
 
 export default function Projects() {
   const { ref, inView } = useInView();
   const { locale, t } = useLocale();
   const railRef = useRef<HTMLDivElement>(null);
+  const orderedProjects = [...projects].sort(
+    (a, b) => (projectPriority.get(a.slug) ?? Number.MAX_SAFE_INTEGER) - (projectPriority.get(b.slug) ?? Number.MAX_SAFE_INTEGER),
+  );
 
   const moveRail = (direction: -1 | 1) => {
     const rail = railRef.current;
@@ -56,15 +69,16 @@ export default function Projects() {
           ref={railRef}
           className="project-carousel flex snap-x snap-mandatory gap-5 overflow-x-auto px-[max(1.5rem,calc((100vw-72rem)/2))] pb-7"
         >
-          {projects.map((project, index) => {
+          {orderedProjects.map((project, index) => {
             const localized = localizeProject(project, locale);
+            const accent = getAlternatingAccent(index);
             return (
               <motion.article
                 key={project.slug}
                 initial={{ opacity: 0, x: 50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group relative grid min-h-[34rem] w-[86vw] max-w-[62rem] flex-none snap-center overflow-hidden rounded-3xl border border-[var(--foreground)]/10 bg-[var(--background)]/75 shadow-2xl shadow-black/10 transition duration-300 hover:border-indigo-400/40 md:grid-cols-[1.06fr_.94fr]"
+                className={`group relative grid min-h-[34rem] w-[86vw] max-w-[62rem] flex-none snap-center overflow-hidden rounded-3xl border border-[var(--foreground)]/10 bg-[var(--background)]/75 shadow-2xl shadow-black/10 transition duration-300 md:grid-cols-[1.06fr_.94fr] ${accent.hoverBorder}`}
               >
                 <Link
                   href={`/projects/${project.slug}`}
@@ -120,11 +134,12 @@ export default function Projects() {
 
                 <div className="pointer-events-none relative flex flex-col p-7 sm:p-9">
                   <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(99,102,241,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,.12)_1px,transparent_1px)] [background-size:34px_34px]" />
+                  <div className={`absolute inset-0 bg-gradient-to-br opacity-60 ${accent.gradient}`} />
                   <div className="relative">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-400/65">
+                    <p className={`font-mono text-[10px] uppercase tracking-[0.2em] ${accent.accentMuted}`}>
                       {localized.type}
                     </p>
-                    <h3 className="mt-4 text-3xl font-bold leading-[1.08] transition-colors group-hover:text-indigo-300">
+                    <h3 className={`mt-4 text-3xl font-bold leading-[1.08] transition-colors ${accent.groupHoverAccent}`}>
                       {localized.title}
                     </h3>
                     <p className="mt-5 line-clamp-4 text-sm leading-7 text-[var(--foreground)]/58">

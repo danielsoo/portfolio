@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { messages } from "@/i18n/messages";
+import { getAlternatingAccent } from "./accentPalette";
 
 export default function Skills() {
   const { ref, inView } = useInView();
@@ -62,33 +63,35 @@ export default function Skills() {
                 />
               </div>
 
-              {stages.map((stage, stageIndex) => (
-                <motion.article
-                  key={stage.eyebrow.en}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.45, delay: stageIndex * 0.09 }}
-                  className="group/stage relative grid gap-8 border-b border-[var(--foreground)]/[0.08] px-6 py-9 transition-colors last:border-b-0 hover:bg-cyan-400/[0.025] sm:px-8 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-10 lg:pl-28"
-                >
-                  <span className="absolute left-[4.05rem] top-10 hidden h-3 w-3 rounded-sm border border-cyan-300/50 bg-[var(--background)] transition group-hover/stage:rotate-45 group-hover/stage:bg-cyan-400 lg:block" />
+              {stages.map((stage, stageIndex) => {
+                const accent = getAlternatingAccent(stageIndex);
+                return (
+                  <motion.article
+                    key={stage.eyebrow.en}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.45, delay: stageIndex * 0.09 }}
+                    className={`group/stage relative grid gap-8 border-b border-[var(--foreground)]/[0.08] px-6 py-9 transition-colors last:border-b-0 sm:px-8 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-10 lg:pl-28 ${accent.hoverSurface}`}
+                  >
+                    <span className={`absolute left-[4.05rem] top-10 hidden h-3 w-3 rounded-sm border opacity-60 transition group-hover/stage:rotate-45 group-hover/stage:opacity-100 lg:block ${accent.border} ${accent.dot}`} />
 
-                  <div>
-                    <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-cyan-400/60">
-                      {String(stageIndex + 1).padStart(2, "0")} / {t(stage.eyebrow)}
-                    </p>
-                    <h3 className="mt-3 text-xl font-bold leading-tight text-indigo-300 transition-colors group-hover/stage:text-cyan-300">
-                      {t(stage.title)}
-                    </h3>
-                    <p className="mt-3 text-xs leading-6 text-[var(--foreground)]/38">
-                      {t(stage.description)}
-                    </p>
-                  </div>
+                    <div>
+                      <p className={`font-mono text-[9px] uppercase tracking-[0.2em] ${accent.accentMuted}`}>
+                        {String(stageIndex + 1).padStart(2, "0")} / {t(stage.eyebrow)}
+                      </p>
+                      <h3 className={`mt-3 text-xl font-bold leading-tight ${accent.accent}`}>
+                        {t(stage.title)}
+                      </h3>
+                      <p className="mt-3 text-xs leading-6 text-[var(--foreground)]/38">
+                        {t(stage.description)}
+                      </p>
+                    </div>
 
-                  <div className={`grid gap-8 ${stage.groupIndices.length > 1 ? "xl:grid-cols-2" : ""}`}>
-                    {stage.groupIndices.map((groupIndex) => {
-                      const group = groups[groupIndex];
-                      return (
-                        <div key={group.category.en} className="border-l border-indigo-400/20 pl-5">
+                    <div className={`grid gap-8 ${stage.groupIndices.length > 1 ? "xl:grid-cols-2" : ""}`}>
+                      {stage.groupIndices.map((groupIndex) => {
+                        const group = groups[groupIndex];
+                        return (
+                          <div key={group.category.en} className={`border-l pl-5 ${accent.line}`}>
                           <div className="flex items-center justify-between gap-4">
                             <h4 className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--foreground)]/48">
                               {t(group.category)}
@@ -102,12 +105,13 @@ export default function Skills() {
                               <SkillChip key={skill} skill={skill} />
                             ))}
                           </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </motion.article>
-              ))}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </motion.article>
+                );
+              })}
             </div>
 
             <div className="relative flex flex-wrap items-center justify-between gap-3 border-t border-[var(--foreground)]/10 bg-[var(--background)]/65 px-6 py-4 font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--foreground)]/25 sm:px-8">
@@ -122,35 +126,11 @@ export default function Skills() {
 }
 
 function SkillChip({ skill }: { skill: string }) {
-  const primary = primarySkills.has(skill);
-
   return (
     <span
-      className={`rounded-md border px-2.5 py-1.5 font-mono text-[11px] transition-colors ${
-        primary
-          ? "border-cyan-400/25 bg-cyan-400/[0.09] text-cyan-200"
-          : "border-[var(--foreground)]/10 bg-[var(--background)]/35 text-[var(--foreground)]/52 hover:border-indigo-400/30 hover:text-indigo-300"
-      }`}
+      className="rounded-md border border-[var(--foreground)]/12 bg-[var(--background)]/35 px-2.5 py-1.5 font-mono text-[11px] text-[var(--foreground)]/58 transition-colors hover:border-[var(--foreground)]/25 hover:text-[var(--foreground)]/78"
     >
       {skill}
     </span>
   );
 }
-
-const primarySkills = new Set([
-  "TypeScript",
-  "JavaScript / Node.js",
-  "React",
-  "Next.js",
-  "Node.js",
-  "NestJS",
-  "MongoDB",
-  "OpenAI API",
-  "Semantic Embeddings",
-  "Mem0 OSS",
-  "A/B Testing",
-  "Kubernetes",
-  "Datadog",
-  "Jest",
-  "Vitest",
-]);

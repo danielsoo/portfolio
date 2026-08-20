@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { messages } from "@/i18n/messages";
+import { getAccent } from "./accentPalette";
 
 const SITES = [
   {
@@ -41,6 +42,7 @@ export default function SiteLinks() {
           <div className="grid md:grid-cols-2 gap-6">
             {SITES.map((site, i) => {
               const copy = messages.siteLinks[site.id];
+              const accent = getAccent(i);
               const isLive = site.url !== "#";
               const status = isLive ? messages.siteLinks.statusLive : messages.siteLinks.statusProgress;
               const Wrapper = isLive ? motion.a : motion.div;
@@ -54,10 +56,11 @@ export default function SiteLinks() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group p-6 rounded-xl border border-[var(--foreground)]/10 hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 block"
+                  className={`group relative block overflow-hidden rounded-xl border bg-gradient-to-br p-6 transition-all duration-300 hover:-translate-y-1 ${accent.border} ${accent.hoverBorder} ${accent.gradient}`}
                 >
+                  <div className={`pointer-events-none absolute -right-12 -top-12 h-28 w-28 rounded-full blur-3xl ${accent.glow}`} />
                   <div className="flex items-start justify-between mb-3 gap-2">
-                    <h3 className="font-bold text-lg group-hover:text-indigo-400 transition-colors">
+                    <h3 className={`relative font-bold text-lg transition-colors ${accent.accent}`}>
                       {t(copy.title)}
                     </h3>
                     <div className="flex items-center gap-2 flex-shrink-0 mt-0.5">
@@ -81,13 +84,13 @@ export default function SiteLinks() {
                     {t(copy.description)}
                   </p>
                   {isLive && (
-                    <p className="text-xs text-indigo-400/60 font-mono truncate mb-3">{site.url}</p>
+                    <p className={`text-xs font-mono truncate mb-3 ${accent.accentMuted}`}>{site.url}</p>
                   )}
                   <div className="flex flex-wrap gap-2">
                     {site.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 font-mono"
+                        className={`text-xs px-2.5 py-1 rounded-full border font-mono ${accent.chip}`}
                       >
                         {tag}
                       </span>
