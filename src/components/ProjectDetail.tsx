@@ -91,6 +91,28 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 <ExternalIcon /> {t(messages.projectDetail.liveSite)}
               </a>
             )}
+            {project.appLinks?.appStore && (
+              <a
+                href={project.appLinks.appStore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-[var(--background)] transition hover:opacity-80"
+              >
+                <span aria-hidden="true">↗</span>
+                {t(messages.projectDetail.appStore)}
+              </a>
+            )}
+            {project.appLinks?.googlePlay && (
+              <a
+                href={project.appLinks.googlePlay}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-cyan-400/35 bg-cyan-400/[0.08] px-4 py-2 text-sm font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400/[0.14]"
+              >
+                <span aria-hidden="true">↗</span>
+                {t(messages.projectDetail.googlePlay)}
+              </a>
+            )}
           </div>
         </motion.div>
 
@@ -298,9 +320,31 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
             <div>
               <h3 className="text-xs font-mono uppercase tracking-widest text-[var(--foreground)]/30 mb-3">
-                {t(messages.projectDetail.links)}
+                {project.appLinks
+                  ? t(messages.projectDetail.tryApp)
+                  : t(messages.projectDetail.links)}
               </h3>
               <div className="space-y-2">
+                {project.appLinks?.appStore && (
+                  <a
+                    href={project.appLinks.appStore}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 transition-colors hover:text-indigo-400"
+                  >
+                    <ExternalIcon /> {t(messages.projectDetail.appStore)}
+                  </a>
+                )}
+                {project.appLinks?.googlePlay && (
+                  <a
+                    href={project.appLinks.googlePlay}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 transition-colors hover:text-cyan-400"
+                  >
+                    <ExternalIcon /> {t(messages.projectDetail.googlePlay)}
+                  </a>
+                )}
                 {project.github && (
                   <a
                     href={project.github}

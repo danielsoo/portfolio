@@ -160,7 +160,7 @@ export default function About() {
                 <div className="relative mt-7">
                   <p className="text-3xl font-black text-[var(--foreground)]/10">LEVIT</p>
                   <h3 className="mt-2 text-xl font-bold">Associate Problem Solver</h3>
-                  <p className="mt-2 font-mono text-xs text-[var(--foreground)]/40">Shopport AI · 2026</p>
+                  <p className="mt-2 font-mono text-xs text-[var(--foreground)]/40">Shopport · iOS &amp; Android · 2026</p>
                 </div>
                 <CardAction label={t(messages.about.openStory)} />
               </button>

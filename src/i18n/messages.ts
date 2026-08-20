@@ -41,8 +41,8 @@ export const messages = {
       },
       {
         eyebrow: { en: "IEEE / Combat Robotics", ko: "IEEE / 전투 로보틱스" },
-        title: { en: "Shot & Chaser — 1st place", ko: "Shot & Chaser — 1위" },
-        meta: { en: "Multibot systems engineering", ko: "멀티봇 시스템 엔지니어링" },
+        title: { en: "GladIEEEators — 1st place", ko: "GladIEEEators — 1위" },
+        meta: { en: "Shot & Chaser · Multibot systems engineering", ko: "Shot & Chaser · 멀티봇 시스템 엔지니어링" },
       },
       {
         eyebrow: { en: "Research / TinyML", ko: "연구 / TinyML" },
@@ -60,7 +60,7 @@ export const messages = {
   /* ---------- About ---------- */
   about: {
     sectionLabel: { en: "01. About Me", ko: "01. 소개" },
-    title: { en: "Who I Am", ko: "저는 누구인가요" },
+    title: { en: "Who I Am", ko: "저는 이런 사람입니다" },
     browseHint: {
       en: "Start with the signals. Open a card when you want the full story.",
       ko: "핵심 신호부터 살펴보고, 전체 이야기가 궁금할 때 카드를 열어보세요.",
@@ -68,7 +68,7 @@ export const messages = {
     openStory: { en: "Open my story", ko: "전체 이야기 보기" },
     closeStory: { en: "Close details", ko: "상세 내용 닫기" },
     cardBuild: { en: "What I build", ko: "무엇을 만드는가" },
-    cardBuildTitle: { en: "AI systems that hold up in production", ko: "프로덕션에서 견디는 AI 시스템" },
+    cardBuildTitle: { en: "AI systems that hold up in production", ko: "실제 서비스에서 신뢰할 수 있는 AI 시스템" },
     cardResearch: { en: "Research", ko: "연구" },
     cardResearchTitle: { en: "Intelligence at the edge", ko: "엣지에서 구현하는 지능" },
     cardProfile: { en: "Profile", ko: "프로필" },
@@ -157,7 +157,10 @@ export const messages = {
       {
         role: { en: "Associate Problem Solver", ko: "Associate Problem Solver" },
         employmentType: { en: "Internship", ko: "인턴십" },
-        org: { en: "Levit — Shopport (AI Shopping Assistant)", ko: "Levit — Shopport (AI 쇼핑 어시스턴트)" },
+        org: {
+          en: "Levit — Shopport (AI Shopping App on iOS & Android)",
+          ko: "Levit — Shopport (iOS·Android 정식 출시 AI 쇼핑 앱)",
+        },
         location: {
           en: "Seoul, South Korea",
           ko: "대한민국 서울",
@@ -246,51 +249,51 @@ export const messages = {
 
   /* ---------- Skills ---------- */
   skills: {
-    sectionLabel: { en: "03. Skills", ko: "03. 기술" },
-    heading: { en: "Technologies I Work With", ko: "사용하는 기술" },
+    sectionLabel: { en: "03. Skills", ko: "03. 기술 스택" },
+    heading: { en: "Technologies I Work With", ko: "기술 스택" },
     browseHint: {
       en: "Every tool is visible, organized by how an AI product moves from code to production.",
-      ko: "AI 제품이 코드에서 프로덕션으로 가는 흐름에 따라 모든 기술을 펼쳐 보여줍니다.",
+      ko: "AI 제품을 만들고 개선해 운영하는 순서에 따라 기술 스택을 정리했습니다.",
     },
-    systemLabel: { en: "Capability system map", ko: "역량 시스템 맵" },
-    systemTitle: { en: "AI product engineering — end to end", ko: "AI 제품 엔지니어링 — 엔드투엔드" },
-    systemStatus: { en: "All capabilities online", ko: "전체 역량 온라인" },
-    systemFooter: { en: "From interface to intelligence to operations", ko: "인터페이스에서 지능과 운영까지" },
+    systemLabel: { en: "Capability system map", ko: "기술 흐름 한눈에 보기" },
+    systemTitle: { en: "AI product engineering — end to end", ko: "AI 제품을 처음부터 끝까지 만드는 기술" },
+    systemStatus: { en: "All capabilities online", ko: "전체 기술 표시 중" },
+    systemFooter: { en: "From interface to intelligence to operations", ko: "화면 구현부터 AI, 실험, 운영까지" },
     stages: [
       {
-        eyebrow: { en: "Foundation", ko: "기반" },
-        title: { en: "Languages & Runtime", ko: "언어 & 런타임" },
-        description: { en: "The core tools used to express, automate, and ship systems.", ko: "시스템을 구현하고 자동화하며 배포하는 핵심 도구입니다." },
+        eyebrow: { en: "Foundation", ko: "기초" },
+        title: { en: "Languages & Runtime", ko: "언어와 실행 환경" },
+        description: { en: "The core tools used to express, automate, and ship systems.", ko: "서비스를 구현하고 자동화하는 데 사용하는 기본 기술입니다." },
         groupIndices: [0],
       },
       {
-        eyebrow: { en: "Product Layer", ko: "제품 레이어" },
-        title: { en: "Interfaces & Services", ko: "인터페이스 & 서비스" },
-        description: { en: "User-facing experiences connected to reliable application services.", ko: "사용자 경험과 안정적인 애플리케이션 서비스를 연결합니다." },
+        eyebrow: { en: "Product Layer", ko: "제품 개발" },
+        title: { en: "Interfaces & Services", ko: "프론트엔드와 백엔드" },
+        description: { en: "User-facing experiences connected to reliable application services.", ko: "사용자가 접하는 화면부터 이를 뒷받침하는 API와 서비스까지 구현합니다." },
         groupIndices: [1, 2],
       },
       {
-        eyebrow: { en: "Intelligence Layer", ko: "지능 레이어" },
-        title: { en: "Data & Models", ko: "데이터 & 모델" },
-        description: { en: "Storage, retrieval, routing, memory, and model-powered decisions.", ko: "저장·검색·라우팅·메모리와 모델 기반 의사결정을 구성합니다." },
+        eyebrow: { en: "Intelligence Layer", ko: "AI·데이터" },
+        title: { en: "Data & Models", ko: "데이터와 AI 시스템" },
+        description: { en: "Storage, retrieval, routing, memory, and model-powered decisions.", ko: "데이터 저장과 검색부터 라우팅, 장기 기억, 모델 기반 판단까지 연결합니다." },
         groupIndices: [3, 4],
       },
       {
-        eyebrow: { en: "Learning Loop", ko: "학습 루프" },
-        title: { en: "Evaluation & Experiments", ko: "평가 & 실험" },
-        description: { en: "Measurement systems that turn production behavior into improvement.", ko: "프로덕션 행동을 측정하고 개선으로 연결하는 시스템입니다." },
+        eyebrow: { en: "Learning Loop", ko: "평가·개선" },
+        title: { en: "Evaluation & Experiments", ko: "실험과 성능 평가" },
+        description: { en: "Measurement systems that turn production behavior into improvement.", ko: "실제 사용 결과를 측정하고 다음 제품 개선으로 이어지게 합니다." },
         groupIndices: [5],
       },
       {
-        eyebrow: { en: "Production", ko: "프로덕션" },
-        title: { en: "Delivery & Reliability", ko: "배포 & 신뢰성" },
-        description: { en: "Infrastructure, observability, and tests that keep the system running.", ko: "시스템을 안정적으로 운영하는 인프라·관측성·테스트입니다." },
+        eyebrow: { en: "Production", ko: "배포·운영" },
+        title: { en: "Delivery & Reliability", ko: "안정적인 서비스 운영" },
+        description: { en: "Infrastructure, observability, and tests that keep the system running.", ko: "배포와 모니터링, 테스트를 통해 서비스가 안정적으로 동작하게 합니다." },
         groupIndices: [6, 7],
       },
     ] as const,
     openGroup: { en: "Open stack", ko: "기술 스택 열기" },
     closeGroup: { en: "Close skill details", ko: "기술 상세 닫기" },
-    tools: { en: "tools", ko: "개 기술" },
+    tools: { en: "tools", ko: "가지 기술" },
     groups: [
       {
         category: { en: "Languages", ko: "언어" },
@@ -305,23 +308,23 @@ export const messages = {
         items: ["Node.js", "NestJS", "Express", "Flask", "REST API", "Swagger / OpenAPI", "Dependency Injection"],
       },
       {
-        category: { en: "Database / Storage", ko: "데이터베이스 / 스토리지" },
+        category: { en: "Database / Storage", ko: "데이터베이스·저장소" },
         items: ["MongoDB", "Mongoose", "Supabase / PostgreSQL", "Redis", "DuckDB", "Firebase", "Mem0 Vector Memory Store"],
       },
       {
-        category: { en: "AI / LLM", ko: "AI / LLM" },
+        category: { en: "AI / LLM", ko: "AI·LLM" },
         items: ["OpenAI API", "AWS Bedrock", "OpenRouter", "Prompt Engineering", "RAG", "FAISS", "Semantic Embeddings", "Vector Similarity Routing", "LLM Evaluation", "Mem0 OSS", "Vision / Multimodal LLM", "Federated Learning", "PyTorch", "TensorFlow", "Scikit-learn", "spaCy", "SHAP", "Flower (FL)"],
       },
       {
-        category: { en: "Experimentation / Analytics", ko: "실험 / 분석" },
+        category: { en: "Experimentation / Analytics", ko: "실험·분석" },
         items: ["A/B Testing", "Sticky Treatment / Control Assignment", "Evaluation Harnesses", "Backfill Pipelines", "Funnel Analysis", "Recommendation Completion Rate"],
       },
       {
-        category: { en: "Infrastructure / Operations", ko: "인프라 / 운영" },
+        category: { en: "Infrastructure / Operations", ko: "인프라·운영" },
         items: ["Kubernetes", "Helm", "Kubernetes CronJob", "Docker / ECR", "ArgoCD", "GitHub Actions", "Datadog", "Feature Flags", "Retry / Exponential Backoff"],
       },
       {
-        category: { en: "Testing / Dev Tools", ko: "테스트 / 개발 도구" },
+        category: { en: "Testing / Dev Tools", ko: "테스트·개발 도구" },
         items: ["Jest", "Vitest", "ESLint", "Git", "pnpm", "Turborepo"],
       },
     ],
@@ -341,6 +344,8 @@ export const messages = {
     viewDetails: { en: "View details", ko: "자세히 보기" },
     githubTitle: { en: "GitHub", ko: "GitHub" },
     liveSiteTitle: { en: "Live site", ko: "라이브 사이트" },
+    appStoreTitle: { en: "Download Shopport on the App Store", ko: "App Store에서 Shopport 다운로드" },
+    googlePlayTitle: { en: "Get Shopport on Google Play", ko: "Google Play에서 Shopport 다운로드" },
     bySlug: {
       "levit-shopport-ai": {
         title: {
@@ -350,12 +355,12 @@ export const messages = {
         type: { en: "Levit · Shopport AI", ko: "Levit · Shopport AI" },
         badge: { en: "Associate Problem Solver", ko: "Associate Problem Solver" },
         shortDescription: {
-          en: "Owned applied-AI and full-stack work across Shopport's routing lifecycle: evolved an LLM router into an embedding-based semantic and hybrid router, built the production quality analytics and backfill platform, and shipped a memory-grounded cross-category recommender end to end.",
-          ko: "Shopport 라우팅 라이프사이클 전반의 Applied AI·풀스택 업무를 담당했습니다. LLM 라우터를 임베딩 기반 시맨틱·하이브리드 라우터로 발전시키고, 프로덕션 품질 분석·백필 플랫폼과 메모리 기반 크로스카테고리 추천 시스템을 엔드투엔드로 구축했습니다.",
+          en: "Worked across applied AI and full-stack engineering for Shopport, Levit's consumer AI shopping app officially released on iOS and Android. Evolved its LLM router into an embedding-based semantic and hybrid router, built the production quality analytics and backfill platform, and shipped a memory-grounded cross-category recommender end to end.",
+          ko: "Levit이 iOS와 Android에 정식 출시한 소비자용 AI 쇼핑 앱 Shopport에서 AI·풀스택 개발을 담당했습니다. LLM 라우터를 임베딩 기반 시맨틱·하이브리드 라우터로 발전시키고, 서비스 품질 분석·백필 플랫폼과 메모리 기반 크로스카테고리 추천 시스템을 처음부터 끝까지 구축했습니다.",
         },
         longDescription: {
-          en: "During a seven-week engagement at Levit, I worked across Shopport's applied-AI stack: React and Next.js operator tools, NestJS routing and recommendation services, MongoDB and Supabase analytics, background workers, and production rollout controls. I independently ran the loop from problem definition and diagnostic harnesses through implementation, deployment, backfill, and production verification.\n\nThe work was not a standalone app built in isolation. It was a set of high-leverage contributions inside a large commerce product, made in close collaboration with the CEO and adjacent product and engineering teams.",
-          ko: "Levit에서 약 7주 동안 React·Next.js 운영 도구, NestJS 라우팅·추천 서비스, MongoDB·Supabase 분석, 백그라운드 워커, 프로덕션 롤아웃 제어까지 Shopport의 Applied AI 스택을 세로로 관통해 작업했습니다. 문제 정의와 진단 하네스 구축부터 구현, 배포, 백필, 프로덕션 검증까지 한 사이클을 독립적으로 수행했습니다.\n\n이 작업은 앱 전체를 혼자 새로 만든 것이 아니라, 대규모 커머스 제품 안에서 CEO 및 인접 제품·엔지니어링 팀과 긴밀히 협업하며 핵심 레이어에 높은 영향도의 기여를 한 것입니다.",
+          en: "Shopport is Levit's consumer AI shopping app, officially available on iOS and Android. During a seven-week engagement at Levit, I worked across its applied-AI stack: React and Next.js operator tools, NestJS routing and recommendation services, MongoDB and Supabase analytics, background workers, and production rollout controls. I independently ran the loop from problem definition and diagnostic harnesses through implementation, deployment, backfill, and production verification.\n\nThe work was not a standalone app built in isolation. It was a set of high-leverage contributions inside a large commerce product, made in close collaboration with the CEO and adjacent product and engineering teams.",
+          ko: "Shopport는 Levit이 iOS와 Android에 정식 출시한 소비자용 AI 쇼핑 앱입니다. Levit에서 약 7주 동안 React·Next.js 운영 도구, NestJS 라우팅·추천 서비스, MongoDB·Supabase 분석, 백그라운드 워커, 실제 서비스 배포 제어까지 Shopport의 AI 기술 전반을 다뤘습니다. 문제 정의와 진단 도구 구축부터 구현, 배포, 과거 데이터 재처리, 실제 서비스 검증까지 한 사이클을 독립적으로 수행했습니다.\n\n앱 전체를 혼자 새로 만든 것이 아니라, 이미 운영 중인 대규모 커머스 제품 안에서 CEO와 제품·엔지니어링 팀과 긴밀히 협업하며 핵심 기능을 개선했습니다.",
         },
         highlights: [
           { en: "Evolved routing from an LLM classifier to a semantic router that skips the LLM for confident cases (~8× faster), then to a hybrid classifier for ambiguous queries", ko: "LLM 분류기를 확신 구간에서 LLM을 건너뛰는 시맨틱 라우터(약 8배 빠름), 이후 애매한 쿼리를 처리하는 하이브리드 분류기로 발전" },
@@ -463,11 +468,11 @@ export const messages = {
       },
       "ieee-battlebot": {
         title: {
-          en: "Shot & Chaser — Penn State IEEE Battle Bots Champion",
-          ko: "Shot & Chaser — Penn State IEEE Battle Bots 우승",
+          en: "GladIEEEators — Penn State IEEE Battle Bots Champion",
+          ko: "GladIEEEators — Penn State IEEE Battle Bots 우승팀",
         },
         type: { en: "Combat Robotics · Penn State IEEE", ko: "컴뱃 로보틱스 · Penn State IEEE" },
-        badge: { en: "1st Place · GladIEEEators", ko: "1위 · GladIEEEators" },
+        badge: { en: "1st Place · Shot & Chaser", ko: "1위 · Shot & Chaser" },
         shortDescription: {
           en: "Competed under Penn State IEEE as GladIEEEators with Shot & Chaser, a coordinated two-robot combat system: a belt-driven AR500 vertical-spinner main bot and a 15° five-fork wedge minibot. Integrated weapon dynamics, mixed-material armor, LiPo electronics, FEA, arena testing, and weight/budget engineering to win 1st place in April 2026.",
           ko: "Penn State IEEE 소속 GladIEEEators로 출전해 2대 협력 전투 로봇 Shot & Chaser를 제작했습니다. 벨트 구동 AR500 수직 스피너 메인봇과 15° 5-포크 웨지 미니봇에 무기 동역학, 복합 소재 장갑, LiPo 전장, FEA, 아레나 테스트, 중량·예산 엔지니어링을 통합해 2026년 4월 1위를 달성했습니다.",
@@ -956,6 +961,9 @@ export const messages = {
     back: { en: "cd ../projects", ko: "cd ../projects" },
     liveSite: { en: "Live Site", ko: "라이브 사이트" },
     github: { en: "GitHub", ko: "GitHub" },
+    appStore: { en: "App Store", ko: "App Store" },
+    googlePlay: { en: "Google Play", ko: "Google Play" },
+    tryApp: { en: "Try the app", ko: "앱 직접 사용해 보기" },
     overview: { en: "// Overview", ko: "// 개요" },
     highlights: { en: "// Key Highlights", ko: "// 주요 하이라이트" },
     impact: { en: "// Impact", ko: "// 임팩트" },

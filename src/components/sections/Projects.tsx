@@ -162,6 +162,30 @@ export default function Projects() {
                         {t(messages.projects.viewDetails)} →
                       </span>
                       <div className="pointer-events-auto relative z-20 flex gap-3">
+                        {project.appLinks?.appStore && (
+                          <a
+                            href={project.appLinks.appStore}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-full border border-[var(--foreground)]/15 px-2.5 py-1 font-mono text-[9px] text-[var(--foreground)]/50 transition hover:border-indigo-400/50 hover:text-indigo-300"
+                            title={t(messages.projects.appStoreTitle)}
+                            aria-label={t(messages.projects.appStoreTitle)}
+                          >
+                            iOS
+                          </a>
+                        )}
+                        {project.appLinks?.googlePlay && (
+                          <a
+                            href={project.appLinks.googlePlay}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-full border border-[var(--foreground)]/15 px-2.5 py-1 font-mono text-[9px] text-[var(--foreground)]/50 transition hover:border-cyan-400/50 hover:text-cyan-300"
+                            title={t(messages.projects.googlePlayTitle)}
+                            aria-label={t(messages.projects.googlePlayTitle)}
+                          >
+                            Android
+                          </a>
+                        )}
                         {project.github && (
                           <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-[var(--foreground)]/35 transition hover:text-[var(--foreground)]" title={t(messages.projects.githubTitle)}>
                             <GitHubIcon />

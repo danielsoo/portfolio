@@ -10,6 +10,10 @@ export type Project = {
   tags: string[];
   github: string;
   live: string | null;
+  appLinks?: {
+    appStore?: string;
+    googlePlay?: string;
+  };
   images: string[]; // paths under /public/projects/<slug>/
   videos?: string[]; // paths under /public/projects/<slug>/
   impact?: { value: string; label: string }[];
@@ -36,9 +40,9 @@ export const projects: Project[] = [
     badge: "Associate Problem Solver",
     badgeColor: "bg-cyan-500/10 text-cyan-400",
     shortDescription:
-      "Owned applied-AI and full-stack work across Shopport's routing lifecycle: evolved an LLM router into an embedding-based semantic and hybrid router, built the production quality analytics and backfill platform, and shipped a memory-grounded cross-category recommender end to end.",
+      "Worked across applied AI and full-stack engineering for Shopport, Levit's consumer AI shopping app officially released on iOS and Android. Evolved its LLM router into an embedding-based semantic and hybrid router, built the production quality analytics and backfill platform, and shipped a memory-grounded cross-category recommender end to end.",
     longDescription:
-      "During a seven-week engagement at Levit, I worked across Shopport's applied-AI stack: React and Next.js operator tools, NestJS routing and recommendation services, MongoDB and Supabase analytics, background workers, and production rollout controls. I independently ran the loop from problem definition and diagnostic harnesses through implementation, deployment, backfill, and production verification.\n\nThe work was not a standalone app built in isolation. It was a set of high-leverage contributions inside a large commerce product, made in close collaboration with the CEO and adjacent product and engineering teams.",
+      "Shopport is Levit's consumer AI shopping app, officially available on iOS and Android. During a seven-week engagement at Levit, I worked across its applied-AI stack: React and Next.js operator tools, NestJS routing and recommendation services, MongoDB and Supabase analytics, background workers, and production rollout controls. I independently ran the loop from problem definition and diagnostic harnesses through implementation, deployment, backfill, and production verification.\n\nThe work was not a standalone app built in isolation. It was a set of high-leverage contributions inside a large commerce product, made in close collaboration with the CEO and adjacent product and engineering teams.",
     highlights: [
       "Evolved routing from an LLM classifier to a semantic router that skips the LLM for confident cases (~8× faster), then to a hybrid classifier for ambiguous queries",
       "Evaluated V1/V2/V3 on production-derived traffic: V3 reached 86% accuracy with 3 regressions versus 31 for V2 and rescued 93% of eligible central-router errors",
@@ -51,6 +55,10 @@ export const projects: Project[] = [
     tags: ["TypeScript", "React", "Next.js", "NestJS", "MongoDB", "Supabase", "Redis", "OpenRouter", "Semantic Embeddings", "Mem0", "Kubernetes", "Helm", "Datadog", "A/B Testing"],
     github: "",
     live: null,
+    appLinks: {
+      appStore: "https://apps.apple.com/us/app/%EC%87%BC%ED%8F%AC%ED%8A%B8-ai-%EC%87%BC%ED%95%91%EB%B9%84%EC%84%9C/id6757226599",
+      googlePlay: "https://play.google.com/store/apps/details?id=com.alwayz.pmf",
+    },
     images: ["/projects/levit-shopport-ai/source-contribution-clean.png"],
     impact: [
       { value: "730", label: "GitHub Contributions" },
@@ -122,9 +130,9 @@ export const projects: Project[] = [
   },
   {
     slug: "ieee-battlebot",
-    title: "Shot & Chaser — Penn State IEEE Battle Bots Champion",
+    title: "GladIEEEators — Penn State IEEE Battle Bots Champion",
     type: "Combat Robotics · Penn State IEEE",
-    badge: "1st Place · GladIEEEators",
+    badge: "1st Place · Shot & Chaser",
     badgeColor: "bg-red-500/10 text-red-400",
     shortDescription:
       "Competed under Penn State IEEE as GladIEEEators with Shot & Chaser, a coordinated two-robot combat system: a belt-driven AR500 vertical-spinner main bot and a 15° five-fork wedge minibot. Integrated weapon dynamics, mixed-material armor, LiPo electronics, FEA, arena testing, and weight/budget engineering to win 1st place in April 2026.",
