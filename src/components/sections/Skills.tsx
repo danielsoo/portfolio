@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { messages } from "@/i18n/messages";
-import { getAlternatingAccent } from "./accentPalette";
+import { getAccent, getAlternatingAccent } from "./accentPalette";
 
 export default function Skills() {
   const { ref, inView } = useInView();
@@ -37,14 +37,14 @@ export default function Skills() {
 
             <div className="relative flex flex-col gap-4 border-b border-[var(--foreground)]/10 bg-[var(--background)]/70 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-cyan-400/65">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-cyan-700/80 dark:text-cyan-400/65">
                   {t(messages.skills.systemLabel)}
                 </p>
                 <p className="mt-2 text-sm font-semibold text-[var(--foreground)]/70">
                   {t(messages.skills.systemTitle)}
                 </p>
               </div>
-              <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--foreground)]/35">
+              <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--foreground)]/48">
                 <motion.span
                   className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,.7)]"
                   animate={{ opacity: [0.35, 1, 0.35] }}
@@ -82,7 +82,7 @@ export default function Skills() {
                       <h3 className={`mt-3 text-xl font-bold leading-tight ${accent.accent}`}>
                         {t(stage.title)}
                       </h3>
-                      <p className="mt-3 text-xs leading-6 text-[var(--foreground)]/38">
+                      <p className="mt-3 text-xs leading-6 text-[var(--foreground)]/58">
                         {t(stage.description)}
                       </p>
                     </div>
@@ -90,19 +90,20 @@ export default function Skills() {
                     <div className={`grid gap-8 ${stage.groupIndices.length > 1 ? "xl:grid-cols-2" : ""}`}>
                       {stage.groupIndices.map((groupIndex) => {
                         const group = groups[groupIndex];
+                        const groupAccent = getAccent(groupIndex);
                         return (
                           <div key={group.category.en} className={`border-l pl-5 ${accent.line}`}>
                           <div className="flex items-center justify-between gap-4">
-                            <h4 className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--foreground)]/48">
+                            <h4 className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--foreground)]/68">
                               {t(group.category)}
                             </h4>
-                            <span className="font-mono text-[9px] text-[var(--foreground)]/22">
+                            <span className="font-mono text-[9px] text-[var(--foreground)]/38">
                               {String(group.items.length).padStart(2, "0")}
                             </span>
                           </div>
                           <div className="mt-4 flex flex-wrap gap-2">
                             {group.items.map((skill) => (
-                              <SkillChip key={skill} skill={skill} />
+                              <SkillChip key={skill} skill={skill} chipClass={groupAccent.chip} />
                             ))}
                           </div>
                           </div>
@@ -114,7 +115,7 @@ export default function Skills() {
               })}
             </div>
 
-            <div className="relative flex flex-wrap items-center justify-between gap-3 border-t border-[var(--foreground)]/10 bg-[var(--background)]/65 px-6 py-4 font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--foreground)]/25 sm:px-8">
+            <div className="relative flex flex-wrap items-center justify-between gap-3 border-t border-[var(--foreground)]/10 bg-[var(--background)]/65 px-6 py-4 font-mono text-[9px] uppercase tracking-[0.16em] text-[var(--foreground)]/40 sm:px-8">
               <span>{t(messages.skills.systemFooter)}</span>
               <span>{groups.reduce((total, group) => total + group.items.length, 0)} {t(messages.skills.tools)}</span>
             </div>
@@ -125,10 +126,10 @@ export default function Skills() {
   );
 }
 
-function SkillChip({ skill }: { skill: string }) {
+function SkillChip({ skill, chipClass }: { skill: string; chipClass: string }) {
   return (
     <span
-      className="rounded-md border border-[var(--foreground)]/12 bg-[var(--background)]/35 px-2.5 py-1.5 font-mono text-[11px] text-[var(--foreground)]/58 transition-colors hover:border-[var(--foreground)]/25 hover:text-[var(--foreground)]/78"
+      className={`rounded-md border px-2.5 py-1.5 font-mono text-[11px] font-medium transition-colors hover:brightness-125 ${chipClass}`}
     >
       {skill}
     </span>
