@@ -9,8 +9,8 @@ import { messages } from "@/i18n/messages";
 
 const EVIDENCE_MEDIA = [
   {
-    src: "/projects/levit-shopport-ai/source-contribution-clean.png",
-    fit: "object-contain bg-[#111]",
+    src: "/projects/levit-shopport-ai/group_photo_2.jpeg",
+    fit: "object-cover object-[center_64%]",
     accent: "#22d3ee",
   },
   {
@@ -25,7 +25,7 @@ const EVIDENCE_MEDIA = [
   },
   {
     src: "/projects/signum/prize.jpeg",
-    fit: "object-contain bg-[#11131a]",
+    fit: "object-cover object-[center_32%]",
     accent: "#818cf8",
   },
 ] as const;

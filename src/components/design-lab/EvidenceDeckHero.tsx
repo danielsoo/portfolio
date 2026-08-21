@@ -6,11 +6,11 @@ import { useEffect, useState } from "react";
 
 export const EVIDENCE_CARDS = [
   {
-    src: "/projects/levit-shopport-ai/source-contribution-clean.png",
+    src: "/projects/levit-shopport-ai/group_photo_2.jpeg",
     eyebrow: "Levit / Production AI",
     title: "114K lines of TypeScript shipped",
     meta: "Routing · Evaluation · Personalization",
-    fit: "object-contain bg-[#111]",
+    fit: "object-cover object-top",
     accent: "#22d3ee",
   },
   {

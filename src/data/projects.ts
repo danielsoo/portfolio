@@ -59,7 +59,13 @@ export const projects: Project[] = [
       appStore: "https://apps.apple.com/us/app/%EC%87%BC%ED%8F%AC%ED%8A%B8-ai-%EC%87%BC%ED%95%91%EB%B9%84%EC%84%9C/id6757226599",
       googlePlay: "https://play.google.com/store/apps/details?id=com.alwayz.pmf",
     },
-    images: ["/projects/levit-shopport-ai/source-contribution-clean.png"],
+    images: [
+      "/projects/levit-shopport-ai/group_photo_2.jpeg",
+      "/projects/levit-shopport-ai/pretend_working.jpeg",
+      "/projects/levit-shopport-ai/solo_photo.jpeg",
+      "/projects/levit-shopport-ai/group_photo_1.jpeg",
+      "/projects/levit-shopport-ai/source-contribution-clean.png",
+    ],
     impact: [
       { value: "730", label: "GitHub Contributions" },
       { value: "143", label: "Merged Pull Requests" },
