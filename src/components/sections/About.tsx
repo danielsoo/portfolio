@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import DetailDialog from "@/components/DetailDialog";
 import PdfPreviewModal from "@/components/PdfPreviewModal";
@@ -10,13 +11,97 @@ import { usePdfPreview } from "@/hooks/usePdfPreview";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { messages } from "@/i18n/messages";
 
+type StoryKey = "build" | "levit" | "research" | "profile";
+
+function StoryPhotoBackground({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="absolute inset-0">
+      <Image src={src} alt={alt} fill className="object-cover opacity-[0.32]" />
+      <div className="absolute inset-0 bg-[var(--background)]/55" />
+    </div>
+  );
+}
+
+function ResearchArt() {
+  return (
+    <div className="absolute inset-0 opacity-[0.34]">
+      <svg viewBox="0 0 400 300" className="h-full w-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <radialGradient id="researchGlow" cx="70%" cy="20%" r="65%">
+            <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        <rect width="400" height="300" fill="url(#researchGlow)" />
+        <g stroke="#818cf8" strokeWidth="1" fill="none">
+          <path d="M20 40 H140 L160 60 H260" />
+          <path d="M40 120 H180 L200 100 H340" />
+          <path d="M20 200 H120 L140 220 H300 L320 200 H380" />
+          <path d="M60 260 H220 L240 240 H360" />
+        </g>
+        <g fill="#22d3ee">
+          <circle cx="140" cy="40" r="3.5" />
+          <circle cx="260" cy="60" r="3.5" />
+          <circle cx="200" cy="100" r="3.5" />
+          <circle cx="340" cy="100" r="3.5" />
+          <circle cx="140" cy="220" r="3.5" />
+          <circle cx="320" cy="200" r="3.5" />
+          <circle cx="240" cy="240" r="3.5" />
+        </g>
+        <g stroke="#a78bfa" strokeWidth="1" fill="none">
+          <circle cx="230" cy="150" r="46" />
+          <circle cx="230" cy="150" r="70" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 export default function About() {
   const { ref, inView } = useInView();
   const { preview, setPreview, closePreview } = usePdfPreview();
   const { t } = useLocale();
-  const [storyOpen, setStoryOpen] = useState(false);
+  const [activeStory, setActiveStory] = useState<StoryKey | null>(null);
 
-  const openStory = () => setStoryOpen(true);
+  const storyOpen = activeStory !== null;
+  const openStory = (key: StoryKey) => setActiveStory(key);
+  const closeStory = () => setActiveStory(null);
+  const currentStory = activeStory ?? "build";
+
+  const storyContent: Record<
+    StoryKey,
+    { eyebrow: string; title: string; meta: string; paragraphs: string[]; background?: ReactNode; showTags?: boolean }
+  > = {
+    build: {
+      eyebrow: `01 / ${t(messages.about.cardBuild)}`,
+      title: t(messages.about.cardBuildTitle),
+      meta: "Younsoo Park · Penn State CS + Mathematics",
+      paragraphs: [t(messages.about.p1), t(messages.about.p2), t(messages.about.p3)],
+      showTags: true,
+    },
+    levit: {
+      eyebrow: `02 / ${t(messages.about.cardNow)}`,
+      title: "Associate Problem Solver",
+      meta: "Levit · Shopport · iOS & Android · 2026",
+      paragraphs: [t(messages.about.levitStoryP1), t(messages.about.levitStoryP2)],
+      background: <StoryPhotoBackground src="/projects/levit-shopport-ai/pretend_working.jpeg" alt="" />,
+    },
+    research: {
+      eyebrow: `03 / ${t(messages.about.cardResearch)}`,
+      title: t(messages.about.cardResearchTitle),
+      meta: "Federated Learning · TinyML · IoT Security",
+      paragraphs: [t(messages.about.researchStoryP1), t(messages.about.researchStoryP2)],
+      background: <ResearchArt />,
+    },
+    profile: {
+      eyebrow: `04 / ${t(messages.about.cardProfile)}`,
+      title: "Penn State University",
+      meta: "CS + Mathematics · '27 · Dean's List",
+      paragraphs: [t(messages.about.p1), t(messages.about.profileStoryP2)],
+      background: <StoryPhotoBackground src="/projects/others/PSU_oldmain.jpg" alt="" />,
+    },
+  };
+  const story = storyContent[currentStory];
 
   return (
     <section id="about" className="px-6 py-24">
@@ -40,7 +125,7 @@ export default function About() {
           <div className="grid gap-4 min-[900px]:grid-cols-12">
             <button
               type="button"
-              onClick={openStory}
+              onClick={() => openStory("build")}
               className="group relative flex min-h-[34rem] flex-col overflow-hidden rounded-2xl border border-indigo-400/20 bg-[#0d0d1a] text-left shadow-xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/40 min-[900px]:col-span-6"
             >
               <div className="flex items-center gap-2 border-b border-white/5 bg-[#1e1e2e] px-5 py-4">
@@ -83,7 +168,7 @@ export default function About() {
             <div className="grid gap-4 min-[900px]:col-span-6 min-[900px]:grid-rows-[1fr_auto]">
               <button
                 type="button"
-                onClick={openStory}
+                onClick={() => openStory("build")}
                 className="group relative min-h-[25rem] overflow-hidden rounded-2xl border border-[var(--foreground)]/10 bg-[var(--background)]/65 text-left transition duration-300 hover:-translate-y-1 hover:border-cyan-400/35"
               >
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_22%,rgba(34,211,238,0.11),transparent_33%),linear-gradient(145deg,transparent_55%,rgba(99,102,241,0.08))]" />
@@ -150,7 +235,7 @@ export default function About() {
             <div className="grid gap-4 sm:grid-cols-3 min-[900px]:col-span-12">
               <button
                 type="button"
-                onClick={openStory}
+                onClick={() => openStory("levit")}
                 className="group relative min-h-52 overflow-hidden rounded-2xl border border-[var(--foreground)]/10 bg-[var(--background)]/65 p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-indigo-400/40"
               >
                 <div className="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-indigo-500/10 blur-3xl" />
@@ -167,7 +252,7 @@ export default function About() {
 
               <button
                 type="button"
-                onClick={openStory}
+                onClick={() => openStory("research")}
                 className="group relative min-h-52 overflow-hidden rounded-2xl border border-[var(--foreground)]/10 bg-[var(--background)]/65 p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-cyan-400/35"
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-400">
@@ -186,15 +271,23 @@ export default function About() {
 
               <button
                 type="button"
-                onClick={openStory}
-                className="group relative min-h-52 rounded-2xl border border-[var(--foreground)]/10 bg-[var(--background)]/65 p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-indigo-400/40"
+                onClick={() => openStory("profile")}
+                className="group relative min-h-72 overflow-hidden rounded-2xl border border-[var(--foreground)]/10 bg-[var(--background)]/65 p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-indigo-400/40"
               >
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-indigo-400">
+                <Image
+                  src="/projects/others/PSU_oldmain.jpg"
+                  alt="Penn State's Old Main"
+                  fill
+                  sizes="(min-width: 900px) 33vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
+                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-indigo-300">
                   04 / {t(messages.about.cardProfile)}
                 </p>
-                <p className="mt-7 text-3xl font-black">PSU</p>
-                <p className="mt-2 text-sm text-[var(--foreground)]/55">CS + Mathematics · &apos;27</p>
-                <p className="mt-1 font-mono text-xs text-indigo-400">Dean&apos;s List</p>
+                <p className="relative mt-7 text-3xl font-black text-white">PSU</p>
+                <p className="relative mt-2 text-sm text-white/70">CS + Mathematics · &apos;27</p>
+                <p className="relative mt-1 font-mono text-xs text-indigo-300">Dean&apos;s List</p>
                 <CardAction label={t(messages.about.openStory)} />
               </button>
             </div>
@@ -204,24 +297,27 @@ export default function About() {
 
       <DetailDialog
         open={storyOpen}
-        onClose={() => setStoryOpen(false)}
-        eyebrow={t(messages.about.cardBuild)}
-        title={t(messages.about.cardBuildTitle)}
-        meta="Younsoo Park · Penn State CS + Mathematics"
+        onClose={closeStory}
+        eyebrow={story.eyebrow}
+        title={story.title}
+        meta={story.meta}
         closeLabel={t(messages.about.closeStory)}
+        background={story.background}
       >
         <div className="space-y-5 text-[var(--foreground)]/70 leading-relaxed">
-          <p>{t(messages.about.p1)}</p>
-          <p>{t(messages.about.p2)}</p>
-          <p>{t(messages.about.p3)}</p>
-        </div>
-        <div className="mt-8 flex flex-wrap gap-2">
-          {messages.about.interests.map((interest) => (
-            <span key={interest.en} className="rounded-full border border-indigo-400/25 bg-indigo-500/[0.08] px-3 py-1.5 font-mono text-xs text-indigo-300">
-              {t(interest)}
-            </span>
+          {story.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
+        {story.showTags && (
+          <div className="mt-8 flex flex-wrap gap-2">
+            {messages.about.interests.map((interest) => (
+              <span key={interest.en} className="rounded-full border border-indigo-400/25 bg-indigo-500/[0.08] px-3 py-1.5 font-mono text-xs text-indigo-300">
+                {t(interest)}
+              </span>
+            ))}
+          </div>
+        )}
       </DetailDialog>
       <PdfPreviewModal preview={preview} onClose={closePreview} />
     </section>

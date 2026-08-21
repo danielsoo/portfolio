@@ -11,6 +11,7 @@ type DetailDialogProps = {
   meta?: string;
   closeLabel: string;
   children: ReactNode;
+  background?: ReactNode;
 };
 
 export default function DetailDialog({
@@ -21,6 +22,7 @@ export default function DetailDialog({
   meta,
   closeLabel,
   children,
+  background,
 }: DetailDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -53,6 +55,7 @@ export default function DetailDialog({
       className="m-auto max-h-[88dvh] w-[min(92vw,48rem)] overflow-hidden rounded-2xl border border-indigo-400/20 bg-[var(--background)] p-0 text-[var(--foreground)] shadow-2xl shadow-black/50 backdrop:bg-black/75 backdrop:backdrop-blur-sm"
     >
       <div className="relative overflow-hidden">
+        {background}
         <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(99,102,241,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,.12)_1px,transparent_1px)] [background-size:32px_32px]" />
         <div className="relative flex items-start justify-between gap-6 border-b border-[var(--foreground)]/10 px-6 py-5 sm:px-8">
           <div>

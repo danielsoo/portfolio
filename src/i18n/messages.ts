@@ -91,6 +91,26 @@ export const messages = {
       en: "I've also served as a Squad Leader in the Republic of Korea Air Force, where I was commended for leadership and operational readiness.",
       ko: "대한민국 공군에서 분대장으로 복무하며 리더십과 작전 준비태세로 표창을 받은 경험이 있습니다.",
     },
+    levitStoryP1: {
+      en: "During a seven-week engagement at Levit in Seoul, I worked directly with the CEO across Shopport's applied-AI stack — evolving routing from LLM classification into an embedding-based semantic and hybrid router, and shipping Wowness, a Mem0-backed cross-category recommender, as sole engineer.",
+      ko: "서울 Levit에서 7주간 CEO와 직접 협업하며 Shopport의 AI 기술 전반을 다뤘습니다 — LLM 분류 기반 라우팅을 임베딩 시맨틱·하이브리드 라우터로 발전시키고, Mem0 기반 크로스카테고리 추천 시스템 Wowness를 단독 엔지니어로 설계·배포했습니다.",
+    },
+    levitStoryP2: {
+      en: "The engagement shipped 730 commits and 143 merged pull requests (+114K lines of TypeScript), reaching 86% V3 routing accuracy and rescuing 93% of eligible routing errors in production.",
+      ko: "이 기간 동안 730건의 커밋과 143건의 병합 PR(+114K줄의 TypeScript)을 만들었고, 프로덕션에서 V3 라우팅 정확도 86%, 대상 오류 93% 복구율을 달성했습니다.",
+    },
+    researchStoryP1: {
+      en: "My research focuses on federated and adversarially robust TinyML for IoT security under Dr. Suman Saha and Dr. Peilong Li — designing a federated learning pipeline with FedAvgM and cosine learning-rate scheduling that improved attack recall from 46.7% to 93.85%.",
+      ko: "제 연구는 Suman Saha 교수님과 Peilong Li 교수님 지도 아래 IoT 보안을 위한 연합학습과 적대적 강건성을 갖춘 TinyML에 초점을 둡니다 — FedAvgM과 코사인 학습률 스케줄링을 적용한 연합학습 파이프라인으로 공격 탐지 재현율을 46.7%에서 93.85%로 개선했습니다.",
+    },
+    researchStoryP2: {
+      en: "A multi-stage compression pipeline — BatchNorm folding, structured pruning, knowledge distillation, and INT8 quantization — then reduced the model 12.28× and cut ESP32 inference latency by 74.5%, making it viable for resource-constrained edge devices.",
+      ko: "이후 BatchNorm 폴딩, 구조적 프루닝, 지식 증류, INT8 양자화로 구성된 다단계 압축 파이프라인으로 모델 크기를 12.28배 줄이고 ESP32 추론 지연을 74.5% 단축해, 자원이 제한된 엣지 디바이스에서도 실행 가능하게 만들었습니다.",
+    },
+    profileStoryP2: {
+      en: "Old Main has been the backdrop for most of that journey — from CMPSC lectures to the late nights spent building the projects on this site.",
+      ko: "그 여정의 대부분은 Old Main을 배경으로 이루어졌습니다 — CMPSC 강의부터 이 포트폴리오의 프로젝트들을 밤늦게까지 만들던 시간까지.",
+    },
     interests: [
       { en: "Federated Learning", ko: "연합학습" },
       { en: "TinyML & Edge AI", ko: "TinyML & 엣지 AI" },
