@@ -56,7 +56,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen overflow-hidden bg-[#090b11] text-white"
+      className="relative min-h-screen overflow-hidden bg-[var(--background)] text-[var(--foreground)]"
     >
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -87,7 +87,7 @@ export default function Hero() {
           background: `radial-gradient(circle at 72% 46%, ${activeMedia.accent}26 0%, transparent 34%)`,
         }}
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(9,11,17,0.99)_0%,rgba(9,11,17,0.91)_34%,rgba(9,11,17,0.62)_70%,rgba(9,11,17,0.9)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.97)_0%,rgba(255,255,255,0.9)_34%,rgba(255,255,255,0.6)_70%,rgba(255,255,255,0.9)_100%)] dark:bg-[linear-gradient(90deg,rgba(9,11,17,0.99)_0%,rgba(9,11,17,0.91)_34%,rgba(9,11,17,0.62)_70%,rgba(9,11,17,0.9)_100%)]" />
       <div
         aria-hidden="true"
         className="absolute inset-0 opacity-35"
@@ -103,10 +103,10 @@ export default function Hero() {
         {[18, 43, 68, 92].map((left, index) => (
           <div
             key={left}
-            className="absolute inset-y-0 border-l border-white/[0.04]"
+            className="absolute inset-y-0 border-l border-[var(--foreground)]/[0.06]"
             style={{ left: `${left}%` }}
           >
-            <span className="absolute top-[15%] -translate-x-1/2 bg-[#090b11]/60 px-1 font-mono text-[7px] tracking-[0.18em] text-white/15">
+            <span className="absolute top-[15%] -translate-x-1/2 bg-[var(--background)]/60 px-1 font-mono text-[7px] tracking-[0.18em] text-[var(--foreground)]/25">
               X{String(index + 1).padStart(2, "0")}
             </span>
           </div>
@@ -115,7 +115,7 @@ export default function Hero() {
           key={activeIndex}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute -right-4 top-[8%] font-mono text-[13rem] font-black leading-none tracking-[-0.1em] text-white/[0.03] xl:text-[18rem]"
+          className="absolute -right-4 top-[8%] font-mono text-[13rem] font-black leading-none tracking-[-0.1em] text-[var(--foreground)]/[0.05] xl:text-[18rem]"
         >
           0{activeIndex + 1}
         </motion.p>
@@ -138,7 +138,7 @@ export default function Hero() {
             transition={{ duration: 0.55, delay: 0.12 }}
             className="mb-5 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start"
           >
-            <p className="text-xl font-bold tracking-tight text-white/86 sm:text-2xl">Younsoo Park</p>
+            <p className="text-xl font-bold tracking-tight text-[var(--foreground)]/90 sm:text-2xl">Younsoo Park</p>
             <div className="flex shrink-0 items-center justify-center gap-1.5">
               {causeLinks.map((item) => (
                 <a
@@ -170,7 +170,7 @@ export default function Hero() {
           >
             {t(messages.hero.proofLineTop)}
             <br />
-            <span className="bg-gradient-to-r from-white/42 via-white/55 to-indigo-300/70 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[var(--foreground)]/45 via-[var(--foreground)]/60 to-indigo-400 bg-clip-text text-transparent">
               {t(messages.hero.proofLineBottom)}
             </span>
           </motion.h1>
@@ -179,7 +179,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.32 }}
-            className="mt-6 text-lg font-light text-white/58 sm:text-xl"
+            className="mt-6 text-lg font-light text-[var(--foreground)]/65 sm:text-xl"
           >
             {t(messages.hero.roleLine)}
           </motion.p>
@@ -187,7 +187,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.4 }}
-            className="mx-auto mt-3 max-w-md text-sm leading-7 text-white/42 lg:mx-0 sm:text-base"
+            className="mx-auto mt-3 max-w-md text-sm leading-7 text-[var(--foreground)]/50 lg:mx-0 sm:text-base"
           >
             {t(messages.hero.blurb)}
           </motion.p>
@@ -206,7 +206,7 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white/78 transition-colors hover:border-cyan-300/70 hover:text-cyan-200"
+              className="rounded-full border border-[var(--foreground)]/25 px-6 py-3 text-sm font-semibold text-[var(--foreground)]/80 transition-colors hover:border-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-200"
             >
               {t(messages.hero.contactMe)}
             </a>
@@ -236,13 +236,13 @@ export default function Hero() {
                   zIndex: EVIDENCE_MEDIA.length - distance,
                 }}
                 transition={{ type: "spring", stiffness: 160, damping: 24 }}
-                className={`absolute left-1/2 top-1/2 h-[clamp(21rem,30vw,25rem)] w-[clamp(20rem,42vw,37rem)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[1.35rem] border bg-[#0d0f16] text-left shadow-2xl outline-none [transform-style:preserve-3d] focus-visible:ring-2 focus-visible:ring-cyan-300 ${
+                className={`absolute left-1/2 top-1/2 h-[clamp(21rem,30vw,25rem)] w-[clamp(20rem,42vw,37rem)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[1.35rem] border bg-[var(--surface)] text-left shadow-2xl outline-none [transform-style:preserve-3d] focus-visible:ring-2 focus-visible:ring-cyan-300 ${
                   isActive
-                    ? "border-white/20 shadow-indigo-950/50"
-                    : "border-white/10 shadow-black/50"
+                    ? "border-[var(--foreground)]/20 shadow-indigo-950/20 dark:shadow-indigo-950/50"
+                    : "border-[var(--foreground)]/10 shadow-black/10 dark:shadow-black/50"
                 }`}
               >
-                <div className="relative h-[62%] overflow-hidden bg-[#10121a]">
+                <div className="relative h-[62%] overflow-hidden bg-[var(--surface-2)]">
                   <Image
                     src={media.src}
                     alt={t(copy.title)}
@@ -251,16 +251,16 @@ export default function Hero() {
                     loading="eager"
                     className={media.fit}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f16] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent" />
                 </div>
-                <div className="absolute inset-x-0 bottom-0 min-h-[38%] bg-[#0d0f16] px-5 py-4 sm:px-6">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-cyan-300/60">
+                <div className="absolute inset-x-0 bottom-0 min-h-[38%] bg-[var(--surface)] px-5 py-4 sm:px-6">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-300/60">
                     {t(copy.eyebrow)}
                   </p>
-                  <h2 className="mt-1.5 text-lg font-bold tracking-tight text-white sm:text-xl">
+                  <h2 className="mt-1.5 text-lg font-bold tracking-tight text-[var(--foreground)] sm:text-xl">
                     {t(copy.title)}
                   </h2>
-                  <p className="mt-1 text-xs text-white/35">{t(copy.meta)}</p>
+                  <p className="mt-1 text-xs text-[var(--foreground)]/45">{t(copy.meta)}</p>
                 </div>
               </motion.button>
             );
@@ -275,7 +275,7 @@ export default function Hero() {
                 aria-label={`${t(messages.hero.selectEvidence)} ${index + 1}`}
                 aria-pressed={index === activeIndex}
                 className={`h-1.5 rounded-full transition-all ${
-                  index === activeIndex ? "w-8 bg-cyan-300" : "w-2 bg-white/20"
+                  index === activeIndex ? "w-8 bg-cyan-500 dark:bg-cyan-300" : "w-2 bg-[var(--foreground)]/20"
                 }`}
               />
             ))}
@@ -285,7 +285,7 @@ export default function Hero() {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-4 left-6 right-6 hidden items-center gap-5 border-t border-white/10 pt-3 font-mono text-[8px] uppercase tracking-[0.17em] text-white/22 lg:flex xl:left-12 xl:right-12"
+        className="pointer-events-none absolute bottom-4 left-6 right-6 hidden items-center gap-5 border-t border-[var(--foreground)]/10 pt-3 font-mono text-[8px] uppercase tracking-[0.17em] text-[var(--foreground)]/35 lg:flex xl:left-12 xl:right-12"
       >
         <span className="text-cyan-300/50">Archive / Live evidence</span>
         <span>04 indexed records</span>
