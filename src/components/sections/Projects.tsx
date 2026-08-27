@@ -88,8 +88,8 @@ export default function Projects() {
                           src={project.images[0]}
                           alt=""
                           fill
-                          sizes="(max-width: 768px) 86vw, 52vw"
-                          className="scale-110 object-cover opacity-20 blur-2xl"
+                          sizes="200px"
+                          className="object-cover opacity-20 blur-xl will-change-transform"
                         />
                         <Image
                           src={project.images[0]}
