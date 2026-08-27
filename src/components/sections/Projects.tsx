@@ -42,26 +42,20 @@ export default function Projects() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7 }}
       >
-        <div className="mx-auto mb-9 flex max-w-6xl flex-col justify-between gap-5 px-6 md:flex-row md:items-end">
+        <div className="mx-auto mb-9 flex max-w-6xl 2xl:max-w-[1900px] flex-col justify-between gap-5 px-6 md:flex-row md:items-end">
           <div>
             <p className="mb-3 font-mono text-sm uppercase tracking-widest text-indigo-400">
               {t(messages.projects.sectionLabel)}
             </p>
             <h2 className="text-3xl font-bold md:text-4xl">{t(messages.projects.heading)}</h2>
           </div>
-          <div className="flex items-end justify-between gap-5 md:block md:text-right">
-            <div>
-              <p className="max-w-md text-sm leading-relaxed text-[var(--foreground)]/45">
-                {t(messages.projects.browseHint)}
-              </p>
-              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-400/55">
-                ← {t(messages.projects.dragHint)} →
-              </p>
-            </div>
-            <div className="mt-4 flex justify-end gap-2">
-              <RailButton label={t(messages.projects.previousProject)} direction="left" onClick={() => moveRail(-1)} />
-              <RailButton label={t(messages.projects.nextProject)} direction="right" onClick={() => moveRail(1)} />
-            </div>
+          <div className="md:text-right">
+            <p className="max-w-md text-sm leading-relaxed text-[var(--foreground)]/45">
+              {t(messages.projects.browseHint)}
+            </p>
+            <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-400/55">
+              ← {t(messages.projects.dragHint)} →
+            </p>
           </div>
         </div>
 
@@ -220,6 +214,12 @@ export default function Projects() {
           })}
           <div aria-hidden="true" className="w-[max(0px,calc((100vw-72rem)/2-1.25rem))] flex-none" />
         </div>
+
+        <div className="mt-9 flex items-center justify-center gap-8">
+          <RailButton label={t(messages.projects.previousProject)} direction="left" onClick={() => moveRail(-1)} />
+          <span className="h-px w-10 bg-gradient-to-r from-transparent via-[var(--foreground)]/15 to-transparent" />
+          <RailButton label={t(messages.projects.nextProject)} direction="right" onClick={() => moveRail(1)} />
+        </div>
       </motion.div>
     </section>
   );
@@ -235,14 +235,28 @@ function RailButton({
   onClick: () => void;
 }) {
   return (
-    <button
+    <motion.button
       type="button"
       onClick={onClick}
       aria-label={label}
-      className="grid h-10 w-10 place-items-center rounded-full border border-[var(--foreground)]/15 bg-[var(--background)]/75 text-[var(--foreground)]/55 transition hover:border-indigo-400/50 hover:text-indigo-400"
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.92 }}
+      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+      className="group relative grid h-12 w-12 place-items-center rounded-full border border-[var(--foreground)]/15 bg-[var(--background)]/80 text-[var(--foreground)]/55 shadow-lg shadow-black/10 backdrop-blur-sm transition-colors hover:border-indigo-400/60 hover:text-indigo-300"
     >
-      {direction === "left" ? "←" : "→"}
-    </button>
+      <span className="pointer-events-none absolute inset-0 rounded-full bg-indigo-500/0 shadow-[0_0_0_0_rgba(99,102,241,0)] transition group-hover:bg-indigo-500/10 group-hover:shadow-[0_0_22px_2px_rgba(99,102,241,0.25)]" />
+      <svg
+        className={`relative h-4 w-4 transition-transform ${direction === "left" ? "group-hover:-translate-x-0.5" : "group-hover:translate-x-0.5"}`}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {direction === "left" ? <path d="M15 19l-7-7 7-7" /> : <path d="M9 5l7 7-7 7" />}
+      </svg>
+    </motion.button>
   );
 }
 
