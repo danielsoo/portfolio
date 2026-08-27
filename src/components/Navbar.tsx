@@ -43,7 +43,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl 2xl:max-w-[1900px] mx-auto px-6 h-16 flex items-center justify-between">
         <a
           href="#"
           className="text-lg font-bold tracking-tight text-[var(--foreground)] hover:text-indigo-500 transition-colors"
@@ -51,7 +51,7 @@ export default function Navbar() {
           YP<span className="text-indigo-500">.</span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-10 2xl:gap-16">
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
               <a

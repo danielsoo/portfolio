@@ -14,7 +14,7 @@ export default function Experience() {
 
   return (
     <section id="experience" className="bg-[var(--foreground)]/[0.02] px-6 py-24">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-5xl 2xl:max-w-[1700px]">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}

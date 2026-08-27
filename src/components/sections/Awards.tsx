@@ -13,7 +13,7 @@ export default function Awards() {
 
   return (
     <section id="awards" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl 2xl:max-w-[1900px] mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
