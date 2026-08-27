@@ -65,7 +65,7 @@ export default function Projects() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7 }}
       >
-        <div className="mx-auto mb-9 flex max-w-6xl 2xl:max-w-[1900px] flex-col justify-between gap-5 px-6 md:flex-row md:items-end">
+        <div className="mx-auto mb-9 flex max-w-6xl flex-col justify-between gap-5 px-6 md:flex-row md:items-end">
           <div>
             <p className="mb-3 font-mono text-sm uppercase tracking-widest text-indigo-400">
               {t(messages.projects.sectionLabel)}

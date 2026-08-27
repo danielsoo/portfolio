@@ -121,7 +121,7 @@ export default function Hero() {
         </motion.p>
       </div>
 
-      <div className="relative mx-auto grid min-h-screen max-w-[1900px] items-center gap-10 px-6 pb-16 pt-28 lg:grid-cols-[0.78fr_1.22fr] lg:px-16 lg:pt-24">
+      <div className="relative mx-auto grid min-h-screen max-w-[1500px] items-center gap-10 px-6 pb-16 pt-28 lg:grid-cols-[0.78fr_1.22fr] lg:px-16 lg:pt-24">
         <div className="relative z-20 max-w-xl text-center lg:text-left">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -213,7 +213,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <div className="relative h-[31rem] min-w-0 [perspective:1400px] sm:h-[36rem] 2xl:h-[47rem]">
+        <div className="relative h-[31rem] min-w-0 [perspective:1400px] sm:h-[36rem]">
           {EVIDENCE_MEDIA.map((media, index) => {
             const copy = messages.hero.evidence[index];
             const offset = circularOffset(index, activeIndex, EVIDENCE_MEDIA.length);
@@ -236,7 +236,7 @@ export default function Hero() {
                   zIndex: EVIDENCE_MEDIA.length - distance,
                 }}
                 transition={{ type: "spring", stiffness: 160, damping: 24 }}
-                className={`absolute left-1/2 top-1/2 h-[24rem] w-[min(88vw,37rem)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[1.35rem] border bg-[#0d0f16] text-left shadow-2xl outline-none [transform-style:preserve-3d] focus-visible:ring-2 focus-visible:ring-cyan-300 xl:h-[25rem] 2xl:h-[34rem] 2xl:w-[min(88vw,52rem)] ${
+                className={`absolute left-1/2 top-1/2 h-[clamp(21rem,30vw,25rem)] w-[clamp(20rem,42vw,37rem)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[1.35rem] border bg-[#0d0f16] text-left shadow-2xl outline-none [transform-style:preserve-3d] focus-visible:ring-2 focus-visible:ring-cyan-300 ${
                   isActive
                     ? "border-white/20 shadow-indigo-950/50"
                     : "border-white/10 shadow-black/50"
@@ -247,20 +247,20 @@ export default function Hero() {
                     src={media.src}
                     alt={t(copy.title)}
                     fill
-                    sizes="(min-width: 1536px) 832px, (min-width: 1024px) 592px, 88vw"
+                    sizes="(min-width: 1024px) 592px, 88vw"
                     loading="eager"
                     className={media.fit}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f16] via-transparent to-transparent" />
                 </div>
                 <div className="absolute inset-x-0 bottom-0 min-h-[38%] bg-[#0d0f16] px-5 py-4 sm:px-6">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-cyan-300/60 2xl:text-xs">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-cyan-300/60">
                     {t(copy.eyebrow)}
                   </p>
-                  <h2 className="mt-1.5 text-lg font-bold tracking-tight text-white sm:text-xl 2xl:text-3xl">
+                  <h2 className="mt-1.5 text-lg font-bold tracking-tight text-white sm:text-xl">
                     {t(copy.title)}
                   </h2>
-                  <p className="mt-1 text-xs text-white/35 2xl:text-base">{t(copy.meta)}</p>
+                  <p className="mt-1 text-xs text-white/35">{t(copy.meta)}</p>
                 </div>
               </motion.button>
             );

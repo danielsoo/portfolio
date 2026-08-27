@@ -43,7 +43,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl 2xl:max-w-[1900px] mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a
           href="#"
           className="text-lg font-bold tracking-tight text-[var(--foreground)] hover:text-indigo-500 transition-colors"
