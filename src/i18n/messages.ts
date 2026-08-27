@@ -138,7 +138,7 @@ export const messages = {
       majorVal: { en: "CS + Mathematics", ko: "CS + Mathematics" },
       statusVal: { en: "Dean's List", ko: "Dean's List" },
       locationVal: { en: "University Park, PA", ko: "University Park, PA" },
-      currentRoleVal: { en: "Associate Problem Solver @ Levit", ko: "Associate Problem Solver @ Levit" },
+      currentRoleVal: { en: "Undergraduate Researcher @ Penn State", ko: "학부 연구원 @ Penn State" },
       r1: { en: "Federated Learning", ko: "Federated Learning" },
       r2: { en: "TinyML / IoT Security", ko: "TinyML / IoT Security" },
       r3: { en: "Adversarial ML", ko: "Adversarial ML" },
