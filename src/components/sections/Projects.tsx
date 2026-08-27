@@ -31,7 +31,30 @@ export default function Projects() {
   const moveRail = (direction: -1 | 1) => {
     const rail = railRef.current;
     if (!rail) return;
-    rail.scrollBy({ left: direction * rail.clientWidth * 0.78, behavior: "smooth" });
+    const cards = Array.from(rail.querySelectorAll<HTMLElement>("[data-project-card]"));
+    if (!cards.length) return;
+
+    // Scroll exactly to the next/previous card's snap-center position instead
+    // of an approximate clientWidth-based offset. An approximate offset lands
+    // between snap points, so the smooth-scroll animation and the browser's
+    // own snap-correction fight each other mid-scroll, which reads as stutter.
+    const railCenter = rail.scrollLeft + rail.clientWidth / 2;
+    let currentIndex = 0;
+    let closestDistance = Infinity;
+    cards.forEach((card, i) => {
+      const distance = Math.abs(card.offsetLeft + card.offsetWidth / 2 - railCenter);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        currentIndex = i;
+      }
+    });
+
+    const nextIndex = Math.min(Math.max(currentIndex + direction, 0), cards.length - 1);
+    const target = cards[nextIndex];
+    rail.scrollTo({
+      left: target.offsetLeft + target.offsetWidth / 2 - rail.clientWidth / 2,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -69,6 +92,7 @@ export default function Projects() {
             return (
               <motion.article
                 key={project.slug}
+                data-project-card
                 initial={{ opacity: 0, x: 50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
@@ -117,10 +141,10 @@ export default function Projects() {
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#07070c] via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#07070c]/35" />
                   <div className="absolute left-5 top-5 flex items-center gap-2">
-                    <span className="rounded-full border border-white/10 bg-black/45 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/60 backdrop-blur-md">
+                    <span className="rounded-full border border-white/10 bg-black/70 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/60">
                       CASE / {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className={`rounded-full px-3 py-1.5 font-mono text-[9px] backdrop-blur-md ${project.badgeColor}`}>
+                    <span className={`rounded-full px-3 py-1.5 font-mono text-[9px] ${project.badgeColor}`}>
                       {localized.badge}
                     </span>
                   </div>
