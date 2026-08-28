@@ -39,7 +39,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         >
           <Link
             href="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-[var(--foreground)]/40 hover:text-indigo-400 transition-colors font-mono mb-10"
+            className="inline-flex items-center gap-2 text-sm text-[var(--foreground)]/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-mono mb-10"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -104,7 +104,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 href={project.appLinks.googlePlay}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-cyan-400/35 bg-cyan-400/[0.08] px-4 py-2 text-sm font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400/[0.14]"
+                className="inline-flex items-center gap-2 rounded-lg border border-cyan-400/35 bg-cyan-400/[0.08] px-4 py-2 text-sm font-semibold text-cyan-700 dark:text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400/[0.14]"
               >
                 <span aria-hidden="true">↗</span>
                 {t(messages.projectDetail.googlePlay)}
@@ -120,7 +120,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="mb-12"
           >
-            <h2 className="text-lg font-bold mb-4 text-indigo-400 font-mono">
+            <h2 className="text-lg font-bold mb-4 text-indigo-600 dark:text-indigo-400 font-mono">
               {t(messages.projectDetail.impact)}
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -129,7 +129,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                   key={i}
                   className="rounded-xl border border-[var(--foreground)]/10 bg-[var(--foreground)]/[0.02] px-4 py-5 text-center"
                 >
-                  <div className="text-xl md:text-2xl font-extrabold font-mono text-indigo-400 leading-tight">
+                  <div className="text-xl md:text-2xl font-extrabold font-mono text-indigo-600 dark:text-indigo-400 leading-tight">
                     {stat.value}
                   </div>
                   <div className="text-xs text-[var(--foreground)]/50 mt-1.5 leading-snug">
@@ -162,7 +162,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             className="space-y-12"
           >
             <div>
-              <h2 className="text-lg font-bold mb-4 text-indigo-400 font-mono">
+              <h2 className="text-lg font-bold mb-4 text-indigo-600 dark:text-indigo-400 font-mono">
                 {t(messages.projectDetail.overview)}
               </h2>
               <div className="space-y-4">
@@ -180,7 +180,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 id={`section-${String(sectionIndex + 1).padStart(2, "0")}`}
                 className="scroll-mt-28"
               >
-                <h2 className="text-lg font-bold mb-4 text-cyan-400 font-mono">
+                <h2 className="text-lg font-bold mb-4 text-cyan-700 dark:text-cyan-400 font-mono">
                   <span className="text-[var(--foreground)]/25 mr-2">
                     {String(sectionIndex + 1).padStart(2, "0")}.
                   </span>
@@ -203,7 +203,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                       <ul className="space-y-3 border-l border-cyan-500/20 pl-4">
                         {section.bullets.map((bullet) => (
                           <li key={bullet} className="flex gap-3 text-sm text-[var(--foreground)]/70 leading-relaxed">
-                            <span className="text-cyan-400 font-mono mt-0.5 flex-shrink-0">›</span>
+                            <span className="text-cyan-700 dark:text-cyan-400 font-mono mt-0.5 flex-shrink-0">›</span>
                             {bullet}
                           </li>
                         ))}
@@ -263,13 +263,13 @@ export default function ProjectDetail({ project }: { project: Project }) {
             ))}
 
             <div>
-              <h2 className="text-lg font-bold mb-4 text-indigo-400 font-mono">
+              <h2 className="text-lg font-bold mb-4 text-indigo-600 dark:text-indigo-400 font-mono">
                 {t(messages.projectDetail.highlights)}
               </h2>
               <ul className="space-y-3">
                 {p.highlights.map((h, i) => (
                   <li key={i} className="flex gap-3 text-sm text-[var(--foreground)]/70 leading-relaxed">
-                    <span className="text-indigo-400 font-mono mt-0.5 flex-shrink-0">›</span>
+                    <span className="text-indigo-600 dark:text-indigo-400 font-mono mt-0.5 flex-shrink-0">›</span>
                     {h}
                   </li>
                 ))}
@@ -307,7 +307,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs px-2.5 py-1.5 rounded-lg bg-indigo-500/10 text-indigo-400 font-mono border border-indigo-500/20"
+                    className="text-xs px-2.5 py-1.5 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-mono border border-indigo-500/20"
                   >
                     {tag}
                   </span>
@@ -327,7 +327,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                     href={project.appLinks.appStore}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 transition-colors hover:text-indigo-400"
+                    className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
                   >
                     <ExternalIcon /> {t(messages.projectDetail.appStore)}
                   </a>
@@ -337,7 +337,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                     href={project.appLinks.googlePlay}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 transition-colors hover:text-cyan-400"
+                    className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 transition-colors hover:text-cyan-700 dark:text-cyan-400"
                   >
                     <ExternalIcon /> {t(messages.projectDetail.googlePlay)}
                   </a>
@@ -347,7 +347,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 hover:text-indigo-400 transition-colors"
+                    className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   >
                     <GitHubIcon /> {t(messages.projectDetail.sourceCode)}
                   </a>
@@ -357,7 +357,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 hover:text-indigo-400 transition-colors"
+                    className="flex items-center gap-2 text-sm text-[var(--foreground)]/60 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   >
                     <ExternalIcon /> {t(messages.projectDetail.liveSite)}
                   </a>

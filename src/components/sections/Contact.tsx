@@ -48,7 +48,7 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
+          <p className="text-indigo-600 dark:text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
             {t(messages.contact.sectionLabel)}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -73,7 +73,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                className="text-[var(--foreground)]/50 hover:text-indigo-400 transition-colors"
+                className="text-[var(--foreground)]/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
               >
                 {link.icon}
               </a>

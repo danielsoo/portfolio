@@ -32,7 +32,7 @@ export default function SiteLinks() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
+          <p className="text-indigo-600 dark:text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
             {t(messages.siteLinks.sectionLabel)}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
@@ -67,14 +67,14 @@ export default function SiteLinks() {
                       <span
                         className={`text-xs px-2 py-0.5 rounded-full font-mono ${
                           isLive
-                            ? "bg-green-500/10 text-green-400"
-                            : "bg-blue-500/10 text-blue-400"
+                            ? "bg-green-500/10 text-green-700 dark:text-green-400"
+                            : "bg-blue-500/10 text-blue-700 dark:text-blue-400"
                         }`}
                       >
                         {t(status)}
                       </span>
                       {isLive && (
-                        <svg className="w-4 h-4 text-[var(--foreground)]/30 group-hover:text-indigo-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <svg className="w-4 h-4 text-[var(--foreground)]/30 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
                       )}

@@ -67,7 +67,7 @@ export default function ExperienceDetail({ experience }: { experience: Experienc
         >
           <Link
             href="/#experience"
-            className="mb-10 inline-flex items-center gap-2 font-mono text-sm text-[var(--foreground)]/40 transition-colors hover:text-indigo-400"
+            className="mb-10 inline-flex items-center gap-2 font-mono text-sm text-[var(--foreground)]/40 transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
           >
             <span aria-hidden="true">←</span>
             {t(messages.experienceDetail.back)}
@@ -84,14 +84,14 @@ export default function ExperienceDetail({ experience }: { experience: Experienc
           <div className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-cyan-400/[0.08] blur-3xl" />
           <div className="relative p-7 sm:p-10">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-400">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-700 dark:text-cyan-400">
                 {t(messages.experienceDetail.eyebrow)} / {String(experience.entryIndex + 1).padStart(2, "0")}
               </p>
               <div className="flex flex-wrap gap-2 font-mono text-[9px] uppercase tracking-[0.12em] text-[var(--foreground)]/40">
                 <span className="rounded-full border border-[var(--foreground)]/10 px-3 py-1.5">{t(entry.period)}</span>
                 <span className="rounded-full border border-[var(--foreground)]/10 px-3 py-1.5">{t(entry.location)}</span>
                 {workstreamCount > 0 && (
-                  <span className="rounded-full border border-cyan-400/20 px-3 py-1.5 text-cyan-300/65">
+                  <span className="rounded-full border border-cyan-400/20 px-3 py-1.5 text-cyan-700/65 dark:text-cyan-300/65">
                     {workstreamCount} {t(messages.experienceDetail.workstreams)}
                   </span>
                 )}
@@ -99,7 +99,7 @@ export default function ExperienceDetail({ experience }: { experience: Experienc
             </div>
 
             <div className="mt-12 max-w-4xl">
-              <p className="font-mono text-xs uppercase tracking-wider text-indigo-400">
+              <p className="font-mono text-xs uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
                 {t(entry.org)}
               </p>
               <h1 className="mt-3 text-4xl font-black leading-[1.02] sm:text-6xl">{t(entry.role)}</h1>
@@ -152,10 +152,10 @@ export default function ExperienceDetail({ experience }: { experience: Experienc
                 key={bullet.en}
                 className="group relative grid gap-4 border-b border-[var(--foreground)]/[0.08] px-6 py-7 last:border-b-0 sm:grid-cols-[4rem_14rem_minmax(0,1fr)] sm:items-start sm:gap-6 sm:px-8"
               >
-                <span className="font-mono text-xs text-cyan-400/65">
+                <span className="font-mono text-xs text-cyan-700/65 dark:text-cyan-400/65">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-lg font-bold leading-6 transition-colors group-hover:text-cyan-300">
+                <h3 className="text-lg font-bold leading-6 transition-colors group-hover:text-cyan-700 dark:group-hover:text-cyan-300">
                   {t(experience.highlightTitles[index])}
                 </h3>
                 <p className="max-w-3xl text-sm leading-7 text-[var(--foreground)]/55 sm:text-base sm:leading-8">
@@ -227,14 +227,14 @@ export default function ExperienceDetail({ experience }: { experience: Experienc
                   >
                     <div className="relative flex flex-wrap items-start justify-between gap-4 border-b border-[var(--foreground)]/10 pb-5">
                       <div>
-                        <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-indigo-400">
+                        <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-400">
                           {t(messages.experienceDetail.relatedCaseStudy)}
                         </p>
                         <p className="mt-2 text-sm font-semibold text-[var(--foreground)]/70">
                           {activeWorkstream.caseStudyTitle}
                         </p>
                       </div>
-                      <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-400/70">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-700/70 dark:text-cyan-400/70">
                         {t(messages.experienceDetail.workstream)} / {String(activeWorkstreamIndex + 1).padStart(2, "0")}
                       </p>
                     </div>
@@ -266,13 +266,13 @@ export default function ExperienceDetail({ experience }: { experience: Experienc
                       <div className="flex flex-wrap gap-4">
                         <Link
                           href={`/projects/${activeWorkstream.projectSlug}`}
-                          className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--foreground)]/40 transition hover:text-indigo-300"
+                          className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--foreground)]/40 transition hover:text-indigo-600 dark:hover:text-indigo-300"
                         >
                           {t(messages.experienceDetail.openCaseStudy)}
                         </Link>
                         <Link
                           href={activeWorkstream.href}
-                          className="font-mono text-[10px] uppercase tracking-[0.14em] text-indigo-400 transition hover:text-cyan-300"
+                          className="font-mono text-[10px] uppercase tracking-[0.14em] text-indigo-600 dark:text-indigo-400 transition hover:text-cyan-700 dark:hover:text-cyan-300"
                         >
                           {t(messages.experience.openDetails)} →
                         </Link>
@@ -306,14 +306,14 @@ export default function ExperienceDetail({ experience }: { experience: Experienc
           transition={{ duration: 0.5, delay: 0.3 }}
           className="scroll-mt-40 border-t border-[var(--foreground)]/10 pt-12"
         >
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-400">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-400">
             {t(messages.experience.stackLabel)}
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
             {entry.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-lg border border-indigo-400/20 bg-indigo-500/[0.08] px-3 py-1.5 font-mono text-xs text-indigo-300"
+                className="rounded-lg border border-indigo-400/20 bg-indigo-500/[0.08] px-3 py-1.5 font-mono text-xs text-indigo-600 dark:text-indigo-300"
               >
                 {tag}
               </span>
@@ -328,7 +328,7 @@ export default function ExperienceDetail({ experience }: { experience: Experienc
 function SectionHeading({ index, eyebrow, title }: { index: string; eyebrow: string; title: string }) {
   return (
     <div>
-      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-400/65">
+      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-700/65 dark:text-cyan-400/65">
         {index} / {eyebrow}
       </p>
       <h2 className="mt-3 text-3xl font-bold">{title}</h2>
@@ -355,7 +355,7 @@ function ImpactStat({
         top ? "border-t border-[var(--foreground)]/10 lg:border-t-0" : ""
       } ${spanFull ? "col-span-2 lg:col-span-1" : ""}`}
     >
-      <p className="text-2xl font-black text-cyan-300 sm:text-3xl">{value}</p>
+      <p className="text-2xl font-black text-cyan-700 dark:text-cyan-300 sm:text-3xl">{value}</p>
       <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--foreground)]/35">{label}</p>
     </div>
   );
@@ -365,9 +365,9 @@ function JumpLink({ href, index, label }: { href: string; index: string; label: 
   return (
     <a
       href={href}
-      className="flex-none rounded-xl px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--foreground)]/45 transition hover:bg-indigo-500/10 hover:text-indigo-300"
+      className="flex-none rounded-xl px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--foreground)]/45 transition hover:bg-indigo-500/10 hover:text-indigo-600 dark:hover:text-indigo-300"
     >
-      <span className="mr-2 text-cyan-400/55">{index}</span>
+      <span className="mr-2 text-cyan-700/55 dark:text-cyan-400/55">{index}</span>
       {label}
     </a>
   );
@@ -399,7 +399,7 @@ function CarouselToolbar({
   return (
     <div className="flex items-center justify-between gap-4">
       <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.14em]">
-        <span className="text-cyan-400">
+        <span className="text-cyan-700 dark:text-cyan-400">
           {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
         </span>
         <span className="hidden text-[var(--foreground)]/28 sm:inline">{hint}</span>
@@ -409,7 +409,7 @@ function CarouselToolbar({
           type="button"
           onClick={onPrevious}
           aria-label={previousLabel}
-          className="grid h-10 w-10 place-items-center rounded-full border border-[var(--foreground)]/12 text-[var(--foreground)]/55 transition hover:border-cyan-400/40 hover:bg-cyan-400/[0.06] hover:text-cyan-300"
+          className="grid h-10 w-10 place-items-center rounded-full border border-[var(--foreground)]/12 text-[var(--foreground)]/55 transition hover:border-cyan-400/40 hover:bg-cyan-400/[0.06] hover:text-cyan-700 dark:hover:text-cyan-300"
         >
           <span aria-hidden="true">←</span>
         </button>
@@ -417,7 +417,7 @@ function CarouselToolbar({
           type="button"
           onClick={onNext}
           aria-label={nextLabel}
-          className="grid h-10 w-10 place-items-center rounded-full border border-[var(--foreground)]/12 text-[var(--foreground)]/55 transition hover:border-cyan-400/40 hover:bg-cyan-400/[0.06] hover:text-cyan-300"
+          className="grid h-10 w-10 place-items-center rounded-full border border-[var(--foreground)]/12 text-[var(--foreground)]/55 transition hover:border-cyan-400/40 hover:bg-cyan-400/[0.06] hover:text-cyan-700 dark:hover:text-cyan-300"
         >
           <span aria-hidden="true">→</span>
         </button>

@@ -59,7 +59,7 @@ export default function DetailDialog({
         <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(99,102,241,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,.12)_1px,transparent_1px)] [background-size:32px_32px]" />
         <div className="relative flex items-start justify-between gap-6 border-b border-[var(--foreground)]/10 px-6 py-5 sm:px-8">
           <div>
-            <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-400">
+            <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-700 dark:text-cyan-400">
               {eyebrow}
             </p>
             <h3 className="text-2xl font-bold leading-tight sm:text-3xl">{title}</h3>
@@ -69,7 +69,7 @@ export default function DetailDialog({
             type="button"
             onClick={onClose}
             aria-label={closeLabel}
-            className="grid h-10 w-10 flex-none place-items-center rounded-full border border-[var(--foreground)]/15 bg-[var(--background)]/80 text-xl text-[var(--foreground)]/55 transition hover:border-indigo-400/50 hover:text-indigo-400"
+            className="grid h-10 w-10 flex-none place-items-center rounded-full border border-[var(--foreground)]/15 bg-[var(--background)]/80 text-xl text-[var(--foreground)]/55 transition hover:border-indigo-400/50 hover:text-indigo-600 dark:hover:text-indigo-400"
           >
             ×
           </button>

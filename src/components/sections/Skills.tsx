@@ -21,7 +21,7 @@ export default function Skills() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <p className="mb-3 font-mono text-sm uppercase tracking-widest text-indigo-400">
+          <p className="mb-3 font-mono text-sm uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
             {t(messages.skills.sectionLabel)}
           </p>
           <div className="flex flex-col justify-between gap-3 md:flex-row md:items-end">

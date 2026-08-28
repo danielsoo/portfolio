@@ -87,7 +87,7 @@ export default function Hero() {
           background: `radial-gradient(circle at 72% 46%, ${activeMedia.accent}26 0%, transparent 34%)`,
         }}
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.97)_0%,rgba(255,255,255,0.9)_34%,rgba(255,255,255,0.6)_70%,rgba(255,255,255,0.9)_100%)] dark:bg-[linear-gradient(90deg,rgba(9,11,17,0.99)_0%,rgba(9,11,17,0.91)_34%,rgba(9,11,17,0.62)_70%,rgba(9,11,17,0.9)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(242,243,247,0.97)_0%,rgba(242,243,247,0.9)_34%,rgba(242,243,247,0.6)_70%,rgba(242,243,247,0.9)_100%)] dark:bg-[linear-gradient(90deg,rgba(9,11,17,0.99)_0%,rgba(9,11,17,0.91)_34%,rgba(9,11,17,0.62)_70%,rgba(9,11,17,0.9)_100%)]" />
       <div
         aria-hidden="true"
         className="absolute inset-0 opacity-35"
@@ -127,7 +127,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.05 }}
-            className="mb-4 font-mono text-[11px] uppercase tracking-[0.25em] text-cyan-300/65"
+            className="mb-4 font-mono text-[11px] uppercase tracking-[0.25em] text-cyan-700 dark:text-cyan-300/65"
           >
             {t(messages.hero.greet)}
           </motion.p>
@@ -287,7 +287,7 @@ export default function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute bottom-4 left-6 right-6 hidden items-center gap-5 border-t border-[var(--foreground)]/10 pt-3 font-mono text-[8px] uppercase tracking-[0.17em] text-[var(--foreground)]/35 lg:flex xl:left-12 xl:right-12"
       >
-        <span className="text-cyan-300/50">Archive / Live evidence</span>
+        <span className="text-cyan-700 dark:text-cyan-300/50">Archive / Live evidence</span>
         <span>04 indexed records</span>
         <span>Production · Research · Hardware · Product</span>
         <span className="ml-auto" style={{ color: `${activeMedia.accent}99` }}>

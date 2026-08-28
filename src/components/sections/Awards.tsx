@@ -20,7 +20,7 @@ export default function Awards() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
+          <p className="text-indigo-600 dark:text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
             {t(messages.awards.sectionLabel)}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-12">

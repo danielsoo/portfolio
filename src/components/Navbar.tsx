@@ -56,7 +56,7 @@ export default function Navbar() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-sm text-[var(--foreground)]/70 hover:text-indigo-400 transition-colors font-medium"
+                className="text-sm text-[var(--foreground)]/70 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
               >
                 {t(messages.nav[item.msgKey])}
               </a>
@@ -135,7 +135,7 @@ export default function Navbar() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="block text-sm text-[var(--foreground)]/70 hover:text-indigo-400 transition-colors font-medium py-1"
+                  className="block text-sm text-[var(--foreground)]/70 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium py-1"
                   onClick={() => setMenuOpen(false)}
                 >
                   {t(messages.nav[item.msgKey])}
@@ -176,7 +176,7 @@ function SunIcon() {
 
 function MoonIcon() {
   return (
-    <svg className="w-4 h-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <svg className="w-4 h-4 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
     </svg>
   );

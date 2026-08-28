@@ -112,7 +112,7 @@ export default function About() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <p className="mb-3 font-mono text-sm uppercase tracking-widest text-indigo-400">
+          <p className="mb-3 font-mono text-sm uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
             {t(messages.about.sectionLabel)}
           </p>
           <div className="mb-10 flex flex-col justify-between gap-3 md:flex-row md:items-end">
@@ -133,7 +133,7 @@ export default function About() {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
                 <span className="ml-3 font-mono text-xs text-white/25">{t(messages.about.codeFileName)}</span>
-                <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.16em] text-cyan-300/45">
+                <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.16em] text-cyan-700/45 dark:text-cyan-300/45">
                   {t(messages.about.openStory)} +
                 </span>
               </div>
@@ -174,7 +174,7 @@ export default function About() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_22%,rgba(34,211,238,0.11),transparent_33%),linear-gradient(145deg,transparent_55%,rgba(99,102,241,0.08))]" />
                 <div className="relative grid min-h-[25rem] grid-cols-1 sm:grid-cols-[1.2fr_0.8fr]">
                   <div className="flex flex-col p-6 sm:p-7">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-400">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-700 dark:text-cyan-400">
                       01 / {t(messages.about.cardBuild)}
                     </p>
                     <h3 className="mt-8 text-2xl font-bold leading-tight">
@@ -183,7 +183,7 @@ export default function About() {
                     <p className="mt-5 text-sm leading-6 text-[var(--foreground)]/55">
                       {t(messages.about.storySummary)}
                     </p>
-                    <span className="mt-auto pt-8 font-mono text-[10px] uppercase tracking-[0.15em] text-indigo-400">
+                    <span className="mt-auto pt-8 font-mono text-[10px] uppercase tracking-[0.15em] text-indigo-600 dark:text-indigo-400">
                       {t(messages.about.openStory)} →
                     </span>
                   </div>
@@ -193,7 +193,7 @@ export default function About() {
                     <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-indigo-500/15 to-transparent" />
                     <div className="absolute left-1/2 top-[24%] h-16 w-16 -translate-x-1/2 rounded-full border border-cyan-200/25 bg-cyan-300/[0.04]" />
                     <div className="absolute bottom-[12%] left-1/2 h-[48%] w-[72%] -translate-x-1/2 rounded-t-[45%] border border-b-0 border-cyan-200/20 bg-indigo-400/[0.035]" />
-                    <p className="absolute inset-x-3 bottom-4 text-center font-mono text-[8px] uppercase tracking-[0.16em] text-cyan-200/35">
+                    <p className="absolute inset-x-3 bottom-4 text-center font-mono text-[8px] uppercase tracking-[0.16em] text-cyan-700/35 dark:text-cyan-200/35">
                       {t(messages.about.portraitLabel)}
                     </p>
                   </div>
@@ -221,7 +221,7 @@ export default function About() {
                     >
                       <span className="flex items-center justify-between gap-2">
                         <span className="font-bold">{t(messages.documents[doc.id].label)}</span>
-                        <span className="font-mono text-indigo-400 transition-transform group-hover:translate-x-1">↗</span>
+                        <span className="font-mono text-indigo-600 dark:text-indigo-400 transition-transform group-hover:translate-x-1">↗</span>
                       </span>
                       <span className="mt-3 block text-xs leading-5 text-[var(--foreground)]/40">
                         {t(messages.documents[doc.id].short)}
@@ -239,7 +239,7 @@ export default function About() {
                 className="group relative min-h-52 overflow-hidden rounded-2xl border border-[var(--foreground)]/10 bg-[var(--background)]/65 p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-indigo-400/40"
               >
                 <div className="absolute -right-10 -top-10 h-36 w-36 rounded-full bg-indigo-500/10 blur-3xl" />
-                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-indigo-400">
+                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-indigo-600 dark:text-indigo-400">
                   02 / {t(messages.about.cardNow)}
                 </p>
                 <div className="relative mt-7">
@@ -255,13 +255,13 @@ export default function About() {
                 onClick={() => openStory("research")}
                 className="group relative min-h-52 overflow-hidden rounded-2xl border border-[var(--foreground)]/10 bg-[var(--background)]/65 p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-cyan-400/35"
               >
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-400">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-700 dark:text-cyan-400">
                   03 / {t(messages.about.cardResearch)}
                 </p>
                 <h3 className="mt-7 text-xl font-bold">{t(messages.about.cardResearchTitle)}</h3>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {messages.about.interests.slice(0, 3).map((interest) => (
-                    <span key={interest.en} className="rounded-full border border-cyan-400/20 px-2.5 py-1 font-mono text-[10px] text-cyan-300/75">
+                    <span key={interest.en} className="rounded-full border border-cyan-400/20 px-2.5 py-1 font-mono text-[10px] text-cyan-700/75 dark:text-cyan-300/75">
                       {t(interest)}
                     </span>
                   ))}
@@ -282,12 +282,12 @@ export default function About() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
-                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-indigo-300">
+                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-indigo-600 dark:text-indigo-300">
                   04 / {t(messages.about.cardProfile)}
                 </p>
                 <p className="relative mt-7 text-3xl font-black text-white">PSU</p>
                 <p className="relative mt-2 text-sm text-white/70">CS + Mathematics · &apos;27</p>
-                <p className="relative mt-1 font-mono text-xs text-indigo-300">Dean&apos;s List</p>
+                <p className="relative mt-1 font-mono text-xs text-indigo-600 dark:text-indigo-300">Dean&apos;s List</p>
                 <CardAction label={t(messages.about.openStory)} />
               </button>
             </div>
@@ -312,7 +312,7 @@ export default function About() {
         {story.showTags && (
           <div className="mt-8 flex flex-wrap gap-2">
             {messages.about.interests.map((interest) => (
-              <span key={interest.en} className="rounded-full border border-indigo-400/25 bg-indigo-500/[0.08] px-3 py-1.5 font-mono text-xs text-indigo-300">
+              <span key={interest.en} className="rounded-full border border-indigo-400/25 bg-indigo-500/[0.08] px-3 py-1.5 font-mono text-xs text-indigo-600 dark:text-indigo-300">
                 {t(interest)}
               </span>
             ))}
@@ -326,7 +326,7 @@ export default function About() {
 
 function CardAction({ label }: { label: string }) {
   return (
-    <span className="absolute bottom-5 right-5 text-indigo-400">
+    <span className="absolute bottom-5 right-5 text-indigo-600 dark:text-indigo-400">
       <span className="sr-only">{label}</span>
       <span className="grid h-7 w-7 place-items-center rounded-full border border-indigo-400/30 text-base transition-transform group-hover:rotate-90">+</span>
     </span>
@@ -352,7 +352,7 @@ function Var({ children }: { children: React.ReactNode }) {
 }
 
 function Key({ children }: { children: React.ReactNode }) {
-  return <span className="text-indigo-300">{children}</span>;
+  return <span className="text-indigo-600 dark:text-indigo-300">{children}</span>;
 }
 
 function Str({ children }: { children: React.ReactNode }) {

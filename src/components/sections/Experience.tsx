@@ -21,7 +21,7 @@ export default function Experience() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <p className="mb-3 font-mono text-sm uppercase tracking-widest text-indigo-400">
+          <p className="mb-3 font-mono text-sm uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
             {t(messages.experience.sectionLabel)}
           </p>
           <h2 className="mb-12 text-3xl font-bold md:text-4xl">

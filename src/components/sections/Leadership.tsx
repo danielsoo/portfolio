@@ -9,22 +9,22 @@ const roleStyles = [
   {
     color: "from-indigo-500/20 to-purple-500/20",
     border: "border-indigo-500/30",
-    accent: "text-indigo-400",
+    accent: "text-indigo-600 dark:text-indigo-400",
   },
   {
     color: "from-cyan-500/20 to-blue-500/20",
     border: "border-cyan-500/30",
-    accent: "text-cyan-400",
+    accent: "text-cyan-700 dark:text-cyan-400",
   },
   {
     color: "from-violet-500/20 to-pink-500/20",
     border: "border-violet-500/30",
-    accent: "text-violet-400",
+    accent: "text-violet-600 dark:text-violet-400",
   },
   {
     color: "from-amber-500/20 to-orange-500/20",
     border: "border-amber-500/30",
-    accent: "text-amber-400",
+    accent: "text-amber-600 dark:text-amber-400",
   },
 ] as const;
 
@@ -42,7 +42,7 @@ export default function Leadership() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
+          <p className="text-indigo-600 dark:text-indigo-400 font-mono text-sm uppercase tracking-widest mb-3">
             {t(messages.leadership.sectionLabel)}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
