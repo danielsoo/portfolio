@@ -148,7 +148,7 @@ export default function Projects() {
                     <p className={`font-mono text-[10px] uppercase tracking-[0.2em] ${accent.accentMuted}`}>
                       {localized.type}
                     </p>
-                    <h3 className={`mt-4 min-h-[4.05rem] text-3xl font-bold leading-[1.08] transition-colors ${accent.groupHoverAccent}`}>
+                    <h3 className={`mt-4 min-h-[6.1rem] text-3xl font-bold leading-[1.08] transition-colors ${accent.groupHoverAccent}`}>
                       {localized.title}
                     </h3>
                     <p className="mt-5 line-clamp-4 text-sm leading-7 text-[var(--foreground)]/58">
@@ -160,8 +160,8 @@ export default function Projects() {
                     <div className="relative mt-7 grid grid-cols-2 gap-3">
                       {project.impact.slice(0, 2).map((item) => (
                         <div key={`${item.value}-${item.label}`} className="rounded-xl border border-[var(--foreground)]/10 bg-[var(--foreground)]/[0.025] p-3">
-                          <p className="text-xl font-black text-cyan-700 dark:text-cyan-300">{item.value}</p>
-                          <p className="mt-1 line-clamp-2 font-mono text-[9px] uppercase tracking-wide text-[var(--foreground)]/35">
+                          <p className="min-h-14 text-xl font-black leading-[1.75rem] text-cyan-700 dark:text-cyan-300">{item.value}</p>
+                          <p className="mt-1 line-clamp-2 min-h-[27px] font-mono text-[9px] uppercase tracking-wide text-[var(--foreground)]/35">
                             {item.label}
                           </p>
                         </div>
