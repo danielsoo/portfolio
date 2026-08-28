@@ -67,7 +67,7 @@ export default function Projects() {
       >
         <div className="mx-auto mb-9 flex max-w-6xl flex-col justify-between gap-5 px-6 md:flex-row md:items-end">
           <div>
-            <p className="mb-3 font-mono text-sm uppercase tracking-widest text-indigo-400">
+            <p className="mb-3 font-mono text-sm uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
               {t(messages.projects.sectionLabel)}
             </p>
             <h2 className="text-3xl font-bold md:text-4xl">{t(messages.projects.heading)}</h2>
@@ -76,7 +76,7 @@ export default function Projects() {
             <p className="max-w-md text-sm leading-relaxed text-[var(--foreground)]/45">
               {t(messages.projects.browseHint)}
             </p>
-            <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-400/55">
+            <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-700/70 dark:text-cyan-400/55">
               ← {t(messages.projects.dragHint)} →
             </p>
           </div>
@@ -84,7 +84,7 @@ export default function Projects() {
 
         <div
           ref={railRef}
-          className="project-carousel flex snap-x snap-mandatory gap-5 overflow-x-auto px-[max(1.5rem,calc((100vw-72rem)/2))] pb-7"
+          className="project-carousel flex snap-x snap-mandatory items-start gap-5 overflow-x-auto px-[max(1.5rem,calc((100vw-72rem)/2))] pb-7 md:items-stretch"
         >
           {orderedProjects.map((project, index) => {
             const localized = localizeProject(project, locale);
@@ -104,25 +104,16 @@ export default function Projects() {
                   className="absolute inset-0 z-10 rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
                 />
 
-                <div className="relative min-h-64 overflow-hidden border-b border-[var(--foreground)]/10 bg-[#090910] md:min-h-full md:border-b-0 md:border-r">
+                <div className="relative h-64 overflow-hidden border-b border-[var(--foreground)]/10 bg-[#090910] md:h-auto md:min-h-full md:border-b-0 md:border-r">
                   {project.images[0] ? (
                     project.slug === "levit-shopport-ai" ? (
-                      <>
-                        <Image
-                          src={project.images[0]}
-                          alt=""
-                          fill
-                          sizes="200px"
-                          className="object-cover opacity-20 blur-xl will-change-transform"
-                        />
-                        <Image
-                          src={project.images[0]}
-                          alt=""
-                          fill
-                          sizes="(max-width: 768px) 86vw, 52vw"
-                          className="object-contain p-5 opacity-90 transition duration-700 group-hover:scale-[1.015] group-hover:opacity-100"
-                        />
-                      </>
+                      <Image
+                        src={project.images[0]}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 86vw, 52vw"
+                        className="object-cover object-[center_64%] opacity-90 transition duration-700 group-hover:scale-[1.025] group-hover:opacity-100"
+                      />
                     ) : (
                       <Image
                         src={project.images[0]}
@@ -157,7 +148,7 @@ export default function Projects() {
                     <p className={`font-mono text-[10px] uppercase tracking-[0.2em] ${accent.accentMuted}`}>
                       {localized.type}
                     </p>
-                    <h3 className={`mt-4 text-3xl font-bold leading-[1.08] transition-colors ${accent.groupHoverAccent}`}>
+                    <h3 className={`mt-4 min-h-[4.05rem] text-3xl font-bold leading-[1.08] transition-colors ${accent.groupHoverAccent}`}>
                       {localized.title}
                     </h3>
                     <p className="mt-5 line-clamp-4 text-sm leading-7 text-[var(--foreground)]/58">
@@ -169,7 +160,7 @@ export default function Projects() {
                     <div className="relative mt-7 grid grid-cols-2 gap-3">
                       {project.impact.slice(0, 2).map((item) => (
                         <div key={`${item.value}-${item.label}`} className="rounded-xl border border-[var(--foreground)]/10 bg-[var(--foreground)]/[0.025] p-3">
-                          <p className="text-xl font-black text-cyan-300">{item.value}</p>
+                          <p className="text-xl font-black text-cyan-700 dark:text-cyan-300">{item.value}</p>
                           <p className="mt-1 line-clamp-2 font-mono text-[9px] uppercase tracking-wide text-[var(--foreground)]/35">
                             {item.label}
                           </p>
@@ -181,7 +172,7 @@ export default function Projects() {
                   <div className="relative mt-auto pt-8">
                     <div className="flex flex-wrap gap-2">
                       {project.tags.slice(0, 4).map((tag) => (
-                        <span key={tag} className="rounded-full bg-indigo-500/10 px-2.5 py-1 font-mono text-[10px] text-indigo-300/80">
+                        <span key={tag} className="rounded-full bg-indigo-500/10 px-2.5 py-1 font-mono text-[10px] text-indigo-600/80 dark:text-indigo-300/80">
                           {tag}
                         </span>
                       ))}
@@ -191,7 +182,7 @@ export default function Projects() {
                     </div>
 
                     <div className="mt-7 flex items-center justify-between border-t border-[var(--foreground)]/10 pt-5">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-indigo-400">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-indigo-600 dark:text-indigo-400">
                         {t(messages.projects.viewDetails)} →
                       </span>
                       <div className="pointer-events-auto relative z-20 flex gap-3">
@@ -200,7 +191,7 @@ export default function Projects() {
                             href={project.appLinks.appStore}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded-full border border-[var(--foreground)]/15 px-2.5 py-1 font-mono text-[9px] text-[var(--foreground)]/50 transition hover:border-indigo-400/50 hover:text-indigo-300"
+                            className="rounded-full border border-[var(--foreground)]/15 px-2.5 py-1 font-mono text-[9px] text-[var(--foreground)]/50 transition hover:border-indigo-400/50 hover:text-indigo-600 dark:hover:text-indigo-300"
                             title={t(messages.projects.appStoreTitle)}
                             aria-label={t(messages.projects.appStoreTitle)}
                           >
@@ -212,7 +203,7 @@ export default function Projects() {
                             href={project.appLinks.googlePlay}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded-full border border-[var(--foreground)]/15 px-2.5 py-1 font-mono text-[9px] text-[var(--foreground)]/50 transition hover:border-cyan-400/50 hover:text-cyan-300"
+                            className="rounded-full border border-[var(--foreground)]/15 px-2.5 py-1 font-mono text-[9px] text-[var(--foreground)]/50 transition hover:border-cyan-400/50 hover:text-cyan-700 dark:hover:text-cyan-300"
                             title={t(messages.projects.googlePlayTitle)}
                             aria-label={t(messages.projects.googlePlayTitle)}
                           >
@@ -225,7 +216,7 @@ export default function Projects() {
                           </a>
                         )}
                         {project.live && (
-                          <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-[var(--foreground)]/35 transition hover:text-indigo-400" title={t(messages.projects.liveSiteTitle)}>
+                          <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-[var(--foreground)]/35 transition hover:text-indigo-600 dark:hover:text-indigo-400" title={t(messages.projects.liveSiteTitle)}>
                             <ExternalLinkIcon />
                           </a>
                         )}
@@ -266,7 +257,7 @@ function RailButton({
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.92 }}
       transition={{ type: "spring", stiffness: 400, damping: 20 }}
-      className="group relative grid h-12 w-12 place-items-center rounded-full border border-[var(--foreground)]/15 bg-[var(--background)]/80 text-[var(--foreground)]/55 shadow-lg shadow-black/10 backdrop-blur-sm transition-colors hover:border-indigo-400/60 hover:text-indigo-300"
+      className="group relative grid h-12 w-12 place-items-center rounded-full border border-[var(--foreground)]/15 bg-[var(--background)]/80 text-[var(--foreground)]/55 shadow-lg shadow-black/10 backdrop-blur-sm transition-colors hover:border-indigo-400/60 hover:text-indigo-600 dark:hover:text-indigo-300"
     >
       <span className="pointer-events-none absolute inset-0 rounded-full bg-indigo-500/0 shadow-[0_0_0_0_rgba(99,102,241,0)] transition group-hover:bg-indigo-500/10 group-hover:shadow-[0_0_22px_2px_rgba(99,102,241,0.25)]" />
       <svg

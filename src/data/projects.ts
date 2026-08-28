@@ -368,6 +368,14 @@ export const projects: Project[] = [
       "/projects/federated-tinyml/psu_cers2026_2.jpeg",
       "/projects/federated-tinyml/psu_cers2026_1.jpeg",
     ],
+    impact: [
+      { value: "46.7% → 93.85%", label: "Attack Recall Improvement" },
+      { value: "12.28×", label: "Model Size Reduction" },
+      { value: "84.1% → 89.32%", label: "F1-Score Improvement" },
+      { value: "74.5%", label: "ESP32 Latency Reduction" },
+      { value: "48", label: "Compression Configs Evaluated" },
+      { value: "0.01–0.2", label: "PGD Adversarial ε-Sweep" },
+    ],
     keyTakeaways: [
       "Compression and robustness are different axes — a model can be small and still fragile, or robust and still too large for the target device.",
       "Federated learning is a coordination problem as much as a training problem; how the server aggregates client updates matters as much as local training.",
@@ -452,6 +460,11 @@ export const projects: Project[] = [
       "/projects/signum/prize.jpeg",
       "/projects/signum/team.jpeg",
       "/projects/signum/coffee_chat.jpg",
+    ],
+    impact: [
+      { value: "$3,750", label: "PIT-UN Funding Awarded" },
+      { value: "50+ hrs → Instant", label: "Weekly Caregiver Research Time" },
+      { value: "3", label: "Data Sources Unified (CMS, NPPES, Google Places)" },
     ],
     keyTakeaways: [
       "Domain-grounded RAG is only as trustworthy as the data pipeline underneath it — bad data in the warehouse means confident-sounding but wrong answers.",
