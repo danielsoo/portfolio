@@ -212,7 +212,7 @@ export default function ProjectMediaGallery({ projectSlug, projectTitle, staticI
                           unoptimized={item.unoptimized}
                           loading={index === 0 ? "eager" : "lazy"}
                           sizes="(min-width: 1024px) 646px, 80vw"
-                          className="object-cover"
+                          className="object-contain"
                         />
                       ) : (
                         <video
