@@ -131,9 +131,11 @@ Advisor: Prof. Kiwan Maeng
 
 \begin{itemize}[leftmargin=1.5em]
 
-\item Surveying production AI agent memory systems including Mem0 and A-MEM.
+\item Surveyed five production and research AI agent memory systems (Mem0, A-MEM, LangMem, Zep, OpenAI Memory), comparing memory creation, retrieval, and lifecycle-management approaches.
 
-\item Investigating memory extraction, retrieval, safety, and lifecycle management for LLM-based agents.
+\item Identified a core architectural divergence: Mem0 extracts and retrieves discrete facts, while A-MEM models memory as an evolving, interconnected knowledge structure; traced how Mem0's open-source implementation diverged from its published ADD/UPDATE/DELETE design into an ADD-only, retrieval-time resolution approach.
+
+\item Narrowed research focus to Mem0 (implementation depth, practical extensibility) and A-MEM (architectural novelty) for application to the lab's production AI agent system.
 
 \item Applying memory architectures to production recommendation systems through a Memory-first Personalization framework, shipped as Wowness at Levit Inc.
 
