@@ -104,6 +104,11 @@ const experienceLogos = [
     className: "p-1.5",
   },
   {
+    src: "/logos/experience/rokaf.png",
+    alt: "Republic of Korea Air Force emblem",
+    className: "p-1.5",
+  },
+  {
     src: "/logos/experience/atom-tech.jpg",
     alt: "Atom Tech Solutions logo",
     className: "p-1.5",

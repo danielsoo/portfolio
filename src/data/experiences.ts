@@ -70,8 +70,26 @@ export const experienceRoutes = [
     ],
   },
   {
-    slug: "atom-tech-intern",
+    slug: "rokaf-squad-leader",
     entryIndex: 3,
+    projectSlugs: [],
+    hook: {
+      en: "Led 20+ airmen through high-tempo operations where readiness and coordination were non-negotiable.",
+      ko: "준비태세와 조율이 필수인 고강도 작전 환경에서 20명 이상의 병력을 이끌었습니다.",
+    },
+    highlightTitles: [
+      { en: "Operational leadership", ko: "작전 리더십" },
+      { en: "Readiness recognized", ko: "준비태세 인정" },
+    ],
+    stats: [
+      { value: "20+", label: { en: "Airmen coordinated", ko: "조율한 병력" } },
+      { value: "Squad", label: { en: "Leadership scope", ko: "리더십 범위" } },
+      { value: "Award", label: { en: "Commendation received", ko: "표창 수여" } },
+    ],
+  },
+  {
+    slug: "atom-tech-intern",
+    entryIndex: 4,
     projectSlugs: [],
     hook: {
       en: "Built secure authentication and onboarding foundations for production user management.",
