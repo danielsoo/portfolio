@@ -99,8 +99,8 @@ const experienceLogos = [
     className: "p-2",
   },
   {
-    src: "/logos/experience/avt.svg",
-    alt: "Penn State Advanced Vehicle Team wordmark",
+    src: "/logos/experience/avt.png",
+    alt: "Penn State Advanced Vehicle Team logo",
     className: "p-1.5",
   },
   {
