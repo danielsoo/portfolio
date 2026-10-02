@@ -56,17 +56,21 @@ export const experienceRoutes = [
     entryIndex: 2,
     projectSlugs: [],
     hook: {
-      en: "Laying the planning foundation for Penn State's Year 1 EcoCAR team that future teams will build on.",
-      ko: "이후 팀들이 이어받을 펜실베니아 주립대 EcoCAR 1년 차 팀의 계획 기반을 만들고 있습니다.",
+      en: "Managing Vehicle Systems Engineering deliverables for Penn State's Year 1 EcoCAR team, from schedules to risk plans.",
+      ko: "펜실베니아 주립대 EcoCAR 1년 차 팀의 Vehicle Systems Engineering 산출물을 일정부터 리스크 계획까지 관리합니다.",
     },
     highlightTitles: [
-      { en: "Planning & deliverables", ko: "계획과 산출물" },
-      { en: "Year 1 foundation", ko: "1년 차 기반 구축" },
+      { en: "Deliverable schedules", ko: "산출물 일정" },
+      { en: "Work breakdown", ko: "작업 분류" },
+      { en: "Cross-team coordination", ko: "팀 간 조율" },
+      { en: "Year 1 planning", ko: "1년 차 계획" },
+      { en: "Status tracking", ko: "진행 관리" },
+      { en: "Technical reviews", ko: "기술 검토" },
     ],
     stats: [
-      { value: "EcoCAR", label: { en: "Argonne-managed challenge", ko: "Argonne 주관 대회" } },
-      { value: "Year 1", label: { en: "Foundation season", ko: "기반 구축 시즌" } },
-      { value: "PM", label: { en: "Planning & deliverables", ko: "계획·산출물 관리" } },
+      { value: "4", label: { en: "Major deliverables scheduled", ko: "일정 관리 중인 주요 산출물" } },
+      { value: "5", label: { en: "Technical teams coordinated", ko: "조율하는 기술 팀" } },
+      { value: "Year 1", label: { en: "Integrated workplan", ko: "통합 워크플랜" } },
     ],
   },
   {

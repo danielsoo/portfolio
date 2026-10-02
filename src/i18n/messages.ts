@@ -229,22 +229,38 @@ export const messages = {
         tags: ["Python", "AWS Bedrock", "FAISS", "DuckDB", "RAG"],
       },
       {
-        role: { en: "Project Manager", ko: "프로젝트 매니저" },
+        role: { en: "Project Manager – Vehicle Systems Engineering", ko: "프로젝트 매니저 – Vehicle Systems Engineering" },
         employmentType: { en: "Student Team", ko: "학생 팀" },
         org: { en: "Penn State Advanced Vehicle Team (EcoCAR)", ko: "펜실베니아 주립대 Advanced Vehicle Team (EcoCAR)" },
         location: { en: "University Park, PA", ko: "University Park, PA" },
-        period: { en: "Aug 2026 – Present", ko: "2026년 8월 – 현재" },
+        period: { en: "Sept 2026 – Present", ko: "2026년 9월 – 현재" },
         bullets: [
           {
-            en: "Manage planning and deliverables for Penn State's EcoCAR team in the challenge managed by Argonne National Laboratory, with GM and MathWorks as sponsors.",
-            ko: "Argonne 국립연구소가 주관하고 GM·MathWorks가 후원하는 EcoCAR Challenge에서 펜실베니아 주립대 팀의 계획과 산출물을 관리.",
+            en: "Built and maintained Smartsheet project schedules for four major vehicle-engineering deliverables, including CAV architecture, facilities and safety readiness, baseline vehicle testing, and propulsion architecture selection.",
+            ko: "CAV 아키텍처, 시설·안전 준비, 기준 차량 테스트, 추진 시스템 아키텍처 선정 등 4개 주요 차량 엔지니어링 산출물의 Smartsheet 프로젝트 일정을 구축·관리.",
           },
           {
-            en: "Building Year 1 project structure and processes that future teams will build on, while keeping vehicle work on schedule.",
-            ko: "대회 1년 차로서 이후 팀들이 이어받을 프로젝트 구조와 프로세스를 만들면서 차량 작업 일정을 관리.",
+            en: "Translated technical requirements and grading rubrics into structured work breakdown schedules with task owners, estimated hours, milestones, dependencies, and internal review deadlines.",
+            ko: "기술 요구사항과 평가 기준을 담당자, 예상 공수, 마일스톤, 의존성, 내부 검토 마감일이 포함된 작업 분류 일정(WBS)으로 구조화.",
+          },
+          {
+            en: "Coordinated with software, hardware, controls, safety, and testing teams to identify cross-functional dependencies, external approvals, facility constraints, and vehicle-access requirements.",
+            ko: "소프트웨어·하드웨어·제어·안전·테스트 팀과 협업해 팀 간 의존성, 외부 승인, 시설 제약, 차량 접근 요건을 파악.",
+          },
+          {
+            en: "Developed strategic drivers, critical-path analyses, and project risk plans for the team's Integrated Year 1 Workplan.",
+            ko: "팀의 Integrated Year 1 Workplan을 위한 전략적 동인, 임계 경로 분석, 프로젝트 리스크 계획을 수립.",
+          },
+          {
+            en: "Monitored project status, identified incomplete or delayed work, and communicated priorities and schedule changes to technical leads and student leadership.",
+            ko: "프로젝트 진행 상황을 모니터링하고 미완료·지연 작업을 파악해 기술 리드와 학생 리더십에 우선순위와 일정 변경을 공유.",
+          },
+          {
+            en: "Prepared technical-review presentations and project documentation to demonstrate progress, evidence of work, remaining activities, and readiness for upcoming milestones.",
+            ko: "진행 상황, 작업 근거, 남은 활동, 다음 마일스톤 준비 상태를 보여주는 기술 검토 발표 자료와 프로젝트 문서를 작성.",
           },
         ] as const satisfies readonly Bilingual[],
-        tags: ["Project Management", "Planning", "EcoCAR"],
+        tags: ["Smartsheet", "Work Breakdown Structure", "Gantt Charts", "Critical Path Analysis", "Risk Management", "Cross-Functional Coordination"],
       },
       {
         role: { en: "Squad Leader (Promoted)", ko: "분대장 (진급)" },
@@ -328,6 +344,12 @@ export const messages = {
         description: { en: "Infrastructure, observability, and tests that keep the system running.", ko: "배포와 모니터링, 테스트를 통해 서비스가 안정적으로 동작하게 합니다." },
         groupIndices: [6, 7],
       },
+      {
+        eyebrow: { en: "Coordination", ko: "협업·관리" },
+        title: { en: "Project Management", ko: "프로젝트 관리" },
+        description: { en: "Schedules, dependencies, and risk plans that keep cross-functional engineering work on track.", ko: "일정, 의존성, 리스크 계획으로 여러 팀의 엔지니어링 작업이 제때 진행되게 합니다." },
+        groupIndices: [8],
+      },
     ] as const,
     openGroup: { en: "Open stack", ko: "기술 스택 열기" },
     closeGroup: { en: "Close skill details", ko: "기술 상세 닫기" },
@@ -364,6 +386,10 @@ export const messages = {
       {
         category: { en: "Testing / Dev Tools", ko: "테스트·개발 도구" },
         items: ["Jest", "Vitest", "ESLint", "Git", "pnpm", "Turborepo"],
+      },
+      {
+        category: { en: "Project Management", ko: "프로젝트 관리" },
+        items: ["Smartsheet", "Work Breakdown Structure", "Gantt Charts", "Critical Path Analysis", "Risk Management", "Requirements Analysis", "Schedule Management", "Dependency Tracking", "Stakeholder Communication", "Cross-Functional Coordination", "Resource Planning", "Technical Documentation", "Microsoft Teams", "Microsoft SharePoint", "Microsoft Word", "Microsoft PowerPoint"],
       },
     ],
   },
