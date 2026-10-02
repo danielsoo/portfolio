@@ -99,8 +99,8 @@ const experienceLogos = [
     className: "p-2",
   },
   {
-    src: "/logos/experience/rokaf.png",
-    alt: "Republic of Korea Air Force emblem",
+    src: "/logos/experience/avt.svg",
+    alt: "Penn State Advanced Vehicle Team wordmark",
     className: "p-1.5",
   },
   {

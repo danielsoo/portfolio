@@ -229,22 +229,22 @@ export const messages = {
         tags: ["Python", "AWS Bedrock", "FAISS", "DuckDB", "RAG"],
       },
       {
-        role: { en: "Squad Leader (Promoted)", ko: "분대장 (진급)" },
-        employmentType: { en: "Full-time", ko: "풀타임" },
-        org: { en: "Republic of Korea Air Force", ko: "대한민국 공군" },
-        location: { en: "Republic of Korea", ko: "대한민국" },
-        period: { en: "Sept 2022 – June 2024", ko: "2022년 9월 – 2024년 6월" },
+        role: { en: "Project Manager", ko: "프로젝트 매니저" },
+        employmentType: { en: "Student Team", ko: "학생 팀" },
+        org: { en: "Penn State Advanced Vehicle Team (EcoCAR)", ko: "펜실베니아 주립대 Advanced Vehicle Team (EcoCAR)" },
+        location: { en: "University Park, PA", ko: "University Park, PA" },
+        period: { en: "Aug 2026 – Present", ko: "2026년 8월 – 현재" },
         bullets: [
           {
-            en: "Promoted to Squad Leader; managed and coordinated 20+ airmen across high-tempo operational missions.",
-            ko: "분대장으로 진급 후 고강도 작전 임무에서 20명 이상의 병력을 관리·조율.",
+            en: "Manage planning and deliverables for Penn State's EcoCAR team in the challenge managed by Argonne National Laboratory, with GM and MathWorks as sponsors.",
+            ko: "Argonne 국립연구소가 주관하고 GM·MathWorks가 후원하는 EcoCAR Challenge에서 펜실베니아 주립대 팀의 계획과 산출물을 관리.",
           },
           {
-            en: "Received a Commendation Award for sustained leadership performance and operational readiness.",
-            ko: "지속적인 리더십과 작전 준비태세로 표창 수여.",
+            en: "Building Year 1 project structure and processes that future teams will build on, while keeping vehicle work on schedule.",
+            ko: "대회 1년 차로서 이후 팀들이 이어받을 프로젝트 구조와 프로세스를 만들면서 차량 작업 일정을 관리.",
           },
         ] as const satisfies readonly Bilingual[],
-        tags: ["Leadership", "Operations"],
+        tags: ["Project Management", "Planning", "EcoCAR"],
       },
       {
         role: { en: "Software Engineering Intern", ko: "소프트웨어 엔지니어링 인턴" },
@@ -808,10 +808,10 @@ export const messages = {
   /* ---------- Leadership ---------- */
   leadership: {
     sectionLabel: { en: "05. Leadership", ko: "05. 리더십" },
-    heading: { en: "Campus Roles & Impact", ko: "교내 리더십 역할" },
+    heading: { en: "Leadership Roles & Impact", ko: "리더십 역할" },
     intro: {
-      en: "Elected and appointed to leadership positions across Penn State's most prominent engineering and CS organizations — each role carrying real responsibility and impact.",
-      ko: "펜실베니아 주립대 주요 공대·CS 학생 조직에서 선출·임명된 리더십 역할을 맡았으며, 각 역할은 실질적인 책임과 영향력을 수반합니다.",
+      en: "Elected and appointed to leadership positions across Penn State's most prominent engineering and CS organizations, plus military service as a Squad Leader — each role carrying real responsibility and impact.",
+      ko: "펜실베니아 주립대 주요 공대·CS 학생 조직에서 선출·임명된 리더십 역할과 공군 분대장 복무 경험이 있으며, 각 역할은 실질적인 책임과 영향력을 수반합니다.",
     },
     roles: [
       {
@@ -827,16 +827,16 @@ export const messages = {
         statLabel: { en: "raised annually", ko: "연간 모금" },
       },
       {
-        title: { en: "Project Manager", ko: "프로젝트 매니저" },
+        title: { en: "Squad Leader", ko: "분대장" },
         year: "",
-        org: { en: "Penn State Advanced Vehicle Team (AVT)", ko: "펜실베니아 주립대 AVT" },
-        period: { en: "Fall 2026 – Present", ko: "2026년 가을 – 현재" },
+        org: { en: "Republic of Korea Air Force", ko: "대한민국 공군" },
+        period: { en: "Sept 2022 – June 2024", ko: "2022년 9월 – 2024년 6월" },
         description: {
-          en: "Managing planning and deliverables for Penn State's team in the EcoCAR Challenge, managed by Argonne National Laboratory with GM and MathWorks as sponsors. In Year 1, building the project structure and processes that future teams will build on while keeping vehicle work on schedule.",
-          ko: "Argonne 국립연구소가 주관하고 GM·MathWorks가 후원하는 EcoCAR Challenge에서 펜실베니아 주립대 팀의 계획과 산출물을 관리. 대회 1년 차로서 이후 팀들이 이어받을 프로젝트 구조와 프로세스를 만들면서 차량 작업 일정을 관리합니다.",
+          en: "Promoted to Squad Leader and managed 20+ airmen across high-tempo operational missions. Received a Commendation Award for sustained leadership performance and operational readiness.",
+          ko: "분대장으로 진급해 고강도 작전 임무에서 20명 이상의 병력을 관리·조율. 지속적인 리더십과 작전 준비태세로 표창을 받았습니다.",
         },
-        stat: "EcoCAR",
-        statLabel: { en: "Year 1", ko: "1년 차" },
+        stat: "20+",
+        statLabel: { en: "airmen led", ko: "지휘 병력" },
       },
       {
         title: { en: "Web & Design Director", ko: "웹 & 디자인 디렉터" },

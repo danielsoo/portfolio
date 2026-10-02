@@ -52,21 +52,21 @@ export const experienceRoutes = [
     ],
   },
   {
-    slug: "rokaf-squad-leader",
+    slug: "penn-state-avt",
     entryIndex: 2,
     projectSlugs: [],
     hook: {
-      en: "Led 20+ airmen through high-tempo operations where readiness and coordination were non-negotiable.",
-      ko: "준비태세와 조율이 필수인 고강도 작전 환경에서 20명 이상의 병력을 이끌었습니다.",
+      en: "Laying the planning foundation for Penn State's Year 1 EcoCAR team that future teams will build on.",
+      ko: "이후 팀들이 이어받을 펜실베니아 주립대 EcoCAR 1년 차 팀의 계획 기반을 만들고 있습니다.",
     },
     highlightTitles: [
-      { en: "Operational leadership", ko: "작전 리더십" },
-      { en: "Readiness recognized", ko: "준비태세 인정" },
+      { en: "Planning & deliverables", ko: "계획과 산출물" },
+      { en: "Year 1 foundation", ko: "1년 차 기반 구축" },
     ],
     stats: [
-      { value: "20+", label: { en: "Airmen coordinated", ko: "조율한 병력" } },
-      { value: "Squad", label: { en: "Leadership scope", ko: "리더십 범위" } },
-      { value: "Award", label: { en: "Commendation received", ko: "표창 수여" } },
+      { value: "EcoCAR", label: { en: "Argonne-managed challenge", ko: "Argonne 주관 대회" } },
+      { value: "Year 1", label: { en: "Foundation season", ko: "기반 구축 시즌" } },
+      { value: "PM", label: { en: "Planning & deliverables", ko: "계획·산출물 관리" } },
     ],
   },
   {
