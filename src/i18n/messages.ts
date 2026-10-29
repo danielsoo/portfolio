@@ -999,7 +999,6 @@ export const messages = {
     techStack: { en: "Tech Stack", ko: "기술 스택" },
     links: { en: "Links", ko: "링크" },
     sourceCode: { en: "Source Code", ko: "소스 코드" },
-    addImagesLine: { en: "Add images to", ko: "이미지를 다음 경로에 추가하세요" },
     screenshotAlt: { en: "screenshot", ko: "스크린샷" },
   },
 
