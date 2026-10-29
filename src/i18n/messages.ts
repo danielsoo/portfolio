@@ -905,6 +905,13 @@ export const messages = {
         date: { en: "August 2023", ko: "2023년 8월" },
         icon: "🎖️",
       },
+      {
+        place: { en: "Scholarship", ko: "장학금" },
+        title: { en: "Scholarships & Grants — $6,500 total", ko: "장학금·지원금 — 총 $6,500" },
+        org: { en: "Penn State University", ko: "Penn State University" },
+        date: { en: "Fall 2026", ko: "2026년 가을" },
+        icon: "🎓",
+      },
     ],
   },
 
