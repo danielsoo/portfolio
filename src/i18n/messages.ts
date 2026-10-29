@@ -736,23 +736,23 @@ export const messages = {
         ] as const satisfies readonly Bilingual[],
       },
       hangukgwan: {
-        title: { en: "Hangukgwan — Family Restaurant App", ko: "한국관 — 가족 레스토랑 앱" },
+        title: { en: "Hangukgwan — Restaurant Ordering App", ko: "한국관 — 레스토랑 주문 앱" },
         type: { en: "Full-Stack", ko: "풀스택" },
-        badge: { en: "In Progress", ko: "진행 중" },
+        badge: { en: "Software Engineer · Summer 2022 & 2025", ko: "소프트웨어 엔지니어 · 2022·2025년 여름" },
         shortDescription: {
-          en: "Full-stack restaurant web app with 4-language i18n support (Korean, English, Simplified/Traditional Chinese). Built with React + TypeScript, Node.js/Express, and MongoDB Atlas. Integrated Google Maps API and JWT authentication.",
-          ko: "한·영·간체·번체 4개 언어 i18n을 지원하는 풀스택 레스토랑 웹앱. React+TypeScript, Node.js/Express, MongoDB Atlas. Google Maps API와 JWT 인증 연동.",
+          en: "Ordering system for a Korean restaurant in Zhubei, Taiwan: a four-language Next.js site (Korean, English, Simplified/Traditional Chinese) with menu and takeout pages, plus an Android POS app that prints new orders straight to the kitchen printer.",
+          ko: "대만 주베이 한식당을 위한 주문 시스템. 한·영·간체·번체 4개 언어를 지원하는 Next.js 웹사이트(메뉴·테이크아웃)와, 신규 주문을 주방 프린터로 바로 출력하는 안드로이드 POS 앱.",
         },
         longDescription: {
-          en: "A full-stack web application for the family restaurant business, designed to serve an international clientele across four languages: Korean, English, Simplified Chinese, and Traditional Chinese. Every piece of user-facing content — menus, announcements, descriptions — is fully translated and rendered based on the user's selected language.\n\nThe backend is a Node.js/Express REST API backed by MongoDB Atlas, handling menu data, user authentication, and content management. JWT-based authentication secures the admin dashboard where restaurant staff can update content without needing developer involvement.\n\nGoogle Maps API integration embeds the restaurant location with directions and hours directly in the page. The frontend is built with React and TypeScript, using react-i18next for the multilingual layer with locale-aware routing.",
-          ko: "가족 사업 레스토랑을 위한 풀스택 웹앱으로, 한·영·간체·번체 네 언어 고객을 대상으로 합니다. 메뉴·공지·설명 등 사용자 대면 콘텐츠는 선택 언어에 맞게 완전히 번역·렌더링됩니다.\n\n백엔드는 MongoDB Atlas 기반 Node.js/Express REST API로 메뉴·인증·콘텐츠 관리를 처리합니다. JWT로 관리자 대시보드를 보호해 직원이 개발자 없이 콘텐츠를 갱신할 수 있습니다.\n\nGoogle Maps API로 위치·길찾기·영업시간을 페이지에 삽입했고, 프론트는 React·TypeScript와 react-i18next로 로케일 인식 라우팅을 구현했습니다.",
+          en: "Hangukgwan is a Korean restaurant in Zhubei, Taiwan, with two locations. I built its web presence and ordering flow: a Next.js, React, and TypeScript site in four languages — Korean, English, Simplified Chinese, and Traditional Chinese — with menu, takeout, and account pages, JWT-based login, and Google Maps geocoding for the store locations.\n\nThe kitchen side was the harder problem. Android Chrome blocks a web page from launching another app without a real tap, so the browser-based auto-print for new orders silently failed. I built an Android POS tablet app in Java that wraps the admin page and sends print jobs straight to the kitchen printer over TCP (port 9100), removing the RawBT intermediary, and prepared the Google Play internal-testing release so the tablet can install and auto-update it.",
+          ko: "한국관은 대만 주베이에서 두 개 매장을 운영하는 한식당입니다. 웹 사이트와 주문 흐름을 만들었습니다. Next.js·React·TypeScript 기반으로 한국어·영어·간체·번체 4개 언어를 지원하고, 메뉴·테이크아웃·계정 페이지, JWT 로그인, 매장 위치용 Google Maps 지오코딩을 갖췄습니다.\n\n더 어려운 건 주방 쪽이었습니다. 안드로이드 크롬은 실제 터치 없이 웹페이지가 다른 앱을 실행하는 걸 막기 때문에, 브라우저 기반 신규 주문 자동 인쇄가 조용히 실패했습니다. 관리자 페이지를 감싸고 주방 프린터로 TCP(9100 포트)로 직접 인쇄하는 안드로이드 POS 태블릿 앱을 Java로 만들어 RawBT 중간 단계를 없앴고, 태블릿에 설치·자동 업데이트할 수 있도록 Google Play 내부 테스트 출시를 준비했습니다.",
         },
         highlights: [
-          { en: "4-language i18n: Korean, English, Simplified & Traditional Chinese", ko: "4개 언어 i18n: 한·영·간체·번체" },
-          { en: "JWT authentication for secure admin content management", ko: "JWT로 안전한 관리자 콘텐츠 관리" },
-          { en: "Google Maps API integration with directions and hours", ko: "Google Maps API로 길찾기·영업시간" },
-          { en: "REST API with Node.js/Express and MongoDB Atlas", ko: "Node.js/Express + MongoDB Atlas REST API" },
-          { en: "Locale-aware routing with react-i18next", ko: "react-i18next 로케일 인식 라우팅" },
+          { en: "Four-language site: Korean, English, Simplified & Traditional Chinese", ko: "4개 언어 사이트: 한·영·간체·번체" },
+          { en: "Next.js, React, TypeScript, Tailwind CSS, and MongoDB Atlas with menu, takeout, and account pages", ko: "Next.js·React·TypeScript·Tailwind CSS·MongoDB Atlas, 메뉴·테이크아웃·계정 페이지" },
+          { en: "JWT authentication and Google Maps geocoding for two store locations", ko: "JWT 인증, 두 매장 위치용 Google Maps 지오코딩" },
+          { en: "Android POS tablet app (Java) that prints new orders directly to the kitchen printer over TCP port 9100", ko: "신규 주문을 TCP 9100 포트로 주방 프린터에 직접 인쇄하는 안드로이드 POS 태블릿 앱(Java)" },
+          { en: "Replaced a Chrome print flow that Android blocks for unattended use; prepared the Google Play internal-testing release", ko: "안드로이드가 무인 실행을 막는 크롬 인쇄 방식을 대체, Google Play 내부 테스트 출시 준비" },
         ] as const satisfies readonly Bilingual[],
         keyTakeaways: [
           {
@@ -764,8 +764,8 @@ export const messages = {
             ko: "비개발자를 위한 관리자 도구를 만들다 보면 일반적인 개발자용 대시보드보다 더 단순하고 제약된 인터페이스를 설계하게 됩니다.",
           },
           {
-            en: "Small full-stack projects are a good forcing function for end-to-end ownership — from auth to deployment, there's nowhere to hide from a rough edge.",
-            ko: "작은 풀스택 프로젝트는 엔드투엔드 오너십을 기르는 좋은 훈련입니다 — 인증부터 배포까지, 허술한 부분을 숨길 곳이 없습니다.",
+            en: "Platform policy can make a design impossible — Android Chrome's tap requirement for launching other apps meant unattended auto-printing had to move into a native app.",
+            ko: "플랫폼 정책 때문에 설계 자체가 불가능해질 수 있습니다 — 안드로이드 크롬의 터치 요구 때문에 무인 자동 인쇄는 네이티브 앱으로 옮겨야 했습니다.",
           },
         ] as const satisfies readonly Bilingual[],
       },
@@ -932,8 +932,8 @@ export const messages = {
     hangukgwan: {
       title: { en: "Hangukgwan Restaurant", ko: "한국관 레스토랑" },
       description: {
-        en: "Multilingual full-stack restaurant web app for the family business, supporting Korean, English, Simplified & Traditional Chinese.",
-        ko: "가족 사업용 다국어 풀스택 레스토랑 웹앱 — 한국어, 영어, 간체·번체 중국어 지원.",
+        en: "Multilingual full-stack restaurant web app supporting Korean, English, Simplified & Traditional Chinese.",
+        ko: "다국어 풀스택 레스토랑 웹앱 — 한국어, 영어, 간체·번체 중국어 지원.",
       },
     },
   },
