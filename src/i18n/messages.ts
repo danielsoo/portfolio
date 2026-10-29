@@ -832,11 +832,11 @@ export const messages = {
         org: { en: "Penn State Advanced Vehicle Team (AVT)", ko: "펜실베니아 주립대 AVT" },
         period: { en: "Fall 2026 – Present", ko: "2026년 가을 – 현재" },
         description: {
-          en: "Managing a multidisciplinary engineering team building high-performance electric and autonomous vehicles. Coordinating project timelines, cross-functional collaboration, and technical deliverables across subteams.",
-          ko: "고성능 전기·자율주행 차량을 만드는 다학제 엔지니어링 팀을 관리. 일정, 기능 간 협업, 하위팀 기술 산출물을 조율합니다.",
+          en: "Project Manager for Penn State's team in Year 1 of the EcoCAR Challenge, run by Argonne National Laboratory with GM and MathWorks as sponsors. Keeping planning tight and deliverables on track for a multidisciplinary team building a fully electric vehicle, while laying the structure and processes that later teams will build on.",
+          ko: "Argonne National Laboratory가 운영하고 GM·MathWorks가 후원하는 EcoCAR Challenge 1년차에서 펜실베니아 주립대 팀의 프로젝트 매니저를 맡고 있습니다. 풀 전기차를 만드는 다학제 팀의 계획과 산출물 일정을 관리하고, 이후 팀들이 이어갈 구조와 프로세스의 토대를 만듭니다.",
         },
-        stat: "AVT",
-        statLabel: { en: "Flagship Team", ko: "플래그십 팀" },
+        stat: "EcoCAR",
+        statLabel: { en: "Challenge · Year 1", ko: "챌린지 · 1년차" },
       },
       {
         title: { en: "Web & Design Director", ko: "웹 & 디자인 디렉터" },
