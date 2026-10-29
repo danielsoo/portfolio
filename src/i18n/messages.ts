@@ -230,6 +230,31 @@ export const messages = {
         tags: ["Python", "AWS Bedrock", "FAISS", "DuckDB", "RAG"],
       },
       {
+        role: { en: "Software Engineer", ko: "소프트웨어 엔지니어" },
+        employmentType: { en: "Seasonal", ko: "시즌 근무" },
+        org: {
+          en: "Hangukgwan — Restaurant Ordering System (Taiwan)",
+          ko: "한국관 — 레스토랑 주문 시스템 (대만)",
+        },
+        location: { en: "Remote · Zhubei, Taiwan", ko: "원격 · 대만 주베이" },
+        period: { en: "Summer 2022, Summer 2025", ko: "2022년 여름, 2025년 여름" },
+        bullets: [
+          {
+            en: "Built the restaurant's four-language ordering and information site (Korean, English, Simplified and Traditional Chinese) with Next.js, React, TypeScript, and Tailwind CSS, covering menu, takeout, and account pages.",
+            ko: "한국어·영어·간체·번체 4개 언어를 지원하는 주문·안내 사이트를 Next.js·React·TypeScript·Tailwind CSS로 구축 — 메뉴, 테이크아웃, 계정 페이지 포함.",
+          },
+          {
+            en: "Built an Android POS tablet app in Java that prints new orders straight to the kitchen printer over TCP (port 9100), replacing a Chrome-based flow that Android blocks for unattended printing.",
+            ko: "신규 주문을 TCP(9100 포트)로 주방 프린터에 바로 출력하는 안드로이드 POS 태블릿 앱을 Java로 개발 — 무인 인쇄를 막는 안드로이드 크롬 기반 방식을 대체.",
+          },
+          {
+            en: "Implemented JWT authentication and Google Maps geocoding for the two store locations, and prepared the Google Play internal-testing release for the tablet app.",
+            ko: "JWT 인증과 두 매장 위치용 Google Maps 지오코딩을 구현하고, 태블릿 앱의 Google Play 내부 테스트 출시를 준비.",
+          },
+        ] as const satisfies readonly Bilingual[],
+        tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "MongoDB", "Android (Java)", "i18n"],
+      },
+      {
         role: { en: "Squad Leader (Promoted)", ko: "분대장 (진급)" },
         employmentType: { en: "Full-time", ko: "풀타임" },
         org: { en: "Republic of Korea Air Force", ko: "대한민국 공군" },

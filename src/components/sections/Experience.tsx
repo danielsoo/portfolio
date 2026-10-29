@@ -166,6 +166,11 @@ const experienceLogos = [
     className: "p-2",
   },
   {
+    src: "/logos/experience/hangukgwan.png",
+    alt: "Hangukgwan logo",
+    className: "p-0",
+  },
+  {
     src: "/logos/experience/rokaf.png",
     alt: "Republic of Korea Air Force emblem",
     className: "p-1.5",
