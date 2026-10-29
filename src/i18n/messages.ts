@@ -77,7 +77,6 @@ export const messages = {
       en: "I connect AI research, production engineering, and product decisions to build systems people can actually rely on.",
       ko: "AI 연구와 프로덕션 엔지니어링, 제품 의사결정을 연결해 사람들이 실제로 신뢰할 수 있는 시스템을 만듭니다.",
     },
-    portraitLabel: { en: "Portrait coming soon", ko: "전신 사진 추가 예정" },
     documentsLabel: { en: "Documents", ko: "문서" },
     p1: {
       en: "I'm Younsoo Park — a Computer Science student at Penn State University (Dean's List, B.S. CS + Math minor, graduating May 2027) with a passion for building reliable AI systems and full-stack applications.",
