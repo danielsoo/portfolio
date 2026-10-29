@@ -173,6 +173,8 @@ export const messages = {
     closeDetails: { en: "Close role details", ko: "경력 상세 닫기" },
     impactLabel: { en: "What changed", ko: "만들어낸 변화" },
     stackLabel: { en: "Working stack", ko: "사용 기술" },
+    showMore: { en: "Show more", ko: "더 보기" },
+    showLess: { en: "Show less", ko: "접기" },
     entries: [
       {
         role: { en: "Associate Problem Solver", ko: "Associate Problem Solver" },

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useInView } from "@/hooks/useInView";
@@ -75,6 +76,13 @@ export default function Experience() {
                     <p className="mt-3 font-mono text-xs text-[var(--foreground)]/30">
                       {t(experience.location)}
                     </p>
+
+                    <ExperienceBullets
+                      bullets={experience.bullets}
+                      tags={experience.tags}
+                      chipClassName={accent.chip}
+                      dotClassName={accent.dot}
+                    />
                   </div>
                 </div>
                 </motion.article>
@@ -84,6 +92,65 @@ export default function Experience() {
         </motion.div>
       </div>
     </section>
+  );
+}
+
+const VISIBLE_BULLETS = 2;
+
+function ExperienceBullets({
+  bullets,
+  tags,
+  chipClassName,
+  dotClassName,
+}: {
+  bullets: readonly { readonly en: string; readonly ko: string }[];
+  tags: readonly string[];
+  chipClassName: string;
+  dotClassName: string;
+}) {
+  const { t } = useLocale();
+  const [expanded, setExpanded] = useState(false);
+  const hiddenCount = Math.max(0, bullets.length - VISIBLE_BULLETS);
+  const showAll = expanded || hiddenCount === 0;
+  const shown = showAll ? bullets : bullets.slice(0, VISIBLE_BULLETS);
+
+  return (
+    <div className="mt-4">
+      <ul className="space-y-2.5">
+        {shown.map((bullet) => (
+          <li key={bullet.en} className="flex gap-3 text-sm leading-6 text-[var(--foreground)]/70">
+            <span className={`mt-2.5 h-1 w-1 flex-none rounded-full ${dotClassName}`} aria-hidden="true" />
+            <span>{t(bullet)}</span>
+          </li>
+        ))}
+      </ul>
+
+      {showAll && tags.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className={`rounded-full border px-2.5 py-0.5 font-mono text-[10px] ${chipClassName}`}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {hiddenCount > 0 && (
+        <button
+          type="button"
+          onClick={() => setExpanded((value) => !value)}
+          aria-expanded={expanded}
+          className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--foreground)]/45 transition-colors hover:text-[var(--foreground)]/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+        >
+          {expanded
+            ? t(messages.experience.showLess)
+            : `${t(messages.experience.showMore)} (+${hiddenCount})`}
+        </button>
+      )}
+    </div>
   );
 }
 
