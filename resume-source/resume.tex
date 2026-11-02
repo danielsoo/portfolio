@@ -28,6 +28,8 @@
 
 % 리스트 간격
 \setlist[itemize]{leftmargin=1.5em, topsep=2pt, itemsep=2pt}
+% 제목 아래 세부 항목: 들여쓰기 + 불릿
+\newenvironment{details}{\begin{itemize}[leftmargin=1.4em, label=\textbullet, topsep=0pt, itemsep=0pt, parsep=0pt, partopsep=0pt]}{\end{itemize}}
 
 \urlstyle{same}
 
@@ -61,69 +63,109 @@ B.S. in Computer Science (Minor in Mathematics), Dean's List \hfill Expected Gra
 
 %----------------------------------------
 \section{Experience}
-\textbf{Levit Inc. (Shopport AI)} - Associate Problem Solver \hfill June 2026 -- Aug 2026 \\
-- Worked directly with the \textbf{CEO} on Shopport, Levit's live iOS/Android AI shopping app, across routing, evaluation, and personalization systems.\\
-- Evolved routing from LLM classification to an embedding-based semantic router (\textbf{$\sim$8$\times$ faster}) and a hybrid classifier, reaching \textbf{86\%} V3 accuracy and rescuing \textbf{93\%} of eligible errors.\\
-- Designed and shipped Wowness, a Mem0-backed cross-category recommender, as sole engineer, and built the production evaluation \& backfill platform end-to-end.\\
-- Diagnosed system-boundary production failures and corrected analytics false positives; contributed \textbf{730 commits} and \textbf{143 merged PRs} (+114K LOC).
+\noindent\textbf{Levit Inc. (Shopport AI)} - Associate Problem Solver \hfill June 2026 -- Aug 2026
+\begin{details}
+\item Worked with the \textbf{CEO} on routing, evaluation, and personalization for Shopport, Levit's live iOS/Android AI app.
+\item Rebuilt LLM routing as a semantic router (\textbf{$\sim$8$\times$ faster}) + hybrid classifier: \textbf{86\%} V3 accuracy, \textbf{93\%} errors rescued.
+\item Shipped Wowness, a Mem0-backed recommender, as sole engineer; built the evaluation \& backfill platform.
+\item Fixed production failures and analytics false positives; contributed \textbf{730 commits} and \textbf{143 merged PRs} (+114K LOC).
+\end{details}
 \blockspace
 
-\noindent\textbf{SIGNUM (Nittany AI Alliance – PIT-UN Funded)} \hfill Aug 2024 -- Nov 2025 \\
-Co-founded an AI-powered caregiver support platform that received \$3,750 in PIT-UN funding. \\
-- Built a HIPAA-aware RAG assistant using AWS Bedrock, FAISS, and spaCy. \\
-- Integrated CMS, NPPES, and Google Places APIs, cutting caregiver research time from 50+ hrs/week to near-instant.
+\noindent\textbf{Pennsylvania State University} - Undergraduate Research Assistant \& Team Lead \hfill Oct 2025 -- Present
+\begin{details}
+\item Federated, adversarially robust IoT-security TinyML (for LCTES '26): recall 46.7\%$\to$93.9\%, F1 84.1\%$\to$89.3\%.
+\item Compressed models 12.3× and cut ESP32 latency 74.5\% across 48 configs (pruning, distillation, INT8 quantization).
+\end{details}
 \blockspace
 
-\noindent\textbf{Advanced Vehicle Team (EcoCAR)} - Project Manager, Vehicle Systems Engineering \hfill Sept 2026 -- Present \\
-- Managed Smartsheet schedules for four cross-functional vehicle-engineering deliverables, defining task owners, milestones, dependencies, estimated hours, and internal review deadlines. \\
-- Coordinated software, hardware, controls, safety, and testing teams to resolve scheduling conflicts and track external approvals, facility access, and vehicle dependencies. \\
-- Developed the Year 1 strategic drivers, critical-path analysis, and project risk plan while preparing leadership reviews and technical deliverable documentation.
-
+\noindent\textbf{Hangukgwan} - Software Engineering Intern, Zhubei, Taiwan \hfill Summer 2022, Summer 2025
+\begin{details}
+\item Built a live QR ordering \& POS system for 2 stores (Node.js, MongoDB, Pusher) with ESC/POS kitchen printing.
+\item Built owner/staff tools: time-card OCR payroll, a 20K-row ingredient ledger (21-month price trends), and P\&L.
+\item Added Claude receipt OCR, ECPay/split payments, a 4-language Next.js site, an Android kiosk app; 200+ test files.
+\end{details}
 \blockspace
-\noindent\textbf{Atom Tech Solutions LTD}, Internship — Berkeley, CA \hfill May 2022 -- Aug 2022 \\
-- Developed a secure SQL/JWT login system with encrypted data storage and credential generation.
+
+\noindent\textbf{Atom Tech Solutions LTD} - Software Engineering Intern, Berkeley, CA \hfill May 2022 -- Aug 2022
+\begin{details}
+\item Built SQL/JWT authentication, encrypted credential storage, and automated account onboarding.
+\end{details}
+
+%----------------------------------------
+\section{Leadership}
+\noindent\textbf{Advanced Vehicle Team (EcoCAR)} - Project Manager, Vehicle Systems Engineering \hfill Sept 2026 -- Present
+\begin{details}
+\item Managed Smartsheet schedules for 4 vehicle-engineering deliverables: owners, milestones, dependencies, deadlines.
+\item Coordinated software, hardware, controls, safety, and testing teams on approvals, facility and vehicle access.
+\item Built Year 1 strategic drivers, critical-path analysis, and risk plan for EcoCAR (Argonne, GM, MathWorks).
+\end{details}
+\blockspace
+
+\noindent\textbf{Republic of Korea Air Force} - Squad Leader \hfill Sept 2022 -- June 2024
+\begin{details}
+\item Promoted to Squad Leader and led 20+ airmen in high-tempo operations; received a Commendation Award.
+\end{details}
+\blockspace
+
+\noindent\textbf{THON\textsuperscript{\texttrademark}, Pennsylvania State University} - Technology Captain \hfill Apr 2026 -- Present
+\begin{details}
+\item Lead year-round technology operations and ship features for a fundraiser that raises \$10M+ annually.
+\end{details}
+\blockspace
+
+\noindent\textbf{ACM} - Web \& Design Director \hfill Apr 2026 -- Present\par
+\blockspace
+
+\noindent\textbf{Pennsylvania State University} - Lead Teaching Assistant, Math 230 (Multivariable Calculus) \hfill Aug 2025 -- Present
 
 %----------------------------------------
 \section{Projects}
-\textbf{Undergraduate Research Assistant \& Team Lead}\hfill Oct 2025 -- Present \\
-- Researched federated, adversarially robust TinyML for IoT security: attack recall 46.7\%$\to$93.9\%, F1 84.1\%$\to$89.3\%. \\
-- Compressed models 12.3× and cut ESP32 latency 74.5\% across 48 configs (pruning, distillation, INT8 quantization).
-
+\noindent\textbf{Autonomous Driving Research – Diffusion-Residual Tube MPC} \hfill Oct 2026 -- Present
+\begin{details}
+\item Built an Argoverse 2 pipeline (87K vehicle tracks) and physics baselines for diffusion-residual trajectory prediction.
+\item Showed baseline error is anisotropic and maneuver-dependent (6 s FDE p95: 31 m), motivating scene-aware margins.
+\end{details}
 \blockspace
-\noindent\textbf{AI Agent Memory Systems} \hfill Jul 2026 -- Present \\
-Researched 5 agent memory frameworks (Mem0, A-MEM, LangMem, Zep, OpenAI Memory) to identify the SOTA approach, under Prof. Kiwan Maeng.
 
+\noindent\textbf{\href{https://xiio.vercel.app}{OONA (formerly XIIO) – Video \& Network Platform for Filmmakers}} \hfill Apr 2026 -- Present
+\begin{details}
+\item Building a LinkedIn-style platform for film creators (Next.js, Firebase, Cloudflare Stream, Stripe) plus an Expo app.
+\end{details}
 \blockspace
-\noindent\textbf{\href{https://xiio.vercel.app}{XIIO – LinkedIn for Filmmakers}} \hfill Apr 2026 -- Present \\
-LinkedIn-style platform for filmmakers: portfolios, video streaming, collaboration (Next.js, Firebase, Cloudflare Stream).
 
+\noindent\textbf{SIGNUM (Nittany AI Alliance – PIT-UN Funded)} - Co-founder \hfill Aug 2024 -- Nov 2025
+\begin{details}
+\item Co-founded a \$3,750 PIT-UN-funded caregiver AI platform; built a HIPAA-aware RAG assistant (Bedrock, FAISS).
+\item Built CMS/NPPES/Google Places ETL into DuckDB, cutting caregiver research from 50+ hrs/week to near-instant.
+\end{details}
 \blockspace
-\noindent\textbf{\href{https://asmepsu.com}{ASME @ Penn State Website}} \hfill Aug 2024 -- Present \\
-Built with React, TypeScript, and Firebase, featuring real-time Firestore listeners and role-based approval workflows.
+
+\noindent\textbf{GladIEEEators – IEEE Battle Bots (1st Place)} \hfill Apr 2026
+\begin{details}
+\item Designed Shot \& Chaser, a two-robot combat system with a 334 J AR500 spinner, FEA-validated on a \$976 budget.
+\end{details}
+\blockspace
+
+\noindent\textbf{AI Agent Memory Systems} - with Prof. Kiwan Maeng \hfill Jul 2026 -- Present
+\begin{details}
+\item Researched 5 agent memory frameworks (Mem0, A-MEM, LangMem, Zep, OpenAI Memory) to identify the SOTA.
+\end{details}
 
 %----------------------------------------
 \section{Skills}
 \textbf{Languages:} Python, TypeScript, JavaScript, C, C++, Java, SQL \\
-\textbf{Frameworks:} React, Next.js, Node.js, NestJS, Express, Flask, Firebase \\
-\textbf{AI/ML:} PyTorch, TensorFlow, Flower, scikit-learn, spaCy, FAISS, Mem0, AWS Bedrock, OpenAI API \\
-\textbf{Data \& DevOps:} PostgreSQL, MongoDB, Redis, Docker, Kubernetes, Helm, GitHub Actions, Datadog \\
+\textbf{Frameworks:} React, Next.js, Node.js, NestJS, Express, Flask, Firebase, Tailwind CSS \\
+\textbf{AI/ML:} PyTorch, TensorFlow, Flower, scikit-learn, FAISS, Mem0, AWS Bedrock, OpenAI API, RAG \\
+\textbf{Data \& DevOps:} PostgreSQL, MongoDB, Redis, DuckDB, Docker, Kubernetes, Helm, GitHub Actions, Datadog \\
 \textbf{Project Management:} Smartsheet, WBS, Gantt Charts, Critical Path Analysis, Risk Management, SharePoint
 
 %----------------------------------------
 \section{Awards \& Honors}
 - 1st Place, ThinkNeuro LLC Project Competition \hfill Apr 2026 \\
 - 1st Place, IEEE Student Chapter Battle Bots Competition \hfill Apr 2026 \\
+- Pennsylvania State University Scholarships \& Grants (\$6,500 total) \hfill Fall 2026 \\
 - PIT-UN Funding Award (\$3,750) – Nittany AI Challenge \hfill Apr 2025 \\
 - 3rd Place, ACM Pathfinder Robotics Challenge \hfill Apr 2025
-
-%----------------------------------------
-\section{Activities}
-\entry{\textbf{Penn State THON\textsuperscript{\texttrademark}}, Technology Captain}{Apr 2026 -- Present}
-\blockspace
-\entry{\textbf{Republic of Korea Air Force}, Squad Leader, led 20+ airmen (Commendation Award)}{Sept 2022 -- June 2024}
-\blockspace
-\entry{\textbf{ACM}, Web \& Design Director}{Apr 2026 -- Present}
-\blockspace
-\entry{\textbf{Lead Teaching Assistant}, Math 230 (Multivariable Calculus)}{Aug 2025 -- Present}
 
 \end{document}
