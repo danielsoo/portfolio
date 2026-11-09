@@ -233,8 +233,8 @@ export const messages = {
         role: { en: "Software Engineer", ko: "소프트웨어 엔지니어" },
         employmentType: { en: "Seasonal", ko: "시즌 근무" },
         org: {
-          en: "Hangukgwan — Restaurant Ordering System (Taiwan)",
-          ko: "한국관 — 레스토랑 주문 시스템 (대만)",
+          en: "Hangukgwan — Ordering System (Taiwan)",
+          ko: "한국관 — 주문 시스템 (대만)",
         },
         location: { en: "Remote · Zhubei, Taiwan", ko: "원격 · 대만 주베이" },
         period: { en: "Summer 2022, Summer 2025", ko: "2022년 여름, 2025년 여름" },
@@ -806,7 +806,7 @@ export const messages = {
         ] as const satisfies readonly Bilingual[],
       },
       hangukgwan: {
-        title: { en: "Hangukgwan — Restaurant Ordering App", ko: "한국관 — 레스토랑 주문 앱" },
+        title: { en: "Hangukgwan — Ordering App", ko: "한국관 — 주문 앱" },
         type: { en: "Full-Stack", ko: "풀스택" },
         badge: { en: "Software Engineer · Summer 2022 & 2025", ko: "소프트웨어 엔지니어 · 2022·2025년 여름" },
         shortDescription: {
@@ -1000,7 +1000,7 @@ export const messages = {
       },
     },
     hangukgwan: {
-      title: { en: "Hangukgwan Restaurant", ko: "한국관 레스토랑" },
+      title: { en: "Hangukgwan", ko: "한국관" },
       description: {
         en: "Multilingual full-stack restaurant web app supporting Korean, English, Simplified & Traditional Chinese.",
         ko: "다국어 풀스택 레스토랑 웹앱 — 한국어, 영어, 간체·번체 중국어 지원.",

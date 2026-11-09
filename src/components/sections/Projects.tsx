@@ -124,6 +124,16 @@ export default function Projects() {
                         className="object-cover opacity-80 transition duration-700 group-hover:scale-[1.025] group-hover:opacity-100"
                       />
                     )
+                  ) : project.logo ? (
+                    <div className="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_30%_30%,rgba(99,102,241,.2),transparent_45%),linear-gradient(135deg,#0d0d18,#08080d)]">
+                      <Image
+                        src={project.logo.src}
+                        alt=""
+                        width={512}
+                        height={512}
+                        className={`h-auto opacity-90 transition duration-700 group-hover:scale-[1.04] group-hover:opacity-100 ${project.logo.className ?? "w-1/2"}`}
+                      />
+                    </div>
                   ) : (
                     <div className="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_30%_30%,rgba(99,102,241,.2),transparent_45%),linear-gradient(135deg,#0d0d18,#08080d)]">
                       <span className="font-mono text-8xl font-black text-white/[0.04]">

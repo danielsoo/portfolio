@@ -16,6 +16,7 @@ export type Project = {
   };
   images: string[]; // paths under /public/projects/<slug>/
   videos?: string[]; // paths under /public/projects/<slug>/
+  logo?: { src: string; className?: string }; // shown on the card when there are no images
   impact?: { value: string; label: string }[];
   sections?: {
     title: string;
@@ -438,6 +439,7 @@ export const projects: Project[] = [
     github: "https://github.com/danielsoo/ASME-Website",
     live: "https://asme-website-bice.vercel.app",
     images: [],
+    logo: { src: "/logos/projects/asme.png", className: "w-[58%] max-w-[22rem]" },
     keyTakeaways: [
       "Permission systems need to be designed in from the start, not bolted on — retrofitting RBAC onto existing features is far harder than starting with it.",
       "Real-time sync simplifies the UI but pushes complexity into handling partial and optimistic updates correctly.",
@@ -446,7 +448,7 @@ export const projects: Project[] = [
   },
   {
     slug: "hangukgwan",
-    title: "Hangukgwan — Restaurant Ordering App",
+    title: "Hangukgwan — Ordering App",
     type: "Full-Stack",
     badge: "Software Engineer · Summer 2022 & 2025",
     badgeColor: "bg-cyan-500/10 text-cyan-400",
@@ -465,6 +467,7 @@ export const projects: Project[] = [
     github: "https://github.com/danielsoo/Hangukgwan",
     live: "https://www.hanguoguan.com.tw",
     images: [],
+    logo: { src: "/logos/experience/hangukgwan.png", className: "w-[42%] max-w-[16rem] rounded-xl" },
     keyTakeaways: [
       "Internationalization is more than translation — layout, date/number formats, and even tone need to adapt per locale.",
       "Building admin tools for non-technical users forces simpler, more constrained interfaces than a typical developer-facing dashboard.",
