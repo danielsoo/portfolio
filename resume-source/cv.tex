@@ -67,13 +67,44 @@ AI Agent Memory \\
 Federated Learning \\
 TinyML for IoT Security \\
 Adversarial Machine Learning \\
-Edge AI Systems
+Edge AI Systems \\
+Autonomous Driving \\
+Uncertainty-Aware Motion Prediction
 
 %====================================================
 % Research Experience
 %====================================================
 
 \section*{Research Experience}
+
+\textbf{Undergraduate Researcher} \hfill Oct 2026 -- Present
+
+\textit{Diffusion-Residual Tube MPC for Autonomous Driving (WIP, targeting ITEC)}
+
+\vspace{0.3em}
+
+Research focus:
+Uncertainty-aware motion prediction that gives a Tube MPC planner scene-dependent safety regions around surrounding vehicles.
+
+\vspace{0.3em}
+
+Key contributions:
+
+\begin{itemize}[leftmargin=1.5em]
+
+\item Built an Argoverse 2 Motion Forecasting pipeline over 224,896 scenarios (765,659 vehicle tracks) with constant-velocity, constant-acceleration, and CTRV baselines.
+
+\item Trained a GRU nominal predictor with nearby lane centerlines and a residual diffusion model; switching from epsilon to v-prediction fixed a sampler that amplified errors about 2000$\times$.
+
+\item Calibrated 90\% occupancy ellipses with split conformal prediction; at the same coverage the 3 s regions average 22.4 m$^2$, 34\% smaller than a fixed Gaussian (33.9 m$^2$) and 64\% smaller than a conformal circle (62.7 m$^2$).
+
+\item Ran the predictor with a Tube MPC (CasADi / IPOPT) in CARLA 0.9.16 at 10 Hz, recalibrated on CARLA traffic.
+
+\item Over 160 closed-loop runs (4 cut-in scenarios $\times$ 2 models $\times$ 20 seeds), the ego drove 44\% faster than a constant-velocity, fixed-Gaussian baseline (36.9 vs 25.7 km/h) through 271 cut-ins.
+
+\end{itemize}
+
+\vspace{0.5em}
 
 \textbf{Undergraduate Research Assistant \& Team Lead} \hfill Oct 2025 -- Present
 
@@ -110,6 +141,12 @@ Key contributions:
 %====================================================
 
 \section*{Publications and Manuscripts}
+
+\textbf{Diffusion-Residual Tube MPC for Autonomous Driving} \
+Work in Progress \
+Target Venue: ITEC
+
+\vspace{0.4em}
 
 \textbf{Reliable Federated TinyML Deployment for IoT Security} \
 Work in Progress \

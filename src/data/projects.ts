@@ -343,6 +343,41 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "diffusion-tube-mpc",
+    title: "Diffusion-Residual Tube MPC for Autonomous Driving",
+    type: "Research",
+    badge: "In Progress",
+    badgeColor: "bg-indigo-500/10 text-indigo-400",
+    shortDescription:
+      "Uncertainty-aware motion prediction for a Tube MPC planner. Trained a GRU + lane-map predictor with a residual diffusion model on the full Argoverse 2 train split (765K tracks), producing calibrated 90% occupancy regions 34% smaller than a fixed Gaussian, and ran it in closed loop in CARLA over 160 cut-in runs.",
+    longDescription:
+      "A self-driving car's planner has to know where the cars around it could be in the next few seconds. A fixed safety margin is either too large on easy roads or too small in a turn or a cut-in. This project, with a small research team, learns a scene-dependent uncertainty region for each surrounding vehicle and hands it to a Tube MPC as an obstacle. I built the prediction side and the CARLA experiments.\n\nThe pipeline reads Argoverse 2 Motion Forecasting: 24,988 validation scenarios and all 199,908 training scenarios, 765,659 usable vehicle tracks. A GRU with nearby lane centerlines gives the nominal path, and a residual diffusion model samples what that path gets wrong; the samples become 90% occupancy ellipses, calibrated with split conformal prediction. Switching the diffusion model from epsilon to v-prediction fixed a sampler that amplified errors about 2000×. At the same 90% coverage, the 3 s regions average 22.4 m², against 33.9 m² for a fixed Gaussian and 62.7 m² for a conformal circle.\n\nThe predictor then drives a Tube MPC (CasADi / IPOPT) in CARLA 0.9.16 at 10 Hz, recalibrated on CARLA traffic. Over 160 runs (4 cut-in scenarios × 2 models × 20 seeds, 90 s each), the ego with our regions drove 44% faster than the constant-velocity, fixed-Gaussian baseline (36.9 vs 25.7 km/h) and met 271 cut-ins, 75% of them inside a 2 s headway. The work is being written up as a paper targeting ITEC.",
+    highlights: [
+      "765,659 Argoverse 2 vehicle tracks processed from 224,896 scenarios",
+      "GRU + lane-map nominal predictor with a residual diffusion model (v-prediction, DDIM sampling)",
+      "90% occupancy regions calibrated with split conformal prediction",
+      "3 s regions 34% smaller than a fixed Gaussian and 64% smaller than a conformal circle at the same coverage",
+      "Closed loop with a Tube MPC in CARLA 0.9.16 (Town06, 10 Hz)",
+      "160 cut-in runs: 44% faster ego than the constant-velocity baseline, 271 cut-ins handled",
+      "Paper in preparation, targeting ITEC",
+    ],
+    tags: ["PyTorch", "Diffusion Models", "Trajectory Prediction", "Conformal Prediction", "Tube MPC", "CasADi", "CARLA", "Argoverse 2"],
+    github: "",
+    live: null,
+    images: [],
+    impact: [
+      { value: "765K", label: "Training Tracks" },
+      { value: "34%", label: "Smaller 90% Regions" },
+      { value: "44%", label: "Faster Ego in CARLA" },
+      { value: "160", label: "Closed-Loop Cut-In Runs" },
+    ],
+    keyTakeaways: [
+      "An overall 90% can hide the hard cases: turns and lateral shifts stayed at 80–83% coverage while cruising sat above 90%, so coverage has to be checked per situation.",
+      "Open-loop metrics and closed-loop driving answer different questions; smaller regions only matter once a planner has to drive around them.",
+      "Most of the closed-loop effort went into the simulator, not the model: traffic, junctions, and how cut-ins were staged decided whether a run measured anything.",
+    ],
+  },
+  {
     slug: "federated-tinyml",
     title: "Federated TinyML for IoT Security",
     type: "Research",

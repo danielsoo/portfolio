@@ -687,6 +687,51 @@ export const messages = {
           },
         ] as const satisfies readonly Bilingual[],
       },
+      "diffusion-tube-mpc": {
+        title: {
+          en: "Diffusion-Residual Tube MPC for Autonomous Driving",
+          ko: "자율주행을 위한 Diffusion-Residual Tube MPC",
+        },
+        type: { en: "Research", ko: "연구" },
+        badge: { en: "In Progress", ko: "진행 중" },
+        shortDescription: {
+          en: "Uncertainty-aware motion prediction for a Tube MPC planner. Trained a GRU + lane-map predictor with a residual diffusion model on the full Argoverse 2 train split (765K tracks), producing calibrated 90% occupancy regions 34% smaller than a fixed Gaussian, and ran it in closed loop in CARLA over 160 cut-in runs.",
+          ko: "Tube MPC 플래너를 위한 불확실성 인지 궤적 예측. Argoverse 2 전체 학습 데이터(76만 5천 개 궤적)로 GRU + 차선 지도 예측기와 잔차 diffusion 모델을 학습해, 고정 가우시안보다 34% 작은 90% 점유 영역을 만들고 CARLA에서 160회 끼어들기 시뮬레이션으로 폐루프 검증했습니다.",
+        },
+        longDescription: {
+          en: "A self-driving car's planner has to know where the cars around it could be in the next few seconds. A fixed safety margin is either too large on easy roads or too small in a turn or a cut-in. This project, with a small research team, learns a scene-dependent uncertainty region for each surrounding vehicle and hands it to a Tube MPC as an obstacle. I built the prediction side and the CARLA experiments.\n\nThe pipeline reads Argoverse 2 Motion Forecasting: 24,988 validation scenarios and all 199,908 training scenarios, 765,659 usable vehicle tracks. A GRU with nearby lane centerlines gives the nominal path, and a residual diffusion model samples what that path gets wrong; the samples become 90% occupancy ellipses, calibrated with split conformal prediction. Switching the diffusion model from epsilon to v-prediction fixed a sampler that amplified errors about 2000×. At the same 90% coverage, the 3 s regions average 22.4 m², against 33.9 m² for a fixed Gaussian and 62.7 m² for a conformal circle.\n\nThe predictor then drives a Tube MPC (CasADi / IPOPT) in CARLA 0.9.16 at 10 Hz, recalibrated on CARLA traffic. Over 160 runs (4 cut-in scenarios × 2 models × 20 seeds, 90 s each), the ego with our regions drove 44% faster than the constant-velocity, fixed-Gaussian baseline (36.9 vs 25.7 km/h) and met 271 cut-ins, 75% of them inside a 2 s headway. The work is being written up as a paper targeting ITEC.",
+          ko: "자율주행차의 플래너는 주변 차량이 앞으로 몇 초 동안 어디에 있을 수 있는지 알아야 합니다. 고정된 안전 여유는 쉬운 도로에서는 너무 크고, 회전이나 끼어들기에서는 너무 작습니다. 이 프로젝트는 소규모 연구팀과 함께 주변 차량마다 상황에 따라 달라지는 불확실성 영역을 학습해 Tube MPC에 장애물로 넘겨줍니다. 저는 예측 부분과 CARLA 실험을 맡았습니다.\n\n파이프라인은 Argoverse 2 Motion Forecasting의 검증 시나리오 24,988개와 학습 시나리오 199,908개 전체에서 사용 가능한 차량 궤적 765,659개를 읽습니다. 주변 차선 중심선을 함께 보는 GRU가 기본 경로를 내고, 잔차 diffusion 모델이 그 경로가 틀리는 부분을 샘플링합니다. 샘플은 split conformal prediction으로 보정한 90% 점유 타원이 됩니다. diffusion 모델을 epsilon 예측에서 v-prediction으로 바꿔, 오차를 약 2000배 키우던 샘플러 문제를 해결했습니다. 같은 90% 커버리지에서 3초 영역의 평균 면적은 22.4 m²로, 고정 가우시안(33.9 m²)과 conformal 원(62.7 m²)보다 작습니다.\n\n예측기는 CARLA 0.9.16에서 10 Hz로 Tube MPC(CasADi / IPOPT)를 구동하며, CARLA 교통에 맞춰 다시 보정했습니다. 160회 실행(끼어들기 시나리오 4종 × 모델 2종 × 시드 20개, 회당 90초)에서 우리 영역을 쓴 자차는 등속·고정 가우시안 기준선보다 44% 빠르게 달렸고(36.9 vs 25.7 km/h), 끼어들기 271회 중 75%가 2초 차간 시간 안이었습니다. ITEC 투고를 목표로 논문을 작성하고 있습니다.",
+        },
+        highlights: [
+          { en: "765,659 Argoverse 2 vehicle tracks processed from 224,896 scenarios", ko: "Argoverse 2 시나리오 224,896개에서 차량 궤적 765,659개 처리" },
+          { en: "GRU + lane-map nominal predictor with a residual diffusion model (v-prediction, DDIM sampling)", ko: "GRU + 차선 지도 기본 예측기와 잔차 diffusion 모델(v-prediction, DDIM 샘플링)" },
+          { en: "90% occupancy regions calibrated with split conformal prediction", ko: "split conformal prediction으로 90% 점유 영역 보정" },
+          { en: "3 s regions 34% smaller than a fixed Gaussian and 64% smaller than a conformal circle at the same coverage", ko: "같은 커버리지에서 3초 영역이 고정 가우시안보다 34%, conformal 원보다 64% 작음" },
+          { en: "Closed loop with a Tube MPC in CARLA 0.9.16 (Town06, 10 Hz)", ko: "CARLA 0.9.16(Town06, 10 Hz)에서 Tube MPC와 폐루프 실행" },
+          { en: "160 cut-in runs: 44% faster ego than the constant-velocity baseline, 271 cut-ins handled", ko: "끼어들기 160회 실행: 등속 기준선보다 44% 빠른 자차, 끼어들기 271회 대응" },
+          { en: "Paper in preparation, targeting ITEC", ko: "ITEC 투고 목표로 논문 준비 중" },
+        ] as const satisfies readonly Bilingual[],
+        impact: [
+          { value: "765K", label: { en: "Training Tracks", ko: "학습 궤적" } },
+          { value: "34%", label: { en: "Smaller 90% Regions", ko: "더 작은 90% 영역" } },
+          { value: "44%", label: { en: "Faster Ego in CARLA", ko: "CARLA 자차 속도 향상" } },
+          { value: "160", label: { en: "Closed-Loop Cut-In Runs", ko: "폐루프 끼어들기 실행" } },
+        ],
+        keyTakeaways: [
+          {
+            en: "An overall 90% can hide the hard cases: turns and lateral shifts stayed at 80–83% coverage while cruising sat above 90%, so coverage has to be checked per situation.",
+            ko: "전체 90%는 어려운 경우를 가릴 수 있습니다. 직진은 90%를 넘었지만 회전과 옆 차선 쪽 이동은 80–83%에 머물렀기 때문에, 커버리지는 상황별로 따로 확인해야 합니다.",
+          },
+          {
+            en: "Open-loop metrics and closed-loop driving answer different questions; smaller regions only matter once a planner has to drive around them.",
+            ko: "오프라인 지표와 폐루프 주행은 서로 다른 질문에 답합니다. 영역이 작아진 효과는 플래너가 실제로 그 영역을 피해 달릴 때 비로소 드러납니다.",
+          },
+          {
+            en: "Most of the closed-loop effort went into the simulator, not the model: traffic, junctions, and how cut-ins were staged decided whether a run measured anything.",
+            ko: "폐루프 작업의 대부분은 모델이 아니라 시뮬레이터에 들어갔습니다. 교통, 교차로, 끼어들기를 만드는 방식이 실험이 무언가를 측정하는지를 결정했습니다.",
+          },
+        ] as const satisfies readonly Bilingual[],
+      },
       "federated-tinyml": {
         title: {
           en: "Federated TinyML for IoT Security",
