@@ -123,17 +123,7 @@ export default function ProjectMediaGallery({ projectSlug, projectTitle, staticI
     return <div className="mb-12 h-52 rounded-xl bg-[var(--foreground)]/[0.03] animate-pulse" />;
   }
 
-  if (!hasMedia) {
-    return (
-      <div className="mb-12 rounded-xl border-2 border-dashed border-[var(--foreground)]/15 bg-[var(--foreground)]/[0.02] h-52 flex flex-col items-center justify-center text-[var(--foreground)]/25">
-        <ImagePlaceholderIcon />
-        <p className="text-sm font-mono mt-3">{t(messages.projectDetail.addImagesLine)}</p>
-        <p className="text-xs font-mono mt-1 text-indigo-400/50">
-          Firebase / public/projects/{projectSlug}/
-        </p>
-      </div>
-    );
-  }
+  if (!hasMedia) return null;
 
   return (
     <div className="mb-12">
@@ -305,14 +295,6 @@ function ChevronRightIcon() {
   return (
     <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="m9 5 7 7-7 7" />
-    </svg>
-  );
-}
-
-function ImagePlaceholderIcon() {
-  return (
-    <svg className="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Z" />
     </svg>
   );
 }

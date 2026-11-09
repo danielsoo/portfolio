@@ -14,8 +14,8 @@ const SITES = [
   },
   {
     id: "hangukgwan" as const,
-    url: "#",
-    tags: ["React", "Node.js", "MongoDB", "i18n"],
+    url: "https://www.hanguoguan.com.tw",
+    tags: ["Next.js", "TypeScript", "MongoDB", "i18n"],
   },
 ];
 

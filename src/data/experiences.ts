@@ -52,30 +52,8 @@ export const experienceRoutes = [
     ],
   },
   {
-    slug: "penn-state-avt",
-    entryIndex: 2,
-    projectSlugs: [],
-    hook: {
-      en: "Managing Vehicle Systems Engineering deliverables for Penn State's Year 1 EcoCAR team, from schedules to risk plans.",
-      ko: "펜실베니아 주립대 EcoCAR 1년 차 팀의 Vehicle Systems Engineering 산출물을 일정부터 리스크 계획까지 관리합니다.",
-    },
-    highlightTitles: [
-      { en: "Deliverable schedules", ko: "산출물 일정" },
-      { en: "Work breakdown", ko: "작업 분류" },
-      { en: "Cross-team coordination", ko: "팀 간 조율" },
-      { en: "Year 1 planning", ko: "1년 차 계획" },
-      { en: "Status tracking", ko: "진행 관리" },
-      { en: "Technical reviews", ko: "기술 검토" },
-    ],
-    stats: [
-      { value: "4", label: { en: "Major deliverables scheduled", ko: "일정 관리 중인 주요 산출물" } },
-      { value: "5", label: { en: "Technical teams coordinated", ko: "조율하는 기술 팀" } },
-      { value: "Year 1", label: { en: "Integrated workplan", ko: "통합 워크플랜" } },
-    ],
-  },
-  {
     slug: "rokaf-squad-leader",
-    entryIndex: 3,
+    entryIndex: 2,
     projectSlugs: [],
     hook: {
       en: "Led 20+ airmen through high-tempo operations where readiness and coordination were non-negotiable.",
@@ -93,7 +71,7 @@ export const experienceRoutes = [
   },
   {
     slug: "atom-tech-intern",
-    entryIndex: 4,
+    entryIndex: 3,
     projectSlugs: [],
     hook: {
       en: "Built secure authentication and onboarding foundations for production user management.",

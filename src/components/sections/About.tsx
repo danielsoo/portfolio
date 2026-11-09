@@ -188,14 +188,14 @@ export default function About() {
                     </span>
                   </div>
 
-                  <div className="relative m-3 mt-0 min-h-72 overflow-hidden rounded-xl border border-dashed border-cyan-300/20 bg-[#0b0f19]/65 sm:mt-3 sm:ml-0 sm:min-h-0">
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.04)_1px,transparent_1px)] bg-[size:18px_18px]" />
-                    <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-indigo-500/15 to-transparent" />
-                    <div className="absolute left-1/2 top-[24%] h-16 w-16 -translate-x-1/2 rounded-full border border-cyan-200/25 bg-cyan-300/[0.04]" />
-                    <div className="absolute bottom-[12%] left-1/2 h-[48%] w-[72%] -translate-x-1/2 rounded-t-[45%] border border-b-0 border-cyan-200/20 bg-indigo-400/[0.035]" />
-                    <p className="absolute inset-x-3 bottom-4 text-center font-mono text-[8px] uppercase tracking-[0.16em] text-cyan-700/35 dark:text-cyan-200/35">
-                      {t(messages.about.portraitLabel)}
-                    </p>
+                  <div className="relative m-3 mt-0 min-h-72 overflow-hidden rounded-xl border border-cyan-300/20 bg-[#0b0f19]/65 sm:mt-3 sm:ml-0 sm:min-h-0">
+                    <Image
+                      src="/projects/levit-shopport-ai/solo_photo.jpeg"
+                      alt="Younsoo Park standing in front of the Levit logo"
+                      fill
+                      sizes="(max-width: 640px) 90vw, 30vw"
+                      className="object-cover object-[center_50%]"
+                    />
                   </div>
                 </div>
               </button>
