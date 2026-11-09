@@ -438,7 +438,13 @@ export const projects: Project[] = [
     tags: ["React 19", "TypeScript", "Vite", "Firebase", "Vercel", "RBAC"],
     github: "https://github.com/danielsoo/ASME-Website",
     live: "https://asme-website-bice.vercel.app",
-    images: [],
+    images: [
+      "/projects/asme-website/home.jpg",
+      "/projects/asme-website/projects.jpg",
+      "/projects/asme-website/about.jpg",
+      "/projects/asme-website/what-we-do.jpg",
+      "/projects/asme-website/sponsors.jpg",
+    ],
     logo: { src: "/logos/projects/asme.png", className: "w-[58%] max-w-[22rem]" },
     keyTakeaways: [
       "Permission systems need to be designed in from the start, not bolted on — retrofitting RBAC onto existing features is far harder than starting with it.",
