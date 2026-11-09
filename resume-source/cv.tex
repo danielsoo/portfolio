@@ -282,11 +282,15 @@ Software Engineering Intern \hfill May 2022 -- Aug 2022
 
 \begin{itemize}[leftmargin=1.5em]
 
-\item Built a four-language (Korean, English, Simplified and Traditional Chinese) ordering and information site for a two-location restaurant in Zhubei, Taiwan, using Next.js, React, TypeScript, Tailwind CSS, and MongoDB Atlas, with menu, takeout, and account pages.
+\item Built and run the live ordering, POS, and back-office system for a two-store business (650+ commits, 211 test files, about 42K lines); every push to main deploys to the open stores.
 
-\item Implemented JWT authentication and Google Maps geocoding for the restaurant's two locations.
+\item Shipped QR table ordering that prints kitchen tickets unattended: replaced 2--4 s polling with Pusher push events and moved printing into a Java Android POS app that sends ESC/POS jobs to the kitchen printer over TCP after Android Chrome blocked browser printing.
 
-\item Built an Android POS tablet app in Java that prints new orders directly to the kitchen printer over TCP (port 9100), replacing a Chrome-based flow that Android blocks for unattended printing; prepared the Google Play internal-testing release.
+\item Built payroll from photographed punch cards, read in the browser with digit templates (no staff data leaves the device), with hourly and monthly pay and overtime proposed for the owner to confirm.
+
+\item Seeded an ingredient ledger with 20,877 rows (NT\$14.76M) of the owner's spreadsheets for 21 months of price trends; supplier receipts are read with the Claude API (about \$2.50/month) after on-device OCR stalled at 22\% line accuracy.
+
+\item Delivered monthly and annual P\&L (revenue minus ingredients and labor) from daily close records, pushed to the owner on LINE, plus ECPay checkout, split tender, refunds, VIP discounts, and a four-language Next.js site.
 
 \end{itemize}
 

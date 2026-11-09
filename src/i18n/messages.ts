@@ -240,19 +240,23 @@ export const messages = {
         period: { en: "Summer 2022, Summer 2025", ko: "2022년 여름, 2025년 여름" },
         bullets: [
           {
-            en: "Built the restaurant's four-language ordering and information site (Korean, English, Simplified and Traditional Chinese) with Next.js, React, TypeScript, and Tailwind CSS, covering menu, takeout, and account pages.",
-            ko: "한국어·영어·간체·번체 4개 언어를 지원하는 주문·안내 사이트를 Next.js·React·TypeScript·Tailwind CSS로 구축 — 메뉴, 테이크아웃, 계정 페이지 포함.",
+            en: "Built and run the live ordering, POS, and back-office system for a two-store business — 650+ commits and 211 test files, where every push to main deploys to the open stores.",
+            ko: "두 매장의 실제 운영용 주문·POS·백오피스 시스템을 만들고 운영 — 커밋 650개 이상, 테스트 파일 211개, main에 올리면 영업 중인 매장에 바로 배포.",
           },
           {
-            en: "Built an Android POS tablet app in Java that prints new orders straight to the kitchen printer over TCP (port 9100), replacing a Chrome-based flow that Android blocks for unattended printing.",
-            ko: "신규 주문을 TCP(9100 포트)로 주방 프린터에 바로 출력하는 안드로이드 POS 태블릿 앱을 Java로 개발 — 무인 인쇄를 막는 안드로이드 크롬 기반 방식을 대체.",
+            en: "Shipped QR table ordering that prints to the kitchen unattended: replaced 2–4 s polling with Pusher push and moved printing into a Java POS app (ESC/POS over TCP) after Android Chrome blocked it.",
+            ko: "주방에서 무인으로 인쇄되는 QR 테이블 주문 구축 — 2–4초 폴링을 Pusher 푸시로 바꾸고, 안드로이드 크롬이 막은 인쇄를 Java POS 앱(TCP 위 ESC/POS)으로 옮김.",
           },
           {
-            en: "Implemented JWT authentication and Google Maps geocoding for the two store locations, and prepared the Google Play internal-testing release for the tablet app.",
-            ko: "JWT 인증과 두 매장 위치용 Google Maps 지오코딩을 구현하고, 태블릿 앱의 Google Play 내부 테스트 출시를 준비.",
+            en: "Gave the owner payroll from photographed punch cards, a 20,877-row ingredient ledger (NT$14.76M, 21 months of price trends), Claude-API receipt reading, and monthly P&L pushed to LINE.",
+            ko: "사장님께 출근 카드 사진 기반 급여 계산, 20,877줄 식자재 장부(NT$1,476만, 21개월 단가 추이), Claude API 영수증 인식, LINE으로 보내는 월 손익 제공.",
+          },
+          {
+            en: "Added ECPay checkout, split tender, refunds, and VIP discounts, plus the four-language Next.js site (Korean, English, Simplified & Traditional Chinese).",
+            ko: "ECPay 결제, 분할 결제, 환불, VIP 할인과 한·영·간체·번체 4개 언어 Next.js 사이트 추가.",
           },
         ] as const satisfies readonly Bilingual[],
-        tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "MongoDB", "Android (Java)", "i18n"],
+        tags: ["Node.js", "Express", "MongoDB", "Pusher", "Android (Java)", "Claude API", "Next.js", "TypeScript"],
       },
       {
         role: { en: "Squad Leader (Promoted)", ko: "분대장 (진급)" },
@@ -810,20 +814,31 @@ export const messages = {
         type: { en: "Full-Stack", ko: "풀스택" },
         badge: { en: "Software Engineer · Summer 2022 & 2025", ko: "소프트웨어 엔지니어 · 2022·2025년 여름" },
         shortDescription: {
-          en: "Ordering system for a Korean restaurant in Zhubei, Taiwan: a four-language Next.js site (Korean, English, Simplified/Traditional Chinese) with menu and takeout pages, plus an Android POS app that prints new orders straight to the kitchen printer.",
-          ko: "대만 주베이 한식당을 위한 주문 시스템. 한·영·간체·번체 4개 언어를 지원하는 Next.js 웹사이트(메뉴·테이크아웃)와, 신규 주문을 주방 프린터로 바로 출력하는 안드로이드 POS 앱.",
+          en: "Built and run the live ordering, POS, and back-office system for a two-store business in Zhubei, Taiwan — 650+ commits, 211 test files. QR table ordering prints straight to the kitchen; the owner gets payroll from photographed time cards, a 20,877-row ingredient ledger with 21 months of price trends, and monthly P&L sent to LINE.",
+          ko: "대만 주베이 두 매장의 실제 운영용 주문·POS·백오피스 시스템을 만들고 운영합니다(커밋 650개 이상, 테스트 파일 211개). QR 테이블 주문은 주방에서 바로 인쇄되고, 사장님은 출근 카드 사진으로 급여를, 20,877줄 식자재 장부로 21개월 단가 추이를, LINE으로 월 손익을 받습니다.",
         },
         longDescription: {
-          en: "Hangukgwan is a Korean restaurant in Zhubei, Taiwan, with two locations. I built its web presence and ordering flow: a Next.js, React, and TypeScript site in four languages — Korean, English, Simplified Chinese, and Traditional Chinese — with menu, takeout, and account pages, JWT-based login, and Google Maps geocoding for the store locations.\n\nThe kitchen side was the harder problem. Android Chrome blocks a web page from launching another app without a real tap, so the browser-based auto-print for new orders silently failed. I built an Android POS tablet app in Java that wraps the admin page and sends print jobs straight to the kitchen printer over TCP (port 9100), removing the RawBT intermediary, and prepared the Google Play internal-testing release so the tablet can install and auto-update it.",
-          ko: "한국관은 대만 주베이에서 두 개 매장을 운영하는 한식당입니다. 웹 사이트와 주문 흐름을 만들었습니다. Next.js·React·TypeScript 기반으로 한국어·영어·간체·번체 4개 언어를 지원하고, 메뉴·테이크아웃·계정 페이지, JWT 로그인, 매장 위치용 Google Maps 지오코딩을 갖췄습니다.\n\n더 어려운 건 주방 쪽이었습니다. 안드로이드 크롬은 실제 터치 없이 웹페이지가 다른 앱을 실행하는 걸 막기 때문에, 브라우저 기반 신규 주문 자동 인쇄가 조용히 실패했습니다. 관리자 페이지를 감싸고 주방 프린터로 TCP(9100 포트)로 직접 인쇄하는 안드로이드 POS 태블릿 앱을 Java로 만들어 RawBT 중간 단계를 없앴고, 태블릿에 설치·자동 업데이트할 수 있도록 Google Play 내부 테스트 출시를 준비했습니다.",
+          en: "Hangukgwan is a Korean restaurant in Zhubei, Taiwan, with two locations, and this system runs its day-to-day business: every push to main deploys to the stores while they are open. I built it end to end — 650+ commits, 211 test files, about 42K lines across a Node.js / Express / MongoDB service on Vercel, a four-language Next.js site, and an Android POS app.\n\nOrders come in from QR codes at each table and print in the kitchen without anyone touching a screen. The owner said tickets took too long, so I replaced the 2–4 s polling with Pusher push events, and when Android Chrome blocked unattended printing, I moved printing into a Java POS app that sends ESC/POS jobs straight to the kitchen printer over TCP. Payments cover ECPay, split tender across cash and card, refunds, and VIP membership discounts.\n\nThen the back office. Payroll reads photographed punch cards in the browser, with no AI and no upload of staff records: it matches the time clock's dot-matrix digits against templates, flags handwriting for manual entry, and proposes overtime for the owner to confirm. The ingredient ledger imported 20,877 rows (NT$14.76M) of the owner's spreadsheets, so price trends go back 21 months from day one; supplier receipts are read with the Claude API after on-device OCR stalled at 22% line accuracy, for about $2.50 a month at 221 receipts. Monthly and annual P&L — revenue minus ingredients and labor — is built from daily close records and pushed to the owner on LINE.",
+          ko: "한국관은 대만 주베이에서 두 개 매장을 운영하는 한식당이고, 이 시스템이 매장의 하루 영업을 돌립니다. main에 올리는 순간 영업 중인 매장에 그대로 배포됩니다. Vercel 위의 Node.js / Express / MongoDB 서비스, 4개 언어 Next.js 사이트, 안드로이드 POS 앱까지 처음부터 끝까지 만들었습니다(커밋 650개 이상, 테스트 파일 211개, 약 4만 2천 줄).\n\n주문은 각 테이블의 QR 코드로 들어오고, 누구도 화면을 누르지 않아도 주방에서 인쇄됩니다. 사장님이 주문표가 늦게 나온다고 해서 2–4초 폴링을 Pusher 푸시로 바꿨고, 안드로이드 크롬이 무인 인쇄를 막자 인쇄를 Java POS 앱으로 옮겨 ESC/POS 작업을 TCP로 주방 프린터에 바로 보냅니다. 결제는 ECPay, 현금·카드 분할 결제, 환불, VIP 회원 할인까지 다룹니다.\n\n그다음은 백오피스입니다. 급여는 출근 카드 사진을 브라우저 안에서 읽습니다. AI도 쓰지 않고 직원 기록을 밖으로 보내지도 않습니다. 출근 기계의 점 숫자를 견본과 맞춰 읽고, 손글씨 칸은 직접 입력하라고 표시하고, 초과 근무는 제안만 해서 사장님이 확정합니다. 식자재 장부는 사장님이 엑셀로 적어 온 20,877줄(NT$1,476만)을 가져와 첫날부터 21개월 치 단가 추이가 보입니다. 기기 안 OCR이 줄 단위 정확도 22%에서 멈추자 업체 영수증은 Claude API로 읽게 했고, 한 달 221장 기준 약 2.5달러가 듭니다. 매출에서 식자재비와 인건비를 뺀 월·연 손익은 하루 마감 기록으로 계산해 LINE으로 사장님께 보냅니다.",
         },
         highlights: [
-          { en: "Four-language site: Korean, English, Simplified & Traditional Chinese", ko: "4개 언어 사이트: 한·영·간체·번체" },
-          { en: "Next.js, React, TypeScript, Tailwind CSS, and MongoDB Atlas with menu, takeout, and account pages", ko: "Next.js·React·TypeScript·Tailwind CSS·MongoDB Atlas, 메뉴·테이크아웃·계정 페이지" },
-          { en: "JWT authentication and Google Maps geocoding for two store locations", ko: "JWT 인증, 두 매장 위치용 Google Maps 지오코딩" },
-          { en: "Android POS tablet app (Java) that prints new orders directly to the kitchen printer over TCP port 9100", ko: "신규 주문을 TCP 9100 포트로 주방 프린터에 직접 인쇄하는 안드로이드 POS 태블릿 앱(Java)" },
-          { en: "Replaced a Chrome print flow that Android blocks for unattended use; prepared the Google Play internal-testing release", ko: "안드로이드가 무인 실행을 막는 크롬 인쇄 방식을 대체, Google Play 내부 테스트 출시 준비" },
+          { en: "Production system for two stores; every push to main deploys live", ko: "두 매장의 실제 운영 시스템, main에 올리면 바로 영업 중인 매장에 배포" },
+          { en: "650+ commits and 211 test files across about 42K lines", ko: "커밋 650개 이상, 테스트 파일 211개, 약 4만 2천 줄" },
+          { en: "QR table ordering with kitchen tickets printed over ESC/POS; Pusher push replaced 2–4 s polling", ko: "QR 테이블 주문, ESC/POS로 주방 주문표 인쇄, 2–4초 폴링을 Pusher 푸시로 대체" },
+          { en: "Android POS app (Java) that prints unattended over TCP after Android Chrome blocked browser printing", ko: "안드로이드 크롬이 브라우저 인쇄를 막자 TCP로 무인 인쇄하는 안드로이드 POS 앱(Java) 개발" },
+          { en: "Payroll from photographed punch cards, read in the browser with digit templates; overtime proposed for the owner to confirm", ko: "출근 카드 사진을 브라우저에서 숫자 견본으로 읽어 급여 계산, 초과 근무는 사장님 확인 후 확정" },
+          { en: "Ingredient ledger seeded with 20,877 rows (NT$14.76M): 21 months of price trends from day one", ko: "식자재 장부에 20,877줄(NT$1,476만)을 가져와 첫날부터 21개월 단가 추이 제공" },
+          { en: "Receipts read with the Claude API at about $2.50/month after on-device OCR stalled at 22%", ko: "기기 안 OCR이 22%에서 멈춘 뒤 Claude API로 영수증 인식, 한 달 약 2.5달러" },
+          { en: "Monthly and annual P&L (revenue − ingredients − labor) pushed to the owner on LINE", ko: "월·연 손익(매출 − 식자재비 − 인건비)을 LINE으로 사장님께 전송" },
+          { en: "ECPay checkout, split tender, refunds, and VIP membership discounts", ko: "ECPay 결제, 분할 결제, 환불, VIP 회원 할인" },
+          { en: "Four-language Next.js site: Korean, English, Simplified & Traditional Chinese", ko: "한·영·간체·번체 4개 언어 Next.js 사이트" },
         ] as const satisfies readonly Bilingual[],
+        impact: [
+          { value: "2", label: { en: "Stores Running Live", ko: "운영 중인 매장" } },
+          { value: "650+", label: { en: "Commits", ko: "커밋" } },
+          { value: "20,877", label: { en: "Ledger Rows Imported", ko: "가져온 장부 행" } },
+          { value: "211", label: { en: "Test Files", ko: "테스트 파일" } },
+        ],
         keyTakeaways: [
           {
             en: "Internationalization is more than translation — layout, date/number formats, and even tone need to adapt per locale.",
