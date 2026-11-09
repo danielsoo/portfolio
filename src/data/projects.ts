@@ -471,7 +471,14 @@ export const projects: Project[] = [
     tags: ["Node.js", "Express", "MongoDB", "Next.js", "TypeScript", "Pusher", "Android (Java)", "ESC/POS", "Claude API", "ECPay", "Vercel"],
     github: "https://github.com/danielsoo/Hangukgwan",
     live: "https://www.hanguoguan.com.tw",
-    images: [],
+    images: [
+      "/projects/hangukgwan/website-home.jpg",
+      "/projects/hangukgwan/qr-order-menu.jpg",
+      "/projects/hangukgwan/admin-live-orders.jpg",
+      "/projects/hangukgwan/qr-order-dish.jpg",
+      "/projects/hangukgwan/admin-tables-qr.jpg",
+      "/projects/hangukgwan/website-menu.jpg",
+    ],
     logo: { src: "/logos/experience/hangukgwan.png", className: "w-[42%] max-w-[16rem] rounded-xl" },
     impact: [
       { value: "2", label: "Stores Running Live" },
