@@ -906,11 +906,11 @@ export const messages = {
         org: { en: "THON — Penn State", ko: "THON — 펜실베니아 주립대" },
         period: { en: "Apr 2026 – Present", ko: "2026년 4월 – 현재" },
         description: {
-          en: "Leading all CS operations for THON year-round — maintaining the THON website, building new features and content, and overseeing every technical system the organization relies on. One of the most competitive elected positions at Penn State, with responsibilities spanning the full year, not just the 46-hour dance marathon weekend.",
-          ko: "THON의 연중 CS 운영을 총괄 — THON 웹사이트 유지보수, 신규 기능·콘텐츠 구축, 조직이 의존하는 모든 기술 시스템 감독. 46시간 댄스 마라톤 주말뿐 아니라 연중 책임이 따르는, 펜실베니아에서 가장 경쟁이 치열한 선출 직책 중 하나입니다.",
+          en: "THON is the largest student-run philanthropy in the world: 16,500 Penn State students raising money year-round for children with cancer through Four Diamonds at Penn State Health Golisano Children's Hospital, ending in a 46-hour dance marathon. I develop THINK (THON Information NetworK), the Django platform that stores membership, finance, and administrative data for every organization and committee in THON, and build the internal tools that keep fundraising running, such as an admin page for running and monitoring scheduled jobs and a DonorDrive donation sync.",
+          ko: "THON은 세계에서 가장 큰 학생 주도 자선 단체입니다. 펜실베니아 주립대 학생 1만 6,500명이 Penn State Health Golisano 어린이병원의 Four Diamonds를 통해 소아암 아이와 가족을 위해 1년 내내 모금하고, 46시간 댄스 마라톤으로 마무리합니다. 저는 THON의 모든 조직과 위원회의 회원·재정·행정 데이터를 담는 Django 플랫폼 THINK(THON Information NetworK)를 개발하고, 예약 작업을 실행·모니터링하는 관리자 페이지와 DonorDrive 기부금 동기화처럼 모금 운영을 지탱하는 내부 도구를 만듭니다.",
         },
         stat: "$18.8M",
-        statLabel: { en: "raised at THON 2026", ko: "THON 2026 모금액" },
+        statLabel: { en: "record raised at THON 2026", ko: "THON 2026 역대 최고 모금액" },
       },
       {
         title: { en: "Project Manager", ko: "프로젝트 매니저" },
