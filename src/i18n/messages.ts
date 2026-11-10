@@ -909,8 +909,8 @@ export const messages = {
           en: "Leading all CS operations for THON year-round — maintaining the THON website, building new features and content, and overseeing every technical system the organization relies on. One of the most competitive elected positions at Penn State, with responsibilities spanning the full year, not just the 46-hour dance marathon weekend.",
           ko: "THON의 연중 CS 운영을 총괄 — THON 웹사이트 유지보수, 신규 기능·콘텐츠 구축, 조직이 의존하는 모든 기술 시스템 감독. 46시간 댄스 마라톤 주말뿐 아니라 연중 책임이 따르는, 펜실베니아에서 가장 경쟁이 치열한 선출 직책 중 하나입니다.",
         },
-        stat: "$10M+",
-        statLabel: { en: "raised annually", ko: "연간 모금" },
+        stat: "$18.8M",
+        statLabel: { en: "raised at THON 2026", ko: "THON 2026 모금액" },
       },
       {
         title: { en: "Project Manager", ko: "프로젝트 매니저" },
