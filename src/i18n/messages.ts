@@ -70,9 +70,9 @@ export const messages = {
     cardBuild: { en: "What I build", ko: "무엇을 만드는가" },
     cardBuildTitle: { en: "AI systems that hold up in production", ko: "실제 서비스에서 신뢰할 수 있는 AI 시스템" },
     cardResearch: { en: "Research", ko: "연구" },
-    cardResearchTitle: { en: "Intelligence at the edge", ko: "엣지에서 구현하는 지능" },
+    cardResearchTitle: { en: "Reliable AI, from edge devices to self-driving", ko: "엣지 기기부터 자율주행까지, 믿을 수 있는 AI" },
     cardProfile: { en: "Profile", ko: "프로필" },
-    cardNow: { en: "Latest role", ko: "최근 경력" },
+    cardNow: { en: "Latest internship", ko: "최근 인턴십" },
     storySummary: {
       en: "I connect AI research, production engineering, and product decisions to build systems people can actually rely on.",
       ko: "AI 연구와 프로덕션 엔지니어링, 제품 의사결정을 연결해 사람들이 실제로 신뢰할 수 있는 시스템을 만듭니다.",
@@ -83,12 +83,12 @@ export const messages = {
       ko: "저는 박윤수입니다 — 펜실베니아 주립대학교 컴퓨터과학 전공(딘스 리스트, CS 학사 + 수학 부전공, 2027년 5월 졸업 예정)이며, 안정적인 AI 시스템과 풀스택 애플리케이션을 만드는 일에 열정이 있습니다.",
     },
     p2: {
-      en: "My research focuses on federated learning and TinyML for IoT security under Dr. Suman Saha and Dr. Peilong Li — targeting deployment on resource-constrained edge devices like ESP32. Outside the lab, I build real products: from an AI hospital-quality platform to multilingual restaurant web apps.",
-      ko: "연구는 Suman Saha 교수님과 Peilong Li 교수님 지도 아래 IoT 보안을 위한 연합학습·TinyML에 초점을 두고, ESP32 같은 자원이 제한된 엣지 기기 배포를 목표로 합니다. 연구실 밖에서는 AI 기반 병원 품질 플랫폼부터 다국어 레스토랑 웹앱까지 실제 제품을 만듭니다.",
+      en: "My research spans two places where AI has to be reliable: federated, adversarially robust TinyML for IoT security under Dr. Suman Saha and Dr. Peilong Li (targeting ACM LCTES), and uncertainty-aware motion prediction for autonomous driving, where a residual diffusion model gives a Tube MPC planner calibrated safety regions (targeting ITEC). Outside the lab, I build real products: the live ordering and back-office system that runs both Hangukgwan stores, and OONA, a video and networking platform for filmmakers.",
+      ko: "연구는 AI가 반드시 믿을 수 있어야 하는 두 곳에 있습니다. Suman Saha 교수님과 Peilong Li 교수님 지도 아래 IoT 보안을 위한 연합학습·적대적 강건성 TinyML을 연구하고(ACM LCTES 투고 목표), 자율주행에서는 잔차 diffusion 모델로 Tube MPC 플래너에 보정된 안전 영역을 주는 불확실성 인지 궤적 예측을 연구합니다(ITEC 투고 목표). 연구실 밖에서는 실제 제품을 만듭니다. 한국관 두 매장을 실제로 운영하는 주문·백오피스 시스템과, 영화인을 위한 영상·네트워킹 플랫폼 OONA입니다.",
     },
     p3: {
-      en: "I've also served as a Squad Leader in the Republic of Korea Air Force, where I was commended for leadership and operational readiness.",
-      ko: "대한민국 공군에서 분대장으로 복무하며 리더십과 작전 준비태세로 표창을 받은 경험이 있습니다.",
+      en: "I also lead. As THON's Technology Captain, I develop THINK, the Django platform behind the world's largest student-run philanthropy, which raised a record $18.8M in 2026. I'm the Project Manager for Vehicle Systems Engineering on Penn State's EcoCAR team, and I served as a Squad Leader in the Republic of Korea Air Force, where I was commended for leadership and operational readiness.",
+      ko: "리더 역할도 맡고 있습니다. THON의 Technology Captain으로서 2026년 역대 최고인 1,880만 달러를 모은 세계 최대 학생 자선 단체의 Django 플랫폼 THINK를 개발합니다. 펜실베니아 주립대 EcoCAR 팀에서는 Vehicle Systems Engineering 프로젝트 매니저를 맡고 있고, 대한민국 공군에서 분대장으로 복무하며 리더십과 작전 준비태세로 표창을 받았습니다.",
     },
     levitStoryP1: {
       en: "During a seven-week engagement at Levit in Seoul, I worked directly with the CEO across Shopport's applied-AI stack — evolving routing from LLM classification into an embedding-based semantic and hybrid router, and shipping Wowness, a Mem0-backed cross-category recommender, as sole engineer.",
@@ -106,6 +106,10 @@ export const messages = {
       en: "A multi-stage compression pipeline — BatchNorm folding, structured pruning, knowledge distillation, and INT8 quantization — then reduced the model 12.28× and cut ESP32 inference latency by 74.5%, making it viable for resource-constrained edge devices.",
       ko: "이후 BatchNorm 폴딩, 구조적 프루닝, 지식 증류, INT8 양자화로 구성된 다단계 압축 파이프라인으로 모델 크기를 12.28배 줄이고 ESP32 추론 지연을 74.5% 단축해, 자원이 제한된 엣지 디바이스에서도 실행 가능하게 만들었습니다.",
     },
+    researchStoryP3: {
+      en: "My newer research is in autonomous driving. I trained a GRU predictor with a residual diffusion model on 765K Argoverse 2 vehicle tracks; its calibrated 90% regions are 34% smaller than a fixed Gaussian's. Driving a Tube MPC in CARLA, the ego went 44% faster than a constant-velocity baseline across 160 cut-in runs.",
+      ko: "최근 연구는 자율주행입니다. Argoverse 2 차량 궤적 76만 5천 개로 GRU 예측기와 잔차 diffusion 모델을 학습해, 보정된 90% 영역을 고정 가우시안보다 34% 작게 만들었습니다. CARLA에서 Tube MPC를 구동한 160회 끼어들기 실험에서 자차는 등속 기준선보다 44% 빠르게 달렸습니다.",
+    },
     profileStoryP2: {
       en: "Old Main has been the backdrop for most of that journey — from CMPSC lectures to the late nights spent building the projects on this site.",
       ko: "그 여정의 대부분은 Old Main을 배경으로 이루어졌습니다 — CMPSC 강의부터 이 포트폴리오의 프로젝트들을 밤늦게까지 만들던 시간까지.",
@@ -113,6 +117,7 @@ export const messages = {
     interests: [
       { en: "Federated Learning", ko: "연합학습" },
       { en: "TinyML & Edge AI", ko: "TinyML & 엣지 AI" },
+      { en: "Autonomous Driving", ko: "자율주행" },
       { en: "IoT Security", ko: "IoT 보안" },
       { en: "Adversarial ML", ko: "적대적 ML" },
       { en: "Full-Stack Engineering", ko: "풀스택 엔지니어링" },
@@ -137,10 +142,10 @@ export const messages = {
       majorVal: { en: "CS + Mathematics", ko: "CS + Mathematics" },
       statusVal: { en: "Dean's List", ko: "Dean's List" },
       locationVal: { en: "University Park, PA", ko: "University Park, PA" },
-      currentRoleVal: { en: "Undergraduate Researcher @ Penn State", ko: "학부 연구원 @ Penn State" },
+      currentRoleVal: { en: "Technology Captain @ THON", ko: "Technology Captain @ THON" },
       r1: { en: "Federated Learning", ko: "Federated Learning" },
       r2: { en: "TinyML / IoT Security", ko: "TinyML / IoT Security" },
-      r3: { en: "Adversarial ML", ko: "Adversarial ML" },
+      r3: { en: "Autonomous Driving", ko: "Autonomous Driving" },
       openVal: { en: "new opportunities", ko: "new opportunities" },
     },
   },
