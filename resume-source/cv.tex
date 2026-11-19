@@ -76,30 +76,33 @@ Uncertainty-Aware Motion Prediction
 
 \section*{Research Experience}
 
-\textbf{Undergraduate Researcher} \hfill Oct 2026 -- Present
+\textbf{Undergraduate Researcher, EcoCAR AVT Research Group} \hfill Oct 2026 -- Present
 
-\textit{Diffusion-Residual Tube MPC for Autonomous Driving (WIP, targeting ITEC)}
+\textit{Diffusion-Learned Uncertainty in Surrounding-Vehicle Predictions for Tube MPC in Autonomous Driving (submitted, IEEE ITEC 2026)}
+
+Penn State University \
+Lead: Sakineh Khodadadi (Ph.D. student) \quad Advisors: Prof. Kovalenko and Prof. Brannen
 
 \vspace{0.3em}
 
 Research focus:
-Uncertainty-aware motion prediction that gives a Tube MPC planner scene-dependent safety regions around surrounding vehicles.
+Learning how far, and in which direction, predictions of surrounding vehicles go wrong, and turning that into calibrated risk regions a Tube MPC planner drives around.
 
 \vspace{0.3em}
 
-Key contributions:
+Key contributions (second author; prediction side and closed-loop experiments):
 
 \begin{itemize}[leftmargin=1.5em]
 
-\item Built an Argoverse 2 Motion Forecasting pipeline over 224,896 scenarios (765,659 vehicle tracks) with constant-velocity, constant-acceleration, and CTRV baselines.
+\item Built the Argoverse 2 Motion Forecasting pipeline (about 25K validation and 200K training scenarios) with lane-map features, processed in chunks under a disk limit.
 
-\item Trained a GRU nominal predictor with nearby lane centerlines and a residual diffusion model; switching from epsilon to v-prediction fixed a sampler that amplified errors about 2000$\times$.
+\item Compared physics (CV, CA, CTRV) and learned (MLP, GRU, LSTM, Transformer) predictors; a lane-map GRU cut the 3 s FDE on moving vehicles by 31\% against constant velocity (3.73 to 2.59 m) and the 6 s FDE from 12.09 to 8.86 m, with out-of-fold residuals from cross-fitting.
 
-\item Calibrated 90\% occupancy ellipses with split conformal prediction; at the same coverage the 3 s regions average 22.4 m$^2$, 34\% smaller than a fixed Gaussian (33.9 m$^2$) and 64\% smaller than a conformal circle (62.7 m$^2$).
+\item Designed and trained a conditional residual diffusion model (DDIM, v-prediction, lane and neighbor conditioning) and baselines (scene-dependent Gaussian, Gaussian mixture, CVAE, conformal circle).
 
-\item Ran the predictor with a Tube MPC (CasADi / IPOPT) in CARLA 0.9.16 at 10 Hz, recalibrated on CARLA traffic.
+\item Calibrated 90\% occupancy regions with conformal and group-wise (Mondrian) calibration; the diffusion model's 3 s regions have a median of 32 m$^2$, against 61 m$^2$ for a scene-independent Gaussian and 105 m$^2$ for a conformal circle.
 
-\item Over 160 closed-loop runs (4 cut-in scenarios $\times$ 2 models $\times$ 20 seeds), the ego drove 44\% faster than a constant-velocity, fixed-Gaussian baseline (36.9 vs 25.7 km/h) through 271 cut-ins.
+\item Extended the CARLA 0.9.16 closed loop with scripted cut-in scenarios, 160-run batches comparing predictors under the Tube MPC, and demo videos; trained models on an RTX 5070 GPU over the full training split.
 
 \end{itemize}
 
@@ -141,9 +144,7 @@ Key contributions:
 
 \section*{Publications and Manuscripts}
 
-\textbf{Diffusion-Residual Tube MPC for Autonomous Driving} \
-Work in Progress \
-Target Venue: ITEC
+S. Khodadadi, \textbf{Y. Park}, et al., ``Diffusion-Learned Uncertainty in Surrounding-Vehicle Predictions for Tube MPC in Autonomous Driving,'' submitted to IEEE ITEC 2026.
 
 \vspace{0.4em}
 

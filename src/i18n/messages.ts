@@ -83,8 +83,8 @@ export const messages = {
       ko: "저는 박윤수입니다 — 펜실베니아 주립대학교 컴퓨터과학 전공(딘스 리스트, CS 학사 + 수학 부전공, 2027년 5월 졸업 예정)이며, 안정적인 AI 시스템과 풀스택 애플리케이션을 만드는 일에 열정이 있습니다.",
     },
     p2: {
-      en: "My research spans two places where AI has to be reliable: federated, adversarially robust TinyML for IoT security under Dr. Suman Saha and Dr. Peilong Li (targeting ACM LCTES), and uncertainty-aware motion prediction for autonomous driving, where a residual diffusion model gives a Tube MPC planner calibrated safety regions (targeting ITEC). Outside the lab, I build real products: the live ordering and back-office system that runs both Hangukgwan stores, and OONA, a video and networking platform for filmmakers.",
-      ko: "연구는 AI가 반드시 믿을 수 있어야 하는 두 곳에 있습니다. Suman Saha 교수님과 Peilong Li 교수님 지도 아래 IoT 보안을 위한 연합학습·적대적 강건성 TinyML을 연구하고(ACM LCTES 투고 목표), 자율주행에서는 잔차 diffusion 모델로 Tube MPC 플래너에 보정된 안전 영역을 주는 불확실성 인지 궤적 예측을 연구합니다(ITEC 투고 목표). 연구실 밖에서는 실제 제품을 만듭니다. 한국관 두 매장을 실제로 운영하는 주문·백오피스 시스템과, 영화인을 위한 영상·네트워킹 플랫폼 OONA입니다.",
+      en: "My research spans two places where AI has to be reliable: federated, adversarially robust TinyML for IoT security under Dr. Suman Saha and Dr. Peilong Li (targeting ACM LCTES), and uncertainty-aware motion prediction for autonomous driving, where a residual diffusion model gives a Tube MPC planner calibrated risk regions (second author, submitted to IEEE ITEC 2026). Outside the lab, I build real products: the live ordering and back-office system that runs both Hangukgwan stores, and OONA, a video and networking platform for filmmakers.",
+      ko: "연구는 AI가 반드시 믿을 수 있어야 하는 두 곳에 있습니다. Suman Saha 교수님과 Peilong Li 교수님 지도 아래 IoT 보안을 위한 연합학습·적대적 강건성 TinyML을 연구하고(ACM LCTES 투고 목표), 자율주행에서는 잔차 diffusion 모델로 Tube MPC 플래너에 보정된 위험 영역을 주는 불확실성 인지 궤적 예측을 연구합니다(IEEE ITEC 2026 제출, 2저자). 연구실 밖에서는 실제 제품을 만듭니다. 한국관 두 매장을 실제로 운영하는 주문·백오피스 시스템과, 영화인을 위한 영상·네트워킹 플랫폼 OONA입니다.",
     },
     p3: {
       en: "I also lead. As THON's Technology Captain, I develop THINK, the Django platform behind the world's largest student-run philanthropy, which raised a record $18.8M in 2026. I'm the Project Manager for Vehicle Systems Engineering on Penn State's EcoCAR team, and I served as a Squad Leader in the Republic of Korea Air Force, where I was commended for leadership and operational readiness.",
@@ -107,8 +107,8 @@ export const messages = {
       ko: "이후 BatchNorm 폴딩, 구조적 프루닝, 지식 증류, INT8 양자화로 구성된 다단계 압축 파이프라인으로 모델 크기를 12.28배 줄이고 ESP32 추론 지연을 74.5% 단축해, 자원이 제한된 엣지 디바이스에서도 실행 가능하게 만들었습니다.",
     },
     researchStoryP3: {
-      en: "My newer research is in autonomous driving. I trained a GRU predictor with a residual diffusion model on 765K Argoverse 2 vehicle tracks; its calibrated 90% regions are 34% smaller than a fixed Gaussian's. Driving a Tube MPC in CARLA, the ego went 44% faster than a constant-velocity baseline across 160 cut-in runs.",
-      ko: "최근 연구는 자율주행입니다. Argoverse 2 차량 궤적 76만 5천 개로 GRU 예측기와 잔차 diffusion 모델을 학습해, 보정된 90% 영역을 고정 가우시안보다 34% 작게 만들었습니다. CARLA에서 Tube MPC를 구동한 160회 끼어들기 실험에서 자차는 등속 기준선보다 44% 빠르게 달렸습니다.",
+      en: "My newer research is in autonomous driving, with Penn State's EcoCAR AVT group; I'm second author on the resulting paper, submitted to IEEE ITEC 2026. I built the prediction side: a lane-map GRU that cuts 3 s error by 31% against constant velocity on Argoverse 2, and a residual diffusion model whose conformally calibrated 90% regions are about half the size of a scene-independent Gaussian's, tested with a Tube MPC in CARLA.",
+      ko: "최근 연구는 Penn State EcoCAR AVT 그룹과 함께하는 자율주행 연구이고, 그 결과로 IEEE ITEC 2026에 제출한 논문의 2저자입니다. 예측 쪽을 맡아, Argoverse 2에서 등속 모델보다 3초 오차를 31% 줄인 차선 지도 GRU와, conformal 보정한 90% 영역이 상황 무시 정규분포의 절반 정도인 잔차 diffusion 모델을 만들고 CARLA에서 Tube MPC와 함께 검증했습니다.",
     },
     profileStoryP2: {
       en: "Old Main has been the backdrop for most of that journey — from CMPSC lectures to the late nights spent building the projects on this site.",
@@ -698,33 +698,33 @@ export const messages = {
       },
       "diffusion-tube-mpc": {
         title: {
-          en: "Diffusion-Residual Tube MPC for Autonomous Driving",
-          ko: "자율주행을 위한 Diffusion-Residual Tube MPC",
+          en: "Diffusion-Learned Uncertainty for Tube MPC",
+          ko: "Tube MPC를 위한 Diffusion 학습 불확실성",
         },
         type: { en: "Research", ko: "연구" },
-        badge: { en: "In Progress", ko: "진행 중" },
+        badge: { en: "IEEE ITEC 2026 · Submitted", ko: "IEEE ITEC 2026 · 제출" },
         shortDescription: {
-          en: "Uncertainty-aware motion prediction for a Tube MPC planner. Trained a GRU + lane-map predictor with a residual diffusion model on the full Argoverse 2 train split (765K tracks), producing calibrated 90% occupancy regions 34% smaller than a fixed Gaussian, and ran it in closed loop in CARLA over 160 cut-in runs.",
-          ko: "Tube MPC 플래너를 위한 불확실성 인지 궤적 예측. Argoverse 2 전체 학습 데이터(76만 5천 개 궤적)로 GRU + 차선 지도 예측기와 잔차 diffusion 모델을 학습해, 고정 가우시안보다 34% 작은 90% 점유 영역을 만들고 CARLA에서 160회 끼어들기 시뮬레이션으로 폐루프 검증했습니다.",
+          en: "Second author on a paper submitted to IEEE ITEC 2026. A residual diffusion model learns how far, and in which direction, predictions of surrounding vehicles go wrong; conformal calibration turns that into 90% risk regions that a Tube MPC drives around. Trained on Argoverse 2 and tested in closed loop in CARLA.",
+          ko: "IEEE ITEC 2026에 제출한 논문의 2저자. 주변 차량 궤적 예측이 얼마나, 어느 방향으로 틀리는지를 잔차 diffusion 모델로 학습하고, conformal 보정으로 90% 위험 영역을 만들어 Tube MPC가 이를 피해 주행하게 합니다. Argoverse 2로 학습하고 CARLA에서 폐루프로 검증했습니다.",
         },
         longDescription: {
-          en: "A self-driving car's planner has to know where the cars around it could be in the next few seconds. A fixed safety margin is either too large on easy roads or too small in a turn or a cut-in. This project, with a small research team, learns a scene-dependent uncertainty region for each surrounding vehicle and hands it to a Tube MPC as an obstacle. I built the prediction side and the CARLA experiments.\n\nThe pipeline reads Argoverse 2 Motion Forecasting: 24,988 validation scenarios and all 199,908 training scenarios, 765,659 usable vehicle tracks. A GRU with nearby lane centerlines gives the nominal path, and a residual diffusion model samples what that path gets wrong; the samples become 90% occupancy ellipses, calibrated with split conformal prediction. Switching the diffusion model from epsilon to v-prediction fixed a sampler that amplified errors about 2000×. At the same 90% coverage, the 3 s regions average 22.4 m², against 33.9 m² for a fixed Gaussian and 62.7 m² for a conformal circle.\n\nThe predictor then drives a Tube MPC (CasADi / IPOPT) in CARLA 0.9.16 at 10 Hz, recalibrated on CARLA traffic. Over 160 runs (4 cut-in scenarios × 2 models × 20 seeds, 90 s each), the ego with our regions drove 44% faster than the constant-velocity, fixed-Gaussian baseline (36.9 vs 25.7 km/h) and met 271 cut-ins, 75% of them inside a 2 s headway. The work is being written up as a paper targeting ITEC.",
-          ko: "자율주행차의 플래너는 주변 차량이 앞으로 몇 초 동안 어디에 있을 수 있는지 알아야 합니다. 고정된 안전 여유는 쉬운 도로에서는 너무 크고, 회전이나 끼어들기에서는 너무 작습니다. 이 프로젝트는 소규모 연구팀과 함께 주변 차량마다 상황에 따라 달라지는 불확실성 영역을 학습해 Tube MPC에 장애물로 넘겨줍니다. 저는 예측 부분과 CARLA 실험을 맡았습니다.\n\n파이프라인은 Argoverse 2 Motion Forecasting의 검증 시나리오 24,988개와 학습 시나리오 199,908개 전체에서 사용 가능한 차량 궤적 765,659개를 읽습니다. 주변 차선 중심선을 함께 보는 GRU가 기본 경로를 내고, 잔차 diffusion 모델이 그 경로가 틀리는 부분을 샘플링합니다. 샘플은 split conformal prediction으로 보정한 90% 점유 타원이 됩니다. diffusion 모델을 epsilon 예측에서 v-prediction으로 바꿔, 오차를 약 2000배 키우던 샘플러 문제를 해결했습니다. 같은 90% 커버리지에서 3초 영역의 평균 면적은 22.4 m²로, 고정 가우시안(33.9 m²)과 conformal 원(62.7 m²)보다 작습니다.\n\n예측기는 CARLA 0.9.16에서 10 Hz로 Tube MPC(CasADi / IPOPT)를 구동하며, CARLA 교통에 맞춰 다시 보정했습니다. 160회 실행(끼어들기 시나리오 4종 × 모델 2종 × 시드 20개, 회당 90초)에서 우리 영역을 쓴 자차는 등속·고정 가우시안 기준선보다 44% 빠르게 달렸고(36.9 vs 25.7 km/h), 끼어들기 271회 중 75%가 2초 차간 시간 안이었습니다. ITEC 투고를 목표로 논문을 작성하고 있습니다.",
+          en: "This is research with Penn State's EcoCAR Innovation Challenge AVT group, led by Ph.D. student Sakineh Khodadadi and advised by Prof. Kovalenko and Prof. Brannen. The paper, \"Diffusion-Learned Uncertainty in Surrounding-Vehicle Predictions for Tube MPC in Autonomous Driving,\" was submitted to IEEE ITEC 2026 with me as second author. A self-driving planner has to know where nearby cars could be in the next few seconds, and a fixed safety margin is either too wide on easy roads or too narrow in turns and cut-ins.\n\nI built the prediction side. The data pipeline reads Argoverse 2 Motion Forecasting, about 25K validation and 200K training scenarios, with lane-map features. Against physics baselines (CV, CA, CTRV) and MLP, GRU, LSTM, and Transformer predictors, a GRU with lane-map inputs cut the 3 s error on moving vehicles by 31% compared with constant velocity (3.73 → 2.59 m FDE). A conditional residual diffusion model then samples that predictor's errors; switching it to v-prediction fixed an unstable sampler. Calibrated to 90% coverage with conformal prediction, its 3 s regions have a median of 32 m², against 61 m² for a scene-independent Gaussian and 105 m² for a conformal circle.\n\nI also extended the CARLA closed loop: scripted cut-in scenarios, 160-run batches comparing predictors under the Tube MPC, and demo videos, with models trained on an RTX 5070 over the full training split. Teammate Zihan Zhao built the first CARLA bridge and implemented the Tube MPC formulation.",
+          ko: "Penn State EcoCAR Innovation Challenge AVT 그룹의 연구로, 박사과정 Sakineh Khodadadi가 이끌고 Kovalenko 교수님과 Brannen 교수님이 지도합니다. 논문 \"Diffusion-Learned Uncertainty in Surrounding-Vehicle Predictions for Tube MPC in Autonomous Driving\"를 IEEE ITEC 2026에 제출했고, 저는 2저자입니다. 자율주행 플래너는 주변 차량이 앞으로 몇 초 동안 어디에 있을 수 있는지 알아야 하는데, 고정된 안전 여유는 쉬운 도로에서는 너무 넓고 회전이나 끼어들기에서는 너무 좁습니다.\n\n저는 예측 쪽을 만들었습니다. 데이터 파이프라인은 Argoverse 2 Motion Forecasting의 검증 시나리오 약 2만 5천 개와 학습 시나리오 약 20만 개를 차선 지도 특징과 함께 읽습니다. 물리 모델(CV, CA, CTRV)과 MLP, GRU, LSTM, Transformer 예측기를 비교한 결과, 차선 지도를 입력으로 쓰는 GRU가 움직이는 차량의 3초 오차를 등속 모델보다 31% 줄였습니다(FDE 3.73 → 2.59 m). 그 위에서 조건부 잔차 diffusion 모델이 예측기의 오차를 샘플링하고, v-prediction으로 바꿔 불안정한 샘플러 문제를 해결했습니다. conformal 보정으로 90% 커버리지를 맞췄을 때 3초 영역 중앙값은 32 m²로, 상황을 무시한 정규분포(61 m²)와 conformal 원(105 m²)보다 작습니다.\n\nCARLA 폐루프도 확장했습니다. 끼어들기 시나리오를 만들고, Tube MPC 아래에서 예측기를 비교하는 160회 배치 실험과 데모 영상을 만들었으며, 모델은 RTX 5070에서 전체 학습 데이터로 학습했습니다. 첫 CARLA 연동과 Tube MPC 정식화 구현은 팀원 Zihan Zhao가 맡았습니다.",
         },
         highlights: [
-          { en: "765,659 Argoverse 2 vehicle tracks processed from 224,896 scenarios", ko: "Argoverse 2 시나리오 224,896개에서 차량 궤적 765,659개 처리" },
-          { en: "GRU + lane-map nominal predictor with a residual diffusion model (v-prediction, DDIM sampling)", ko: "GRU + 차선 지도 기본 예측기와 잔차 diffusion 모델(v-prediction, DDIM 샘플링)" },
-          { en: "90% occupancy regions calibrated with split conformal prediction", ko: "split conformal prediction으로 90% 점유 영역 보정" },
-          { en: "3 s regions 34% smaller than a fixed Gaussian and 64% smaller than a conformal circle at the same coverage", ko: "같은 커버리지에서 3초 영역이 고정 가우시안보다 34%, conformal 원보다 64% 작음" },
-          { en: "Closed loop with a Tube MPC in CARLA 0.9.16 (Town06, 10 Hz)", ko: "CARLA 0.9.16(Town06, 10 Hz)에서 Tube MPC와 폐루프 실행" },
-          { en: "160 cut-in runs: 44% faster ego than the constant-velocity baseline, 271 cut-ins handled", ko: "끼어들기 160회 실행: 등속 기준선보다 44% 빠른 자차, 끼어들기 271회 대응" },
-          { en: "Paper in preparation, targeting ITEC", ko: "ITEC 투고 목표로 논문 준비 중" },
+          { en: "Second author, paper submitted to IEEE ITEC 2026", ko: "IEEE ITEC 2026 제출 논문 2저자" },
+          { en: "Argoverse 2 pipeline: about 25K validation and 200K training scenarios with lane-map features", ko: "Argoverse 2 파이프라인: 검증 약 2만 5천, 학습 약 20만 시나리오와 차선 지도 특징" },
+          { en: "Lane-map GRU predictor: 31% lower 3 s error than constant velocity (3.73 → 2.59 m FDE)", ko: "차선 지도 GRU 예측기: 등속 대비 3초 오차 31% 감소(FDE 3.73 → 2.59 m)" },
+          { en: "Conditional residual diffusion model (DDIM, v-prediction) with conformal calibration", ko: "conformal 보정을 붙인 조건부 잔차 diffusion 모델(DDIM, v-prediction)" },
+          { en: "90% regions: 32 m² median, against 61 m² for a scene-independent Gaussian and 105 m² for a conformal circle", ko: "90% 영역 중앙값 32 m², 상황 무시 정규분포 61 m², conformal 원 105 m²" },
+          { en: "Compared with scene-dependent Gaussian, Gaussian mixture, and CVAE baselines", ko: "상황별 정규분포, 혼합 정규분포, CVAE 비교 모델과 대조" },
+          { en: "CARLA closed loop with a Tube MPC: cut-in scenarios and 160-run batches", ko: "CARLA에서 Tube MPC 폐루프: 끼어들기 시나리오와 160회 배치 실험" },
         ] as const satisfies readonly Bilingual[],
         impact: [
-          { value: "765K", label: { en: "Training Tracks", ko: "학습 궤적" } },
-          { value: "34%", label: { en: "Smaller 90% Regions", ko: "더 작은 90% 영역" } },
-          { value: "44%", label: { en: "Faster Ego in CARLA", ko: "CARLA 자차 속도 향상" } },
-          { value: "160", label: { en: "Closed-Loop Cut-In Runs", ko: "폐루프 끼어들기 실행" } },
+          { value: "2nd", label: { en: "Author · IEEE ITEC 2026", ko: "저자 · IEEE ITEC 2026" } },
+          { value: "31%", label: { en: "Lower 3 s Error", ko: "3초 오차 감소" } },
+          { value: "~2×", label: { en: "Smaller 90% Regions", ko: "더 작은 90% 영역" } },
+          { value: "200K", label: { en: "Training Scenarios", ko: "학습 시나리오" } },
         ],
         keyTakeaways: [
           {
@@ -732,8 +732,8 @@ export const messages = {
             ko: "전체 90%는 어려운 경우를 가릴 수 있습니다. 직진은 90%를 넘었지만 회전과 옆 차선 쪽 이동은 80–83%에 머물렀기 때문에, 커버리지는 상황별로 따로 확인해야 합니다.",
           },
           {
-            en: "Open-loop metrics and closed-loop driving answer different questions; smaller regions only matter once a planner has to drive around them.",
-            ko: "오프라인 지표와 폐루프 주행은 서로 다른 질문에 답합니다. 영역이 작아진 효과는 플래너가 실제로 그 영역을 피해 달릴 때 비로소 드러납니다.",
+            en: "A strong simple baseline keeps the claim honest: a scene-dependent Gaussian matched the diffusion model on region size, so the diffusion model's case rests on the quality of its trajectory samples, not on area alone.",
+            ko: "강한 단순 기준선이 주장을 정직하게 만듭니다. 상황별 정규분포도 영역 크기는 diffusion 모델과 비슷했기 때문에, diffusion 모델의 장점은 면적이 아니라 궤적 샘플의 품질에 있습니다.",
           },
           {
             en: "Most of the closed-loop effort went into the simulator, not the model: traffic, junctions, and how cut-ins were staged decided whether a run measured anything.",
