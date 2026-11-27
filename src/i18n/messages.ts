@@ -40,6 +40,16 @@ export const messages = {
         meta: { en: "Routing · Evaluation · Personalization", ko: "라우팅 · 평가 · 개인화" },
       },
       {
+        eyebrow: { en: "THON / Technology Captain", ko: "THON / Technology Captain" },
+        title: { en: "Record $18.8M raised at THON 2026", ko: "THON 2026 역대 최고 1,880만 달러 모금" },
+        meta: { en: "THINK · Django · World's largest student-run philanthropy", ko: "THINK · Django · 세계 최대 학생 자선 단체" },
+      },
+      {
+        eyebrow: { en: "Research / Autonomous Driving", ko: "연구 / 자율주행" },
+        title: { en: "2nd author, submitted to IEEE ITEC 2026", ko: "IEEE ITEC 2026 제출 논문 2저자" },
+        meta: { en: "Diffusion · Tube MPC · CARLA", ko: "Diffusion · Tube MPC · CARLA" },
+      },
+      {
         eyebrow: { en: "IEEE / Combat Robotics", ko: "IEEE / 전투 로보틱스" },
         title: { en: "GladIEEEators — 1st place", ko: "GladIEEEators — 1위" },
         meta: { en: "Shot & Chaser · Multibot systems engineering", ko: "Shot & Chaser · 멀티봇 시스템 엔지니어링" },

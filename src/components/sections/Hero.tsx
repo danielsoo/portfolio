@@ -14,6 +14,16 @@ const EVIDENCE_MEDIA = [
     accent: "#22d3ee",
   },
   {
+    src: "/projects/thon/thon-card.jpg",
+    fit: "object-cover object-[center_40%]",
+    accent: "#facc15",
+  },
+  {
+    src: "/projects/diffusion-tube-mpc/carla-cut-in.jpg",
+    fit: "object-cover object-[center_35%]",
+    accent: "#fb923c",
+  },
+  {
     src: "/projects/ieee-battlebot/winner.JPG",
     fit: "object-cover",
     accent: "#f59e0b",
@@ -288,10 +298,10 @@ export default function Hero() {
         className="pointer-events-none absolute bottom-4 left-6 right-6 hidden items-center gap-5 border-t border-[var(--foreground)]/10 pt-3 font-mono text-[8px] uppercase tracking-[0.17em] text-[var(--foreground)]/35 lg:flex xl:left-12 xl:right-12"
       >
         <span className="text-cyan-700 dark:text-cyan-300/50">Archive / Live evidence</span>
-        <span>04 indexed records</span>
-        <span>Production · Research · Hardware · Product</span>
+        <span>{String(EVIDENCE_MEDIA.length).padStart(2, "0")} indexed records</span>
+        <span>Production · Leadership · Research · Hardware · Product</span>
         <span className="ml-auto" style={{ color: `${activeMedia.accent}99` }}>
-          Record 0{activeIndex + 1} / 04 · {t(activeCopy.eyebrow)}
+          Record {String(activeIndex + 1).padStart(2, "0")} / {String(EVIDENCE_MEDIA.length).padStart(2, "0")} · {t(activeCopy.eyebrow)}
         </span>
       </div>
     </section>
