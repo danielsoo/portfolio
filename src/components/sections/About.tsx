@@ -24,7 +24,7 @@ function StoryPhotoBackground({ src, alt }: { src: string; alt: string }) {
 
 function ResearchArt() {
   return (
-    <div className="absolute inset-0 opacity-[0.34]">
+    <div className="absolute inset-0 opacity-[0.12] [mask-image:linear-gradient(to_bottom,black,transparent_70%)]">
       <svg viewBox="0 0 400 300" className="h-full w-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <defs>
           <radialGradient id="researchGlow" cx="70%" cy="20%" r="65%">
