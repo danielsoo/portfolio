@@ -14,8 +14,8 @@ const EVIDENCE_MEDIA = [
     accent: "#22d3ee",
   },
   {
-    src: "/projects/thon/thon-card.jpg",
-    fit: "object-cover object-[center_40%]",
+    src: "/projects/thon/coding-endless-compassion.jpg",
+    fit: "object-cover object-[center_45%]",
     accent: "#facc15",
   },
   {
