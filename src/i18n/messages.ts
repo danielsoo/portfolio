@@ -41,7 +41,7 @@ export const messages = {
       },
       {
         eyebrow: { en: "THON / Technology Captain", ko: "THON / Technology Captain" },
-        title: { en: "Record $18.8M raised at THON 2026", ko: "THON 2026 역대 최고 1,880만 달러 모금" },
+        title: { en: "Building THINK for THON 2027", ko: "THON 2027을 위한 THINK 개발" },
         meta: { en: "THINK · Django · World's largest student-run philanthropy", ko: "THINK · Django · 세계 최대 학생 자선 단체" },
       },
       {
@@ -97,8 +97,8 @@ export const messages = {
       ko: "연구는 AI가 반드시 믿을 수 있어야 하는 두 곳에 있습니다. Suman Saha 교수님과 Peilong Li 교수님 지도 아래 IoT 보안을 위한 연합학습·적대적 강건성 TinyML을 연구하고(NCUR 2027 발표 예정), 자율주행에서는 잔차 diffusion 모델로 Tube MPC 플래너에 보정된 위험 영역을 주는 불확실성 인지 궤적 예측을 연구합니다(IEEE ITEC 2026 제출, 2저자). 연구실 밖에서는 실제 제품을 만듭니다. 한국관 두 매장을 실제로 운영하는 주문·백오피스 시스템과, 영화인을 위한 영상·네트워킹 플랫폼 OONA입니다.",
     },
     p3: {
-      en: "I also lead. As THON's Technology Captain, I develop THINK, the Django platform behind the world's largest student-run philanthropy, which raised a record $18.8M in 2026. I'm the Project Manager for Vehicle Systems Engineering on Penn State's EcoCAR team, and I served as a Squad Leader in the Republic of Korea Air Force, where I was commended for leadership and operational readiness.",
-      ko: "리더 역할도 맡고 있습니다. THON의 Technology Captain으로서 2026년 역대 최고인 1,880만 달러를 모은 세계 최대 학생 자선 단체의 Django 플랫폼 THINK를 개발합니다. 펜실베니아 주립대 EcoCAR 팀에서는 Vehicle Systems Engineering 프로젝트 매니저를 맡고 있고, 대한민국 공군에서 분대장으로 복무하며 리더십과 작전 준비태세로 표창을 받았습니다.",
+      en: "I also lead. As THON's Technology Captain, I develop THINK, the Django platform behind the world's largest student-run philanthropy and its 16,500 student volunteers. I'm the Project Manager for Vehicle Systems Engineering on Penn State's EcoCAR team, and I served as a Squad Leader in the Republic of Korea Air Force, where I was commended for leadership and operational readiness.",
+      ko: "리더 역할도 맡고 있습니다. THON의 Technology Captain으로서 학생 자원봉사자 1만 6,500명이 참여하는 세계 최대 학생 자선 단체의 Django 플랫폼 THINK를 개발합니다. 펜실베니아 주립대 EcoCAR 팀에서는 Vehicle Systems Engineering 프로젝트 매니저를 맡고 있고, 대한민국 공군에서 분대장으로 복무하며 리더십과 작전 준비태세로 표창을 받았습니다.",
     },
     levitStoryP1: {
       en: "During a seven-week engagement at Levit in Seoul, I worked directly with the CEO across Shopport's applied-AI stack — evolving routing from LLM classification into an embedding-based semantic and hybrid router, and shipping Wowness, a Mem0-backed cross-category recommender, as sole engineer.",
@@ -541,12 +541,12 @@ export const messages = {
         type: { en: "Leadership / Full-Stack", ko: "리더십 / 풀스택" },
         badge: { en: "Technology Captain · 2027", ko: "Technology Captain · 2027" },
         shortDescription: {
-          en: "As THON's Technology Captain, I develop THINK, the Django platform behind the world's largest student-run philanthropy, which raised a record $18.8M in 2026. I shipped a Run Cron Tasks admin page for the DonorDrive syncs and am building a CM Allocation Overview that replaces a terminal-only script.",
-          ko: "THON Technology Captain으로서 2026년 역대 최고 1,880만 달러를 모은 세계 최대 학생 자선 단체의 Django 플랫폼 THINK를 개발합니다. DonorDrive 동기화를 위한 Run Cron Tasks 관리자 페이지를 출시했고, 터미널에서만 돌던 스크립트를 대신할 CM Allocation Overview를 만들고 있습니다.",
+          en: "As THON's Technology Captain, I develop THINK, the Django platform behind the world's largest student-run philanthropy and its 16,500 student volunteers. I shipped a Run Cron Tasks admin page for the DonorDrive syncs and am building a CM Allocation Overview that replaces a terminal-only script.",
+          ko: "THON Technology Captain으로서 학생 자원봉사자 1만 6,500명이 참여하는 세계 최대 학생 자선 단체의 Django 플랫폼 THINK를 개발합니다. DonorDrive 동기화를 위한 Run Cron Tasks 관리자 페이지를 출시했고, 터미널에서만 돌던 스크립트를 대신할 CM Allocation Overview를 만들고 있습니다.",
         },
         longDescription: {
-          en: "THON is the largest student-run philanthropy in the world: 16,500 Penn State students raise money year-round for children with cancer and their families through Four Diamonds at Penn State Health Golisano Children's Hospital, ending in a 46-hour dance marathon. THON 2026 raised a record $18,841,726.53. Behind that is THINK (THON Information NetworK), the Django platform that stores membership, finance, and administrative data for every organization and committee in THON. As a Technology Captain, I develop it alongside the rest of the Technology committee.\n\nThe first thing I shipped was a Run Cron Tasks page under THINK Management. Background jobs, including the DonorDrive organization and donation syncs, used to need a developer to rerun when they failed. Now staff can start a job from the page and see its history: who ran it, or what started it automatically, and whether it is still running. A lock lets only one run go at a time, so two syncs never overlap. I also analyzed the DonorDrive import after a scheduled job stalled and designed its recovery: idempotent imports, a log of processed files, read-only S3 access, and dry runs.\n\nI'm now building a read-only CM Allocation Overview. Committee members used to be assigned by a terminal-only management command, with no way to see the result. The new pages let the Visual Lead and Tech Director compare committees at a glance and drill into each one with live filters. Along the way I checked the 1,900-line allocation script against the team's written spec and real application data, and found three places where they disagreed.",
-          ko: "THON은 세계에서 가장 큰 학생 주도 자선 단체입니다. 펜실베니아 주립대 학생 1만 6,500명이 Penn State Health Golisano 어린이병원의 Four Diamonds를 통해 소아암 아이와 가족을 위해 1년 내내 모금하고, 46시간 댄스 마라톤으로 마무리합니다. THON 2026은 역대 최고인 $18,841,726.53를 모았습니다. 그 뒤에는 THON의 모든 조직과 위원회의 회원·재정·행정 데이터를 담는 Django 플랫폼 THINK(THON Information NetworK)가 있고, 저는 Technology 위원회의 Technology Captain으로서 이 플랫폼을 함께 개발합니다.\n\n처음 출시한 것은 THINK Management 아래의 Run Cron Tasks 페이지입니다. DonorDrive 조직·기부금 동기화 같은 백그라운드 작업은 실패하면 개발자가 있어야 다시 돌릴 수 있었습니다. 이제는 운영진이 페이지에서 직접 작업을 시작하고, 누가 실행했는지 또는 무엇이 자동으로 시작했는지, 아직 실행 중인지 기록을 볼 수 있습니다. 잠금을 걸어 한 번에 하나만 돌게 해서 동기화가 겹치지 않습니다. 예약 작업이 멈춘 뒤에는 DonorDrive 가져오기를 분석하고 복구 방법도 설계했습니다. 중복 없이 다시 실행되는 가져오기, 처리한 파일 기록, S3 읽기 전용 접근, dry run이 그 내용입니다.\n\n지금은 읽기 전용 CM Allocation Overview를 만들고 있습니다. 위원회 배정은 터미널에서만 도는 명령으로 이뤄져서 결과를 눈으로 볼 방법이 없었습니다. 새 페이지에서는 Visual Lead와 Tech Director가 위원회를 한눈에 비교하고, 필터를 바로 바꿔 가며 위원회별로 자세히 볼 수 있습니다. 그 과정에서 1,900줄 배정 스크립트를 팀이 쓴 스펙, 실제 지원 데이터와 대조해 서로 맞지 않는 곳 3군데를 찾았습니다.",
+          en: "THON is the largest student-run philanthropy in the world: 16,500 Penn State students raise money year-round for children with cancer and their families through Four Diamonds at Penn State Health Golisano Children's Hospital, ending in a 46-hour dance marathon; THON 2026, the season before I joined the committee, raised a record $18,841,726.53. Behind that is THINK (THON Information NetworK), the Django platform that stores membership, finance, and administrative data for every organization and committee in THON. As a Technology Captain, I develop it alongside the rest of the Technology committee.\n\nThe first thing I shipped was a Run Cron Tasks page under THINK Management. Background jobs, including the DonorDrive organization and donation syncs, used to need a developer to rerun when they failed. Now staff can start a job from the page and see its history: who ran it, or what started it automatically, and whether it is still running. A lock lets only one run go at a time, so two syncs never overlap. I also analyzed the DonorDrive import after a scheduled job stalled and designed its recovery: idempotent imports, a log of processed files, read-only S3 access, and dry runs.\n\nI'm now building a read-only CM Allocation Overview. Committee members used to be assigned by a terminal-only management command, with no way to see the result. The new pages let the Visual Lead and Tech Director compare committees at a glance and drill into each one with live filters. Along the way I checked the 1,900-line allocation script against the team's written spec and real application data, and found three places where they disagreed.",
+          ko: "THON은 세계에서 가장 큰 학생 주도 자선 단체입니다. 펜실베니아 주립대 학생 1만 6,500명이 Penn State Health Golisano 어린이병원의 Four Diamonds를 통해 소아암 아이와 가족을 위해 1년 내내 모금하고, 46시간 댄스 마라톤으로 마무리합니다. 제가 위원회에 들어오기 전 시즌인 THON 2026은 역대 최고인 $18,841,726.53를 모았습니다. 그 뒤에는 THON의 모든 조직과 위원회의 회원·재정·행정 데이터를 담는 Django 플랫폼 THINK(THON Information NetworK)가 있고, 저는 Technology 위원회의 Technology Captain으로서 이 플랫폼을 함께 개발합니다.\n\n처음 출시한 것은 THINK Management 아래의 Run Cron Tasks 페이지입니다. DonorDrive 조직·기부금 동기화 같은 백그라운드 작업은 실패하면 개발자가 있어야 다시 돌릴 수 있었습니다. 이제는 운영진이 페이지에서 직접 작업을 시작하고, 누가 실행했는지 또는 무엇이 자동으로 시작했는지, 아직 실행 중인지 기록을 볼 수 있습니다. 잠금을 걸어 한 번에 하나만 돌게 해서 동기화가 겹치지 않습니다. 예약 작업이 멈춘 뒤에는 DonorDrive 가져오기를 분석하고 복구 방법도 설계했습니다. 중복 없이 다시 실행되는 가져오기, 처리한 파일 기록, S3 읽기 전용 접근, dry run이 그 내용입니다.\n\n지금은 읽기 전용 CM Allocation Overview를 만들고 있습니다. 위원회 배정은 터미널에서만 도는 명령으로 이뤄져서 결과를 눈으로 볼 방법이 없었습니다. 새 페이지에서는 Visual Lead와 Tech Director가 위원회를 한눈에 비교하고, 필터를 바로 바꿔 가며 위원회별로 자세히 볼 수 있습니다. 그 과정에서 1,900줄 배정 스크립트를 팀이 쓴 스펙, 실제 지원 데이터와 대조해 서로 맞지 않는 곳 3군데를 찾았습니다.",
         },
         highlights: [
           { en: "Develop THINK, the Django platform for membership, finance, and admin data across THON", ko: "THON 전체의 회원·재정·행정 데이터를 담는 Django 플랫폼 THINK 개발" },
@@ -557,9 +557,8 @@ export const messages = {
           { en: "Audited a 1,900-line allocation script against the written spec: 3 discrepancies found", ko: "1,900줄 배정 스크립트를 스펙과 대조해 불일치 3건 발견" },
         ] as const satisfies readonly Bilingual[],
         impact: [
-          { value: "$18.8M", label: { en: "Record Raised at THON 2026", ko: "THON 2026 역대 최고 모금액" } },
-          { value: "16,500", label: { en: "Student Volunteers", ko: "학생 자원봉사자" } },
-          { value: "$273M", label: { en: "Raised Since 1977", ko: "1977년 이후 누적 모금" } },
+          { value: "2", label: { en: "DonorDrive Syncs Run Without a Developer", ko: "개발자 없이 돌리는 DonorDrive 동기화" } },
+          { value: "1,900", label: { en: "Lines of Allocation Logic Audited", ko: "검토한 배정 로직 줄 수" } },
           { value: "3", label: { en: "Allocation Discrepancies Found", ko: "찾아낸 배정 불일치" } },
         ],
         keyTakeaways: [
@@ -970,8 +969,8 @@ export const messages = {
           en: "THON is the largest student-run philanthropy in the world: 16,500 Penn State students raising money year-round for children with cancer through Four Diamonds at Penn State Health Golisano Children's Hospital, ending in a 46-hour dance marathon. I develop THINK (THON Information NetworK), the Django platform that stores membership, finance, and administrative data for every organization and committee in THON. I shipped a Run Cron Tasks admin page so staff can run and monitor the DonorDrive organization and donation syncs without a developer, with run history, who triggered each run, and a single-run lock. I'm now building a CM Allocation Overview that replaces a terminal-only allocation script with live committee comparisons.",
           ko: "THON은 세계에서 가장 큰 학생 주도 자선 단체입니다. 펜실베니아 주립대 학생 1만 6,500명이 Penn State Health Golisano 어린이병원의 Four Diamonds를 통해 소아암 아이와 가족을 위해 1년 내내 모금하고, 46시간 댄스 마라톤으로 마무리합니다. 저는 THON의 모든 조직과 위원회의 회원·재정·행정 데이터를 담는 Django 플랫폼 THINK(THON Information NetworK)를 개발합니다. 개발자 없이도 DonorDrive 조직·기부금 동기화를 실행하고 지켜볼 수 있는 Run Cron Tasks 관리자 페이지를 만들었고, 실행 기록, 누가 실행했는지, 한 번에 하나만 도는 잠금을 넣었습니다. 지금은 터미널에서만 돌던 위원회 배정 스크립트를 대신해 위원회를 바로 비교할 수 있는 CM Allocation Overview를 만들고 있습니다.",
         },
-        stat: "$18.8M",
-        statLabel: { en: "record raised at THON 2026", ko: "THON 2026 역대 최고 모금액" },
+        stat: "16,500",
+        statLabel: { en: "student volunteers", ko: "학생 자원봉사자" },
       },
       {
         title: { en: "Project Manager – Vehicle Systems Engineering", ko: "프로젝트 매니저 – Vehicle Systems Engineering" },
