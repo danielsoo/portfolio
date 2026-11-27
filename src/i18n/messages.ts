@@ -107,8 +107,12 @@ export const messages = {
       ko: "이후 BatchNorm 폴딩, 구조적 프루닝, 지식 증류, INT8 양자화로 구성된 다단계 압축 파이프라인으로 모델 크기를 12.28배 줄이고 ESP32 추론 지연을 74.5% 단축해, 자원이 제한된 엣지 디바이스에서도 실행 가능하게 만들었습니다.",
     },
     researchStoryP3: {
-      en: "My newer research is in autonomous driving, with Penn State's EcoCAR AVT group; I'm second author on the resulting paper, submitted to IEEE ITEC 2026. I built the prediction side: a lane-map GRU that cuts 3 s error by 31% against constant velocity on Argoverse 2, and a residual diffusion model whose conformally calibrated 90% regions are about half the size of a scene-independent Gaussian's, tested with a Tube MPC in CARLA.",
-      ko: "최근 연구는 Penn State EcoCAR AVT 그룹과 함께하는 자율주행 연구이고, 그 결과로 IEEE ITEC 2026에 제출한 논문의 2저자입니다. 예측 쪽을 맡아, Argoverse 2에서 등속 모델보다 3초 오차를 31% 줄인 차선 지도 GRU와, conformal 보정한 90% 영역이 상황 무시 정규분포의 절반 정도인 잔차 diffusion 모델을 만들고 CARLA에서 Tube MPC와 함께 검증했습니다.",
+      en: "My newer research is in autonomous driving, with Penn State's EcoCAR AVT group; I'm second author on the resulting paper, submitted to IEEE ITEC 2026. I built the prediction side: an Argoverse 2 pipeline and lane-map GRU that cuts 3 s prediction error by 31% against a constant-velocity baseline, and a diffusion model that halves the 90% safety regions around other cars compared with a fixed baseline, tested in 160 CARLA cut-in runs.",
+      ko: "최근 연구는 Penn State EcoCAR AVT 그룹과 함께하는 자율주행 연구이고, 그 결과로 IEEE ITEC 2026에 제출한 논문의 2저자입니다. 예측 쪽을 맡아, Argoverse 2 파이프라인과 차선 지도 GRU로 3초 예측 오차를 등속 기준선보다 31% 줄이고, 다른 차 주변의 90% 안전 영역을 고정 기준선의 절반으로 줄이는 diffusion 모델을 만들어 CARLA 끼어들기 실험 160회로 검증했습니다.",
+    },
+    researchStoryP4: {
+      en: "I also study memory for AI agents with Prof. Kiwan Maeng: I compared five agent memory frameworks (Mem0, A-MEM, LangMem, Zep, OpenAI Memory) and applied the split between Mem0's discrete facts and A-MEM's evolving knowledge structure to Wowness, the recommender I shipped at Levit.",
+      ko: "Kiwan Maeng 교수님과 AI 에이전트 메모리도 연구합니다. 다섯 가지 에이전트 메모리 프레임워크(Mem0, A-MEM, LangMem, Zep, OpenAI Memory)를 비교하고, 개별 사실을 저장하는 Mem0와 지식 구조가 자라는 A-MEM의 설계 차이를 Levit에서 출시한 추천 시스템 Wowness에 적용했습니다.",
     },
     profileStoryP2: {
       en: "Old Main has been the backdrop for most of that journey — from CMPSC lectures to the late nights spent building the projects on this site.",
@@ -118,6 +122,7 @@ export const messages = {
       { en: "Federated Learning", ko: "연합학습" },
       { en: "TinyML & Edge AI", ko: "TinyML & 엣지 AI" },
       { en: "Autonomous Driving", ko: "자율주행" },
+      { en: "AI Agent Memory", ko: "AI 에이전트 메모리" },
       { en: "IoT Security", ko: "IoT 보안" },
       { en: "Adversarial ML", ko: "적대적 ML" },
       { en: "Full-Stack Engineering", ko: "풀스택 엔지니어링" },
@@ -918,13 +923,13 @@ export const messages = {
         statLabel: { en: "record raised at THON 2026", ko: "THON 2026 역대 최고 모금액" },
       },
       {
-        title: { en: "Project Manager", ko: "프로젝트 매니저" },
+        title: { en: "Project Manager – Vehicle Systems Engineering", ko: "프로젝트 매니저 – Vehicle Systems Engineering" },
         year: "",
-        org: { en: "Penn State Advanced Vehicle Team (AVT)", ko: "펜실베니아 주립대 AVT" },
-        period: { en: "Fall 2026 – Present", ko: "2026년 가을 – 현재" },
+        org: { en: "Penn State Advanced Vehicle Team (EcoCAR)", ko: "펜실베니아 주립대 AVT (EcoCAR)" },
+        period: { en: "Sept 2026 – Present", ko: "2026년 9월 – 현재" },
         description: {
-          en: "Project Manager for Penn State's team in Year 1 of the EcoCAR Challenge, run by Argonne National Laboratory with GM and MathWorks as sponsors. Keeping planning tight and deliverables on track for a multidisciplinary team building a fully electric vehicle, while laying the structure and processes that later teams will build on.",
-          ko: "Argonne National Laboratory가 운영하고 GM·MathWorks가 후원하는 EcoCAR Challenge 1년차에서 펜실베니아 주립대 팀의 프로젝트 매니저를 맡고 있습니다. 풀 전기차를 만드는 다학제 팀의 계획과 산출물 일정을 관리하고, 이후 팀들이 이어갈 구조와 프로세스의 토대를 만듭니다.",
+          en: "Manage the Vehicle Systems Engineering deliverables for Penn State's team in Year 1 of the EcoCAR Challenge, run by Argonne National Laboratory with GM and MathWorks as sponsors. I keep Smartsheet schedules for four vehicle-engineering deliverables with owners, milestones, dependencies, and deadlines; coordinate the software, hardware, controls, safety, and testing teams on approvals, facility access, and vehicle access; and built the Year 1 strategic drivers, critical-path analysis, and risk plan.",
+          ko: "Argonne National Laboratory가 운영하고 GM·MathWorks가 후원하는 EcoCAR Challenge 1년차에서 펜실베니아 주립대 팀의 Vehicle Systems Engineering 산출물을 관리합니다. 차량 엔지니어링 산출물 4개의 Smartsheet 일정(담당자, 마일스톤, 의존성, 마감)을 관리하고, 소프트웨어·하드웨어·제어·안전·테스트 팀과 승인, 시설 사용, 차량 접근을 조율하며, 1년차 전략 동인, 임계 경로 분석, 리스크 계획을 만들었습니다.",
         },
         stat: "EcoCAR",
         statLabel: { en: "Challenge · Year 1", ko: "챌린지 · 1년차" },

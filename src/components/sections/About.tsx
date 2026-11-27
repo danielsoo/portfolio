@@ -90,7 +90,7 @@ export default function About() {
       eyebrow: `03 / ${t(messages.about.cardResearch)}`,
       title: t(messages.about.cardResearchTitle),
       meta: "Federated TinyML · IoT Security · Autonomous Driving",
-      paragraphs: [t(messages.about.researchStoryP1), t(messages.about.researchStoryP2), t(messages.about.researchStoryP3)],
+      paragraphs: [t(messages.about.researchStoryP1), t(messages.about.researchStoryP2), t(messages.about.researchStoryP3), t(messages.about.researchStoryP4)],
       background: <ResearchArt />,
     },
     profile: {
