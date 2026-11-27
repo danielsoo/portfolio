@@ -13,12 +13,13 @@ import { getAlternatingAccent } from "./accentPalette";
 
 const projectPriority = new Map([
   ["levit-shopport-ai", 0],
-  ["ieee-battlebot", 1],
-  ["diffusion-tube-mpc", 2],
-  ["federated-tinyml", 3],
-  ["signum", 4],
-  ["asme-website", 5],
-  ["hangukgwan", 6],
+  ["thon-think", 1],
+  ["ieee-battlebot", 2],
+  ["diffusion-tube-mpc", 3],
+  ["federated-tinyml", 4],
+  ["signum", 5],
+  ["asme-website", 6],
+  ["hangukgwan", 7],
 ]);
 
 export default function Projects() {

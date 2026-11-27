@@ -136,6 +136,46 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "thon-think",
+    title: "THON — THINK Platform",
+    type: "Leadership / Full-Stack",
+    badge: "Technology Captain · 2027",
+    badgeColor: "bg-amber-500/10 text-amber-400",
+    shortDescription:
+      "As THON's Technology Captain, I develop THINK, the Django platform behind the world's largest student-run philanthropy, which raised a record $18.8M in 2026. I shipped a Run Cron Tasks admin page for the DonorDrive syncs and am building a CM Allocation Overview that replaces a terminal-only script.",
+    longDescription:
+      "THON is the largest student-run philanthropy in the world: 16,500 Penn State students raise money year-round for children with cancer and their families through Four Diamonds at Penn State Health Golisano Children's Hospital, ending in a 46-hour dance marathon. THON 2026 raised a record $18,841,726.53. Behind that is THINK (THON Information NetworK), the Django platform that stores membership, finance, and administrative data for every organization and committee in THON. As a Technology Captain, I develop it alongside the rest of the Technology committee.\n\nThe first thing I shipped was a Run Cron Tasks page under THINK Management. Background jobs, including the DonorDrive organization and donation syncs, used to need a developer to rerun when they failed. Now staff can start a job from the page and see its history: who ran it, or what started it automatically, and whether it is still running. A lock lets only one run go at a time, so two syncs never overlap. I also analyzed the DonorDrive import after a scheduled job stalled and designed its recovery: idempotent imports, a log of processed files, read-only S3 access, and dry runs.\n\nI'm now building a read-only CM Allocation Overview. Committee members used to be assigned by a terminal-only management command, with no way to see the result. The new pages let the Visual Lead and Tech Director compare committees at a glance and drill into each one with live filters. Along the way I checked the 1,900-line allocation script against the team's written spec and real application data, and found three places where they disagreed.",
+    highlights: [
+      "Develop THINK, the Django platform for membership, finance, and admin data across THON",
+      "Shipped a Run Cron Tasks admin page: DonorDrive org and donation syncs without a developer",
+      "Run history with who or what triggered each run, and a single-run lock against overlaps",
+      "Designed the DonorDrive import recovery: idempotent imports, processed-file log, read-only S3, dry runs",
+      "Building a CM Allocation Overview to replace a terminal-only allocation script",
+      "Audited a 1,900-line allocation script against the written spec: 3 discrepancies found",
+    ],
+    tags: ["Django", "Python", "JavaScript", "pytest", "DonorDrive API", "AWS S3", "Docker"],
+    github: "",
+    live: "https://thon.org",
+    images: [
+      "/projects/thon/coding-endless-compassion.jpg",
+      "/projects/thon/thon-tech-sign.jpg",
+      "/projects/thon/thon-5k-bjc.jpg",
+      "/projects/thon/100-days-til-thon.jpg",
+      "/projects/thon/tech-retreat.jpg",
+    ],
+    impact: [
+      { value: "$18.8M", label: "Record Raised at THON 2026" },
+      { value: "16,500", label: "Student Volunteers" },
+      { value: "$273M", label: "Raised Since 1977" },
+      { value: "3", label: "Allocation Discrepancies Found" },
+    ],
+    keyTakeaways: [
+      "Internal tools pay off in who no longer has to ask a developer: a page that reruns a failed sync changes how a volunteer staff works.",
+      "Showing a result is also a way to check it: putting the allocation on screen is what made its mismatches with the spec visible.",
+      "Jobs that move donation data have to be safe to rerun, and safe to run only once at a time.",
+    ],
+  },
+  {
     slug: "ieee-battlebot",
     title: "GladIEEEators — Penn State IEEE Battle Bots Champion",
     type: "Combat Robotics · Penn State IEEE",
