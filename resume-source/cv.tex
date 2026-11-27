@@ -315,7 +315,17 @@ Responsibilities include assisting instruction, supporting students during offic
 \textbf{THON Technology Committee} \
 Technology Captain (2027) \hfill Apr 2026 -- Present
 
-Lead year-round technology operations for THON, which raised \$18.8M at THON 2026: maintain the organization's primary website, ship new features, and oversee the technical systems the organization relies on.
+Develop THINK (THON Information NetworK), the Django platform that stores membership, finance, and administrative data for every organization and committee in THON, the largest student-run philanthropy in the world (a record \$18.8M raised in 2026).
+
+\begin{itemize}[leftmargin=1.5em]
+
+\item Built the Run Cron Tasks admin page so staff can run and monitor background jobs without a developer, including DonorDrive organization and donation syncs, run history showing who or what triggered each run, and a lock that allows only one run at a time.
+
+\item Building a read-only CM Allocation Overview that lets the Visual Lead and Tech Director compare committees and drill into each one with live filters, replacing a terminal-only allocation script; audited the 1,900-line allocation script against the team's written spec, surfacing three discrepancies.
+
+\item Analyzed the DonorDrive data import after a stalled scheduled job and designed its recovery: idempotent imports, a processed-file log, read-only S3 access, and dry runs.
+
+\end{itemize}
 
 \vspace{0.4em}
 
