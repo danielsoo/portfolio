@@ -164,9 +164,10 @@ export const projects: Project[] = [
       "/projects/thon/tech-retreat.jpg",
     ],
     impact: [
-      { value: "2", label: "DonorDrive Syncs Run Without a Developer" },
-      { value: "1,900", label: "Lines of Allocation Logic Audited" },
-      { value: "3", label: "Allocation Discrepancies Found" },
+      { value: "16,500", label: "Volunteers in the Organization THINK Serves" },
+      { value: "Every", label: "THON Organization and Committee on THINK" },
+      { value: "0", label: "Developers Needed to Rerun a DonorDrive Sync" },
+      { value: "3", label: "Mismatches Caught in a 1,900-Line Allocation Script" },
     ],
     sections: [
       {

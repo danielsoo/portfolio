@@ -557,9 +557,10 @@ export const messages = {
           { en: "Audited a 1,900-line allocation script against the written spec: 3 discrepancies found", ko: "1,900줄 배정 스크립트를 스펙과 대조해 불일치 3건 발견" },
         ] as const satisfies readonly Bilingual[],
         impact: [
-          { value: "2", label: { en: "DonorDrive Syncs Run Without a Developer", ko: "개발자 없이 돌리는 DonorDrive 동기화" } },
-          { value: "1,900", label: { en: "Lines of Allocation Logic Audited", ko: "검토한 배정 로직 줄 수" } },
-          { value: "3", label: { en: "Allocation Discrepancies Found", ko: "찾아낸 배정 불일치" } },
+          { value: "16,500", label: { en: "Volunteers in the Organization THINK Serves", ko: "THINK가 지원하는 조직의 자원봉사자" } },
+          { value: "Every", label: { en: "THON Organization and Committee on THINK", ko: "THINK에 올라간 THON의 모든 조직·위원회" } },
+          { value: "0", label: { en: "Developers Needed to Rerun a DonorDrive Sync", ko: "DonorDrive 동기화 재실행에 필요한 개발자 수" } },
+          { value: "3", label: { en: "Mismatches Caught in a 1,900-Line Allocation Script", ko: "1,900줄 배정 스크립트에서 찾은 불일치" } },
         ],
         sections: [
           {
