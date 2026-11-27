@@ -993,7 +993,7 @@ export const messages = {
         title: { en: "Project Manager – Vehicle Systems Engineering", ko: "프로젝트 매니저 – Vehicle Systems Engineering" },
         year: "",
         org: { en: "Penn State Advanced Vehicle Team (EcoCAR)", ko: "펜실베니아 주립대 AVT (EcoCAR)" },
-        period: { en: "Sept 2026 – Present", ko: "2026년 9월 – 현재" },
+        period: { en: "Aug 2026 – Present", ko: "2026년 8월 – 현재" },
         description: {
           en: "Manage the Vehicle Systems Engineering deliverables for Penn State's team in Year 1 of the EcoCAR Challenge, run by Argonne National Laboratory with GM and MathWorks as sponsors. I keep Smartsheet schedules for four vehicle-engineering deliverables with owners, milestones, dependencies, and deadlines; coordinate the software, hardware, controls, safety, and testing teams on approvals, facility access, and vehicle access; and built the Year 1 strategic drivers, critical-path analysis, and risk plan.",
           ko: "Argonne National Laboratory가 운영하고 GM·MathWorks가 후원하는 EcoCAR Challenge 1년차에서 펜실베니아 주립대 팀의 Vehicle Systems Engineering 산출물을 관리합니다. 차량 엔지니어링 산출물 4개의 Smartsheet 일정(담당자, 마일스톤, 의존성, 마감)을 관리하고, 소프트웨어·하드웨어·제어·안전·테스트 팀과 승인, 시설 사용, 차량 접근을 조율하며, 1년차 전략 동인, 임계 경로 분석, 리스크 계획을 만들었습니다.",
