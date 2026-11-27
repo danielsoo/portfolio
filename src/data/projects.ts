@@ -395,7 +395,7 @@ export const projects: Project[] = [
       "74.5% inference latency reduction for ESP32 deployment",
       "Evaluated 48 compression configurations across QAT/PTQ regimes",
       "Adversarial robustness analysis using PGD attacks (ε-sweep 0.01–0.2)",
-      "Funded by Penn State CERS; targeting ACM LCTES 2026",
+      "Funded by Penn State CERS; presenting at NCUR 2027",
     ],
     tags: ["PyTorch", "Federated Learning", "TinyML", "Python", "ESP32", "CIC-IDS2017", "FAISS"],
     github: "https://github.com/danielsoo/TinyML",

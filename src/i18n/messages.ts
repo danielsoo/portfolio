@@ -83,8 +83,8 @@ export const messages = {
       ko: "저는 박윤수입니다 — 펜실베니아 주립대학교 컴퓨터과학 전공(딘스 리스트, CS 학사 + 수학 부전공, 2027년 5월 졸업 예정)이며, 안정적인 AI 시스템과 풀스택 애플리케이션을 만드는 일에 열정이 있습니다.",
     },
     p2: {
-      en: "My research spans two places where AI has to be reliable: federated, adversarially robust TinyML for IoT security under Dr. Suman Saha and Dr. Peilong Li (targeting ACM LCTES), and uncertainty-aware motion prediction for autonomous driving, where a residual diffusion model gives a Tube MPC planner calibrated risk regions (second author, submitted to IEEE ITEC 2026). Outside the lab, I build real products: the live ordering and back-office system that runs both Hangukgwan stores, and OONA, a video and networking platform for filmmakers.",
-      ko: "연구는 AI가 반드시 믿을 수 있어야 하는 두 곳에 있습니다. Suman Saha 교수님과 Peilong Li 교수님 지도 아래 IoT 보안을 위한 연합학습·적대적 강건성 TinyML을 연구하고(ACM LCTES 투고 목표), 자율주행에서는 잔차 diffusion 모델로 Tube MPC 플래너에 보정된 위험 영역을 주는 불확실성 인지 궤적 예측을 연구합니다(IEEE ITEC 2026 제출, 2저자). 연구실 밖에서는 실제 제품을 만듭니다. 한국관 두 매장을 실제로 운영하는 주문·백오피스 시스템과, 영화인을 위한 영상·네트워킹 플랫폼 OONA입니다.",
+      en: "My research spans two places where AI has to be reliable: federated, adversarially robust TinyML for IoT security under Dr. Suman Saha and Dr. Peilong Li (to be presented at NCUR 2027), and uncertainty-aware motion prediction for autonomous driving, where a residual diffusion model gives a Tube MPC planner calibrated risk regions (second author, submitted to IEEE ITEC 2026). Outside the lab, I build real products: the live ordering and back-office system that runs both Hangukgwan stores, and OONA, a video and networking platform for filmmakers.",
+      ko: "연구는 AI가 반드시 믿을 수 있어야 하는 두 곳에 있습니다. Suman Saha 교수님과 Peilong Li 교수님 지도 아래 IoT 보안을 위한 연합학습·적대적 강건성 TinyML을 연구하고(NCUR 2027 발표 예정), 자율주행에서는 잔차 diffusion 모델로 Tube MPC 플래너에 보정된 위험 영역을 주는 불확실성 인지 궤적 예측을 연구합니다(IEEE ITEC 2026 제출, 2저자). 연구실 밖에서는 실제 제품을 만듭니다. 한국관 두 매장을 실제로 운영하는 주문·백오피스 시스템과, 영화인을 위한 영상·네트워킹 플랫폼 OONA입니다.",
     },
     p3: {
       en: "I also lead. As THON's Technology Captain, I develop THINK, the Django platform behind the world's largest student-run philanthropy, which raised a record $18.8M in 2026. I'm the Project Manager for Vehicle Systems Engineering on Penn State's EcoCAR team, and I served as a Squad Leader in the Republic of Korea Air Force, where I was commended for leadership and operational readiness.",
@@ -763,7 +763,7 @@ export const messages = {
           { en: "74.5% inference latency reduction for ESP32 deployment", ko: "ESP32 배포 시 추론 지연 74.5% 감소" },
           { en: "Evaluated 48 compression configurations across QAT/PTQ regimes", ko: "QAT/PTQ 체제에서 48가지 압축 구성 평가" },
           { en: "Adversarial robustness analysis using PGD attacks (ε-sweep 0.01–0.2)", ko: "PGD 공격(ε 0.01–0.2) 적대적 강건성 분석" },
-          { en: "Funded by Penn State CERS; targeting ACM LCTES 2026", ko: "Penn State CERS 지원; ACM LCTES 2026 투고 목표" },
+          { en: "Funded by Penn State CERS; presenting at NCUR 2027", ko: "Penn State CERS 지원; NCUR 2027 발표 예정" },
         ] as const satisfies readonly Bilingual[],
         keyTakeaways: [
           {
