@@ -42,7 +42,7 @@ export const messages = {
       {
         eyebrow: { en: "THON / Technology Captain", ko: "THON / Technology Captain" },
         title: { en: "Building THINK for THON 2027", ko: "THON 2027을 위한 THINK 개발" },
-        meta: { en: "THINK · Django · World's largest student-run philanthropy", ko: "THINK · Django · 세계 최대 학생 자선 단체" },
+        meta: { en: "World's largest student-run philanthropy · $273M raised since 1977", ko: "세계 최대 학생 자선 단체 · 1977년 이후 2억 7,300만 달러" },
       },
       {
         eyebrow: { en: "Research / Autonomous Driving", ko: "연구 / 자율주행" },
@@ -561,6 +561,22 @@ export const messages = {
           { value: "1,900", label: { en: "Lines of Allocation Logic Audited", ko: "검토한 배정 로직 줄 수" } },
           { value: "3", label: { en: "Allocation Discrepancies Found", ko: "찾아낸 배정 불일치" } },
         ],
+        sections: [
+          {
+            title: { en: "THON by the Numbers", ko: "숫자로 보는 THON" },
+            body: { en: "The scale THINK runs behind, from THON's own published figures and Penn State News.", ko: "THINK가 뒷받침하는 조직의 규모입니다. THON과 Penn State News가 공개한 수치예요." },
+            bullets: [
+              { en: "The largest student-run philanthropy in the world, run by Penn State students since 1977", ko: "1977년부터 펜실베니아 주립대 학생들이 운영하는 세계 최대의 학생 주도 자선 단체" },
+              { en: "16,500 student volunteers fundraising year-round", ko: "1년 내내 모금하는 학생 자원봉사자 1만 6,500명" },
+              { en: "$273 million raised since 1977 for Four Diamonds at Penn State Health Golisano Children's Hospital", ko: "1977년 이후 Penn State Health Golisano 어린이병원 Four Diamonds를 위해 2억 7,300만 달러 모금" },
+              { en: "5,500+ Four Diamonds children and families supported", ko: "Four Diamonds 아이와 가족 5,500명 이상 지원" },
+              { en: "96 cents of every dollar raised goes directly to Four Diamonds", ko: "모금액 1달러 중 96센트가 Four Diamonds로 직접 전달" },
+              { en: "THON 2026 raised a record-breaking $18,841,726.53, the most in its history", ko: "THON 2026은 역대 최고 기록인 $18,841,726.53를 모금" },
+              { en: "Grown every year since 2022: $13.76M → $15.01M → $16.96M → $17.74M → $18.84M", ko: "2022년부터 매년 성장: $13.76M → $15.01M → $16.96M → $17.74M → $18.84M" },
+              { en: "It all ends in a 46-hour dance marathon: no sitting, no sleeping", ko: "마지막은 앉지도 자지도 않는 46시간 댄스 마라톤" },
+            ],
+          },
+        ],
         keyTakeaways: [
           {
             en: "Internal tools pay off in who no longer has to ask a developer: a page that reruns a failed sync changes how a volunteer staff works.",
@@ -966,8 +982,8 @@ export const messages = {
         org: { en: "THON — Penn State", ko: "THON — 펜실베니아 주립대" },
         period: { en: "Apr 2026 – Present", ko: "2026년 4월 – 현재" },
         description: {
-          en: "THON is the largest student-run philanthropy in the world: 16,500 Penn State students raising money year-round for children with cancer through Four Diamonds at Penn State Health Golisano Children's Hospital, ending in a 46-hour dance marathon. I develop THINK (THON Information NetworK), the Django platform that stores membership, finance, and administrative data for every organization and committee in THON. I shipped a Run Cron Tasks admin page so staff can run and monitor the DonorDrive organization and donation syncs without a developer, with run history, who triggered each run, and a single-run lock. I'm now building a CM Allocation Overview that replaces a terminal-only allocation script with live committee comparisons.",
-          ko: "THON은 세계에서 가장 큰 학생 주도 자선 단체입니다. 펜실베니아 주립대 학생 1만 6,500명이 Penn State Health Golisano 어린이병원의 Four Diamonds를 통해 소아암 아이와 가족을 위해 1년 내내 모금하고, 46시간 댄스 마라톤으로 마무리합니다. 저는 THON의 모든 조직과 위원회의 회원·재정·행정 데이터를 담는 Django 플랫폼 THINK(THON Information NetworK)를 개발합니다. 개발자 없이도 DonorDrive 조직·기부금 동기화를 실행하고 지켜볼 수 있는 Run Cron Tasks 관리자 페이지를 만들었고, 실행 기록, 누가 실행했는지, 한 번에 하나만 도는 잠금을 넣었습니다. 지금은 터미널에서만 돌던 위원회 배정 스크립트를 대신해 위원회를 바로 비교할 수 있는 CM Allocation Overview를 만들고 있습니다.",
+          en: "THON is the largest student-run philanthropy in the world: 16,500 Penn State students raising money year-round for children with cancer through Four Diamonds at Penn State Health Golisano Children's Hospital, ending in a 46-hour dance marathon. Since 1977 it has raised $273 million, with 96 cents of every dollar going straight to the families. I develop THINK (THON Information NetworK), the Django platform that stores membership, finance, and administrative data for every organization and committee in THON. I shipped a Run Cron Tasks admin page so staff can run and monitor the DonorDrive organization and donation syncs without a developer, with run history, who triggered each run, and a single-run lock. I'm now building a CM Allocation Overview that replaces a terminal-only allocation script with live committee comparisons.",
+          ko: "THON은 세계에서 가장 큰 학생 주도 자선 단체입니다. 펜실베니아 주립대 학생 1만 6,500명이 Penn State Health Golisano 어린이병원의 Four Diamonds를 통해 소아암 아이와 가족을 위해 1년 내내 모금하고, 46시간 댄스 마라톤으로 마무리합니다. 1977년부터 2억 7,300만 달러를 모았고, 1달러 중 96센트가 그대로 가족들에게 갑니다. 저는 THON의 모든 조직과 위원회의 회원·재정·행정 데이터를 담는 Django 플랫폼 THINK(THON Information NetworK)를 개발합니다. 개발자 없이도 DonorDrive 조직·기부금 동기화를 실행하고 지켜볼 수 있는 Run Cron Tasks 관리자 페이지를 만들었고, 실행 기록, 누가 실행했는지, 한 번에 하나만 도는 잠금을 넣었습니다. 지금은 터미널에서만 돌던 위원회 배정 스크립트를 대신해 위원회를 바로 비교할 수 있는 CM Allocation Overview를 만들고 있습니다.",
         },
         stat: "16,500",
         statLabel: { en: "student volunteers", ko: "학생 자원봉사자" },

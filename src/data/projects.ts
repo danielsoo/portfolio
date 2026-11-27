@@ -168,6 +168,22 @@ export const projects: Project[] = [
       { value: "1,900", label: "Lines of Allocation Logic Audited" },
       { value: "3", label: "Allocation Discrepancies Found" },
     ],
+    sections: [
+      {
+        title: "THON by the Numbers",
+        body: "The scale THINK runs behind, from THON's own published figures and Penn State News.",
+        bullets: [
+          "The largest student-run philanthropy in the world, run by Penn State students since 1977",
+          "16,500 student volunteers fundraising year-round",
+          "$273 million raised since 1977 for Four Diamonds at Penn State Health Golisano Children's Hospital",
+          "5,500+ Four Diamonds children and families supported",
+          "96 cents of every dollar raised goes directly to Four Diamonds",
+          "THON 2026 raised a record-breaking $18,841,726.53, the most in its history",
+          "Grown every year since 2022: $13.76M → $15.01M → $16.96M → $17.74M → $18.84M",
+          "It all ends in a 46-hour dance marathon: no sitting, no sleeping",
+        ],
+      },
+    ],
     keyTakeaways: [
       "Internal tools pay off in who no longer has to ask a developer: a page that reruns a failed sync changes how a volunteer staff works.",
       "Showing a result is also a way to check it: putting the allocation on screen is what made its mismatches with the spec visible.",
